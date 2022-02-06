@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@blueprintjs/core": "^3.52.0",
+    "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-pnotify": "^0.0.6",
     "react-scripts": "5.0.0",
+    "react-select": "^5.2.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

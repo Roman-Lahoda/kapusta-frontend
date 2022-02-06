@@ -1,0 +1,313 @@
+$primary-color: #ff751d;
+//  rgba(255, 107, 8, 0.35);
+$error-color: #e63946;
+$bg-color: #f1faee;
+
+:root {
+  --accent-color: #ff751d;
+  --second-accent-color: #ffdac0;
+  --main-text-color: #52555f;
+  --dark-text-color: #000000;
+  --spending-text-color: #e7192e;
+  --income-text-color: #407946;
+  --placeholders-text-color: #a6abb9;
+  --second-placeholders-text-color: #c7ccdc;
+  --disable-text-color: #52555fb2;
+  --main-background-color: #ffffff;
+  --second-background-color: #f5f6fb;
+  --main-font-size: 12px;
+  --second-font-size: 14px;
+  --main-font-weight: 400;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Roboto', normal;
+  background-color: var(--main-background-color);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+button,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// mobile
+@media screen and (max-width: 767.98px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+
+    background: var(--main-background-color);
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    border-radius: 30px;
+
+    h1 {
+      font-size: 10px;
+      line-height: 1.2;
+      color: var(--main-text-color);
+      padding-bottom: 24px;
+      padding-right: 29px;
+    }
+    .title_gb {
+      text-align: center;
+      padding: 0 29px;
+      padding-top: 40px;
+      margin-bottom: 24px;
+    }
+
+    label {
+      font-size: 10px;
+      line-height: 1.2;
+      color: var(--dark-text-color);
+    }
+
+    input {
+      width: 233px;
+      height: 52px;
+      font-size: var(--second-font-size);
+      line-height: 1.14;
+
+      color: var(--placeholders-text-color);
+      border: none;
+      border-radius: 30px;
+      padding-left: 20px;
+      margin-top: 12px;
+      background: var(--second-background-color);
+    }
+
+    .container_form {
+      padding-left: 29px;
+      padding-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 30px;
+    }
+
+    button {
+      color: var(--main-text-color);
+      width: 125px;
+      height: 44px;
+      font-size: var(--main-font-size);
+      background: var(--second-background-color);
+      margin-bottom: 10px;
+      cursor: pointer;
+      border-radius: 16px;
+      border: none;
+      align-content: stretch;
+
+      filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+
+      &:hover {
+        background: rgba($primary-color, 0.8);
+      }
+    }
+
+    .input-error {
+      border-color: $error-color;
+    }
+
+    .error {
+      color: $error-color;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .disabled-btn {
+      cursor: not-allowed;
+      background: var(--accent-color);
+    }
+  }
+}
+
+// tablet
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .container {
+    max-width: 436px;
+
+    background: var(--main-background-color);
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    border-radius: 30px;
+
+    h1 {
+      font-size: 10px;
+      color: var(--main-text-color);
+      padding-bottom: 24px;
+    }
+
+    label {
+      font-size: 10px;
+      line-height: 1.2;
+      padding-bottom: 12px;
+      color: var(--dark-text-color);
+    }
+
+    input {
+      width: 265px;
+      height: 52px;
+      font-size: var(--second-font-size);
+
+      color: var(--placeholders-text-color);
+      border: none;
+      border-radius: 30px;
+      padding-left: 29px;
+      background: var(--second-background-color);
+    }
+
+    .container_form {
+      padding: 0 85px 20px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      padding-top: 50px;
+    }
+
+    button {
+      color: var(--main-text-color);
+      width: 125px;
+      height: 44px;
+      font-size: var(--main-font-size);
+      background: var(--second-background-color);
+      cursor: pointer;
+      border-radius: 16px;
+      border: none;
+      align-content: stretch;
+
+      filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+
+      &:hover {
+        background: rgba($primary-color, 0.8);
+      }
+    }
+
+    .input-error {
+      border-color: $error-color;
+    }
+
+    .error {
+      color: $error-color;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .disabled-btn {
+      cursor: not-allowed;
+      background: var(--accent-color);
+    }
+  }
+}
+
+// desktop
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 436px;
+    background: var(--main-background-color);
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    border-radius: 30px;
+    margin-left: 734px;
+
+    h1 {
+      font-size: var(--main-font-size);
+      color: var(--main-text-color);
+      padding: 30px 0 20px 0;
+    }
+
+    label {
+      font-size: 10px;
+      padding-bottom: 12px;
+      color: var(--dark-text-color);
+      padding-bottom: 10px;
+    }
+
+    input {
+      width: 265px;
+      height: 52px;
+      font-size: var(--second-font-size);
+      color: var(--placeholders-text-color);
+      border: none;
+      border-radius: 30px;
+      padding-left: 29px;
+      background: var(--second-background-color);
+    }
+
+    .container_form {
+      padding: 0 85px 20px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      padding-top: 50px;
+    }
+
+    button {
+      color: var(--main-text-color);
+      width: 125px;
+      height: 44px;
+      font-size: var(--main-font-size);
+      background: var(--second-background-color);
+      cursor: pointer;
+      border-radius: 16px;
+      border: none;
+      align-content: stretch;
+
+      filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+
+      &:hover {
+        background: rgba($primary-color, 0.8);
+      }
+    }
+
+    .input-error {
+      border-color: $error-color;
+    }
+
+    .error {
+      color: $error-color;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .disabled-btn {
+      cursor: not-allowed;
+      background: var(--accent-color);
+    }
+  }
+}

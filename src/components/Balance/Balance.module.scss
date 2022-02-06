@@ -1,0 +1,94 @@
+$main-font-size: 12px;
+$main-font-weight: 400;
+$main-line-height: 1.17;
+$primary-text-color: rgba(82, 85, 95, 0.7);
+$accent-color: #ff751d;
+
+.container {
+  background-color: #f5f6fb;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: $main-font-size;
+  line-height: $main-line-height;
+  color: $primary-text-color;
+  margin-bottom: 40px;
+
+  @media screen and(min-width:768px) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+.link {
+  display: block;
+  margin-bottom: 40px;
+  padding: 5px;
+  text-decoration: none;
+}
+.link_text {
+  margin-right: 11px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: $primary-text-color;
+}
+.icon_container {
+  padding: 5px;
+}
+.icon {
+  width: 14px;
+  height: 14px;
+  fill: #52555f;
+}
+.form {
+  @media screen and(min-width:768px) {
+    display: flex;
+  }
+}
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.input {
+  width: 125px;
+  height: 44px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: inherit;
+  border: 2px solid #ffffff;
+  border-radius: 22px 0px 0px 22px;
+
+  font-weight: 700;
+  font-size: $main-font-size;
+  line-height: $main-line-height;
+
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #000000;
+}
+.button {
+  width: 125px;
+  height: 44px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 2px solid #ffffff;
+  border-left: none;
+  border-radius: 0px 22px 22px 0px;
+
+  font-size: $main-font-size;
+  line-height: $main-line-height;
+  align-items: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  background-color: inherit;
+  color: $primary-text-color;
+}
+.button-active {
+  @extend .button;
+  border-color: $accent-color;
+  background-color: $accent-color;
+  color: #ffffff;
+}

@@ -1,0 +1,21 @@
+.test {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  background-color: #e42727;
+}
+
+.test .text {
+  color: #53c73c;
+}
+
+@media screen and (min-width: 1200px) {
+  .test {
+    width: 1000px;
+    background-color: #53c73c;
+  }
+  .test .text {
+    color: #e42727;
+  }
+}
+/*# sourceMappingURL=test.module.css.map */

@@ -16,6 +16,8 @@ $accent-color: #ff751d;
   @media screen and(min-width:768px) {
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
   }
 }
 .link {
@@ -23,12 +25,18 @@ $accent-color: #ff751d;
   margin-bottom: 40px;
   padding: 5px;
   text-decoration: none;
+  @media screen and(min-width:768px) {
+    margin-bottom: 0;
+  }
 }
 .link_text {
   margin-right: 11px;
   padding-top: 5px;
   padding-bottom: 5px;
   color: $primary-text-color;
+  @media screen and(min-width:768px) {
+    margin-right: 15px;
+  }
 }
 .icon_container {
   padding: 5px;
@@ -41,12 +49,22 @@ $accent-color: #ff751d;
 .form {
   @media screen and(min-width:768px) {
     display: flex;
+    align-items: center;
+    margin-right: 111px;
+  }
+  @media screen and(min-width:1280px) {
+    margin-right: 205px;
   }
 }
 .label {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
+
+  @media screen and(min-width:768px) {
+    margin-right: 21px;
+    margin-bottom: 0px;
+  }
 }
 .input {
   width: 125px;
@@ -67,6 +85,13 @@ $accent-color: #ff751d;
   text-transform: uppercase;
 
   color: #000000;
+
+  @media screen and(min-width:768px) {
+    border-radius: 16px;
+    margin-right: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 }
 .button {
   width: 125px;
@@ -85,6 +110,14 @@ $accent-color: #ff751d;
 
   background-color: inherit;
   color: $primary-text-color;
+
+  @media screen and(min-width:768px) {
+    border-left: 2px solid #ffffff;
+    border-radius: 16px;
+    margin-right: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 }
 .button-active {
   @extend .button;

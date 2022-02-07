@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { useState } from 'react';
 import Select from 'react-select';
 import options from './selectData.json';
 import { Notification } from 'react-pnotify';
-import sprite from './calculator-sprite.svg'
-// import s from "./ProductForm.module.scss";
+import sprite from './calculator-sprite.svg';
+import s from './productForm.module.scss';
 
-
-function ProductForm({ onSubmit, s}) {
-  const [title, setTitle] = useState("");
+function ProductForm({ onSubmit }) {
+  const [title, setTitle] = useState('');
   const [category, setCategory] = useState(null);
-  const [sum, setSum] = useState("");
+  const [sum, setSum] = useState('');
 
   const [titleDirty, setTitleDirty] = useState(false);
   const [sumDirty, setSumDirty] = useState(false);
@@ -18,67 +17,64 @@ function ProductForm({ onSubmit, s}) {
   const [sumError, setSumError] = useState(null);
 
   const [submitError, setSubmitError] = useState(null);
- 
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
-      case "name":
+      case 'name':
         setTitle(value);
         break;
 
-      case "sum":
+      case 'sum':
         setSum(value.replace(/\s/g, ''));
         break;
 
       default:
         return;
     }
-
   };
 
-
-  const handleSubmit = (evt) => {
+  const handleSubmit = evt => {
     evt.preventDefault();
 
-    if ((title === '') || (category === null) || (sum === '')) {
-      return setSubmitError('Ошибка!')
-    } 
+    if (title === '' || category === null || sum === '') {
+      return setSubmitError('Ошибка!');
+    }
 
     const obg = {
-        title: title,
-        category: category.value,
-        sum: String(Number(sum).toFixed(2)),
-      };
+      title: title,
+      category: category.value,
+      sum: String(Number(sum).toFixed(2)),
+    };
     onSubmit(obg);
-      
+
     reset();
   };
 
   const cleanForm = () => {
     reset();
-  }
+  };
 
   function reset() {
-    setTitle("");
+    setTitle('');
     setCategory(null);
-    setSum("");
+    setSum('');
   }
 
-  const blurChange = (e) => {
+  const blurChange = e => {
     const { name, value } = e.currentTarget;
 
     if (value === '') {
       switch (name) {
-        case "name":
+        case 'name':
           setTitleDirty(true);
-          setTitleError(null)
+          setTitleError(null);
           break;
 
-        case "sum":
+        case 'sum':
           setSumDirty(true);
-          setSumError(null)
+          setSumError(null);
           break;
 
         default:
@@ -87,49 +83,47 @@ function ProductForm({ onSubmit, s}) {
     } else {
       setTitleDirty(false);
       setSumDirty(false);
-    } 
-
+    }
   };
 
   const validate = () => {
-    const reTitle = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/
-    const reSum = /\d+(\.\d{2})?/
+    const reTitle = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
+    const reSum = /\d+(\.\d{2})?/;
 
-    if (title === ""){
-      setTitleError(null)
+    if (title === '') {
+      setTitleError(null);
     } else if (!reTitle.test(title.toLowerCase())) {
-      setTitleError('Некорректные данные')
+      setTitleError('Некорректные данные');
     } else {
-      setTitleError(null)
+      setTitleError(null);
     }
- 
-    if (sum === ""){
-      setSumError(null)
+
+    if (sum === '') {
+      setSumError(null);
     } else if (!reSum.test(Number(sum))) {
-      setSumError('Некорректные данные')
+      setSumError('Некорректные данные');
     } else {
-      setSumError(null)
+      setSumError(null);
     }
-
   };
-
 
   return (
     <form onSubmit={handleSubmit} className={s.form} onChange={validate}>
-
-      {submitError && <Notification
-        type='error'
-        title='Ошибка!'
-        text='Все поля должны быть заполнены!'
-        delay={2500}
-        shadow={true}
-        hide={true}
-        nonblock={false}
-        desktop={false}
-      />}
+      {submitError && (
+        <Notification
+          type="error"
+          title="Ошибка!"
+          text="Все поля должны быть заполнены!"
+          delay={2500}
+          shadow={true}
+          hide={true}
+          nonblock={false}
+          desktop={false}
+        />
+      )}
 
       <div>
-        {titleDirty && <span style={{color:'red'}}>*  Это поле обязательное для заполнения</span>}
+        {titleDirty && <span style={{ color: 'red' }}>* Это поле обязательное для заполнения</span>}
         <input
           type="text"
           name="name"
@@ -142,7 +136,7 @@ function ProductForm({ onSubmit, s}) {
           required
           onChange={handleChange}
           onBlur={blurChange}
-        /> 
+        />
 
         {titleError && <span style={{ color: 'red' }}>{titleError}</span>}
       </div>
@@ -156,38 +150,41 @@ function ProductForm({ onSubmit, s}) {
           placeholder="Категория товара"
           onChange={setCategory}
           required
-          className={ s.categoryInput }
+          className={s.categoryInput}
         />
       </div>
 
       <div>
-        {sumDirty && <span style={{color:'red'}}>*  Это поле обязательное для заполнения</span>}
-        <div className={s.fieldPosition}> 
-        <input
-          type="text"
-          name="sum"
-          value={sum}
-          className={s.sumInput}
-          placeholder="00.00 UAH"
-          autoComplete="off"
-          required
-          onChange={handleChange}
-          onBlur={blurChange}
-        />
+        {sumDirty && <span style={{ color: 'red' }}>* Это поле обязательное для заполнения</span>}
+        <div className={s.fieldPosition}>
+          <input
+            type="text"
+            name="sum"
+            value={sum}
+            className={s.sumInput}
+            placeholder="00.00 UAH"
+            autoComplete="off"
+            required
+            onChange={handleChange}
+            onBlur={blurChange}
+          />
           <svg width="20" height="20">
             <use href={`${sprite}#icon-calculator`}></use>
           </svg>
-       </div>
+        </div>
 
         {sumError && <span style={{ color: 'red' }}>{sumError}</span>}
       </div>
-      
 
-      <button type="submit" className={s.button}>ВВОД</button>
+      <button type="submit" className={s.button}>
+        ВВОД
+      </button>
 
-      <button type="button" className={s.button} onClick={cleanForm}>ОЧИСТИТЬ</button>
+      <button type="button" className={s.button} onClick={cleanForm}>
+        ОЧИСТИТЬ
+      </button>
     </form>
   );
 }
 
-export default ProductForm;
+export { ProductForm };

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Formik } from 'formik';
 
-import './Form.scss';
+// import './Form.scss';
+import s from './Form.module.scss';
+// import gs from '../../images/google.svg';
+import images from '../../images/google.png';
 
 const initialValues = {
   email: '',
@@ -38,24 +41,30 @@ const Form = () => {
         const { values, handleChange, handleSubmit, errors, touched, handleBlur, isValid, dirty } =
           formik;
         return (
-          <div className="container">
-            <form onSubmit={handleSubmit} className="container_form">
-              <h1 className="title_gb">Вы можете авторизоваться с помощью Google Account:</h1>
-              <button type="buttton" className="gb">
-                GOOGLE
-              </button>
-              {/* <a
-                className="google"
-                href="http://localhost:3000/auth/google-redirect"
+          <div className={s.container}>
+            <form onSubmit={handleSubmit} className={s.container_form}>
+              <h1 className={s.title_gb}>
+                Вы можете авторизоваться с помощью <br /> Google Account:
+              </h1>
+              <a
+                href=" https://capusta2.herokuapp.com/api/transactions/:id  "
+                className={s.g_link}
                 title="Google Account"
-              ></a> */}
+              >
+                <div className={s.g_btn}>
+                  {/* <svg className={s.g_svg} width="17" height="18">
+                    <use href={`${gs}#google`}></use>
+                  </svg> */}
+                  <img src={images} alt="" className="g_svg" />
+                  Google
+                </div>
+              </a>
             </form>
-
-            <form onSubmit={handleSubmit} className="container_form">
-              <h1 className="title_register">
+            <form onSubmit={handleSubmit} className={s.container_form}>
+              <h1 className={s.title_registe} r>
                 Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
               </h1>
-              <div className="form-row">
+              <div className={s.form_row}>
                 <label htmlFor="email">Электронная почта:</label>
                 <input
                   type="email"
@@ -65,12 +74,12 @@ const Form = () => {
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={errors.email && touched.email ? 'input-error' : null}
+                  className={errors.email && touched.email ? 'input_error' : null}
                 />
                 {errors.email && touched.email && <span className="error">{errors.email}</span>}
               </div>
 
-              <div className="form-row">
+              <div className={s.form_row}>
                 <label htmlFor="password">Пароль:</label>
                 <input
                   type="password"
@@ -80,22 +89,25 @@ const Form = () => {
                   value={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={errors.password && touched.password ? 'input-error' : null}
+                  className={errors.password && touched.password ? 'input_error' : null}
                 />
                 {errors.password && touched.password && (
                   <span className="error">{errors.password}</span>
                 )}
               </div>
-
+            </form>
+            <div className={s.btn_form}>
               <button
                 type="submit"
-                className={!(dirty && isValid) ? 'disabled-btn' : ''}
+                className={!(dirty && isValid) ? 'disabled_btn' : 'btn_login'}
                 disabled={!(dirty && isValid)}
               >
                 ВОЙТИ
               </button>
-              <button type="button">РЕГИСТРАЦИЯ</button>
-            </form>
+              <button type="button" className={s.btn_reg}>
+                РЕГИСТРАЦИЯ
+              </button>
+            </div>
           </div>
         );
       }}

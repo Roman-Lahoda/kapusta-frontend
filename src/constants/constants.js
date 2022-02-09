@@ -19,7 +19,7 @@ export const EXPENSES = {
     { value: 'food', label: 'Продукты' },
     { value: 'health', label: 'Здоровье' },
     { value: 'alcohol', label: 'Алкоголь' },
-    { value: 'entertaiment', label: 'Развлечение' },
+    { value: 'entertainment', label: 'Развлечение' },
     { value: 'housing', label: 'Все для дома' },
     { value: 'technics', label: 'Техника' },
     { value: 'communal', label: 'Комуналка, Связь' },

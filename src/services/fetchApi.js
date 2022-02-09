@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://capusta2.herokuapp.com/api/transactions/:id';
+axios.defaults.baseURL = 'https://capusta2.herokuapp.com/';
 
 //--------------------------------auth-operations-------------------------------
 const token = {

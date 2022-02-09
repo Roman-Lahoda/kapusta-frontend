@@ -28,8 +28,8 @@ export default function ExpensesAndIncomes({
   // const { type, category } = transactionType;
   // // const token = useSelector(authSelectors.getToken);
 
-  // const initialDate = new Date();
-  // const [date, setDate] = useState(initialDate);
+  const initialDate = new Date();
+  const [date, setDate] = useState(initialDate);
   // const month = date.getMonth() + 1;
   // const year = date.getFullYear();
 
@@ -130,9 +130,9 @@ export default function ExpensesAndIncomes({
   //   setCategoryValue(null);
   // };
 
-  // const changeDate = date => {
-  //   setDate(date);
-  // };
+  const changeDate = date => {
+    setDate(date);
+  };
 
   // const handleDelete = async id => {
   //   const filteredTransactions = dayTransactions.filter(el => el._id !== id);
@@ -215,7 +215,7 @@ export default function ExpensesAndIncomes({
         <div className={s.container}>
           <div className={`${s.flex} `}>
             <div className={s.box}>
-              <Calendar />
+              <Calendar date={date} changeDate={changeDate} />
             </div>
           </div>
           {stateDashboardButton === false && (

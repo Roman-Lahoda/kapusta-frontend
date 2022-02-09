@@ -2,11 +2,11 @@ import s from './TransactionHistoryList.module.scss';
 import sprite from '../../images/sprite.svg';
 // import Modal from '../Modal/Modal';
 // import useModal from '../Modal/useModal';
-// import Loader from '../Loader';
+import Loader from '../Loader/Loader';
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
 
-function TransactionHistory({ data, type, category, handleDelete, status }) {
+function TransactionHistoryList({ data, type, category, handleDelete, status }) {
   // const { isShowingModal, toggle, handleBackdropClick } = useModal();
 
   const [id, setId] = useState('');
@@ -78,7 +78,7 @@ function TransactionHistory({ data, type, category, handleDelete, status }) {
               toLogout={() => deleteTransaction(id)}
               closeModal={toggle}
               handleBackdropClick={handleBackdropClick}
-            />  
+            />
           )} */}
           <li className={s.item}></li>
           <li className={s.item}></li>
@@ -97,4 +97,4 @@ function TransactionHistory({ data, type, category, handleDelete, status }) {
   );
 }
 
-export default TransactionHistory;
+export default TransactionHistoryList;

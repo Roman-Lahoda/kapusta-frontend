@@ -1,14 +1,7 @@
-// import axios from 'axios';
-// import { decode } from 'jsonwebtoken';
-// import React, { useEffect, useState, Suspense } from 'react';
-// import { useSelector } from 'react-redux';
-// import { Route, Routes } from 'react-router-dom';
-
 import React from 'react';
 import './App.css';
 
-
-import Container from 'components/Container';
+import Container from 'components/Container/Container';
 import Dashboard from 'components/Dashboard';
 
 function App() {
@@ -20,5 +13,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

@@ -1,7 +1,7 @@
 import s from './TransactionInput.module.scss';
-// import { DescriptionInput, Droplist, PriceInput } from '..';
+
 import DescriptionInput from 'components/DescriptionInput';
-import Droplist from 'components/Droplist';
+import DropList from 'components/DropList/DropList';
 import Calculator from 'components/Calculator';
 
 function TransactionInput({ transactionType, value, onChange }) {
@@ -10,7 +10,7 @@ function TransactionInput({ transactionType, value, onChange }) {
   return (
     <div className={s.container}>
       <DescriptionInput descriptionTitle={description} />
-      <Droplist categories={category} categoryTitle={title} data={value} onChange={onChange} />
+      <DropList categories={category} categoryTitle={title} data={value} onChange={onChange} />
       <Calculator />
     </div>
   );

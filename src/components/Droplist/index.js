@@ -1,1 +1,1 @@
-export { default } from './Droplist';
+export { default } from './DropList';

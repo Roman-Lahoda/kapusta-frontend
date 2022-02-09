@@ -2,7 +2,7 @@
   display: flex;
   height: 44px;
 }
-.input {
+.inputSum {
   padding-right: 15px;
   outline: none;
   border: 2px solid #f5f6fb;
@@ -14,13 +14,13 @@
 }
 /* Убрать дефолтные стрелочки */
 /* Это для браузера Chrome: */
-.input[type='number']::-webkit-outer-spin-button,
-.input[type='number']::-webkit-inner-spin-button {
+.inputSum[type='number']::-webkit-outer-spin-button,
+.inputSum[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 /* Это для браузера Firefox: */
-.input[type='number'] {
+.inputSum[type='number'] {
   -moz-appearance: textfield;
 }
 input[type='number']:hover,
@@ -28,12 +28,12 @@ input[type='number']:focus {
   -moz-appearance: number-input;
 }
 /* Для других */
-.input[type='number']::-webkit-inner-spin-button,
-.input[type='number']::-webkit-outer-spin-button {
+.inputSum[type='number']::-webkit-inner-spin-button,
+.inputSum[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.input::placeholder {
+.inputSum::placeholder {
   color: #c7ccdc;
 }
 .calcContainer {
@@ -74,5 +74,20 @@ input[type='number']:focus {
 @media (min-width: 1280px) {
   .input {
     width: 86px;
+  }
+}
+
+.positionIcon {
+  position: relative;
+  padding: 10px 5px;
+  width: 60px;
+  height: 44px;
+  border: 2px solid #fff;
+  border-radius: 0 22px 22px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .positionIcon {
+    width: 55%;
   }
 }

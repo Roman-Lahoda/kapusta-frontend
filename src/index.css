@@ -1,13 +1,120 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+/* Tabs */
+/* .react-tabs {
+  -webkit-tap-highlight-color: transparent;
+  /* margin-bottom: 50px; */
+/* }
+
+.react-tabs__tab-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+} */
+
+/* .react-tabs__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: 0px;
+  position: relative;
+  list-style: none;
+  padding: 15px 45px 15px 45px;
+  cursor: pointer;
+  background: #fafbfd;
+  border: none;
+  border-radius: 20px 20px 0px 0px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  width: 138px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+} */
+
+/* .react-tabs__tab--selected { */
+/* background: #fefefe;
+  border-color: #aaa;
+  color: #ff751d;
+} */
+/* 
+.react-tabs__tab:focus {
+  box-shadow: 0 0 5px #a6abb9;
+  border-color: #a6abb9;
+  outline: none;
+} */
+
+/* .react-tabs__tab:focus:after {
+  content: '';
+  position: absolute;
+  height: 5px;
+  left: -4px;
+  right: -4px;
+  bottom: -5px;
+  background: #fff;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+} */
+
+/* .react-tabs__tab-panel {
+  display: none;
+  width: 1060px;
+  height: 579px;
+  box-shadow: 0px 10px 60px rgb(170 178 197 / 20%);
+  border-radius: 0px 30px 30px 30px;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+  padding: 20px;
+  background: #fff;
+} */
+
+/* tablet */
+/* @media screen and (min-width: 768px) {
+  .react-tabs__tab {
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .react-tabs__tab-panel {
+    width: 100%;
+    height: 626px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 0px 30px 30px 30px;
+  }
+
+  .react-tabs {
+    margin-top: 58px;
+  }
+} */
+
+/* desktop */
+/* @media screen and (min-width: 1280px) {
+  .react-tabs__tab-panel {
+    width: 1060px;
+    height: 579px;
+  }
+
+  .react-tabs {
+    margin-top: 10px;
+  }
+} */

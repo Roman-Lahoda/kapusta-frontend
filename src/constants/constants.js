@@ -15,14 +15,14 @@ export const Month = {
 
 export const EXPENSES = {
   category: [
-    { value: 'goods', label: 'Продукты' },
-    { value: 'alco', label: 'Алкоголь' },
-    { value: 'fun', label: 'Развлечение' },
-    { value: 'health', label: 'Здоровье' },
     { value: 'transport', label: 'Транспорт' },
-    { value: 'house', label: 'Все для дома' },
-    { value: 'tech', label: 'Техника' },
-    { value: 'utilities', label: 'Комуналка, Связь' },
+    { value: 'food', label: 'Продукты' },
+    { value: 'health', label: 'Здоровье' },
+    { value: 'alcohol', label: 'Алкоголь' },
+    { value: 'entertaiment', label: 'Развлечение' },
+    { value: 'housing', label: 'Все для дома' },
+    { value: 'technics', label: 'Техника' },
+    { value: 'communal', label: 'Комуналка, Связь' },
     { value: 'sport', label: 'Спорт, Хобби' },
     { value: 'education', label: 'Образование' },
     { value: 'other', label: 'Прочее' },
@@ -33,10 +33,12 @@ export const EXPENSES = {
   type: 'expense',
 };
 
+
+
 export const INCOMES = {
   category: [
-    { value: 'salary', label: 'ЗП' },
-    { value: 'freelance', label: 'Доп. доход' },
+    { value: 'transport', label: 'Транспорт' },
+    { value: 'food', label: 'Продукты' },
   ],
 
   title: 'Категория дохода',

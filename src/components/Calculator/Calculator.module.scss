@@ -45,9 +45,9 @@ input[type='number']:focus {
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
 }
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .container {
-    margin: 0 auto;
+    justify-content: center;
   }
   .input {
     width: 125px;
@@ -62,7 +62,7 @@ input[type='number']:focus {
 }
 @media (min-width: 768px) {
   .input {
-    width: 64px;
+    width: 76px;
     padding-right: 10px;
     border-right: none;
   }

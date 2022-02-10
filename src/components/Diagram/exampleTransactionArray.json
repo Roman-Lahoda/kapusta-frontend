@@ -1,0 +1,86 @@
+{
+    "status": "succes",
+    "code": 200,
+    "data": [
+        {
+            "_id": "62040397cfe232d9fa5f04c8",
+            "transactionType": "expense",
+            "sum": 250,
+            "category": "food",
+            "description": "vodka",
+            "dayCreate": 9,
+            "monthCreate": 2,
+            "yearCreate": 2022,
+            "dateOfTransaction": "2022-02-09T18:10:25.797Z",
+            "owner": {
+                "_id": "6203fd44054378bfe3553035",
+                "email": "kro2022@mata.ua",
+                "balance": 1463
+            }
+        },
+        {
+            "_id": "62040ea7f082dc77e7221188",
+            "transactionType": "expense",
+            "sum": 37,
+            "category": "food",
+            "description": "milk",
+            "dayCreate": 9,
+            "monthCreate": 2,
+            "yearCreate": 2022,
+            "dateOfTransaction": "2022-02-09T18:54:34.354Z",
+            "owner": {
+                "_id": "6203fd44054378bfe3553035",
+                "email": "kro2022@mata.ua",
+                "balance": 1463
+            }
+        },
+        {
+            "_id": "62040f0df082dc77e722118c",
+            "transactionType": "expense",
+            "sum": 27,
+            "category": "food",
+            "description": "bread",
+            "dayCreate": 9,
+            "monthCreate": 2,
+            "yearCreate": 2022,
+            "dateOfTransaction": "2022-02-09T18:54:34.354Z",
+            "owner": {
+                "_id": "6203fd44054378bfe3553035",
+                "email": "kro2022@mata.ua",
+                "balance": 1463
+            }
+        },
+        {
+            "_id": "620420fa8e32aaf47c234917",
+            "transactionType": "expense",
+            "sum": 10,
+            "category": "food",
+            "description": "water",
+            "dayCreate": 9,
+            "monthCreate": 2,
+            "yearCreate": 2022,
+            "dateOfTransaction": "2022-02-09T20:10:40.877Z",
+            "owner": {
+                "_id": "6203fd44054378bfe3553035",
+                "email": "kro2022@mata.ua",
+                "balance": 1463
+            }
+        },
+        {
+            "_id": "62044bc2be7311883ff41d64",
+            "transactionType": "income",
+            "sum": 1500,
+            "category": "salary",
+            "description": "salary",
+            "dayCreate": 9,
+            "monthCreate": 2,
+            "yearCreate": 2022,
+            "dateOfTransaction": "2022-02-09T23:14:48.017Z",
+            "owner": {
+                "_id": "6203fd44054378bfe3553035",
+                "email": "kro2022@mata.ua",
+                "balance": 1463
+            }
+        }
+    ]
+}

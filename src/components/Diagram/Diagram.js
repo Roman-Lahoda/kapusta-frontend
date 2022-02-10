@@ -7,7 +7,7 @@ import ownVictoryTheme from './ownVictoryTheme.js'
 // это пример массива данных о транзакциях, которые могут прийти с бекенда. Здесь он используется для примера и тестирования.
 // в дальнейшем этот массив данных нужно будет, как полагается получить, от бекенда
 
-import {exampleTransactionArray} from './exampleTransactionArray.json' // это пример массива данных о транзакциях, которые могут прийти с бекенда
+import exampleTransactionArray from './exampleTransactionArray.json' // это пример массива данных о транзакциях, которые могут прийти с бекенда
 
 
 const Diagram = function () {

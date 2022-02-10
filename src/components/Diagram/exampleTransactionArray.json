@@ -69,7 +69,7 @@
         {
             "_id": "62044bc2be7311883ff41d64",
             "transactionType": "income",
-            "sum": 1500,
+            "sum": 900,
             "category": "salary",
             "description": "salary",
             "dayCreate": 9,

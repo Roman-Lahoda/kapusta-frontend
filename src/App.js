@@ -2,6 +2,8 @@ import React from 'react';
 
 import Form from './components/Form/Form';
 
+import Diagram from './components/Diagram'
+
 import './App.css';
 
 import Container from 'components/Container/Container';
@@ -14,6 +16,8 @@ function App() {
         <Dashboard />
       </Container>
       <Form />
+      <Diagram/>
+
     </div>
   );
 }

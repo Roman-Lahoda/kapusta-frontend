@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import s from './Droplist.module.scss';
+import s from './DropList.module.scss';
+
 
 function Droplist({ categories, categoryTitle, data, value, onChange }) {
   const [open, setOpen] = useState(false);
@@ -90,4 +91,4 @@ function Droplist({ categories, categoryTitle, data, value, onChange }) {
   );
 }
 
-export default Droplist;
+export default DropList;

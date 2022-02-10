@@ -37,8 +37,8 @@ export const EXPENSES = {
 
 export const INCOMES = {
   category: [
-    { value: 'transport', label: 'Транспорт' },
-    { value: 'food', label: 'Продукты' },
+    { value: 'salary', label: 'ЗП' },
+    { value: 'additionalincome', label: 'Доп. доход' },
   ],
 
   title: 'Категория дохода',

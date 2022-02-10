@@ -39,7 +39,7 @@ function TransactionHistoryList({ data, type, category, handleDelete, status }) 
 
   // const deleteTransaction = id => {
   //   handleDelete(id);
-  //   // toggle();
+  //   toggle();
   // };
 
   return (
@@ -52,7 +52,7 @@ function TransactionHistoryList({ data, type, category, handleDelete, status }) 
       </div>
       <div className={s.blok}>
         <ul className={s.list}>
-          {/* {status === 'pending' && <Loader />} */}
+          {status === 'pending' && <Loader />}
 
           {transactions &&
             status !== 'pending' &&

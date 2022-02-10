@@ -1,6 +1,6 @@
 const routes = {
   home: '/',
-  wallet: '/wallet',
+  // wallet: '/wallet',
   //   balance: '/balance',
   //   report: '/report',
   //   developers: '/developers',

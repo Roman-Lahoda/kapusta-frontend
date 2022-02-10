@@ -3,9 +3,7 @@ import sprite from '../../images/sprite.svg';
 import { useState } from 'react';
 import CalculatorInput from './CalculatorInput';
 
-
-function Calculator({value, onChange, onBlur}) {
-
+function Calculator({ value, onChange, onBlur }) {
   const [calc, setCalc] = useState(false);
   const [sum, setSum] = useState('');
 
@@ -23,13 +21,14 @@ function Calculator({value, onChange, onBlur}) {
     setSum(e.target.value);
   };
 
-
   return (
     <div className={s.container}>
-     {/* --------------------СТАЛО----------------------- */}
+      {/* --------------------СТАЛО----------------------- */}
       <input
+        // <<<<<<< HEAD
+        // id="amount"
+        // =======
         id="amount"
-
         type="text"
         name="sum"
         min="0"
@@ -46,6 +45,7 @@ function Calculator({value, onChange, onBlur}) {
       {/* <input
         id="amount"
         className={s.input}
+// >>>>>>> dev
         className={s.inputSum}
         value={sum}
         name="sum"
@@ -53,7 +53,7 @@ function Calculator({value, onChange, onBlur}) {
         type="number"
         min="0"
         step="1"
-        placeholder="0.00"
+        placeholder="00.00 UAH"
         required
 
       /> */}
@@ -63,7 +63,13 @@ function Calculator({value, onChange, onBlur}) {
         </svg>
 
         onChange={handleChangeSum}
+// <<<<<<< HEAD
+        autoComplete="off"
+        // onBlur={onBlur}
+      />
+// =======
       />*/}
+      {/* >>>>>>> dev */}
 
       <div className={s.calcContainer} onClick={handleCalcClick}>
         <div className={s.positionIcon}>

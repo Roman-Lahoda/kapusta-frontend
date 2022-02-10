@@ -4,19 +4,18 @@ import { useState } from 'react';
 import { Notification } from 'react-pnotify';
 
 import DescriptionInput from '../DescriptionInput';
-import Droplist from '../Droplist';
+import DropList from '../DropList';
 import Calculator from '../Calculator';
 
 import Button from '../Button/Button';
 
-
 import s from './ProductForm.module.scss';
 
-function ProductForm({ onSubmit , transactionType}) {
+function ProductForm({ onSubmit, transactionType }) {
   const [product, setProduct] = useState('');
   const [categoryValue, setCategoryValue] = useState('');
   const [sum, setSum] = useState('');
-  const [valueCategoryInput, setValueCategoryInput] = useState("Категория товара");
+  const [valueCategoryInput, setValueCategoryInput] = useState('Категория товара');
 
   const [productDirty, setProductDirty] = useState(false);
   const [sumDirty, setSumDirty] = useState(false);
@@ -26,7 +25,7 @@ function ProductForm({ onSubmit , transactionType}) {
 
   const [submitError, setSubmitError] = useState(null);
 
-  const {category, title, description } = transactionType;
+  const { category, title, description } = transactionType;
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -46,7 +45,7 @@ function ProductForm({ onSubmit , transactionType}) {
   };
 
   const handlecategory = data => {
-    const { value , label} = data;
+    const { value, label } = data;
     setCategoryValue(value);
     setValueCategoryInput(label);
   };
@@ -76,7 +75,7 @@ function ProductForm({ onSubmit , transactionType}) {
     setProduct('');
     setCategoryValue('');
     setSum('');
-    setValueCategoryInput("Категория товара");
+    setValueCategoryInput('Категория товара');
   }
 
   const blurChange = e => {
@@ -139,14 +138,19 @@ function ProductForm({ onSubmit , transactionType}) {
         />
       )}
 
-    <div className={s.container}> 
-      <div className={s.position}>
-        {productDirty && <span className={s.dirtyText}>*поле обязательное</span>}
-        {/* --------------------СТАЛО----------------------- */}
-        <DescriptionInput descriptionTitle={description}  value={product} onChange={handleChange} onBlur={blurChange}/>
+      <div className={s.container}>
+        <div className={s.position}>
+          {productDirty && <span className={s.dirtyText}>*поле обязательное</span>}
+          {/* --------------------СТАЛО----------------------- */}
+          <DescriptionInput
+            descriptionTitle={description}
+            value={product}
+            onChange={handleChange}
+            onBlur={blurChange}
+          />
 
-        {/* --------------------БЫЛО----------------------- */}
-        {/* <input
+          {/* --------------------БЫЛО----------------------- */}
+          {/* <input
           type="text"
           name="name"
           value={title}
@@ -160,16 +164,21 @@ function ProductForm({ onSubmit , transactionType}) {
           onBlur={blurChange}
         /> */}
 
-        {productError && <span className={s.errorText}>{productError}</span>}
-      </div>
+          {productError && <span className={s.errorText}>{productError}</span>}
+        </div>
 
-      <div className={s.position}>
-        {/* --------------------СТАЛО----------------------- */}
-          <Droplist categories={category} categoryTitle={title} data={categoryValue} value={valueCategoryInput} onChange={handlecategory}/>
+        <div className={s.position}>
+          {/* --------------------СТАЛО----------------------- */}
+          <DropList
+            categories={category}
+            categoryTitle={title}
+            data={categoryValue}
+            value={valueCategoryInput}
+            onChange={handlecategory}
+          />
 
-
-        {/* --------------------БЫЛО----------------------- */}
-        {/* <Select
+          {/* --------------------БЫЛО----------------------- */}
+          {/* <Select
           name="category"
           value={category}
           options={options}
@@ -179,18 +188,16 @@ function ProductForm({ onSubmit , transactionType}) {
           required
           className={s.categoryInput}
         /> */}
-      </div>
+        </div>
 
-        
+        <div className={s.position}>
+          {sumDirty && <span className={s.dirtyText}>*поле обязательное </span>}
 
-      <div className={s.position}>
-        {sumDirty && <span className={s.dirtyText}>*поле обязательное </span>}
+          {/* --------------------СТАЛО----------------------- */}
+          <Calculator value={sum} onChange={handleChange} onBlur={blurChange} />
 
-        {/* --------------------СТАЛО----------------------- */}
-        <Calculator value={sum} onChange={handleChange} onBlur={blurChange}/>
-        
-        {/* --------------------БЫЛО----------------------- */}
-        {/* <div className={s.fieldPosition}>
+          {/* --------------------БЫЛО----------------------- */}
+          {/* <div className={s.fieldPosition}>
           <input
             type="text"
             name="sum"
@@ -207,22 +214,20 @@ function ProductForm({ onSubmit , transactionType}) {
           </svg>
         </div> */}
 
-        {sumError && <span className={s.errorText}>{sumError}</span>}
+          {sumError && <span className={s.errorText}>{sumError}</span>}
+        </div>
       </div>
-    </div>     
-      
+
       {/* --------------------СТАЛО----------------------- */}
       <ul className={s.list}>
-        
         <li className={s.item}>
           <Button type="submit" text={'Ввод'} className={s.enterButton} />
-         </li>
+        </li>
         <li>
-          <Button type="button" text={'Очистить'} className={s.clearButton} onClick={cleanForm}/>
+          <Button type="button" text={'Очистить'} className={s.clearButton} onClick={cleanForm} />
         </li>
       </ul>
 
-      
       {/* --------------------БЫЛО----------------------- */}
       {/* <button type="submit" className={s.button}>
         ВВОД

@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import s from './DropList.module.scss';
 
-
-function Droplist({ categories, categoryTitle, data, value, onChange }) {
+function DropList({ categories, categoryTitle, data, value, onChange }) {
   const [open, setOpen] = useState(false);
   // const ref = useRef(null);
 
@@ -20,41 +19,35 @@ function Droplist({ categories, categoryTitle, data, value, onChange }) {
       setOpen(false);
     } else {
       setOpen(true);
-    } 
+    }
   }
-  
 
   return (
     <>
-       {/* --------------------СТАЛО----------------------- */}
-      
+      {/* --------------------СТАЛО----------------------- */}
+
       <div className={s.dropdown}>
         <div className={s.control} onClick={handleChange}>
-          <p className={s.selectedValue}>
-            {value}
-          </p>
+          <p className={s.selectedValue}>{value}</p>
 
           <div className={`${s.arrow} ${open ? s.open : null}`}></div>
-        </div> 
-        
+        </div>
+
         <div className={`${s.options} ${open ? s.open : null}`}>
           {categories.map(category => (
             <div
               key={category.value}
               className={`${s.option} ${data === category ? s.selected : null}`}
               onClick={() => {
-                  onChange({value: category.value, label:category.label});
-                  setOpen(false);
-                }}
+                onChange({ value: category.value, label: category.label });
+                setOpen(false);
+              }}
             >
               {category.label}
             </div>
           ))}
-        </div> 
+        </div>
       </div>
-
-
-
 
       {/* --------------------БЫЛО----------------------- */}
       {/* <input

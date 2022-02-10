@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://capusta2.herokuapp.com/api/transactions/:id';
+//👇 это изменил
+axios.defaults.baseURL = 'https://capusta2.herokuapp.com/api';
 
 //--------------------------------auth-operations-------------------------------
 const token = {
@@ -11,48 +12,65 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
-
-const fetchSignUp = credentials => axios.post('/users/signup', credentials);
+//👇 это изменил
+const fetchSignUp = credentials => axios.post('/users/registration', credentials);
 
 const fetchLogin = credentials => axios.post('/users/login', credentials);
 
 const fetchLogout = () => axios.post('/users/logout');
-
-const fetchCurrent = () => axios.get('/users/current');
-
-const fetchRefreshToken = () => axios.get('/users/refresh');
-
-const fetchRepeatVerify = email => axios.post('/users/verify', email);
-
-const fetchAvatar = formData =>
-  axios.patch(
-    '/users/avatars',
-    formData,
-    // {
-    // headers: {
-    //   'Content-Type': 'multipart/form-data',
-    // }
-    // }
-  );
+//👇 этого нет
+// const fetchCurrent = () => axios.get('/users/current');
+//👇 этого нет
+// const fetchRefreshToken = () => axios.get('/users/refresh');
+//👇 этого нет
+// const fetchRepeatVerify = email => axios.post('/users/verify', email);
+//👇 этого нет
+// const fetchAvatar = formData =>
+//   axios.patch(
+//     '/users/avatars',
+//     formData,
+//     // {
+//     // headers: {
+//     //   'Content-Type': 'multipart/form-data',
+//     // }
+//     // }
+//   );
 
 //--------------------------transactions-operations-------------------------------
+//можно либо этот 👇 использовать но обязательно указывать тип транзкции ,баланс передавать не надо
+const addTransaction = transaction => axios.post('/transactions', { transaction });
+//либо эти 👇,здесь указывать тип транзакции не надо,такие энд-поинты по ТЗ
 
-const addTransaction = (transaction, balance) =>
-  axios.post('/transaction', { transaction, balance });
-const deleteTransaction = transactionId => axios.delete(`/transaction/${transactionId}`);
-const editTransaction = (transaction, balance) =>
-  axios.put(`/transaction/${transaction._id}`, { transaction, balance });
-const getTransactionsByDate = date => axios.get(`/transaction/${date}`);
-const getTransactionsByPeriod = period => axios.get(`/transaction/period/${period}`);
-const setBalance = balance => axios.patch('/users/balance', { balance });
+// const addTransactionIncome = (transaction) =>
+//   axios.post('/transaction/income', { transaction });
+
+// const addTransactionExpense = (transaction) =>
+//   axios.post('/transaction/expense', { transaction });
+const deleteTransaction = transactionId => axios.delete(`/transactions/${transactionId}`);
+//👇 баланс передавать не надо
+const editTransaction = transaction => axios.put(`/transactions/${transaction._id}`, transaction);
+//👇 этого нет
+// const getTransactionsByDate = date => axios.get(`/transactions/${date}`);
+
+//👇 это изменил, это для страницы отчётов
+const getTransactionsByPeriod = (month_number, year_number) =>
+  axios.get(`/transactions/month?month=${month_number}&year=${year_number}`);
+
+//👇 это добавил, это для страницы где расходы/доходы и сводка
+const getTransactionByType = transactionType =>
+  axios.get(`/transactions/summary?type=${transactionType}`);
+
+//👇 это изменил
+const setBalance = balance => axios.patch('/users/update', { balance });
 
 const fetch = {
   addTransaction,
   deleteTransaction,
   editTransaction,
-  getTransactionsByDate,
+  // getTransactionsByDate,
   getTransactionsByPeriod,
   setBalance,
+  getTransactionByType,
 };
 
 export {
@@ -60,9 +78,9 @@ export {
   fetchSignUp,
   fetchLogin,
   fetchLogout,
-  fetchCurrent,
-  fetchRefreshToken,
-  fetchRepeatVerify,
-  fetchAvatar,
+  // fetchCurrent,
+  // fetchRefreshToken,
+  // fetchRepeatVerify,
+  // fetchAvatar,
   fetch,
 };

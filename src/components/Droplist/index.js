@@ -1,1 +1,1 @@
-export { default } from './DropList';
+export { default } from './DropList.js';

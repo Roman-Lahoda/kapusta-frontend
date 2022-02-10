@@ -14,6 +14,7 @@ import { parseISO, lightFormat } from 'date-fns';
 import Summary from 'components/Summary';
 import TransactionHistoryList from 'components/TransactionHistoryList';
 import TransactionInput from 'components/TransactionInput';
+import ProductForm from 'components/ProductForm';
 import Calendar from 'components/Calendar';
 // import { Summary, TransactionHistoryList, TransactionInput, Calendar } from '../..';
 // import { authOperations, authSelectors } from '../../../redux/auth';
@@ -24,6 +25,10 @@ export default function ExpensesAndIncomes({
   stateDashboardButton,
   changestateDashboardButton,
 }) {
+
+  const dataProcessingForm = (data) => {
+   console.log(data)
+  };
   // const dispatch = useDispatch();
   // const { type, category } = transactionType;
   // // const token = useSelector(authSelectors.getToken);
@@ -225,7 +230,13 @@ export default function ExpensesAndIncomes({
               </svg>
             </button>
           )}
-          <form className={`${s.form}`}>
+
+          {/* --------------------СТАЛО----------------------- */}
+          <ProductForm onSubmit={dataProcessingForm} transactionType={transactionType}/>
+
+
+          {/* --------------------БЫЛО----------------------- */}
+          {/* <form className={`${s.form}`}>
             <TransactionInput transactionType={transactionType} />
             <ul className={s.list}>
               <li className={s.item}>
@@ -235,7 +246,7 @@ export default function ExpensesAndIncomes({
                 <Button type="button" text={'Очистить'} className={s.clearButton} />
               </li>
             </ul>
-          </form>
+          </form> */}
         </div>
       </div>
       <div

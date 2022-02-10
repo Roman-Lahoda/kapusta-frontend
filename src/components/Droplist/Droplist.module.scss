@@ -115,3 +115,39 @@
     width: 192px;
   }
 }
+
+.input {
+  width: 160px;
+  height: 39px;
+  padding: 0 20px;
+  outline: none;
+  border: none;
+  // background-color: inherit;
+  color: #52555f;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+}
+
+.input::placeholder {
+  color: #c7ccdc;
+}
+
+// @media (max-width: 767px) {
+//   .input {
+//     width: 100%;
+//     margin: 0 auto;
+//     border-color: #ffffff;
+//     border-top-right-radius: 16px;
+//   }
+// }
+// @media (min-width: 768px) {
+//   .input {
+//     width: 171px;
+//   }
+// }
+// @media (min-width: 1280px) {
+//   .input {
+//     width: 168px;
+//   }
+// }

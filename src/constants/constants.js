@@ -33,6 +33,8 @@ export const EXPENSES = {
   type: 'expense',
 };
 
+
+
 export const INCOMES = {
   category: [
     { value: 'salary', label: 'ЗП' },

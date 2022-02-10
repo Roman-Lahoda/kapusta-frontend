@@ -47,7 +47,7 @@ export default function ExpensesAndIncomes({
 
   useEffect(() => {
     if (submit && token) {
-      dispatch(authOperations.fetchCurrent());
+      dispatch(authOperations.fetchLogin());
       setSubmit(false);
     }
   }, [dispatch, submit, token]);

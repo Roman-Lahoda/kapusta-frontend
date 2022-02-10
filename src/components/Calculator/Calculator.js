@@ -24,7 +24,7 @@ function Calculator() {
   return (
     <div className={s.container}>
       <input
-        id="amount"
+        // id="amount"
         className={s.inputSum}
         value={sum}
         name="sum"
@@ -32,9 +32,11 @@ function Calculator() {
         type="number"
         min="0"
         step="1"
-        placeholder="0.00"
+        placeholder="00.00 UAH"
         required
         onChange={handleChangeSum}
+        autoComplete="off"
+        // onBlur={onBlur}
       />
 
       <div className={s.calcContainer} onClick={handleCalcClick}>

@@ -1,4 +1,7 @@
-// import React from 'react';
+import React from 'react';
+
+import Form from './components/Form/Form';
+
 import './App.css';
 import React from 'react';
 
@@ -11,6 +14,7 @@ function App() {
       <Container>
         <Dashboard />
       </Container>
+      <Form />
     </div>
   );
 }

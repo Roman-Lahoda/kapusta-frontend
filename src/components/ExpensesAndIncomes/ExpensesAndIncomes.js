@@ -14,6 +14,7 @@ import {
 import Summary from 'components/Summary';
 import TransactionHistoryList from 'components/TransactionHistoryList';
 import TransactionInput from 'components/TransactionInput';
+import ProductForm from 'components/ProductForm';
 import Calendar from 'components/Calendar';
 
 // import { authOperations, authSelectors } from '../../redux/auth';
@@ -27,9 +28,19 @@ export default function ExpensesAndIncomes({
   stateDashboardButton,
   changeStateDashboardButton,
 }) {
+  // <<<<<<< HEAD
   const dispatch = useDispatch();
   const { type, category } = transactionType;
   const token = useSelector(authSelectors.getCurrentToken);
+  // =======
+
+  const dataProcessingForm = data => {
+    console.log(data);
+  };
+  // const dispatch = useDispatch();
+  // const { type, category } = transactionType;
+  // // const token = useSelector(authSelectors.getToken);
+  // >>>>>>> dev
 
   const initialDate = new Date();
   const [date, setDate] = useState(initialDate);
@@ -173,12 +184,22 @@ export default function ExpensesAndIncomes({
               </svg>
             </button>
           )}
+          {/* <<<<<<< HEAD */}
           <form ref={formElement} className={`${s.form} ${hideForm()}`} onSubmit={handleSubmit}>
             <TransactionInput
               transactionType={transactionType}
               value={categoryValue}
               onChange={v => setCategoryValue(v)}
             />
+            {/* ======= */}
+
+            {/* --------------------СТАЛО----------------------- */}
+            <ProductForm onSubmit={dataProcessingForm} transactionType={transactionType} />
+
+            {/* --------------------БЫЛО----------------------- */}
+            {/* <form className={`${s.form}`}>
+            <TransactionInput transactionType={transactionType} />
+// >>>>>>> dev
             <ul className={s.list}>
               <li className={s.item}>
                 <Button type="submit" text={'Ввод'} className={s.enterButton} />
@@ -191,7 +212,7 @@ export default function ExpensesAndIncomes({
                   className={s.clearButton}
                 />
               </li>
-            </ul>
+            </ul>*/}
           </form>
         </div>
       </div>

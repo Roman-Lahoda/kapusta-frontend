@@ -4,7 +4,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // import notification from '../../utils/notification';
 
-axios.defaults.baseURL = 'https://capusta2.herokuapp.com/api';
+// axios.defaults.baseURL = 'https://capusta2.herokuapp.com/api';
+axios.defaults.baseURL = 'http://localhost:3000/api';
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -14,7 +15,7 @@ const token = {
   },
 };
 
-export const signUp = createAsyncThunk(
+export const signup = createAsyncThunk(
   'users/registration',
   async (userData, { rejectWithValue }) => {
     try {
@@ -29,10 +30,12 @@ export const signUp = createAsyncThunk(
   },
 );
 
-export const logIn = createAsyncThunk('users/login', async (userData, { rejectWithValue }) => {
+export const login = createAsyncThunk('users/login', async (userData, { rejectWithValue }) => {
   try {
     const { data } = await axios.post('/users/login', userData);
-    token.set(data.token);
+    token.set(data.userData.token);
+    // console.log('data', data);
+    localStorage.setItem('user', JSON.stringify(data.userData));
     // notification.LoginSuccess(data.user.name);
     return data;
   } catch (error) {
@@ -41,10 +44,11 @@ export const logIn = createAsyncThunk('users/login', async (userData, { rejectWi
   }
 });
 
-export const logOut = createAsyncThunk('users/logout', async (_, { rejectWithValue }) => {
+export const logout = createAsyncThunk('users/logout', async (_, { rejectWithValue }) => {
   try {
     await axios.post('/users/logout');
     token.unset();
+    localStorage.removeItem('user');
     // notification.LogoutSuccess();
   } catch (error) {
     // notification.LogoutError();
@@ -55,14 +59,29 @@ export const logOut = createAsyncThunk('users/logout', async (_, { rejectWithVal
 export const refresh = createAsyncThunk(
   'user/refresh',
   async (_, { getState, rejectWithValue }) => {
-    const state = getState();
-    const persistedToken = state.auth.token;
-    if (persistedToken === null) {
-      return rejectWithValue({ status: null, statusText: 'Token not found' });
-    }
-    token.set(persistedToken);
     try {
-      const { data } = await axios.get('/users/current');
+      const data = JSON.parse(localStorage.getItem('user'));
+      if (!data) {
+        return rejectWithValue({ status: null, statusText: 'User not found' });
+      }
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  },
+);
+
+export const updateUser = createAsyncThunk(
+  'users/update',
+  async (userData, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.patch('/users/update', userData);
+      localStorage.removeItem('user');
+      // localStorage.setItem('data', JSON.stringify(data.userData));
+      const user = JSON.parse(localStorage.getItem('user'));
+      const updatedUser = { ...user };
+      localStorage.setItem('users', JSON.stringify(updatedUser));
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -71,9 +90,10 @@ export const refresh = createAsyncThunk(
 );
 
 const authOperation = {
-  signUp,
-  logIn,
-  logOut,
+  signup,
+  login,
+  logout,
   refresh,
+  updateUser,
 };
 export default authOperation;

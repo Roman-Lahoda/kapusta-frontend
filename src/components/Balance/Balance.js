@@ -3,15 +3,25 @@ import s from './Balance.module.scss'
 import sprite from './sprite.svg'
 import { ModalBalance } from './ModalBalance/ModalBalance'
 import { getBalance } from '../../services/kapustaAPI'
+import { useState, useEffect } from 'react'
 
 export function Balance() {
+
+    const[showModal, setShowModal] = useState(false)
+    const[inputValue, setInputValue]=useState('')
+
+    const toggleModal = () =>{
+        setShowModal(!showModal)
+    }
+
+
     const onInputChange = (e) => {
-        const inputValue = e.target.value
+        setInputValue(e.target.value)
         console.log(inputValue)
     }
 
-    const balance = getBalance();
-    console.log(balance);
+    // const balance = getBalance();
+    // console.log(balance);
 
     return (
         <>
@@ -25,12 +35,11 @@ export function Balance() {
             </a>
             <form className={s.form}> 
                 <label htmlFor='balance' className={s.label}>Баланс: </label>
-                <input type = 'text' className={s.input} id='balance' value='123' onChange = {onInputChange}></input>
+                <input type = 'text' className={s.input} id='balance' value={inputValue} onChange = {onInputChange}></input>
                 <button type = "submit" className={s.button}>Подтвердить</button>  
-            </form>        
+            </form>    
         </div>
-        {/* Добавлю условный рендеринг */}
-        <ModalBalance></ModalBalance>
+        {showModal&&(<ModalBalance onClose={toggleModal}></ModalBalance>)}
         </>
     )
 }

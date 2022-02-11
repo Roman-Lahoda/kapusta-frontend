@@ -1,14 +1,14 @@
-// .overlay {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   z-index: 1200;
-// }
+.overlay {
+  //   position: absolute;
+  //   // top: 0;
+  //   // left: 0;
+  //   // width: 100vw;
+  //   // height: 100vh;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   // z-index: 1200;
+}
 
 .modal {
   position: relative;
@@ -25,17 +25,14 @@
   font-family: 'Roboto', sans-serif;
   color: #ffffff;
   font-weight: 400;
+
+  @media screen and(min-width:1280px) {
+    margin-left: 0;
+    margin-right: 0;
+    left: 104px;
+  }
 }
-// .modal::before {
-//   content: '';
-//   position: absolute;
-//   display: block;
-//   width: 30px;
-//   height: 16px;
-//   background-color: #152b59;
-//   top: -11px;
-//   left: 69px;
-// }
+
 .modal:before,
 .modal:after {
   content: '';

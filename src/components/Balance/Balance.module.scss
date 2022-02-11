@@ -14,10 +14,16 @@ $accent-color: #ff751d;
   margin-bottom: 40px;
 
   @media screen and(min-width:768px) {
+    max-width: 634px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    // margin-bottom: 58px;
+  }
+  @media screen and(min-width:1280px) {
+    max-width: 728px;
+    // margin-bottom: 9px;
   }
 }
 .link {
@@ -67,6 +73,7 @@ $accent-color: #ff751d;
   }
 }
 .input {
+  z-index: 999;
   width: 125px;
   height: 44px;
   padding-top: 15px;
@@ -94,6 +101,7 @@ $accent-color: #ff751d;
   }
 }
 .button {
+  z-index: 999;
   width: 125px;
   height: 44px;
   padding-top: 12px;
@@ -114,7 +122,6 @@ $accent-color: #ff751d;
   @media screen and(min-width:768px) {
     border-left: 2px solid #ffffff;
     border-radius: 16px;
-    margin-right: 15px;
     padding-top: 12px;
     padding-bottom: 12px;
   }

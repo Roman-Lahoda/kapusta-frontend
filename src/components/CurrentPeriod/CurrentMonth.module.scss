@@ -1,0 +1,18 @@
+.currentPeriod {
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.currentBlock {
+  display: flex;
+  justify-content: center;
+}
+
+.currentDates {
+  margin: 5px 15px 0;
+  font-weight: bold;
+  color: black;
+
+  font-size: 14px;
+  line-height: 16px;
+}

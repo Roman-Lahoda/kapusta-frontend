@@ -7,15 +7,19 @@
 import React from 'react';
 import './App.css';
 
-
 import Container from 'components/Container';
 import Dashboard from 'components/Dashboard';
+import Report from 'components/ExpensesReport/Report';
 
 function App() {
   return (
     <div className="App">
-      <Container>
+      {/* <Container>
         <Dashboard />
+      </Container> */}
+
+      <Container>
+        <Report />
       </Container>
     </div>
   );

@@ -9,8 +9,8 @@ import './App.css';
 import Test from './components/test/test';
 import { Balance } from './components/Balance/Balance';
 
-import Container from 'components/Container/Container';
-import Dashboard from 'components/Dashboard';
+// import Container from 'components/Container/Container';
+// import Dashboard from 'components/Dashboard';
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
       {/* <Container>
         <Dashboard />
       </Container>
-      <Form />
-      <Diagram /> */}
+      <Form />*/}
+      {/* <Diagram /> */}
     </div>
   );
 }

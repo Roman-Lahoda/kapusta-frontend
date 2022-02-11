@@ -2,7 +2,7 @@ import React from 'react';
 
 import Form from './components/Form/Form';
 
-import Diagram from './components/Diagram'
+import Diagram from './components/Diagram';
 
 import './App.css';
 
@@ -12,12 +12,11 @@ import Dashboard from 'components/Dashboard';
 function App() {
   return (
     <div className="App">
-      <Container>
+      {/* <Container>
         <Dashboard />
       </Container>
       <Form />
-      <Diagram/>
-
+      <Diagram /> */}
     </div>
   );
 }

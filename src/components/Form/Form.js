@@ -61,7 +61,7 @@ const Form = () => {
               </a>
             </form>
             <form onSubmit={handleSubmit} className={s.container_form}>
-              <h1 className={s.title_registe} r>
+              <h1 className={s.title_registe}>
                 Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
               </h1>
               <div className={s.form_row}>

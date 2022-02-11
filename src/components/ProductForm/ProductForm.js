@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Notification } from 'react-pnotify';
 
 import DescriptionInput from '../DescriptionInput';
-import DropList from '../Droplist/DropList';
+import DropList from '../DropListX/DropListX';
 import Calculator from '../Calculator';
 
 import Button from '../Button/Button';

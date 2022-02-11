@@ -1,22 +1,25 @@
 .container {
-  max-width: 100%;
-  margin: auto;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: auto;
 }
-@media (min-width: 320px) {
+
+@media screen and (min-width: 768px) {
   .container {
-    max-width: 320px;
+    align-items: stretch;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 768px;
   }
 }
-@media (min-width: 768px) {
+
+@media screen and (min-width: 1280px) {
   .container {
-    max-width: 768px;
-    padding: 0 50px;
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-    padding: 0 110px;
+    width: 1260px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 }

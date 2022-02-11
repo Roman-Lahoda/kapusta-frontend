@@ -1,93 +1,70 @@
-.container {
-  display: flex;
-  height: 44px;
+.calc {
+  position: absolute;
+  margin: 50px -120px;
+  width: 170px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+  border: 2px solid #f5f6fb;
+  background: white;
+  z-index: 2;
 }
-.inputSum {
-  padding-right: 15px;
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 37px);
+  row-gap: 15px;
+  justify-items: center;
+}
+.calcInput {
+  height: 30px;
+  width: 140px;
+  margin-bottom: 20px;
   outline: none;
+  border-radius: 6px;
   border: 2px solid #f5f6fb;
-  background-color: inherit;
-  text-align: end;
+}
+.calcBtn {
+  outline: none;
+  border: none;
+  width: -moz-fit-content;
+  width: 30px;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #f5f6fb;
+  border-radius: 45%;
+  color: grey;
+}
+.result {
+  grid-column: 1/1;
+  outline: none;
+  border: none;
+  background-color: #f5f6fb;
+  border-radius: 25px;
+  width: 44px;
+  height: 27px;
+  color: grey;
+}
+.confirmBtn {
+  grid-column: 2/5;
+  outline: none;
+  border: none;
+  background-color: #ff751d;
+  border-radius: 25px;
+  width: 90px;
+  height: 27px;
   font-size: 12px;
-  line-height: 14px;
-  letter-spacing: 0.02em;
+  margin-left: auto;
+  color: white;
 }
-/* Убрать дефолтные стрелочки */
-/* Это для браузера Chrome: */
-.inputSum[type='number']::-webkit-outer-spin-button,
-.inputSum[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* Это для браузера Firefox: */
-.inputSum[type='number'] {
-  -moz-appearance: textfield;
-}
-input[type='number']:hover,
-input[type='number']:focus {
-  -moz-appearance: number-input;
-}
-/* Для других */
-.inputSum[type='number']::-webkit-inner-spin-button,
-.inputSum[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.inputSum::placeholder {
-  color: #c7ccdc;
-}
-.calcContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #f5f6fb;
-  border-left: none;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
-}
-@media screen and (max-width: 767px) {
-  .container {
-    justify-content: center;
-  }
-  .input {
-    width: 125px;
-    border-color: #ffffff;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
-  }
-  .calcContainer {
-    width: 60px;
-    border-color: #ffffff;
-  }
-}
-@media (min-width: 768px) {
-  .input {
-    width: 76px;
-    padding-right: 10px;
-    border-right: none;
-  }
-  .calcContainer {
-    width: 40px;
-    justify-content: flex-start;
-  }
-}
-@media (min-width: 1280px) {
-  .input {
-    width: 86px;
-  }
-}
-
-.positionIcon {
-  position: relative;
-  padding: 10px 5px;
-  width: 60px;
-  height: 44px;
-  border: 2px solid #fff;
-  border-radius: 0 22px 22px 0;
-}
-
 @media screen and (min-width: 768px) {
-  .positionIcon {
-    width: 55%;
+  .calc {
+    position: absolute;
+    margin: 0px -65px;
+    width: 170px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    border: 2px solid #f5f6fb;
+    background: white;
   }
 }

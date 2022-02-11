@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-//👇 это изменил
 axios.defaults.baseURL = 'https://capusta2.herokuapp.com/api';
 
 //--------------------------------auth-operations-------------------------------
+
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -12,31 +12,18 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
-//👇 это изменил
+
 const fetchSignUp = credentials => axios.post('/users/registration', credentials);
 
 const fetchLogin = credentials => axios.post('/users/login', credentials);
 
 const fetchLogout = () => axios.post('/users/logout');
+
 //👇 этого нет
-// const fetchCurrent = () => axios.get('/users/current');
-//👇 этого нет
-// const fetchRefreshToken = () => axios.get('/users/refresh');
-//👇 этого нет
-// const fetchRepeatVerify = email => axios.post('/users/verify', email);
-//👇 этого нет
-// const fetchAvatar = formData =>
-//   axios.patch(
-//     '/users/avatars',
-//     formData,
-//     // {
-//     // headers: {
-//     //   'Content-Type': 'multipart/form-data',
-//     // }
-//     // }
-//   );
+// const fetchAvatar = formData => axios.patch('/users/avatars', formData);
 
 //--------------------------transactions-operations-------------------------------
+
 //можно либо этот 👇 использовать но обязательно указывать тип транзкции ,баланс передавать не надо
 const addTransaction = transaction => axios.post('/transactions', { transaction });
 //либо эти 👇,здесь указывать тип транзакции не надо,такие энд-поинты по ТЗ

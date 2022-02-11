@@ -25,12 +25,8 @@ const loginGoogleRequest = createAction('auth/loginGoogleRequest');
 const loginGoogleSuccess = createAction('auth/loginGoogleSuccess');
 const loginGoogleError = createAction('auth/loginGoogleError');
 
-const refreshLoginGoogleRequest = createAction(
-  'auth/refreshLoginGoogleRequest',
-);
-const refreshLoginGoogleSuccess = createAction(
-  'auth/refreshLoginGoogleSuccess',
-);
+const refreshLoginGoogleRequest = createAction('auth/refreshLoginGoogleRequest');
+const refreshLoginGoogleSuccess = createAction('auth/refreshLoginGoogleSuccess');
 const refreshLoginGoogleError = createAction('auth/refreshLoginGoogleError');
 
 const getCurrentUserRequest = createAction('auth/getCurrentUserRequest');

@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import useOnClickOutside from 'hooks/useOnClickOutside';
-import Dropdown from 'components/DropList';
-import CalculatorInput from 'components/Calculator/CalculatorInput';
-import Calculator from 'components/Calculator';
+import Dropdown from 'components/DropdownList';
+
+import Calculator from 'components/Calculator/Calculator';
 import Calendar from 'components/Calendar';
 import transactionsOperations from 'redux/transactions/transactions-operations';
 import s from './EditTransaction.module.scss';
@@ -108,16 +108,18 @@ export default function EditTransaction({ transaction, cancelChanges, onDateChan
                 value={sum}
                 name="sum"
                 id="sum"
-                type="string"
+                type="numeric"
                 maxLength="10"
-                placeholder="0.00"
+                placeholder="00.00 UAH"
                 required
+                autoComplete="off"
                 onChange={handleChangeSum}
               />
               <div onClick={handleCalcClick} className={s.inputSum}>
-                <Calculator />
-
-                {calc && <CalculatorInput onCloseCalculator={closeCalc} position={s.calc} />}
+                <div className={s.calcIcon}>
+                  <CalculatorIcon />
+                </div>
+                {calc && <Calculator onCloseCalculator={closeCalc} position={s.calc} />}
               </div>
             </div>
           </label>

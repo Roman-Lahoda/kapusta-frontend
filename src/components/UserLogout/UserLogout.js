@@ -1,26 +1,26 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-// import Modal from 'components/Modal';
-import { logOut } from 'redux/auth';
+import Modal from 'components/Modal';
+import { logOut } from 'redux/auth/auth-operations';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import logOutImg from '../../images/logOutSprite.svg';
 
 import s from './UserLogout.module.scss';
 
 const UserLogout = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const toggleModal = () => {
-  //   setShowModal(prevShowModal => !prevShowModal);
-  // };
+  const toggleModal = () => {
+    setShowModal(prevShowModal => !prevShowModal);
+  };
 
-  // const logoutModal = () => {
-  //   dispatch(logOut());
-  //   toggleModal();
-  // };
+  const logoutModal = () => {
+    dispatch(logOut());
+    toggleModal();
+  };
 
-  // const [setModalOpen, setShowModal] = useState(false);
+  const [setModalOpen, setShowModal] = useState(false);
 
   const viewPort = useWindowDimensions();
 
@@ -38,14 +38,14 @@ const UserLogout = () => {
           </svg>
         </button>
       )}
-      {/* {setModalOpen && (
+      {setModalOpen && (
         <Modal
           text={'Вы действительно хотите выйти?'}
           handleClickLeft={logoutModal}
           handleClickRight={toggleModal}
           onClose={toggleModal}
         />
-      )} */}
+      )}
     </>
   );
 };

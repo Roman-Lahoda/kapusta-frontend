@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { getUserName, getUserAvatar } from 'redux/auth';
-import { useState } from 'react';
+import { getUserName, getUserAvatar } from 'redux/auth/auth-selectors';
+// import { useState } from 'react';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import s from './UserInfo.module.scss';
 // import AvatarModal from 'components/AvatarModal';
@@ -10,17 +10,17 @@ const UserInfo = () => {
   const UserName = useSelector(state => getUserName(state));
 
   const avatar = useSelector(state => getUserAvatar(state));
-  const [editProfile, setEditProfile] = useState(false);
-  const FirstLetterOfUser = UserName.slice(0, 1).toUpperCase();
+  // const [editProfile, setEditProfile] = useState(false);
+  // const FirstLetterOfUser = UserName.slice(0, 1).toUpperCase();
   const viewPort = useWindowDimensions();
 
-  const openModalProfile = () => {
-    setEditProfile(true);
-  };
+  // const openModalProfile = () => {
+  //   setEditProfile(true);
+  // };
 
-  const closeProfileModal = () => {
-    setEditProfile(false);
-  };
+  // const closeProfileModal = () => {
+  //   setEditProfile(false);
+  // };
   return (
     <>
       {viewPort.width >= 768 && (
@@ -28,7 +28,7 @@ const UserInfo = () => {
           {/* {editProfile && <AvatarModal closeAvatarModal={closeProfileModal} />} */}
           <div className={s.userInfo}>
             <div className={s.userInfo_container}>
-              {avatar ? (
+              {/* {avatar ? (
                 <img
                   src={avatar}
                   alt="Avatar"
@@ -42,8 +42,9 @@ const UserInfo = () => {
               )}
               <p className={s.userFullName} onClick={openModalProfile}>
                 {UserName}{' '}
-              </p>
-              <div className={s.iconWrapper} onClick={openModalProfile}>
+              </p> */}
+              {/* <div className={s.iconWrapper} onClick={openModalProfile}></div> */}
+              <div className={s.iconWrapper}>
                 <TuneOutlinedIcon color="disabled" />
               </div>
             </div>
@@ -52,15 +53,16 @@ const UserInfo = () => {
       )}
       {viewPort.width < 768 && (
         <div className={s.userInfo_container}>
-          {/* {editProfile && <AvatarModal closeAvatarModal={closeProfileModal} />} */}
+          {/* {editProfile && <AvatarModal closeAvatarModal={closeProfileModal} />}
           {avatar ? (
             <img src={avatar} alt="Avatar" className={s.userAvatar} onClick={openModalProfile} />
           ) : (
             <p className={s.userAvatar} onClick={openModalProfile}>
               {FirstLetterOfUser}
             </p>
-          )}
-          <div className={s.iconWrapper} onClick={openModalProfile}>
+          )} */}
+          {/* <div className={s.iconWrapper} onClick={openModalProfile}> */}
+          <div className={s.iconWrapper}>
             <TuneOutlinedIcon color="disabled" />
           </div>
         </div>

@@ -1,36 +1,44 @@
-import s from './Summary.module.scss';
-import { Month } from '../../constants/constants';
-import { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-function Summary({ report }) {
-  const [data, setData] = useState([]);
+import data from '../../data/month.json';
+import s from './Summary.module.scss';
+import * as selectors from 'redux/transactions/transactions-selectors';
+import transactionsOperations from 'redux/transactions/transactions-operations';
+import Loader from 'components/Loader';
+import { getLoader } from 'redux/transactions/transactions-selectors';
+
+const Summary = ({ year }) => {
+  const dispatch = useDispatch();
+  const totalBalance = useSelector(selectors.getTotalBalance);
+  const loader = useSelector(getLoader);
 
   useEffect(() => {
-    if (!report || report === []) {
-      return;
+    if (year > 0) {
+      dispatch(transactionsOperations.getMonthlyBalancesYear(year));
     }
-    const newReport = JSON.parse(JSON.stringify(report));
+  }, [totalBalance, year, dispatch]);
 
-    newReport.map(i =>
-      Object.keys(Month).includes(`${i.month}`) ? (i.month = Month[i.month]) : null,
-    );
-    setData(newReport);
-  }, [report]);
+  const balances = useSelector(selectors.getMonthlyBalances);
+
+  const sortedBalances = [...balances].sort((a, b) => b.month - a.month);
 
   return (
-    <div className={s.container}>
-      <h1 className={s.title}>СВОДКА</h1>
-      <ul className={s.list}>
-        {data &&
-          data.map(({ sum, month }) => (
-            <li key={`${sum}+${month}`} className={s.item}>
-              <span className={s.item_text}>{month}</span>
-              <span className={s.item_number}>{sum}</span>
-            </li>
-          ))}
+    <div className={s.summaryContainer}>
+      {loader && <Loader />}
+      <h4 className={s.summaryTitle}>Сводка</h4>
+      <ul className={s.summaryList}>
+        {sortedBalances.map(({ month, value }, index) => (
+          <li key={index} className={s.summaryItem}>
+            <p className={s.summaryDescription}>
+              {data.find(monthData => monthData.id === month).name}
+            </p>
+            <p className={s.summaryDescription}>{value}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );
-}
+};
 
 export default Summary;

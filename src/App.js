@@ -19,9 +19,9 @@ function App() {
       {/* <Balance></Balance> */}
       {/* <Container>
         <Dashboard />
-      </Container>
+      </Container>*/}
       <Form />
-      <Diagram /> */}
+      {/* <Diagram /> */}
     </div>
   );
 }

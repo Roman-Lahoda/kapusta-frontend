@@ -17,7 +17,7 @@ import {
   repeatEmailVerifySuccess,
   repeatEmailVerifyOk,
   repeatEmailVerifyError,
-} from 'redux/auth';
+} from '../auth';
 
 const transactionsDay = createReducer([], {
   [actions.getTransactionsSuccess]: (_, { payload }) => payload,

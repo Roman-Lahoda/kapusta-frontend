@@ -5,8 +5,8 @@ import Form from './components/Form/Form';
 import Diagram from './components/Diagram';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import authOperation from 'reduxV2/auth/auth-operation';
-import authSelectors from 'reduxV2/auth/auth-selector';
+import authOperation from './reduxV2/auth/auth-operation';
+import authSelectors from './reduxV2/auth/auth-selector';
 
 import './App.css';
 

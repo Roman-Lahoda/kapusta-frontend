@@ -77,11 +77,11 @@ export const updateUser = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const { data } = await axios.patch('/users/update', userData);
+      const user = JSON.parse(localStorage.getItem('user'));
       localStorage.removeItem('user');
       // localStorage.setItem('data', JSON.stringify(data.userData));
-      const user = JSON.parse(localStorage.getItem('user'));
-      const updatedUser = { ...user };
-      localStorage.setItem('users', JSON.stringify(updatedUser));
+      const updatedUser = { ...user, ...data.userData };
+      localStorage.setItem('user', JSON.stringify(updatedUser));
       return data;
     } catch (error) {
       return rejectWithValue(error);

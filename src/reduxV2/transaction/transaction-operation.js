@@ -4,15 +4,17 @@ axios.defaults.baseURL = 'http://localhost:3000/api';
 
 export const addTransaction = createAsyncThunk(
   'users/registration',
-  async (transaction, { rejectWithValue }) => {
+  async (transaction, trType, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/users/registration', transaction);
-      // token.set(data.token);
-      // notification.SignupSuccess(data.user.name);
-      return data;
+      return transaction;
     } catch (error) {
-      // notification.SignupError();
       return rejectWithValue(error);
     }
   },
 );
+
+const transactionOperation = {
+  addTransaction,
+};
+export default transactionOperation;

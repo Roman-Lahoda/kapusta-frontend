@@ -6,7 +6,8 @@ import Diagram from './components/Diagram';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import authOperation from './reduxV2/auth/auth-operation';
-import authSelectors from './reduxV2/auth/auth-selector';
+// import authSelectors from './reduxV2/auth/auth-selector';
+import transactionOperation from './reduxV2/transaction/transaction-operation';
 
 import './App.css';
 
@@ -18,8 +19,8 @@ import { Balance } from './components/Balance/Balance';
 
 function App() {
   const dispatch = useDispatch();
-  const state = useSelector(authSelectors.getAllState);
-  console.log(state);
+  // const state = useSelector(authSelectors.getAllState);
+  // console.log(state);
 
   useEffect(() => {
     dispatch(authOperation.refresh());
@@ -39,6 +40,10 @@ function App() {
 
   const Update = () => {
     dispatch(authOperation.updateUser({ name: 'test', balance: 10000 }));
+  };
+
+  const addTr = () => {
+    dispatch(transactionOperation.addTransaction());
   };
 
   return (

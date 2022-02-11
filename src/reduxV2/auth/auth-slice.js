@@ -59,6 +59,9 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.error = action.payload;
     },
+    [addtransaction.fulfilled](state, action) {
+      state.user = state.user - action.payload.sum;
+    },
   },
 });
 

@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  scroll-behavior: smooth;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,111 +11,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-/* Tabs */
-/* .react-tabs {
-  -webkit-tap-highlight-color: transparent;
-  /* margin-bottom: 50px; */
-/* }
-
-.react-tabs__tab-list {
-  display: flex;
-  margin: 0;
-  padding: 0;
-} */
-
-/* .react-tabs__tab {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid transparent;
-  border-bottom: none;
-  bottom: 0px;
-  position: relative;
-  list-style: none;
-  padding: 15px 45px 15px 45px;
-  cursor: pointer;
-  background: #fafbfd;
-  border: none;
-  border-radius: 20px 20px 0px 0px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 14px;
-  width: 138px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-} */
-
-/* .react-tabs__tab--selected { */
-/* background: #fefefe;
-  border-color: #aaa;
-  color: #ff751d;
-} */
-/* 
-.react-tabs__tab:focus {
-  box-shadow: 0 0 5px #a6abb9;
-  border-color: #a6abb9;
-  outline: none;
-} */
-
-/* .react-tabs__tab:focus:after {
-  content: '';
-  position: absolute;
-  height: 5px;
-  left: -4px;
-  right: -4px;
-  bottom: -5px;
-  background: #fff;
+:root {
+  --text-color-main: #52555f;
+  --text-color-light: #c7ccdc;
+  --accent-color-primary: #ff751d;
+  --accent-color-light: #ffdac0;
+  --bg-color: #f5f6fb;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --red-color: #e53935;
+  --green-color: #407946;
+  --icons-color: #071f41;
+  --main-shadow: 0px 10px 60px 0px rgba(170, 178, 197, 0.2);
+  --desctop-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --mobile-shodow: 5px 10px 20px 0px rgba(170, 178, 197, 0.4);
+  --transition-function: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.react-tabs__tab--disabled {
-  color: GrayText;
-  cursor: default;
-} */
-
-/* .react-tabs__tab-panel {
-  display: none;
-  width: 1060px;
-  height: 579px;
-  box-shadow: 0px 10px 60px rgb(170 178 197 / 20%);
-  border-radius: 0px 30px 30px 30px;
+.simplebar-scrollbar::before {
+  background-color: var(--accent-color-primary);
 }
 
-.react-tabs__tab-panel--selected {
-  display: block;
-  padding: 20px;
-  background: #fff;
-} */
+.simplebar-scrollbar.simplebar-visible.simplebar-scrollbar::before {
+  transform: none;
+  opacity: 1;
+  transition: none;
+}
 
-/* tablet */
-/* @media screen and (min-width: 768px) {
-  .react-tabs__tab {
-    border-radius: 20px 20px 0px 0px;
-  }
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: var(--accent-color-primary);
+}
 
-  .react-tabs__tab-panel {
-    width: 100%;
-    height: 626px;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-    border-radius: 0px 30px 30px 30px;
-  }
-
-  .react-tabs {
-    margin-top: 58px;
-  }
-} */
-
-/* desktop */
-/* @media screen and (min-width: 1280px) {
-  .react-tabs__tab-panel {
-    width: 1060px;
-    height: 579px;
-  }
-
-  .react-tabs {
-    margin-top: 10px;
-  }
-} */
+.react-datepicker__day--selected:hover {
+  background-color: #f0f0f0;
+  color: #000000;
+}

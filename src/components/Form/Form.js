@@ -38,8 +38,16 @@ const Form = () => {
   return (
     <Formik initialValues={initialValues} validate={validate} onSubmit={submitForm}>
       {formik => {
-        const { values, handleChange, handleSubmit, errors, touched, handleBlur, isValid, dirty } =
-          formik;
+        const {
+          values,
+          handleChange,
+          handleSubmit,
+          errors,
+          touched,
+          handleBlur,
+          isValid,
+          dirty,
+        } = formik;
         return (
           <div className={s.container}>
             <form onSubmit={handleSubmit} className={s.container_form}>
@@ -74,6 +82,7 @@ const Form = () => {
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  autoComplete="on"
                   className={errors.email && touched.email ? 'input_error' : null}
                 />
                 {errors.email && touched.email && <span className="error">{errors.email}</span>}
@@ -89,6 +98,7 @@ const Form = () => {
                   value={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
+                  autoComplete="on"
                   className={errors.password && touched.password ? 'input_error' : null}
                 />
                 {errors.password && touched.password && (

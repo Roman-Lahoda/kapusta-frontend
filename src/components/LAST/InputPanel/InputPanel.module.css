@@ -1,0 +1,71 @@
+.formPanel {
+  display: flex;
+  width: 601px;
+  height: 44px;
+  border: 2px solid #f5f6fb;
+  box-sizing: border-box;
+  border-radius: 16px 16px 16px 0px;
+  margin-left: 34px;
+}
+
+.description {
+  width: 268px;
+  height: 40px;
+  margin-left: 21px;
+  border: none;
+  color: #c7ccdc;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  outline-style: none;
+  border-right: 2px solid #f5f6fb;
+}
+
+.sum {
+  width: 70px;
+  height: 40px;
+  border: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  justify-content: flex-end;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
+  padding: 0;
+  padding-right: 16px;
+  outline-style: none;
+}
+
+.wrapperSum {
+  display: flex;
+  width: 126px;
+  height: 40px;
+  border-radius: 0px 16px 16px 0px;
+  border-left: 2px solid #f5f6fb;
+  align-items: center;
+}
+
+.sumButton {
+  border-style: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  padding: 0px;
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .formPanel {
+    margin-left: 23px;
+  }
+}

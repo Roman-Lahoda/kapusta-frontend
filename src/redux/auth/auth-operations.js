@@ -1,144 +1,97 @@
-import Alert from 'components/Alert';
-import {
-  registerRequest,
-  registerSuccess,
-  registerError,
-  uploadAvatarRequest,
-  uploadAvatarSuccess,
-  uploadAvatarError,
-  // repeatEmailVerifyRequest,
-  // repeatEmailVerifySuccess,
-  // repeatEmailVerifyError,
-  logoutRequest,
-  logoutSuccess,
-  loginRequest,
-  loginSuccess,
-  loginError,
-  // getCurrentUserRequest,
-  // getCurrentUserSuccess,
-  // getCurrentUserError,
-} from './auth-actions';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+axios.defaults.baseURL = "https://kapusta-team-project-back.herokuapp.com/api";
 
-// import { setTotalBalanceSuccess } from 'redux/transactions';
-
-import {
-  token,
-  fetchSignUp,
-  fetchLogin,
-  fetchLogout,
-  fetchAvatar,
-  // fetchCurrent,
-  // fetchRepeatVerify,
-  // fetchRefreshToken,
-} from 'services/fetchApi';
-
-const register = credentials => async dispatch => {
-  dispatch(registerRequest());
-  try {
-    const response = await fetchSignUp(credentials);
-    dispatch(registerSuccess(response.data));
-  } catch ({ response }) {
-    dispatch(registerError(response.data.message));
-    Alert(response.data.message);
-  }
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = "";
+  },
 };
 
-// const repeatVerify = email => async dispatch => {
-//   dispatch(repeatEmailVerifyRequest());
-//   try {
-//     const response = await fetchRepeatVerify(email);
-//     dispatch(repeatEmailVerifySuccess(response.data));
-//   } catch ({ response }) {
-//     dispatch(repeatEmailVerifyError(response.data.message));
-//     Alert(response.data.message);
-//   }
-// };
+export const register = createAsyncThunk(
+  "auth/signup",
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await axios.post("/auth/signup", credentials);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      const { status } = error.response;
+      let message;
+      if (status === 409) {
+        message = "User with such email already exists";
+      }
 
-const logIn = credentials => async dispatch => {
-  dispatch(loginRequest());
-  try {
-    const response = await fetchLogin(credentials);
-    token.set(response.data.data);
-    dispatch(loginSuccess(response.data.data));
-  } catch ({ response }) {
-    dispatch(loginError(response.data.message));
-    Alert(response.data.message);
+      return thunkAPI.rejectWithValue({ ...error.response.data, message });
+    }
   }
-};
+);
 
-const logOut = () => async dispatch => {
-  dispatch(logoutRequest());
+export const logIn = createAsyncThunk(
+  "auth/login",
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await axios.post("/auth/login", credentials);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      const { status } = error.response;
+      let message;
+      if (status === 400) {
+        message = "Please check email for verification";
+      }
+      if (status === 401) {
+        message = "Incorrect email or password";
+      }
+      return thunkAPI.rejectWithValue({ ...error.response.data, message });
+    }
+  }
+);
+
+export const logOut = createAsyncThunk("auth/logout", async () => {
   try {
-    await fetchLogout();
+    await axios.get("/auth/logout");
     token.unset();
-    dispatch(logoutSuccess());
-  } catch ({ response }) {
-    token.unset();
-    dispatch(logoutSuccess());
+  } catch (error) {
+    console.log(error);
   }
-};
+});
 
-// const uploadAvatar = formData => async (dispatch, getState) => {
-//   dispatch(uploadAvatarRequest());
-//   try {
-//     const response = await fetchAvatar(formData);
-//     dispatch(uploadAvatarSuccess(response.data.data));
-//   } catch ({ response }) {
-//     if (response.data.message === 'Invalid token') {
-//       await refresh(dispatch, getState);
-//       const response = await fetchAvatar(formData);
-//       dispatch(uploadAvatarSuccess(response.data.data));
-//     } else {
-//       dispatch(uploadAvatarError(response.data.message));
-//       Alert(response.data.message);
-//     }
-//   }
-// };
+export const fetchCurrentUser = createAsyncThunk(
+  "auth/current",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
 
-// const getCurrentUser = () => async (dispatch, getState) => {
-//   const {
-//     auth: { token: persistedToken },
-//   } = getState();
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue(``);
+    }
 
-//   if (!persistedToken) {
-//     return;
-//   }
-//   token.set(persistedToken);
-//   dispatch(getCurrentUserRequest());
-//   try {
-//     const response = await fetchCurrent();
-//     dispatch(getCurrentUserSuccess(response.data.user));
-//     dispatch(setTotalBalanceSuccess(response.data.user.balance));
-//   } catch ({ response }) {
-//     if (response.data.message === 'Invalid token') {
-//       return await refresh(dispatch, getState);
-//     }
-//     dispatch(getCurrentUserError(response.data.message));
-//     Alert(response.data.message);
-//   }
-// };
+    token.set(persistedToken);
+    try {
+      const { data } = await axios.get("/auth/current");
+      return data;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+);
 
-// const refresh = async (dispatch, getState) => {
-//   const {
-//     auth: { refreshToken: persistedRefreshToken },
-//   } = getState();
-//   token.set(persistedRefreshToken);
-//   try {
-//     const response = await fetchRefreshToken();
-//     token.set(response.data.data.token);
-//     dispatch(getCurrentUserSuccess(response.data.data.user));
-//     dispatch(setTotalBalanceSuccess(response.data.data.user.balance));
-//     dispatch(
-//       loginSuccess({
-//         token: response.data.data.token,
-//         refreshToken: response.data.data.refreshToken,
-//       }),
-//     );
-//   } catch (error) {
-//     dispatch(logoutSuccess());
-//     token.unset();
-//     console.log(error.message);
-//   }
-// };
-
-export { register, logOut, logIn };
+export const balanceInit = createAsyncThunk(
+  "auth/balance",
+  async (balance, thunkAPI) => {
+    try {
+      console.log(balance);
+      const { data } = await axios.post("/auth/balance", balance);
+      console.log(data);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+// TODO: need to move all requests to APIservice file
+//

@@ -1,0 +1,40 @@
+.buttonBlock {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 265px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 125px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  cursor: pointer;
+  border: none;
+  border-radius: 16px;
+
+  background-color: var(--bg-color);
+  color: var(--text-color-main);
+  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+
+  transition-property: color, background-color, filter;
+  transition-duration: var(--transition-function);
+  transition-timing-function: var(--timing-function);
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.67;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--accent-color-primary);
+  filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
+  color: var(--white-color);
+}

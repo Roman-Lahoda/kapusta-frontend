@@ -1,0 +1,98 @@
+.tabsContainer {
+  margin-top: 58px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 665px;
+}
+
+.tabList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  background-color: #fafbfd;
+  text-transform: uppercase;
+  width: 138px;
+  height: 40px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.167;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectedTab {
+  color: #ff751d;
+  background-color: #fefefe;
+}
+
+.tabPanel {
+  width: 665px;
+  padding: 28px 30px 50px;
+  background-color: #ffffff;
+  border-radius: 0 30px 30px 30px;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+}
+
+.setDataWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.buttonWrapper {
+  width: 265px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 767px) {
+  .tabsContainer {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .setDataWrapper {
+    justify-content: center;
+  }
+
+  .buttonWrapper {
+    margin-top: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .tabsContainer {
+    width: 1060px;
+    margin-bottom: 0;
+    margin-top: 9px;
+  }
+
+  .tabPanel {
+    padding: 33px 20px 61px;
+    width: 1060px;
+  }
+
+  .setDataWrapper {
+    margin-bottom: 59px;
+  }
+
+  .buttonWrapper {
+    margin-left: 27px;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}

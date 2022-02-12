@@ -1,205 +1,132 @@
-import * as actions from './transactions-actions';
-import { fetch } from 'services/fetchApi';
-import { store } from '../store';
-import Alert from 'components/Alert';
-// import { refresh } from 'redux/auth';
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import { transactionsShelfAPI } from '../../apiService'
 
-const setBalance = balance => async (dispatch, getState) => {
-  dispatch(actions.setTotalBalanceRequest());
-
-  try {
-    const response = await fetch.setBalance(balance);
-    dispatch(actions.setTotalBalanceSuccess(response.data.data.balance));
-  } catch ({ response }) {
-    if (response.data.message === 'Invalid token') {
-      // await refresh(dispatch, getState);
-      const response = await fetch.setBalance(balance);
-      dispatch(actions.setTotalBalanceSuccess(response.data.data.balance));
-      return;
+export const getSummary = createAsyncThunk(
+  'transactions/getSummary',
+  async ({ transactionType, date }, { rejectWithValue }) => {
+    try {
+      const { data } = await transactionsShelfAPI.fetchSummary(transactionType, date)
+      return {
+        transactionType,
+        data
+      }
+    } catch (error) {
+      const { status } = error.response;
+      let message;
+      if (status === 404) {
+        message = "Not found";
+      }
+      return rejectWithValue({ ...error.response.data, message })
     }
-    dispatch(actions.setTotalBalanceError(response.data.message));
-    Alert(response.data.message);
   }
-};
+)
 
-const addTransaction = transaction => async (dispatch, getState) => {
-  dispatch(actions.addTransactionRequest());
-  const balance = calculateBalance(transaction, 'add');
-  const splitedDate = dateSplitter(transaction.date);
-  try {
-    const response = await fetch.addTransaction(Object.assign(transaction, splitedDate), balance);
-
-    dispatch(actions.addTransactionSuccess(response.data.resultTransaction));
-    dispatch(actions.setTotalBalanceSuccess(response.data.balance));
-  } catch ({ response }) {
-    if (response.data.message === 'Invalid token') {
-      // await refresh(dispatch, getState);
-      const response = await fetch.addTransaction(Object.assign(transaction, splitedDate), balance);
-      dispatch(actions.addTransactionSuccess(response.data.resultTransaction));
-      dispatch(actions.setTotalBalanceSuccess(response.data.balance));
-      return;
+export const getSummaryByCategory = createAsyncThunk(
+  'transactions/categories/getSummaryByCategory',
+  async ({ transactionType, date }, { rejectWithValue }) => {
+    try {
+      const { data } = await transactionsShelfAPI.fetchSummaryByCategory(
+        transactionType,
+        date
+      )
+      const year = date.substr((date.length - 4), (date.length - 1))
+      const dataWithYear = data.map(({ category, sum }) => ({ year, category, sum }))
+      
+      return dataWithYear;
+    } catch (error) {
+      const { status } = error.response;
+      let message;
+      if (status === 404) {
+        message = "Not found";
+      }
+      return rejectWithValue({ ...error.response.data, message })
     }
-    dispatch(actions.addTransactionError(response.data.message));
-    Alert(response.data.message);
   }
-};
+)
 
-const deleteTransaction = transaction => async (dispatch, getState) => {
-  dispatch(actions.deleteTransactionRequest());
-  const balance = calculateBalance(transaction, 'delete');
-  try {
-    await fetch.deleteTransaction(transaction._id);
-    const setBalance = await fetch.setBalance(balance);
-    dispatch(actions.deleteTransactionSuccess(transaction._id));
-    dispatch(actions.setTotalBalanceSuccess(setBalance.data.data.balance));
-  } catch ({ response }) {
-    if (response.data.message === 'Invalid token') {
-      // await refresh(dispatch, getState);
-      await fetch.deleteTransaction(transaction._id);
-      const setBalance = await fetch.setBalance(balance);
-      dispatch(actions.deleteTransactionSuccess(transaction._id));
-      dispatch(actions.setTotalBalanceSuccess(setBalance.data.data.balance));
-      return;
+export const getTransForPeriod = createAsyncThunk(
+  'transactions/categories/getTransForPeriod',
+  async ({ transactionType, period }, { rejectWithValue }) => {
+    try {
+      const { data } = await transactionsShelfAPI.fetchTransForPeriod(
+        transactionType,
+        period
+      )
+      return {
+        period,
+        data
+      }
+    } catch (error) {
+      const { status } = error.response;
+      let message;
+      if (status === 404) {
+        message = "Not found";
+      }
+      return rejectWithValue({ ...error.response.data, message })
     }
-    dispatch(actions.addTransactionError(response.data.message));
-    Alert(response.data.message);
   }
-};
+)
 
-const editTransaction = transaction => async (dispatch, getState) => {
-  dispatch(actions.editTransactionRequest());
-  const balance = calculateBalance(transaction, 'edit');
-
-  try {
-    const response = await fetch.editTransaction(transaction, balance);
-    dispatch(actions.editTransactionSuccess(response.data.result));
-    dispatch(actions.setTotalBalanceSuccess(response.data.balance));
-  } catch ({ response }) {
-    if (response.data.message === 'Invalid token') {
-      // await refresh(dispatch, getState);
-      const response = await fetch.editTransaction(transaction, balance);
-      dispatch(actions.editTransactionSuccess(response.data.result));
-      dispatch(actions.setTotalBalanceSuccess(response.data.balance));
-      return;
+export const income = createAsyncThunk(
+  'transaction/income',
+  async ({ transactionType, date, description, category, sum }, { rejectWithValue }) => {
+    try {
+      const result = await transactionsShelfAPI.patchIncome({
+        transactionType,
+        date,
+        description,
+        category,
+        sum
+      })
+      console.log(result);
+      return result;
+    } catch (error) {
+      const { status } = error.response;
+      let message;
+      if (status === 404) {
+        message = "Not found";
+      }
+      return rejectWithValue({ ...error.response.data, message })
     }
-    dispatch(actions.editTransactionError(response.data.message));
-    Alert(response.data.message);
   }
-};
+)
 
-const getTransactionsDay = date => async (dispatch, getState) => {
-  dispatch(actions.getTransactionsRequest());
-  try {
-    const response = await fetch.getTransactionsByDate(date);
-
-    dispatch(actions.getTransactionsSuccess(response.data.result));
-  } catch ({ response }) {
-    if (response.data.message === 'Invalid token') {
-      // await refresh(dispatch, getState);
-      const response = await fetch.getTransactionsByDate(date);
-
-      dispatch(actions.getTransactionsSuccess(response.data.result));
-      return;
+export const expenses = createAsyncThunk(
+  'transaction/expenses',
+  async ({ transactionType, date, description, category, sum }, { rejectWithValue }) => {
+    try {
+      const result = await transactionsShelfAPI.patchExpenses({
+        transactionType,
+        date,
+        description,
+        category,
+        sum
+      })
+      return result;
+    } catch (error) {
+      const { status } = error.response;
+      let message;
+      if (status === 404) {
+        message = "Not found";
+      }
+      return rejectWithValue({ ...error.response.data, message })
     }
-    dispatch(actions.getTransactionsError(response.data.message));
-    Alert(response.data.message);
   }
-};
+)
 
-const getTransactionsMonthYear = (month, year) => async (dispatch, getState) => {
-  dispatch(actions.getTransactionsMonthYearRequest());
-  try {
-    const response = await fetch.getTransactionsByPeriod(`${month}-${year}`);
-    dispatch(actions.getTransactionsMonthYearSuccess(response.data.result));
-  } catch ({ response }) {
-    if (response.data.message === 'Invalid token') {
-      // await refresh(dispatch, getState);
-      const response = await fetch.getTransactionsByPeriod(`${month}-${year}`);
-      dispatch(actions.getTransactionsMonthYearSuccess(response.data.result));
-      return;
+export const deleteTransaction = createAsyncThunk(
+  'transaction/deleteTransaction',
+  async ({transactionId, transactionType}, { rejectWithValue }) => {
+    try {
+      await transactionsShelfAPI.deleteTransaction(transactionId)
+      return {transactionId, transactionType};
+    } catch (error) {
+      const { status } = error.response;
+      let message;
+      if (status === 404) {
+        message = "Not found";
+      }
+      return rejectWithValue({ ...error.response.data, message })
     }
-    dispatch(actions.getTransactionsMonthYearError(response.data.message));
-    Alert(response.data.message);
   }
-};
-
-const getMonthlyBalancesYear = year => async (dispatch, getState) => {
-  dispatch(actions.getMonthlyBalanceRequest());
-  try {
-    const response = await fetch.getTransactionsByPeriod(year);
-    const balances = calculateBalancesPerMonth(response.data.result);
-    dispatch(actions.getMonthlyBalanceSuccess(balances));
-  } catch ({ response }) {
-    if (response.data.message === 'Invalid token') {
-      // await refresh(dispatch, getState);
-      const response = await fetch.getTransactionsByPeriod(year);
-      const balances = calculateBalancesPerMonth(response.data.result);
-      dispatch(actions.getMonthlyBalanceSuccess(balances));
-      return;
-    }
-    dispatch(actions.getMonthlyBalanceError(response.data.message));
-    Alert(response.data.message);
-  }
-};
-
-const transactionsOperations = {
-  setBalance,
-  addTransaction,
-  deleteTransaction,
-  editTransaction,
-  getTransactionsMonthYear,
-  getMonthlyBalancesYear,
-  getTransactionsDay,
-};
-
-export default transactionsOperations;
-
-const calculateBalance = (transaction, actionType) => {
-  const initialBalance = store.getState().wallet.totalBalance;
-  const transactionsList = store.getState().wallet.transactionsDay;
-  switch (actionType) {
-    case 'add':
-      return transaction.type === 'income'
-        ? Number(initialBalance) + Number(transaction.sum)
-        : Number(initialBalance) - Number(transaction.sum);
-    case 'delete':
-      return transaction.type === 'income'
-        ? Number(initialBalance) - Number(transaction.sum)
-        : Number(initialBalance) + Number(transaction.sum);
-    case 'edit':
-      const initialTransaction = transactionsList.find(item => item._id === transaction._id);
-      const priorBalance = Number(initialBalance) - Number(initialTransaction.sum);
-      return transaction.type === 'income'
-        ? Number(priorBalance) + Number(transaction.sum)
-        : Number(priorBalance) - Number(transaction.sum);
-    default:
-      return;
-  }
-};
-
-const calculateBalancesPerMonth = transactions => {
-  const result = [];
-  transactions.map(transaction => {
-    const balanceByMonth = result.find(item => item.month === transaction.month);
-    if (!balanceByMonth) {
-      return result.push({
-        month: transaction.month,
-        value: transaction.type === 'income' ? +transaction.sum : -transaction.sum,
-      });
-    } else {
-      return transaction.type === 'income'
-        ? (balanceByMonth.value += transaction.sum)
-        : (balanceByMonth.value -= transaction.sum);
-    }
-  });
-
-  return result;
-};
-
-const dateSplitter = date => {
-  const splittedDate = {
-    month: String(date.split('.')[1]),
-    year: String(date.split('.')[2]),
-  };
-  return splittedDate;
-};
+)

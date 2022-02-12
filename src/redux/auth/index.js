@@ -1,4 +1,3 @@
-export * from './auth-actions';
-export * from './auth-reducer';
-export * from './auth-operations';
-export * from './auth-selectors';
+export * as authOperations from './auth-operations';
+export * as authReducer from './auth-slice';
+export { default as authSelectors } from './auth-selectors';

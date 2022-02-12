@@ -1,26 +1,19 @@
-const getIsAuthenticated = state => state.auth.isLogin;
+const getUserName = (state) => state.auth.user.name;
+const getBalance = (state) => state.auth.user.balance;
+const getIsFetchingCurrent = (state) => state.auth.isFetchingCurrent;
+const getIsRegistered = (state) => state.auth.isRegistered;
+const getIsVerified = (state) => state.auth.isVerified;
+const getIsLoggedIn = (state) => state.auth.isLoggedIn;
+const getErrorMessage = (state) => state.auth.errorMessage;
 
-const getUserName = state => state.auth.user.name;
-
-const getUserEmail = state => state.auth.user.email;
-
-const getMessageRepeatEmailVerify = state => state.auth.isRepeatEmailVerify;
-
-const getUserAvatar = state => state.auth.user.avatarURL;
-
-const getFetchigCurrentUser = state => state.auth.isFetchigCurrentUser;
-
-const getCurrentToken = state => state.auth.token;
-
-const getAuthError = state => state.auth.error;
-
-export {
-  getIsAuthenticated,
+const authSelectors = {
   getUserName,
-  getUserEmail,
-  getMessageRepeatEmailVerify,
-  getFetchigCurrentUser,
-  getCurrentToken,
-  getUserAvatar,
-  getAuthError,
+  getIsFetchingCurrent,
+  getIsRegistered,
+  getIsVerified,
+  getIsLoggedIn,
+  getErrorMessage,
+  getBalance,
 };
+
+export default authSelectors;

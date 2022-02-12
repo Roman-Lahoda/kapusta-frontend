@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { getUserName, getUserAvatar } from 'redux/auth';
+import { getUserName, getUserAvatar } from '../../redux/auth';
 import { useState } from 'react';
-import useWindowDimensions from 'hooks/useWindowDimensions';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import s from './UserInfo.module.scss';
 // import AvatarModal from 'components/AvatarModal';
 

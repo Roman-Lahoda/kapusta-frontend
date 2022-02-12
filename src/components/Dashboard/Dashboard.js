@@ -13,7 +13,7 @@ function Dashboard({
   active,
   changeActiveState,
   stateDashboardButton,
-  changestateDashboardButton,
+  changeStateDashboardButton,
 }) {
   const [transactionType, setTransactionType] = useState(EXPENSES);
 
@@ -48,7 +48,7 @@ function Dashboard({
         transactionType={transactionType}
         active={active}
         stateDashboardButton={stateDashboardButton}
-        changestateDashboardButton={changestateDashboardButton}
+        changeStateDashboardButton={changeStateDashboardButton}
       />
     </>
   );

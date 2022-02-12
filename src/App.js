@@ -9,7 +9,7 @@ import './App.css';
 
 import Container from 'components/Container';
 import Dashboard from 'components/Dashboard';
-import Report from 'components/ExpensesReport/Report';
+import Report from 'components/Report/Report';
 
 function App() {
   return (

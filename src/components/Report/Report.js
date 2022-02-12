@@ -3,7 +3,6 @@ import Header from './Header';
 import RevenueReport from './RevenueReport';
 import { useState } from 'react';
 import sprite from '../../images/spriteReport.svg';
-import TransactionType from './TransactionType';
 import s from './Report.module.scss';
 
 export default function Report() {
@@ -28,8 +27,6 @@ export default function Report() {
             <use href={`${sprite}#icon-vectorright`}></use>
           </svg>
         </div>
-        {/* <TransactionType /> */}
-
         {transactionType === 'РАСХОДЫ' ? <ExpensesReport /> : <RevenueReport />}
       </section>
     </>

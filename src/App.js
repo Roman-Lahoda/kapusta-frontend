@@ -3,21 +3,28 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState, lazy } from 'react';
 
 import { Route, Switch } from 'react-router-dom';
-import Diagram from './components/Diagram';
 import Form from './components/Form/Form';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Backgraund from './components/Backgraund';
+import BackgraundHome from './components/BackgraundHome/BackgraundHome';
 import authOperation from './reduxV2/auth/auth-operation';
 import authSelectors from './reduxV2/auth/auth-selector';
 import transactionOperation from './reduxV2/transaction/transaction-operation';
+import transactionSelectors from './reduxV2/transaction/transaction-selector';
 import { v4 as uuidv4 } from 'uuid';
 import HomePage from './pages/HomePage/HomePage';
 import WalletPage from './pages/WalletPage/WalletPage';
 import ReportPage from './pages/ReportPage/ReportPage';
-import './App.css';
+// import './App.css';
+import s from './App.module.scss';
+import Container from './components/Container';
+// import Dashboard from './components/Dashboard';
+import Report from './components/Report/Report';
+import Diagram from './components/Diagram';
 
-import { Balance } from './components/Balance/Balance';
-
-// import Container from 'components/Container/Container';
-// import Dashboard from 'components/Dashboard';
+import Test from './components/test/test';
+import { BalanceContainer } from './components/BalanceContainer/BalanceContainer';
 
 // const HomePage = lazy(() =>
 //   import('./pages/HomePage/HomePage.js' /* webpackChunkName: "HomePage" */),
@@ -31,12 +38,16 @@ import { Balance } from './components/Balance/Balance';
 
 function App() {
   const dispatch = useDispatch();
-  const getIsLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  console.log(getIsLoggedIn);
 
   // useEffect(() => {
   //   dispatch(authOperation.refresh());
   // }, [dispatch]);
+  const isLoadingTr = useSelector(transactionSelectors.isLoading);
+  const isLoadingAuth = useSelector(authSelectors.getIsLoading);
+  // console.log(isLoadingTr);
+  useEffect(() => {
+    dispatch(authOperation.refresh());
+  }, [dispatch]);
 
   // const Signup = () => {
   //   dispatch(authOperation.signup({ email: 'test10@mail.com', password: '123456789' }));
@@ -120,7 +131,7 @@ function App() {
   // };
 
   return (
-    <div className="App">
+    <div className={s.App}>
       <Route path="/" exact>
         <HomePage />
       </Route>
@@ -132,6 +143,17 @@ function App() {
       <Route path="/report" exact>
         <ReportPage />
       </Route>
+
+      {/* будет реализовано через условие (Если пользователь задогинен  <BackgraundHome/>  если нет  <Backgraund/>) */}
+      {/* <Backgraund /> */}
+      {/* <BackgraundHome />
+      <Header /> */}
+      {/* <Hero />
+      <Form /> */}
+      {/* <Balance></Balance> */}
+      {/* <Container>
+        <Dashboard />
+      </Container>*/}
 
       {/* <button type="button" onClick={Signup}>
         Signup
@@ -165,19 +187,11 @@ function App() {
       <button type="button" onClick={fetchReport}>
         Fetch report
       </button> */}
-      {/* <Test /> */}
-      {/* <Balance></Balance> */}
-      {/* <Container>
-        <Dashboard />
+      {/* <BalanceContainer></BalanceContainer> */}
 
+      <Container>
+        <Report />
       </Container>
-      <Form />
-
-      </Container>
-      <Form />*/}
-
-      {/* <Diagram /> */}
-      <Form />
     </div>
   );
 }

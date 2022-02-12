@@ -10,8 +10,9 @@ import BackgraundHome from './components/BackgraundHome/BackgraundHome';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import authOperation from './reduxV2/auth/auth-operation';
-// import authSelectors from './reduxV2/auth/auth-selector';
+import authSelectors from './reduxV2/auth/auth-selector';
 import transactionOperation from './reduxV2/transaction/transaction-operation';
+import transactionSelectors from './reduxV2/transaction/transaction-selector';
 import { v4 as uuidv4 } from 'uuid';
 
 import s from './App.module.scss';
@@ -26,7 +27,9 @@ import { BalanceContainer } from './components/BalanceContainer/BalanceContainer
 
 function App() {
   const dispatch = useDispatch();
-
+  const isLoadingTr = useSelector(transactionSelectors.isLoading);
+  const isLoadingAuth = useSelector(authSelectors.getIsLoading);
+  console.log(isLoadingTr);
   useEffect(() => {
     dispatch(authOperation.refresh());
   }, [dispatch]);
@@ -35,9 +38,9 @@ function App() {
   //   dispatch(authOperation.signup({ email: 'test10@mail.com', password: '123456789' }));
   // };
 
-  // const Login = () => {
-  //   dispatch(authOperation.login({ email: 'test10@mail.com', password: '123456789' }));
-  // };
+  const Login = () => {
+    dispatch(authOperation.login({ email: 'test10@mail.com', password: '123456789' }));
+  };
 
   // const Logout = () => {
   //   dispatch(authOperation.logout());
@@ -115,16 +118,15 @@ function App() {
   return (
     <div className={s.App}>
       {/* будет реализовано через условие (Если пользователь задогинен  <BackgraundHome/>  если нет  <Backgraund/>) */}
-      <Backgraund />
-      {/* <BackgraundHome /> */}
+      {/* <Backgraund /> */}
+      <BackgraundHome />
       <Header />
-      <Hero />
-      <Form />
+      {/* <Hero />
+      <Form /> */}
       {/* <Balance></Balance> */}
       {/* <Container>
         <Dashboard />
       </Container>*/}
-
       {/* <button type="button" onClick={Signup}>
         Signup
       </button>
@@ -157,21 +159,18 @@ function App() {
       <button type="button" onClick={fetchReport}>
         Fetch report
       </button> */}
-
       {/* <BalanceContainer></BalanceContainer> */}
 
-      {/* <Container>
+      <Container>
         <Report />
-      </Container> */}
+      </Container>
 
       {/* <Container>
         <Dashboard />
       </Container>*/}
-
       {/* <Container>
       </Container> */}
       {/* <Form /> */}
-
       {/* <Diagram /> */}
     </div>
   );

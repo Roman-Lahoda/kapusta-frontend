@@ -6,11 +6,14 @@ const getSummaryIncome = state => state.summary.income.summaryList;
 
 const getSummaryExpense = state => state.summary.expense.summaryList;
 
+const isLoading = state => state.isLoading;
+
 const transactionSelectors = {
   getListOfIncomeTransactions,
   getListOfExpenseTransactions,
   getSummaryIncome,
   getSummaryExpense,
+  isLoading,
 };
 
-export default authSelectors;
+export default transactionSelectors;

@@ -15,10 +15,10 @@ export default function Header() {
       {/* link to main Route */}
       <section className={s.balanceHeader}>
         <div className={s.returnToMain}>
-          <svg width="24" height="24" className={s.returnToMainBtn}>
+          <svg width="24" height="24" className={s.returnBtn}>
             <use href={`${sprite}#icon-backbutton`}></use>
           </svg>
-          Вернуться на главную
+          <p className={s.returnToMainText}>Вернуться на главную</p>
         </div>
         <form className={s.balanceState}>
           <label className={s.balance}>Баланс:</label>
@@ -37,7 +37,11 @@ export default function Header() {
             Подтвердить
           </button>
         </form>
+
         <CurrentMonth />
+        <svg width="75" height="25" className={s.returnBtnBig}>
+          <use href={`${sprite}#icon-backbutton`}></use>
+        </svg>
       </section>
       <section className={s.balanceDetailsBox}>
         <ul className={s.balanceDetails}>

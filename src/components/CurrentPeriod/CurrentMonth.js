@@ -9,8 +9,6 @@ export function CurrentMonth() {
   const currentYear = date.getFullYear();
   const [month, setMonth] = useState(currentMonth);
   const [year, setYear] = useState(currentYear);
-  console.log('currentMonth', currentMonth);
-  console.log('year', year);
 
   const onPrevMonth = () => {
     if (month === 1) {
@@ -32,7 +30,7 @@ export function CurrentMonth() {
   };
 
   return (
-    <section>
+    <section className={s.currentSection}>
       <p className={s.currentPeriod}>Текущий период</p>
       <div className={s.currentBlock}>
         <svg width="10" height="20" onClick={onPrevMonth} name="prev">

@@ -1,35 +1,34 @@
 import s from './Report.module.scss';
+import sprite from '../../images/spriteReport.svg';
 // import Diagram from '../Diagram/Diagram';
 
 export default function RevenueReport() {
   return (
     <>
       <section>
-        <ul>
-          <li>
-            <ul>
-              <li>45 0000.00</li>
-              <li>
-                <svg className={s.expItem}></svg>
-                <svg className={s.expItemBg}></svg>
-              </li>
-              <li>ЗП</li>
-            </ul>
+        <ul className={s.revenueCategories}>
+          <li className={s.item}>
+            <p>45 0000.00</p>
+            <div className={s.picBox}>
+              <svg width="59" height="56" className={s.itemPic}>
+                <use href={`${sprite}#icon-salary`}></use>
+              </svg>
+            </div>
+            <p>ЗП</p>
           </li>
-          <svg></svg>
-          <li>
-            <ul>
-              <li>1 500.00</li>
-              <li>
-                <svg className={s.expItem}></svg>
-                <svg className={s.expItemBg}></svg>
-              </li>
-              <li>ДОП. ДОХОД</li>
-            </ul>
+          <li className={s.item}>
+            <p>1 500.00</p>
+            <div className={s.picBox}>
+              <svg width="59" height="56" className={s.itemPic}>
+                <use href={`${sprite}#icon-addsalary`}></use>
+              </svg>
+            </div>
+            <p>ДОП. ДОХОД</p>
           </li>
         </ul>
       </section>
-      {/* <section className={s.expensesDiargBg}><Diargam /></section> */}
+      <svg className={s.expBorder}></svg>
+      <section className={s.expensesDiargBg}>{/* <Diargam /> */}</section>
     </>
   );
 }

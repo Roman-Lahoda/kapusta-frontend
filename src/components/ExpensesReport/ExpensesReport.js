@@ -9,7 +9,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>5 000.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-products`}></use>
             </svg>
           </div>
@@ -18,7 +18,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>200.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-cocktail`}></use>
             </svg>
           </div>
@@ -27,7 +27,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>800.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-kite`}></use>
             </svg>
           </div>
@@ -37,7 +37,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>900.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-health`}></use>
             </svg>
           </div>
@@ -46,7 +46,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>2 000.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-car`}></use>
             </svg>
           </div>
@@ -55,7 +55,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>1 500.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-couch`}></use>
             </svg>
           </div>
@@ -65,7 +65,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>800.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-tools`}></use>
             </svg>
           </div>
@@ -74,7 +74,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>2 200.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-invoice`}></use>
             </svg>
           </div>
@@ -83,7 +83,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>1 800.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-hobby`}></use>
             </svg>
           </div>
@@ -93,7 +93,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>2 400.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-education`}></use>
             </svg>
           </div>
@@ -102,7 +102,7 @@ export default function ExpensesReport() {
         <li className={s.item}>
           <p>3 000.00</p>
           <div className={s.picBox}>
-            <svg width="59" height="56" className={s.itemPic}>
+            <svg width="59" height="46">
               <use href={`${sprite}#icon-ufo`}></use>
             </svg>
           </div>
@@ -111,7 +111,7 @@ export default function ExpensesReport() {
         <svg className={s.expBorder}></svg>
       </ul>
 
-      {/* <section className={s.expensesDiargBg}><Diargam /></section> */}
+      <section className={s.expensesDiargBg}>{/* <Diargam /> */}</section>
     </>
   );
 }

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 // import Modal from 'components/Modal';
-import { logOut } from 'redux/auth';
-import useWindowDimensions from 'hooks/useWindowDimensions';
+import { logOut } from '../../redux/auth';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import logOutImg from '../../images/logOutSprite.svg';
 
 import s from './UserLogout.module.scss';

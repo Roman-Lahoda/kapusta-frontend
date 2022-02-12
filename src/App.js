@@ -1,6 +1,11 @@
 import React from 'react';
 
 import Form from './components/Form/Form';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Backgraund from './components/Backgraund';
+import BackgraundHome from './components/BackgraundHome/BackgraundHome';
+// import BackgraundHome from './components/BackgraundHome';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -9,7 +14,7 @@ import authOperation from './reduxV2/auth/auth-operation';
 import transactionOperation from './reduxV2/transaction/transaction-operation';
 import { v4 as uuidv4 } from 'uuid';
 
-import './App.css';
+import s from './App.module.scss';
 
 import Container from './components/Container';
 // import Dashboard from './components/Dashboard';
@@ -108,7 +113,18 @@ function App() {
   // };
 
   return (
-    <div className="App">
+    <div className={s.App}>
+      {/* будет реализовано через условие (Если пользователь задогинен  <BackgraundHome/>  если нет  <Backgraund/>) */}
+      <Backgraund />
+      {/* <BackgraundHome /> */}
+      <Header />
+      <Hero />
+      <Form />
+      {/* <Balance></Balance> */}
+      {/* <Container>
+        <Dashboard />
+      </Container>*/}
+
       {/* <button type="button" onClick={Signup}>
         Signup
       </button>
@@ -155,6 +171,7 @@ function App() {
       {/* <Container>
       </Container> */}
       {/* <Form /> */}
+
       {/* <Diagram /> */}
     </div>
   );

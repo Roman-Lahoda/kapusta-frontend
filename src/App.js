@@ -17,10 +17,7 @@ import Report from './components/Report/Report';
 import Diagram from './components/Diagram';
 
 import Test from './components/test/test';
-import { Balance } from './components/Balance/Balance';
-
-// import Container from 'components/Container/Container';
-// import Dashboard from 'components/Dashboard';
+import { BalanceContainer } from './components/BalanceContainer/BalanceContainer';
 
 function App() {
   const dispatch = useDispatch();
@@ -112,13 +109,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Container>
-        <Dashboard />
-      </Container> */}
-
-      <Container>
-        <Report />
-      </Container>
       {/* <button type="button" onClick={Signup}>
         Signup
       </button>
@@ -151,17 +141,21 @@ function App() {
       <button type="button" onClick={fetchReport}>
         Fetch report
       </button> */}
-      {/* <Test /> */}
-      {/* <Balance></Balance> */}
+
+      {/* <BalanceContainer></BalanceContainer> */}
+
+      {/* <Container>
+        <Report />
+      </Container> */}
+
       {/* <Container>
         <Dashboard />
+      </Container>*/}
 
-      </Container>
-      <Form />
-      </Container>
-      <Form />*/}
-
-      <Diagram />
+      {/* <Container>
+      </Container> */}
+      {/* <Form /> */}
+      {/* <Diagram /> */}
     </div>
   );
 }

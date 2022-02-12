@@ -72,6 +72,10 @@ $accent-color: #ff751d;
     margin-bottom: 0px;
   }
 }
+.form_field {
+  position: relative;
+  display: inline-block;
+}
 .input {
   z-index: 999;
   width: 125px;
@@ -87,7 +91,7 @@ $accent-color: #ff751d;
   line-height: $main-line-height;
 
   align-items: center;
-  text-align: right;
+  text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
@@ -100,6 +104,28 @@ $accent-color: #ff751d;
     padding-bottom: 12px;
   }
 }
+.input_icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  display: inline-block;
+  transform: translateY(-50%);
+  fill: #000000;
+  width: 12px;
+  height: 12px;
+}
+// .text {
+//   position: absolute;
+//   top: 50%;
+//   font-weight: 700;
+//   font-size: $main-font-size;
+//   line-height: $main-line-height;
+
+//   letter-spacing: 0.02em;
+//   text-transform: uppercase;
+
+//   color: #000000;
+// }
 .button {
   z-index: 999;
   width: 125px;
@@ -126,9 +152,9 @@ $accent-color: #ff751d;
     padding-bottom: 12px;
   }
 }
-.button-active {
-  @extend .button;
-  border-color: $accent-color;
-  background-color: $accent-color;
-  color: #ffffff;
-}
+// .button:hover,
+// :focus {
+//   border-color: $accent-color;
+//   background-color: $accent-color;
+//   color: #ffffff;
+// }

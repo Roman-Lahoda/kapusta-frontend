@@ -16,11 +16,11 @@ function App() {
   return (
     <div className="App">
       {/* <Test /> */}
-      {/* <Balance></Balance> */}
+      <Balance></Balance>
       {/* <Container>
         <Dashboard />
       </Container>*/}
-      <Form />
+      {/* <Form /> */}
       {/* <Diagram /> */}
     </div>
   );

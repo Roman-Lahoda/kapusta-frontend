@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Form from './components/Form/Form';
+import Form from './components/RegistrationForm/Form';
 
 import Diagram from './components/Diagram';
 import { useSelector, useDispatch } from 'react-redux';
@@ -153,6 +153,7 @@ function App() {
       <Form />*/}
 
       <Diagram />
+      <Form />
     </div>
   );
 }

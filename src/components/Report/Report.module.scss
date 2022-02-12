@@ -1,0 +1,262 @@
+//header
+.inputBalance {
+  border: 2px solid white;
+  box-sizing: border-box;
+  border-radius: 16px;
+  width: 125px;
+  height: 44px;
+  padding: 12px 20px;
+  letter-spacing: 0.02em;
+
+  align-items: center;
+  font-weight: bold;
+  color: black;
+}
+
+.inputSubmit {
+  @extend .inputBalance;
+  background-color: white;
+  text-transform: uppercase;
+  color: rgba(82, 85, 95, 0.7);
+  margin-left: 15px;
+
+  @media screen and (max-width: 767.9px) {
+    display: none;
+  }
+}
+
+.returnToMain {
+  letter-spacing: 0.04em;
+  align-items: center;
+  display: flex;
+  @media screen and (max-width: 767.9px) {
+    display: none;
+  }
+}
+.returnToMainText {
+  margin-left: 15px;
+  @media screen and (max-width: 767.9px) {
+    display: none;
+  }
+}
+.returnBtn {
+  @media screen and (max-width: 767.9px) {
+    display: none;
+  }
+}
+
+.returnBtnBig {
+  align-self: start;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+.balance {
+  margin-right: 21px;
+  text-align: center;
+}
+
+.balanceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 767.9px) {
+    margin: 15px 0 30px;
+    flex-direction: column-reverse;
+  }
+}
+
+.headerReport {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+//current balance details
+
+.balanceDetails {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  justify-content: center;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+
+  @media screen and (max-width: 767.9px) {
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
+}
+
+.balanceDetailsBox {
+  background: #ffffff;
+
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+  margin-top: 30px;
+
+  @media screen and (max-width: 767.9px) {
+    margin-top: 0;
+  }
+}
+
+.balanceBorder {
+  width: 0px;
+  height: 70.5px;
+  border: 1px solid #e0e5eb;
+  margin: 0 20px;
+
+  @media screen and (min-width: 768px) {
+    height: 36px;
+  }
+}
+
+.expensesState {
+  color: #e53935;
+  margin-left: 15px;
+  letter-spacing: 0.04em;
+  @media screen {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.balanceState {
+  display: inline-flex;
+  align-items: center;
+  @media screen and (max-width: 767.9px) {
+    flex-direction: column;
+  }
+}
+.revenueState {
+  color: #407946;
+  margin-left: 15px;
+}
+
+.statesOfBalance {
+  color: #52555f;
+  @media screen and (max-width: 767.9px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    line-height: 16.41px;
+  }
+}
+
+//background
+
+.sectionsBg {
+  background: #ffffff;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+  height: 358px;
+
+  @media screen and (max-width: 767.9px) {
+    background: none;
+    height: 650px;
+  }
+}
+
+//expenses section
+
+.item {
+  text-align: center;
+
+  flex-basis: calc((100% - 13px * 6) / 6);
+  margin-top: 13px;
+  margin-left: 13px;
+
+  @media screen and (max-width: 767.9px) {
+  }
+}
+
+.picBox {
+  position: relative;
+  margin: 5px 0 5.44px 0;
+  background: #f5f6fb;
+  border-radius: 50px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.itemBg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  fill: #f5f6fb;
+  z-index: -1;
+}
+
+.picBox:hover {
+  background-color: #ffdac0;
+  fill: #ff751d;
+}
+
+.expBorder {
+  @media screen and (max-width: 767.9px) {
+    width: 282px;
+    height: 0;
+    border: 1px solid #e0e5eb;
+    margin: 20px 0;
+  }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.expensesCategories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 21px 30px 32px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.currentState {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.currentTransactionBlock {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+//revenue
+
+.revenueCategories {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+//diagram
+
+.expensesDiargBg {
+  height: 422px;
+  background: #ffffff;
+
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+
+  margin: 30px auto 74px;
+  padding: 20px 151px;
+}
+
+.currentTransactionType {
+  margin-left: 15px;
+  margin-right: 15px;
+  align-items: center;
+  font-weight: bold;
+  color: black;
+
+  font-size: 14px;
+  line-height: 16px;
+}

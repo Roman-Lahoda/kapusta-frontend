@@ -4,54 +4,6 @@ $main-line-height: 1.17;
 $primary-text-color: rgba(82, 85, 95, 0.7);
 $accent-color: #ff751d;
 
-.container {
-  background-color: #f5f6fb;
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-  font-size: $main-font-size;
-  line-height: $main-line-height;
-  color: $primary-text-color;
-  margin-bottom: 40px;
-
-  @media screen and(min-width:768px) {
-    max-width: 634px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: flex-start;
-    // margin-bottom: 58px;
-  }
-  @media screen and(min-width:1280px) {
-    max-width: 728px;
-    // margin-bottom: 9px;
-  }
-}
-.link {
-  display: block;
-  margin-bottom: 40px;
-  padding: 5px;
-  text-decoration: none;
-  @media screen and(min-width:768px) {
-    margin-bottom: 0;
-  }
-}
-.link_text {
-  margin-right: 11px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  color: $primary-text-color;
-  @media screen and(min-width:768px) {
-    margin-right: 15px;
-  }
-}
-.icon_container {
-  padding: 5px;
-}
-.icon {
-  width: 14px;
-  height: 14px;
-  fill: #52555f;
-}
 .form {
   @media screen and(min-width:768px) {
     display: flex;
@@ -72,12 +24,17 @@ $accent-color: #ff751d;
     margin-bottom: 0px;
   }
 }
+.form_field {
+  position: relative;
+  display: inline-block;
+}
 .input {
   z-index: 999;
   width: 125px;
   height: 44px;
   padding-top: 15px;
   padding-bottom: 15px;
+  padding-right: 47px;
   background-color: inherit;
   border: 2px solid #ffffff;
   border-radius: 22px 0px 0px 22px;
@@ -93,13 +50,36 @@ $accent-color: #ff751d;
 
   color: #000000;
 
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+    outline-color: $accent-color;
+  }
+
   @media screen and(min-width:768px) {
     border-radius: 16px;
     margin-right: 15px;
     padding-top: 12px;
     padding-bottom: 12px;
+    padding-right: 47px;
   }
 }
+.input_text {
+  position: absolute;
+  top: 50%;
+  right: 17px;
+  display: inline-block;
+  transform: translateY(-50%);
+  font-weight: 700;
+  font-size: $main-font-size;
+  line-height: $main-line-height;
+  letter-spacing: 0.02em;
+  color: #000000;
+  @media screen and(min-width:768px) {
+    right: 35px;
+  }
+}
+
 .button {
   z-index: 999;
   width: 125px;
@@ -119,6 +99,15 @@ $accent-color: #ff751d;
   background-color: inherit;
   color: $primary-text-color;
 
+  &:hover,
+  &:focus,
+  &:active {
+    color: #ffffff;
+    background-color: $accent-color;
+    outline-color: $accent-color;
+    border-color: $accent-color;
+  }
+
   @media screen and(min-width:768px) {
     border-left: 2px solid #ffffff;
     border-radius: 16px;
@@ -126,9 +115,9 @@ $accent-color: #ff751d;
     padding-bottom: 12px;
   }
 }
-.button-active {
-  @extend .button;
-  border-color: $accent-color;
-  background-color: $accent-color;
-  color: #ffffff;
-}
+// .button:hover,
+// :focus {
+//   border-color: $accent-color;
+//   background-color: $accent-color;
+//   color: #ffffff;
+// }

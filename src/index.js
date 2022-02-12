@@ -7,14 +7,15 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
+import store from './reduxV2/store.js';
 // import '@fontsource/roboto';
 
-import { store, persistor } from './redux/store';
+// import { store, persistor } from './redux/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={<h2>Please wait...</h2>} persistor={persistor}>
+    <Provider store={store.store}>
+      <PersistGate loading={<h2>Please wait...</h2>} persistor={store.persistor}>
         <BrowserRouter>
           <App />
         </BrowserRouter>

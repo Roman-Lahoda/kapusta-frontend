@@ -9,14 +9,36 @@ import ownVictoryTheme from './ownVictoryTheme.js';
 import exampleTransactionArray from './exampleTransactionArray.json'; // это пример массива данных о транзакциях, которые могут прийти с бекенда
 
 const Diagram = function () {
-  // Вынимаем из массива данных с транзакциями значения свойств sum, description. Записываем в новый массив объектов
-  // и передаём его
-  const dataForDiagram = exampleTransactionArray.data.map(elem => {
-    return { description: elem.description, sum: elem.sum };
-  });
+
+
+  // Эта функция вынимает из массива данных с транзакциями значения свойств sum, description, проверяет
+  // уникальность полей с описанием (description). Если в базе встречаются транзакции с однаковым описанием (description)б
+// то не создаёт новых столбиков в диаграмме, а добавляет сумму в существующий
+// Объявление функции:
+  const changeInfo = array => {
+    let result = [];
+    for (let i = 0; i < array.length; i += 1) {
+      if (!result.includes(array[i].description)) {
+        result.push(array[i].description);
+      }
+    }
+    result = result.map(el => {
+      return { description: el, sum: 0 };
+    });
+    for (let i = 0; i < array.length; i += 1) {
+      const choseEl = result.find(el => el.description === array[i].description);
+      choseEl.sum += array[i].sum;
+    }
+    return result;
+  };
+
+  // Вызов функции:
+  const dataForDiagram =  changeInfo(  exampleTransactionArray.data)
 
   // Сортировка сумм от большей к меньшей
   dataForDiagram.sort((a, b) => b.sum - a.sum);
+
+
   return (
     <div>
       <VictoryChart

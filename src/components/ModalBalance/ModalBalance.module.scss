@@ -1,14 +1,14 @@
-.overlay {
-  //   position: absolute;
-  //   // top: 0;
-  //   // left: 0;
-  //   // width: 100vw;
-  //   // height: 100vh;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   // z-index: 1200;
-}
+// .overlay {
+//   position: absolute;
+//   // top: 0;
+//   // left: 0;
+//   // width: 100vw;
+//   // height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   // z-index: 1200;
+// }
 
 .modal {
   position: relative;
@@ -25,6 +25,10 @@
   font-family: 'Roboto', sans-serif;
   color: #ffffff;
   font-weight: 400;
+
+  @media screen and(min-width:768px) and(max-width:1279.89px) {
+    visibility: hidden;
+  }
 
   @media screen and(min-width:1280px) {
     margin-left: 0;

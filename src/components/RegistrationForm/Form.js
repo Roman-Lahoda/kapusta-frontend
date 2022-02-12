@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import s from './Form.module.scss';
-import { signup, login } from '../../redux/auth/auth-operations';
+// import { signup, login } from '../../redux/auth/auth-operations';
+import { signup, login } from '../../reduxV2/auth/auth-operation';
 
 import images from '../../images/google.png';
 
@@ -29,7 +30,7 @@ export default function RegistrationForm() {
   const handleSubmit = e => {
     e.preventDefault();
     const user = { email, password };
-    dispatch(register(user));
+    dispatch(signup(user));
     reset();
   };
 
@@ -71,6 +72,7 @@ export default function RegistrationForm() {
     dispatch(login(values));
     setFormErrors(validate(values));
     setIsSubmitting(true);
+    console.log(e);
   };
 
   return (
@@ -103,7 +105,6 @@ export default function RegistrationForm() {
             placeholder="your@email.com"
             value={values}
             onChange={handleChange}
-            onBlur={handleBlur}
             className={errors.email && touched.email ? 'input_error' : null}
           />
           {errors.email && touched.email && <span className="error">{errors.email}</span>}
@@ -118,7 +119,6 @@ export default function RegistrationForm() {
             placeholder="Пароль"
             value={values}
             onChange={handleChange}
-            onBlur={handleBlur}
             className={errors.password && touched.password ? 'input_error' : null}
           />
           {errors.password && touched.password && <span className="error">{errors.password}</span>}

@@ -109,7 +109,7 @@ function App() {
 
   return (
     <div className="App">
-      <button type="button" onClick={Signup}>
+      {/* <button type="button" onClick={Signup}>
         Signup
       </button>
       <button type="button" onClick={Login}>
@@ -140,13 +140,18 @@ function App() {
       </button>
       <button type="button" onClick={fetchReport}>
         Fetch report
-      </button>
+      </button> */}
       {/* <Test /> */}
       {/* <Balance></Balance> */}
       {/* <Container>
         <Dashboard />
+
+      </Container>
+      <Form />
+
       </Container>
       <Form />*/}
+
       {/* <Diagram /> */}
     </div>
   );

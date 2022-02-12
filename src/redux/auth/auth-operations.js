@@ -1,4 +1,4 @@
-import Alert from 'components/Alert';
+import Alert from '../../components/Alert';
 import {
   registerRequest,
   registerSuccess,
@@ -30,7 +30,7 @@ import {
   // fetchCurrent,
   // fetchRepeatVerify,
   // fetchRefreshToken,
-} from 'services/fetchApi';
+} from '../../services/fetchApi';
 
 const register = credentials => async dispatch => {
   dispatch(registerRequest());

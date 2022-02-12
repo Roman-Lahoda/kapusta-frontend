@@ -11,7 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-// import transactionReducer from './transaction/transaction-slice';
+import transactionReducer from './transaction/transaction-slice';
 import authReducer from './auth/auth-slice';
 
 const middleware = [
@@ -34,7 +34,7 @@ const persistedReducer = persistReducer(authPersistConfig, authReducer);
 const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    // transaction: transactionReducer,
+    transaction: transactionReducer,
   },
   devtools: true,
   middleware,

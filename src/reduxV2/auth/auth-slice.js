@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signup, login, logout, refresh } from './auth-operation';
+import { signup, login, logout, refresh, updateUser } from './auth-operation';
+import { addTransaction, deleteTransaction } from '../transaction/transaction-operation.js';
 
 const initialState = {
   user: { name: null, email: null, balance: null, token: null },
@@ -59,8 +60,45 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.error = action.payload;
     },
-    [addtransaction.fulfilled](state, action) {
-      state.user = state.user - action.payload.sum;
+    [addTransaction.pending](state, action) {
+      state.isLoading = true;
+    },
+    [addTransaction.fulfilled](state, action) {
+      switch (action.payload.transactionType) {
+        case 'income':
+          state.user.balance = state.user.balance + action.payload.sum;
+          break;
+        case 'expense':
+          state.user.balance = state.user.balance - action.payload.sum;
+          break;
+        default:
+          break;
+      }
+    },
+    [addTransaction.rejected](state, action) {
+      state.isLoading = false;
+      state.isLoggedIn = false;
+      state.error = action.payload;
+    },
+    [deleteTransaction.pending](state, action) {
+      state.isLoading = true;
+    },
+    [deleteTransaction.fulfilled](state, action) {
+      switch (action.payload.transactionType) {
+        case 'income':
+          state.user.balance = state.user.balance - action.payload.sum;
+          break;
+        case 'expense':
+          state.user.balance = state.user.balance + action.payload.sum;
+          break;
+        default:
+          break;
+      }
+    },
+    [deleteTransaction.rejected](state, action) {
+      state.isLoading = false;
+      state.isLoggedIn = false;
+      state.error = action.payload;
     },
   },
 });

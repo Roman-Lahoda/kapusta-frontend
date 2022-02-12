@@ -14,9 +14,9 @@ uuidv4();
 import './App.css';
 
 import Test from './components/test/test';
-import { Balance } from './components/Balance/Balance';
+import { BalanceContainer } from './components/BalanceContainer/BalanceContainer';
 
-// import Container from 'components/Container/Container';
+import Container from './components/Container';
 // import Dashboard from 'components/Dashboard';
 
 function App() {
@@ -109,6 +109,7 @@ function App() {
 
   return (
     <div className="App">
+      <BalanceContainer></BalanceContainer>
       {/* <button type="button" onClick={Signup}>
         Signup
       </button>
@@ -141,18 +142,15 @@ function App() {
       <button type="button" onClick={fetchReport}>
         Fetch report
       </button> */}
-      {/* <Test /> */}
-      {/* <Balance></Balance> */}
+
       {/* <Container>
         <Dashboard />
+      </Container>*/}
 
-      </Container>
-      <Form />
-
-      </Container>
-      <Form />*/}
-
-      <Diagram />
+      {/* <Container>
+      </Container> */}
+      {/* <Form /> */}
+      {/* <Diagram /> */}
     </div>
   );
 }

@@ -39,6 +39,7 @@
     "react-tabs": "^3.2.3",
     "redux-persist": "^6.0.0",
     "sweetalert2": "^11.4.0",
+    "uuid": "^8.3.2",
     "victory": "^36.2.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"

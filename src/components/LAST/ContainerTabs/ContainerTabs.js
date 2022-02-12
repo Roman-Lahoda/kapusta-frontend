@@ -8,8 +8,8 @@ import CalendarBar from '../CalendarBar/CalendarBar';
 import InputPanel from '../InputPanel/InputPanel';
 import Summary from '../Summary/Summary';
 import Table from '../Table/Table';
-import categoriesExpense from '../../../data/categoryConsumption.json';
-import categoriesIncome from '../../../data/categoryIncome.json';
+import categoryexpense from '../../../data/categoryexpense.json';
+import categoryincome from '../../../data/categoryincome.json';
 import s from './ContainerTabs.module.css';
 
 const ContainerTabs = () => {
@@ -72,7 +72,7 @@ const ContainerTabs = () => {
                 setCategory={setCategory}
                 sum={sum}
                 setSum={setSum}
-                categories={categoriesExpense}
+                categories={categoryexpense}
               />
               <div className={s.buttonWrapper}>
                 <StandartBtn onClick={() => onClick('expense')}>ввод</StandartBtn>
@@ -96,7 +96,7 @@ const ContainerTabs = () => {
                 setCategory={setCategory}
                 sum={sum}
                 setSum={setSum}
-                categories={categoriesIncome}
+                categories={categoryincome}
               />
               <div className={s.buttonWrapper}>
                 <StandartBtn onClick={() => onClick('income')}>ввод</StandartBtn>

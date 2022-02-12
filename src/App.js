@@ -132,12 +132,12 @@ import Summary from './components/LAST/Summary/Summary';
 
 function App() {
   const dispatch = useDispatch();
-  const isFetchingCurrentUser = useSelector(getIsFetchingCurrentUser);
-  const token = useSelector(getToken);
+  // const isFetchingCurrentUser = useSelector(getIsFetchingCurrentUser);
+  // const token = useSelector(getToken);
 
-  useEffect(() => {
-    if (token) dispatch(fetchCurrentUser());
-  });
+  // useEffect(() => {
+  //   if (token) dispatch(fetchCurrentUser());
+  // });
 
   return (
     <>

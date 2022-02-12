@@ -11,11 +11,11 @@ export default function SelectCategory({ categories, onChange }) {
         onChange={onChange}
       >
         <option disabled>Категория товара</option>
-        {categories.map(category => (
+        {/* {categories.map(category => (
           <option key={category.name} value={category.name}>
             {category.name}
           </option>
-        ))}
+        ))} */}
       </select>
     </div>
   );

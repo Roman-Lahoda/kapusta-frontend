@@ -152,7 +152,7 @@ function App() {
       </Container>
       <Form />*/}
 
-      {/* <Diagram /> */}
+      <Diagram />
     </div>
   );
 }

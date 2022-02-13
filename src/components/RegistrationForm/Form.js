@@ -10,7 +10,6 @@ export default function RegistrationForm() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  console.log({ email, password });
 
   const validateEmail = value => {
     const re = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
@@ -77,9 +76,7 @@ export default function RegistrationForm() {
             placeholder="your@email.com"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            // className={validate(values)?.email && touched.email ? 'input_error' : null}
           />
-          {/* {errors.email && touched.email && <span className="error">{errors.email}</span>} */}
         </div>
 
         <div className={s.form_row}>
@@ -91,19 +88,11 @@ export default function RegistrationForm() {
             placeholder="password"
             value={password}
             onChange={e => setPassword(e.target.value)}
-            // className={errors.password && touched.password ? 'input_error' : null}
           />
-
-          {/* {errors.password && touched.password && <span className="error">{errors.password}</span>} */}
         </div>
       </form>
       <div className={s.btn_form}>
-        <button
-          type="submit"
-          onClick={loginUser}
-          // className={!(dirty && isValid) ? 'disabled_btn' : 'btn_login'}
-          // disabled={!(dirty && isValid)}
-        >
+        <button type="submit" onClick={loginUser}>
           ВОЙТИ
         </button>
         <button type="button" className={s.btn_reg} onClick={signupUser}>

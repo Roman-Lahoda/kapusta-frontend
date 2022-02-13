@@ -8,8 +8,7 @@ import { useEffect, useState } from 'react';
 import authOperation from './reduxV2/auth/auth-operation';
 // import authSelectors from './reduxV2/auth/auth-selector';
 import transactionOperation from './reduxV2/transaction/transaction-operation';
-import { v4 as uuidv4 } from 'uuid';
-uuidv4();
+import RegistrationForm from './components/RegistrationForm/Form';
 
 import './App.css';
 
@@ -152,8 +151,9 @@ function App() {
       </Container>
       <Form />*/}
 
-      <Diagram />
-      <Form />
+      {/* <Diagram /> */}
+      {/* <Form /> */}
+      <RegistrationForm />
     </div>
   );
 }

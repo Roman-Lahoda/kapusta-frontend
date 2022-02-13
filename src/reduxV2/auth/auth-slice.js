@@ -5,7 +5,7 @@ import { addTransaction, deleteTransaction } from '../transaction/transaction-op
 const initialState = {
   user: { name: null, email: null, balance: null, token: null },
   isLoggedIn: false,
-  isLoading: null,
+  isLoading: false,
   error: null,
 };
 

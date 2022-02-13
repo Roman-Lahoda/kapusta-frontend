@@ -1,17 +1,19 @@
 import { useSelector } from 'react-redux';
-import { getUserName, getUserAvatar } from 'redux/auth';
+import { getUserName, getUserAvatar } from '../../redux/auth';
 import { useState } from 'react';
-import useWindowDimensions from 'hooks/useWindowDimensions';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import s from './UserInfo.module.scss';
+import authSelectors from '../../reduxV2/auth/auth-selector';
 // import AvatarModal from 'components/AvatarModal';
 
 import TuneOutlinedIcon from '@material-ui/icons/TuneOutlined';
 const UserInfo = () => {
-  const UserName = useSelector(state => getUserName(state));
+  const UserName = useSelector(authSelectors.getUser).name;
+  // console.log(UserName);
 
   const avatar = useSelector(state => getUserAvatar(state));
   const [editProfile, setEditProfile] = useState(false);
-  const FirstLetterOfUser = UserName.slice(0, 1).toUpperCase();
+  const FirstLetterOfUser = UserName?.slice(0, 1).toUpperCase();
   const viewPort = useWindowDimensions();
 
   const openModalProfile = () => {

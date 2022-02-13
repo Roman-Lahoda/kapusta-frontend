@@ -1,17 +1,18 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getIsAuthenticated } from 'redux/auth';
+import { getIsAuthenticated } from '../../redux/auth';
 import { useRef, useEffect } from 'react';
 import logo from '../../images/logo.svg';
-import UserInfo from 'components/UserInfo';
-import UserLogout from 'components/UserLogout';
+import UserInfo from '../UserInfo';
+import UserLogout from '../UserLogout';
 import { gsap, Power2 } from 'gsap';
 import s from './Header.module.scss';
-import useWindowDimensions from 'hooks/useWindowDimensions';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import authSelectors from '../../reduxV2/auth/auth-selector';
 
 const Header = () => {
   const viewPort = useWindowDimensions();
-  const isAuthenticated = useSelector(state => getIsAuthenticated(state));
+  const isAuthenticated = useSelector(authSelectors.getIsLoggedIn);
   let logotype = useRef(null);
   useEffect(() => {
     gsap.fromTo(

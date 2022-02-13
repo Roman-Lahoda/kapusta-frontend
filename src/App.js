@@ -159,7 +159,7 @@ function App() {
       <button type="button" onClick={fetchReport}>
         Fetch report
       </button> */}
-      {/* <BalanceContainer></BalanceContainer> */}
+      <BalanceContainer></BalanceContainer>
 
       <Container>
         <Report />

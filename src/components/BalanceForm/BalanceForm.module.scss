@@ -50,6 +50,23 @@ $accent-color: #ff751d;
 
   color: #000000;
 
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  &::placeholder {
+    font-weight: 700;
+    font-size: $main-font-size;
+    line-height: $main-line-height;
+
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #000000;
+  }
+
   &:hover,
   &:focus {
     border-color: $accent-color;
@@ -63,6 +80,10 @@ $accent-color: #ff751d;
     padding-bottom: 12px;
     padding-right: 47px;
   }
+}
+.input__disable {
+  @extend .input;
+  pointer-events: none;
 }
 .input_text {
   position: absolute;
@@ -115,9 +136,7 @@ $accent-color: #ff751d;
     padding-bottom: 12px;
   }
 }
-// .button:hover,
-// :focus {
-//   border-color: $accent-color;
-//   background-color: $accent-color;
-//   color: #ffffff;
-// }
+.button__disable {
+  @extend .button;
+  pointer-events: none;
+}

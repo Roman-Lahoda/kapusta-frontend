@@ -1,101 +1,56 @@
 import React from 'react';
-
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-
 import s from './Form.module.scss';
-// import { signup, login } from '../../redux/auth/auth-operations';
-import { signup, login } from '../../reduxV2/auth/auth-operation';
-
+import authOperation from '../../reduxV2/auth/auth-operation';
 import images from '../../images/google.png';
 
-// -------- !!! ----------
 export default function RegistrationForm() {
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // console.log({ email, password });
 
-  // const [values, setValues] = useState({
-  //   email: '',
-  //   password: '',
-  // });
-  // const [formErrors, setFormErrors] = useState({});
-  // const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // const handleChange = e => {
-  //   setValues({ ...values, [e.target.name]: e.target.value });
-  // };
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   const user = { email, password };
-  //   dispatch(signup(user));
-  //   reset();
-  // };
-
-  // const validate = values => {
-  //   let errors = {};
-  //   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
-  //   if (!values.email) {
-  //     errors.email = 'Email is required';
-  //   } else if (!regex.test(values.email)) {
-  //     errors.email = 'Invalid Email';
-  //   }
-
-  //   if (!values.password) {
-  //     errors.password = 'Password is required';
-  //   } else if (values.password.length < 6) {
-  //     errors.password = 'Password too short';
-  //   }
-
-  //   return errors;
-  // };
-
-  // const reset = () => {
-  //   setValues('');
-  // };
-
-  // const submitForm = values => {
-  //   // console.log(values);
-  // };
-
-  // useEffect(() => {
-  //   if (Object.keys(formErrors).length === 0 && isSubmitting) {
-  //     submitForm();
-  //   }
-  // }, [formErrors]);
-
-  // const handleLogin = e => {
-  //   e.preventDefault();
-  //   dispatch(login(values));
-  //   setFormErrors(validate(values));
-  //   setIsSubmitting(true);
-  //   console.log(e);
-  // };
   const validateEmail = value => {
     const re = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
     return re.test(String(value).trim().toLowerCase());
   };
-  // console.log(validateEmail('naira@mail.com'));
-
   const validatePassword = value => {
-    const re = /^(?=.*[0-9a-zA-Z]{2,})(?=.{3,5}$)/;
+    const re = /^[A-Za-z0-9][^\s]{7,16}/;
     return re.test(String(value).trim().toLowerCase());
   };
-  console.log(validatePassword('1Qqqqq'));
-
+  // console.log(validatePassword(password));
   const loginUser = () => {
     if (!validateEmail(email)) {
       return alert('Невалидная почта');
     }
-    console.log(`login user ${email}, ${password}`);
+    if (!validatePassword(password)) {
+      return alert(
+        'Пароль должен состоять только с латинских букв или цифр,не содержать пробелы и быть длинной от 8 до 16 символов',
+      );
+    }
+    // console.log(`login user ${email}, ${password}`);
+    dispatch(authOperation.login({ email, password }));
   };
 
-  const signupUser = () => {
-    console.log(`signup user  ${email}, ${password}`);
+  const signupUser = async () => {
+    if (!validateEmail(email)) {
+      return alert('Невалидная почта');
+    }
+    if (!validatePassword(password)) {
+      return alert(
+        'Пароль должен состоять только с латинских букв или цифр,не содержать пробелы и быть длинной от 8 до 16 символов',
+      );
+    }
+    // console.log(`login user ${email}, ${password}`);
+    const isSignupSuccess = await dispatch(authOperation.signup({ email, password }));
+    console.log(isSignupSuccess);
+    if (isSignupSuccess) {
+      alert('Успешная регистрация');
+    } else {
+      alert('Не успешная регистрация');
+    }
+    // console.log(`signup user  ${email}, ${password}`);
   };
 
   return (

@@ -24,11 +24,15 @@ const ReportPage = () => {
 
   return (
     <>
-      <BackgroundHome />
-      <Header />
-      <Container>
-        <Report />
-      </Container>
+      {!isLoading && (
+        <>
+          <BackgroundHome />
+          <Header />
+          <Container>
+            <Report />
+          </Container>
+        </>
+      )}
     </>
   );
 };

@@ -1,7 +1,7 @@
 import sprite from '../../images/kapusta-sprite.svg';
 
-import s from './BackgraundHome.module.scss';
-function BackgraundHome() {
+import s from './BackgroundHome.module.scss';
+function BackgroundHome() {
   return (
     <div className={s.container}>
       <div className={s.bg}></div>
@@ -20,4 +20,4 @@ function BackgraundHome() {
     </div>
   );
 }
-export default BackgraundHome;
+export default BackgroundHome;

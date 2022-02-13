@@ -6,9 +6,16 @@ import transactionSelectors from '../../reduxV2/transaction/transaction-selector
 
 export default function ExpensesReport() {
   const report = useSelector(transactionSelectors.getReport);
-  console.log(report);
+
+  console.log(report?.expense.food);
   const foodTotalSum = report?.expense.food.reduce((a, b) => a + b.sum, 0);
   const alcoholTotalSum = report?.expense.alcohol.reduce((a, b) => a + b.sum, 0);
+  const otherTotalSum = report?.expense.other.reduce((a, b) => a + b.sum, 0);
+  // const baseTotalSum = category => {
+  //   return report?.expense.category.reduce((a, b) => a + b.sum, 0);
+  // };
+  // const sport = 'sport ';
+  // console.log(baseTotalSum(sport));
   return (
     <>
       <ul className={s.expensesCategories}>
@@ -105,15 +112,17 @@ export default function ExpensesReport() {
           </div>
           <p>ОБРАЗОВАНИЕ</p>
         </li>
-        <li className={s.item}>
-          <p>3 000.00</p>
-          <div className={s.picBox}>
-            <svg width="59" height="46">
-              <use href={`${sprite}#icon-ufo`}></use>
-            </svg>
-          </div>
-          <p>ПРОЧЕЕ</p>
-        </li>
+        {otherTotalSum && (
+          <li className={s.item}>
+            <p>{otherTotalSum}</p>
+            <div className={s.picBox}>
+              <svg width="59" height="46">
+                <use href={`${sprite}#icon-ufo`}></use>
+              </svg>
+            </div>
+            <p>ПРОЧЕЕ</p>
+          </li>
+        )}
         <svg className={s.expBorder}></svg>
       </ul>
 
@@ -121,3 +130,9 @@ export default function ExpensesReport() {
     </>
   );
 }
+
+[
+  { name: milk, value: 100 },
+  { name: milk, value: 100 },
+  { name: milk, value: 100 },
+];

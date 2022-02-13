@@ -2,13 +2,22 @@ import s from './CurrentMonth.module.scss';
 import sprite from '../../images/spriteReport.svg';
 import { Month } from '../../constants/constants';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 
 export function CurrentMonth() {
+  const dispatch = useDispatch();
+
   const date = new Date();
   const currentMonth = date.getMonth() + 1;
   const currentYear = date.getFullYear();
   const [month, setMonth] = useState(currentMonth);
   const [year, setYear] = useState(currentYear);
+
+  useEffect(() => {
+    dispatch(transactionOperation.fetchTransactionReport({ month, year }));
+  }, [month]);
 
   const onPrevMonth = () => {
     if (month === 1) {

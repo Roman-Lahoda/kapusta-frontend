@@ -1,13 +1,19 @@
+import { useSelector } from 'react-redux';
 import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
+import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 // import Diagram from '../Diagram/Diagram';
 
 export default function ExpensesReport() {
+  const report = useSelector(transactionSelectors.getReport);
+  console.log(report);
+  const foodTotalSum = report?.expense.food.reduce((a, b) => a + b.sum, 0);
+  const alcoholTotalSum = report?.expense.alcohol.reduce((a, b) => a + b.sum, 0);
   return (
     <>
       <ul className={s.expensesCategories}>
         <li className={s.item}>
-          <p>5 000.00</p>
+          <p>{foodTotalSum}</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-products`}></use>
@@ -16,7 +22,7 @@ export default function ExpensesReport() {
           <p>ПРОДУКТЫ</p>
         </li>
         <li className={s.item}>
-          <p>200.00</p>
+          <p>{alcoholTotalSum}</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-cocktail`}></use>

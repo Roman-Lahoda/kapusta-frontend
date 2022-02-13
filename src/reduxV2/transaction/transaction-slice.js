@@ -10,7 +10,7 @@ const initialState = {
   //   transaction: { income: [], expense: [] },
   summary: { income: null, expense: null },
   report: null,
-  isLoading: null,
+  isLoading: false,
   error: null,
 };
 

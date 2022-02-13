@@ -1,4 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import authOperation from '../../reduxV2/auth/auth-operation';
+
 import { Formik } from 'formik';
 
 // import './Form.scss';
@@ -30,11 +33,12 @@ const validate = values => {
   return errors;
 };
 
-const submitForm = values => {
-  console.log(values);
-};
-
 const Form = () => {
+  const dispatch = useDispatch();
+  const submitForm = values => {
+    // console.log(values)
+    dispatch(authOperation.login(values));
+  };
   return (
     <Formik initialValues={initialValues} validate={validate} onSubmit={submitForm}>
       {formik => {
@@ -46,11 +50,7 @@ const Form = () => {
               <h1 className={s.title_gb}>
                 Вы можете авторизоваться с помощью <br /> Google Account:
               </h1>
-              <a
-                href=" https://capusta2.herokuapp.com/api/transactions/:id  "
-                className={s.g_link}
-                title="Google Account"
-              >
+              <a href="" className={s.g_link} title="Google Account">
                 <div className={s.g_btn}>
                   {/* <svg className={s.g_svg} width="17" height="18">
                     <use href={`${gs}#google`}></use>
@@ -95,19 +95,19 @@ const Form = () => {
                   <span className="error">{errors.password}</span>
                 )}
               </div>
+              <div className={s.btn_form}>
+                <button
+                  type="submit"
+                  className={!(dirty && isValid) ? 'disabled_btn' : 'btn_login'}
+                  disabled={!(dirty && isValid)}
+                >
+                  ВОЙТИ
+                </button>
+                <button type="button" className={s.btn_reg}>
+                  РЕГИСТРАЦИЯ
+                </button>
+              </div>
             </form>
-            <div className={s.btn_form}>
-              <button
-                type="submit"
-                className={!(dirty && isValid) ? 'disabled_btn' : 'btn_login'}
-                disabled={!(dirty && isValid)}
-              >
-                ВОЙТИ
-              </button>
-              <button type="button" className={s.btn_reg}>
-                РЕГИСТРАЦИЯ
-              </button>
-            </div>
           </div>
         );
       }}

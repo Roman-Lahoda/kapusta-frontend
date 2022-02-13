@@ -3,11 +3,13 @@ import { getUserName, getUserAvatar } from '../../redux/auth';
 import { useState } from 'react';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import s from './UserInfo.module.scss';
+import authSelectors from '../../reduxV2/auth/auth-selector';
 // import AvatarModal from 'components/AvatarModal';
 
 import TuneOutlinedIcon from '@material-ui/icons/TuneOutlined';
 const UserInfo = () => {
-  const UserName = useSelector(state => getUserName(state));
+  const UserName = useSelector(authSelectors.getUser).name;
+  // console.log(UserName);
 
   const avatar = useSelector(state => getUserAvatar(state));
   const [editProfile, setEditProfile] = useState(false);

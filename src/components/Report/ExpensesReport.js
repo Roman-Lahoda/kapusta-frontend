@@ -11,6 +11,7 @@ export default function ExpensesReport() {
   console.log(foodTotalSum);
   const alcoholTotalSum = report?.expense?.alcohol?.reduce((a, b) => a + b.sum, 0);
   console.log(alcoholTotalSum);
+  const otherTotalSum = report?.expense?.other?.reduce((a, b) => a + b.sum, 0);
 
   return (
     <>
@@ -108,17 +109,15 @@ export default function ExpensesReport() {
           </div>
           <p>ОБРАЗОВАНИЕ</p>
         </li>
-        {otherTotalSum && (
-          <li className={s.item}>
-            <p>{otherTotalSum}</p>
-            <div className={s.picBox}>
-              <svg width="59" height="46">
-                <use href={`${sprite}#icon-ufo`}></use>
-              </svg>
-            </div>
-            <p>ПРОЧЕЕ</p>
-          </li>
-        )}
+        <li className={s.item}>
+          <p>{otherTotalSum}</p>
+          <div className={s.picBox}>
+            <svg width="59" height="46">
+              <use href={`${sprite}#icon-ufo`}></use>
+            </svg>
+          </div>
+          <p>ПРОЧЕЕ</p>
+        </li>
         <svg className={s.expBorder}></svg>
       </ul>
 
@@ -126,9 +125,3 @@ export default function ExpensesReport() {
     </>
   );
 }
-
-[
-  { name: milk, value: 100 },
-  { name: milk, value: 100 },
-  { name: milk, value: 100 },
-];

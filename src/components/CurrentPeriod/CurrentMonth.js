@@ -16,7 +16,7 @@ export function CurrentMonth() {
   const [year, setYear] = useState(currentYear);
 
   // useEffect(() => {
-  //   dispatch(transactionOperation.fetchTransactionReport());
+  //   dispatch(transactionOperation.fetchTransactionReport({ month, year }));
   // }, [month]);
 
   const onPrevMonth = () => {
@@ -24,10 +24,11 @@ export function CurrentMonth() {
       setMonth(12);
 
       setYear(year - 1);
-      console.log('year in click', year);
+      // dispatch(transactionOperation.fetchTransactionReport({ month: 12, year: year - 1 }));
       return;
     }
     setMonth(month - 1);
+    // dispatch(transactionOperation.fetchTransactionReport({ month: month - 1, year: year }));
   };
   const onNextMonth = () => {
     if (month === 12) {
@@ -36,6 +37,7 @@ export function CurrentMonth() {
       return;
     }
     setMonth(month + 1);
+    // dispatch(transactionOperation.fetchTransactionReport());
   };
 
   return (

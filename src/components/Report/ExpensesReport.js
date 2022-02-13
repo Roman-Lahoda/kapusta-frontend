@@ -6,16 +6,12 @@ import transactionSelectors from '../../reduxV2/transaction/transaction-selector
 
 export default function ExpensesReport() {
   const report = useSelector(transactionSelectors.getReport);
+  // console.log(report);
+  const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
+  console.log(foodTotalSum);
+  const alcoholTotalSum = report?.expense?.alcohol?.reduce((a, b) => a + b.sum, 0);
+  console.log(alcoholTotalSum);
 
-  console.log(report?.expense.food);
-  const foodTotalSum = report?.expense.food.reduce((a, b) => a + b.sum, 0);
-  const alcoholTotalSum = report?.expense.alcohol.reduce((a, b) => a + b.sum, 0);
-  const otherTotalSum = report?.expense.other.reduce((a, b) => a + b.sum, 0);
-  // const baseTotalSum = category => {
-  //   return report?.expense.category.reduce((a, b) => a + b.sum, 0);
-  // };
-  // const sport = 'sport ';
-  // console.log(baseTotalSum(sport));
   return (
     <>
       <ul className={s.expensesCategories}>

@@ -13,7 +13,7 @@ const UserInfo = () => {
 
   const avatar = useSelector(state => getUserAvatar(state));
   const [editProfile, setEditProfile] = useState(false);
-  const FirstLetterOfUser = UserName.slice(0, 1).toUpperCase();
+  const FirstLetterOfUser = UserName?.slice(0, 1).toUpperCase();
   const viewPort = useWindowDimensions();
 
   const openModalProfile = () => {

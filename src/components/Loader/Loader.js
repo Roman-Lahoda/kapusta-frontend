@@ -21,7 +21,7 @@
 
 // export default Loader;
 
-import Kapusta from '../../images/spiner-kapusta.svg';
+import Kapusta from '../../images/transactionIcons/spiner-kapusta.svg';
 import s from './Loader.module.scss';
 
 function Loader() {

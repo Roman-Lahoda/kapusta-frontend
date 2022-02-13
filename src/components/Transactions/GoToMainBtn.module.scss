@@ -1,0 +1,32 @@
+.link {
+  display: flex;
+  align-items: center;
+
+  font-size: 12px;
+
+  text-align: right;
+  letter-spacing: 0.04em;
+
+  color: rgba(82, 85, 95, 0.7);
+}
+
+.imgArrow {
+  width: 18px;
+  height: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .img {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    display: none;
+  }
+  .link {
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+}

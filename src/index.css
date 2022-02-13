@@ -11,22 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-:root {
-  --text-color-main: #52555f;
-  --text-color-light: #c7ccdc;
-  --accent-color-primary: #ff751d;
-  --accent-color-light: #ffdac0;
-  --bg-color: #f5f6fb;
-  --white-color: #ffffff;
-  --black-color: #000000;
-  --red-color: #e53935;
-  --green-color: #407946;
-  --icons-color: #071f41;
-  --main-shadow: 0px 10px 60px 0px rgba(170, 178, 197, 0.2);
-  --desctop-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  --mobile-shodow: 5px 10px 20px 0px rgba(170, 178, 197, 0.4);
-  --transition-function: 250ms;
-  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f5f6fb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff751d;
+  border-radius: 2px;
 }
 
 .simplebar-scrollbar::before {

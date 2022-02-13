@@ -1,10 +1,18 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState, lazy, Suspense } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { useEffect, lazy, Suspense } from 'react';
+
+import Form from './components/RegistrationForm/Form';
 
 import authOperation from './reduxV2/auth/auth-operation';
 import authSelectors from './reduxV2/auth/auth-selector';
+import transactionOperation from './reduxV2/transaction/transaction-operation';
+import RegistrationForm from './components/RegistrationForm/Form';
+
+// import './App.css';
+
+import { Route, Switch, Redirect } from 'react-router-dom';
+
 import s from './App.module.scss';
 
 const HomePage = lazy(() =>

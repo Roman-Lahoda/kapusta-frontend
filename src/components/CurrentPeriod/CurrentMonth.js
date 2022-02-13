@@ -8,6 +8,7 @@ import transactionOperation from '../../reduxV2/transaction/transaction-operatio
 
 export function CurrentMonth() {
   const dispatch = useDispatch();
+
   const date = new Date();
   const currentMonth = date.getMonth() + 1;
   const currentYear = date.getFullYear();

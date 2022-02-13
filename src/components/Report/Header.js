@@ -11,6 +11,7 @@ export default function Header() {
   // const isLoading = useSelector(transactionSelectors.isLoading);
   // console.log(isLoading);
   const report = useSelector(transactionSelectors.getReport);
+  console.log(report);
   // console.log(report?.totalIncome);
   // const user = useSelector(authSelectors.getUser);
   // console.log(user);
@@ -58,7 +59,7 @@ export default function Header() {
         <section className={s.balanceDetailsBox}>
           <ul className={s.balanceDetails}>
             <li className={s.statesOfBalance}>
-              Расходы:<span className={s.expensesState}>- {report?.totalExpense} грн</span>
+              Расходы:<span className={s.expensesState}>- {report?.totalExpense || 0} грн</span>
             </li>
             <svg className={s.balanceBorder}></svg>
             <li className={s.statesOfBalance}>

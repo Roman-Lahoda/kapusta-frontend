@@ -14,6 +14,7 @@ function TransactionsTabs({ deleteDialogHandler }) {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.only('desktop'));
 
+  console.log(value);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -50,7 +51,7 @@ function TransactionsTabs({ deleteDialogHandler }) {
   }
 
   return (
-    <Box>
+    <Box value={value}>
       <TabContext value={value}>
         <TabList
           TabIndicatorProps={{ style: { backgroundColor: 'transparent' } }}
@@ -60,9 +61,9 @@ function TransactionsTabs({ deleteDialogHandler }) {
           <Tab label="Расходы" value="expense" />
           <Tab label="Доходы" value="income" />
         </TabList>
-        <Paper sx={paperStyle}>
+        <Paper sx={paperStyle} value={value}>
           <TabPanel value="expense" sx={{ padding: 0 }}>
-            <Transaction />
+            <Transaction value={value} />
             <div style={tableBox}>
               <TransactionsTable type="expense" deleteDialogHandler={deleteDialogHandler} />
               <Summary value={value} />
@@ -73,6 +74,7 @@ function TransactionsTabs({ deleteDialogHandler }) {
               isIncome={true}
               categories={incomeCategories}
               placeholder="Описание дохода"
+              // value={value}
             />
             <div style={tableBox}>
               <TransactionsTable type="income" deleteDialogHandler={deleteDialogHandler} />

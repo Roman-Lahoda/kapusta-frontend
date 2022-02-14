@@ -7,12 +7,24 @@ import TransactionsButtons from './TransactionsButtons';
 
 function TransactionsList({ deleteDialogHandler }) {
   //   const transactions = useSelector(transactionsSelectors.getAllTransactions);
+  const transactions = [
+    {
+      category: 'Продукты',
+      dayCreate: 14,
+      description: 'erbdnbdf',
+      id: 123456789,
+      monthCreate: 2,
+      sum: '7827',
+      transactionType: 'expense',
+      yearCreate: 2022,
+    },
+  ];
 
   //   const isLoading = useSelector(transactionsSelectors.getTransactionsIsLoading);
 
   return (
     <>
-      {isLoading && <LinearProgress />}
+      {/* {isLoading && <LinearProgress />} */}
       <ul
         style={{
           listStyle: 'none',

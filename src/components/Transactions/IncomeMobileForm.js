@@ -1,5 +1,5 @@
 import GoToMainBtn from './GoToMainBtn';
-import Transaction from './Transactions';
+import Transactions from './Transactions';
 import incomeCategories from './incomeCategories.json';
 
 const IncomeMobileForm = () => {
@@ -7,7 +7,7 @@ const IncomeMobileForm = () => {
     <div style={{ marginTop: '15px' }}>
       <div className="background-top background-top_for-mobile"></div>
       <GoToMainBtn />
-      <Transaction isIncome={true} categories={incomeCategories} placeholder="Описание дохода" />
+      <Transactions isIncome={true} categories={incomeCategories} placeholder="Описание дохода" />
     </div>
   );
 };

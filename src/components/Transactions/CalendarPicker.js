@@ -25,13 +25,19 @@ const CustomInput = forwardRef(({ value, onClick }, ref) => (
 
 export default function CalendarPicker({ startDate, closeHandler, date, changeDate }) {
   const selectDate = date => {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    // const date = new Date();
     changeDate(date);
+    // changeDate({ dayCreate: day, monthCreate: month, yearCreate: year });
+    // console.log({ dayCreate: day, monthCreate: month, yearCreate: year });
   };
 
   const ref = useRef();
   const [selectedDay, setSelectedDay] = useState();
   const [close, setClose] = useState(false);
-  useOnClickOutside(ref, () => closeHandler(selectedDay));
+  // useOnClickOutside(ref, () => closeHandler(selectedDay));
   // useEffect(() => {
   //   setSelectedDay(startDate);
   //   if (close) {
@@ -45,9 +51,10 @@ export default function CalendarPicker({ startDate, closeHandler, date, changeDa
   //   return new Date(Number(splittedDate[2]), Number(splittedDate[1] - 1), Number(splittedDate[0]));
   // };
 
-  const handleDayClick = day => {
-    setSelectedDay(day);
-    setClose(true);
+  const handleDayClick = date => {
+    // setSelectedDay(day);
+    // setClose(true);
+    // console.log(date);
   };
 
   const modifiers = {
@@ -71,11 +78,12 @@ export default function CalendarPicker({ startDate, closeHandler, date, changeDa
         <DatePicker
           locale={ru}
           selectedDays={[selectedDay, modifiers.today]}
-          onDayClick={handleDayClick}
+          onDayClick={() => handleDayClick()}
           modifiers={modifiers}
           modifiersStyles={modifiersStyles}
           selected={date}
           onChange={date => selectDate(date)}
+          onSelect={handleDayClick(date)}
           dateFormat="dd.MM.yyyy"
           todayButton="Сегодня"
           maxDate={new Date()}
@@ -83,6 +91,7 @@ export default function CalendarPicker({ startDate, closeHandler, date, changeDa
           fixedHeight
           required
         />
+        {/* <DatePicker selected={date} onChange={handleDateChange} showTimeSelect dateFormat="Pp" /> */}
       </div>
     </>
   );

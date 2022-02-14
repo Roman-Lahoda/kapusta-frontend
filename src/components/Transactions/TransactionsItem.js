@@ -1,4 +1,4 @@
-import { IconButton, Typography } from '@mui/material';
+mport { IconButton, Typography } from '@mui/material';
 
 import { ReactComponent as DeleteIcon } from '../../images/delete.svg';
 import React from 'react';
@@ -10,6 +10,8 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
   });
 
   const sum = formatter.format(transaction.sum);
+  
+  console.log(sum);
 
   return (
     <li

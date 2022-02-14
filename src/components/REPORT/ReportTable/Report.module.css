@@ -1,0 +1,140 @@
+.tableTr {
+  width: 100%;
+  height: 40px;
+  border-bottom: 2px solid var(--bg-color);
+  display: flex;
+  align-items: baseline;
+  color: var(--text-color-main);
+  padding: 0;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.tableSumI {
+  font-weight: 700;
+  color: var(--green-color);
+}
+.tableSumO {
+  font-weight: 700;
+  color: #e7192e;
+}
+
+.tableDelete {
+  width: 37px;
+  text-align: end;
+  align-self: center;
+}
+
+.deleteBtn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.deleteBtnImg {
+  margin: 0 auto;
+}
+
+.deleteBtn:hover,
+.deleteBtn:focus {
+  background-color: var(--bg-color);
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 767px) {
+  .divWrap {
+    width: 85px;
+    height: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+  }
+  .divWrap > .tableDate {
+    font-size: 8px;
+  }
+  .divWrap > .tableDesc {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 66px;
+    font-weight: 700;
+  }
+  .tableCat {
+    width: 75px;
+    font-size: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .tableSumI,
+  .tableSumO {
+    width: 85px;
+    font-weight: 700;
+    align-self: center;
+    text-align: end;
+  }
+}
+@media screen and (min-width: 768px) {
+  .tableTr {
+    align-items: center;
+    margin-top: 0;
+    padding: 0 26px 0 21px;
+  }
+
+  .divWrap {
+    display: inline-flex;
+  }
+
+  .tableDate {
+    width: 105px;
+    text-align: start;
+  }
+
+  .tableDesc {
+    width: 168px;
+    text-align: start;
+  }
+
+  .tableCat {
+    width: 124px;
+    text-align: center;
+  }
+
+  .tableSumI,
+  .tableSumO {
+    width: 113px;
+    text-align: end;
+  }
+
+  .tableDelete {
+    width: 48px;
+    text-align: end;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .tableTr {
+    padding: 0 46px 0 20px;
+  }
+  .tableRow {
+    padding: 0 46px 0 20px;
+  }
+
+  .tableDesc {
+    width: 202px;
+  }
+  .tableCat {
+    width: 172px;
+  }
+  .tableSumI,
+  .tableSumO {
+    width: 130px;
+  }
+  .tableDelet {
+    width: 85px;
+  }
+}

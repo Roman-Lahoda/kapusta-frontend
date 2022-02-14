@@ -2,16 +2,16 @@ import { Button, Dialog, DialogContent, IconButton, Typography } from '@mui/mate
 
 import { ReactComponent as CloseIcon } from '../../images/transactionIcons/close.svg';
 import React from 'react';
-// import { transactionsOperations } from '../../redux/transaction';
-// import { useDispatch } from 'react-redux';
+// import { transactionOperation } from '../../redux/transaction/transaction-operation';
+import { useDispatch } from 'react-redux';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
-  // const dispatch = useDispatch();
+function DeleteModal({ isOpen = true, idTransaction, onClose, transactions }) {
+  const dispatch = useDispatch();
   const isNarrowMobile = useMediaQuery('(max-width:435px)');
 
   // function submitHandler() {
-  //   dispatch(transactionsOperations.fetchDeleteTransaction(transactionId));
+  //   dispatch(transactionOperation.deleteTransaction(idTransaction));
   //   onClose();
   // }
 

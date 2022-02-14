@@ -20,19 +20,27 @@ import { selectStyles } from '../../styles/selectStyles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
-function Transaction({ categories, isIncome, placeholder }) {
+function Transaction({ categories, isIncome, placeholder, value }) {
   // const selectedDate = useSelector(getSelectedDate);
   // const [date, setDate] = useState(
   //   new Date(selectedDate.year, selectedDate.month - 1, selectedDate.day),
   // );
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [sum, setSum] = useState(0);
+  const [sum, setSum] = useState('');
+  // console.log(Date.parse(date));
+  const dayCreate = date.getDate();
+  const monthCreate = date.getMonth() + 1;
+  const yearCreate = date.getFullYear();
+  // console.log(dayCreate);
+  // const monthCreate = date.getMonth() + 1;
+  // const yearCreat = date.getFullYear();
 
   const changeDate = date => {
     setDate(date);
   };
+  // console.log(typeof date);
   // const [selectedDay, setSelectedDay] = useState();
 
   // const dispatch = useDispatch();
@@ -60,16 +68,25 @@ function Transaction({ categories, isIncome, placeholder }) {
     }
   };
 
-  const stringifyDate = JSON.parse(JSON.stringify(date));
+  // const stringifyDate = JSON.parse(JSON.stringify(date));
   const newTransaction = {
     category: category,
-    date: stringifyDate,
+    // date: stringifyDate,
     sum: sum,
     description: description,
   };
 
   const onClick = () => {
-    console.log({ ...newTransaction });
+    console.log({
+      ...newTransaction,
+      idT: 123456789,
+      transactionType: value,
+      // date,
+      dayCreate,
+      monthCreate,
+      yearCreate,
+    });
+    // console.log(value);
   };
 
   const handleSubmit = e => {
@@ -88,6 +105,7 @@ function Transaction({ categories, isIncome, placeholder }) {
     //     isIncome,
     //   }),
     // );
+
     reset();
   };
 

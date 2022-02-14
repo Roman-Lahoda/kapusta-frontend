@@ -56,17 +56,20 @@ function TransactionsTable({ type, deleteDialogHandler }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* {transactions.map(transaction => (
-              <TransactionsRow
-                key={transaction._id}
-                transaction={transaction}
-                deleteDialogHandler={deleteDialogHandler}
-              />
-            ))}
-            {transactions.length < 9 &&
+            {/* {transactions.map(transaction => ( */}
+            <TransactionsRow
+            // key={transaction._id}
+            // transaction={transaction}
+            // deleteDialogHandler={deleteDialogHandler}
+            />
+            {/* ))} */}
+            {/* {transactions.length < 9 &&
               Array(9 - transactions.length)
                 .fill()
-                .map((item, index) => <EmptyRow key={index}></EmptyRow>)} */}
+                .map((item, index) =>  */}
+            <EmptyRow></EmptyRow>
+            {/* key={index} */}
+            {/* )} */}
           </TableBody>
         </Table>
       </TableContainer>

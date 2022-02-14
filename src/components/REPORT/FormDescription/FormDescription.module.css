@@ -1,0 +1,256 @@
+.formStyles {
+  position: relative;
+}
+
+.productPosition {
+  display: flex;
+}
+.datePosition {
+  display: flex;
+}
+
+.btnPosition {
+  display: flex;
+  width: 100%;
+}
+
+.dateProduct {
+  border: none;
+}
+
+.inputProductName {
+  padding: 13px;
+  border-radius: 16px 0 0 0;
+  border-right: none;
+  outline: none;
+  border: 2px solid var(--bg-color);
+  color: var(--text-color-main);
+}
+
+.errors {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  margin-top: 5px;
+  color: var(--accent-color-primary);
+
+  position: absolute;
+}
+
+.inputСategoryName {
+  padding: 13px;
+  outline: none;
+  border: 2px solid var(--bg-color);
+  background: var(--white-color);
+  color: var(--text-color-light);
+  cursor: pointer;
+}
+
+.inputValueProduct {
+  padding: 13px;
+  border-radius: 0 16px 16px 0;
+  outline: none;
+  border: 2px solid var(--bg-color);
+  text-align: right;
+  color: var(--text-color-main);
+}
+.inputProductName::placeholder {
+  color: var(--text-color-light);
+}
+
+.inputСategoryName::placeholder {
+  color: var(--text-color-light);
+}
+
+.inputProductDate {
+  border: none;
+  color: var(--text-color-main);
+  font-weight: 900;
+  width: 74px;
+  height: 40px;
+  font-size: 12px;
+  line-height: 14px;
+  cursor: pointer;
+}
+
+.DropDownPos {
+  position: relative;
+}
+
+.arrowPos {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  pointer-events: none;
+}
+
+.arrowPosDown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 767px) {
+  .formStyles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .productPosition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .inputValueProduct {
+    width: 185px;
+    text-align: center;
+    border-radius: 16px;
+    border: 2px solid var(--white-color);
+    background: none;
+  }
+
+  .inputValueProductPostion {
+    margin-top: 30px;
+    margin-bottom: 80px;
+    position: relative;
+  }
+
+  .dateProduct {
+    display: none;
+  }
+
+  .inputProductName {
+    width: 282px;
+    border-bottom: none;
+    border-top-right-radius: 16px;
+    border: 2px solid var(--white-color);
+    background: none;
+  }
+
+  .inputСategoryName {
+    width: 282px;
+    border-bottom-right-radius: 16px;
+    border: 2px solid var(--white-color);
+    background: none;
+  }
+
+  .calculatorPos {
+    position: absolute;
+    top: 128px;
+    right: 67px;
+    /* padding: 10px; */
+    /* border-left: 2px solid var(--white-color); */
+  }
+
+  .calendarPos {
+    position: absolute;
+    top: 10px;
+    left: 29%;
+  }
+  .datePosition {
+    margin-left: auto;
+    margin-right: auto;
+    width: 104px;
+    text-align: center;
+  }
+  .inputProductDate {
+    background: none;
+  }
+  .errors {
+    position: absolute;
+    left: 17px;
+    top: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .inputProductName {
+    width: 192px;
+  }
+
+  .inputСategoryName {
+    width: 171px;
+    border-left: none;
+  }
+
+  .inputValueProduct {
+    width: 104px;
+    border-left: none;
+    text-align: center;
+  }
+
+  .btnPosition {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .productInfo {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+
+  .calculatorPos {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+  .productPosition {
+    position: relative;
+  }
+  .calendarPos {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+  }
+  .datePosition {
+    margin-left: 25px;
+    margin-right: 23px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .inputProductName {
+    width: 289px;
+  }
+
+  .inputСategoryName {
+    width: 188px;
+    border-left: none;
+  }
+
+  .inputValueProduct {
+    width: 126px;
+    border-left: none;
+    text-align: center;
+  }
+
+  .formStyles {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+
+    position: relative;
+  }
+
+  .productInfo {
+    margin-bottom: 0;
+  }
+
+  .calendarPos {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+  }
+  .datePosition {
+    margin-left: 25px;
+    margin-right: 23px;
+  }
+}

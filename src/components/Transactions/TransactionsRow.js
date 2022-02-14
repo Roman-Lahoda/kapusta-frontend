@@ -9,14 +9,18 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
     currency: 'UAH',
   });
 
-  const sum = formatter.format(transaction.sum);
+  // const sum = formatter.format(transaction.sum);
 
   return (
     <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-      <TableCell align="left">{transaction.date}</TableCell>
-      <TableCell align="left">{transaction.description}</TableCell>
-      <TableCell align="center">{transaction.category}</TableCell>
-      <TableCell align="center">
+      <TableCell align="left"></TableCell>
+      <TableCell align="left"></TableCell>
+      <TableCell align="left"></TableCell>
+      <TableCell align="left"></TableCell>
+      {/* <TableCell align="left">{transaction.date}</TableCell> */}
+      {/* <TableCell align="left">{transaction.description}</TableCell> */}
+      {/* <TableCell align="center">{transaction.category}</TableCell> */}
+      {/* <TableCell align="center">
         {!transaction.isIncome ? (
           <Typography color="#E7192E" fontWeight="700" fontSize={12}>
             - {sum}
@@ -26,12 +30,12 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
             {sum}
           </Typography>
         )}
-      </TableCell>
+      </TableCell> */}
       <TableCell align="center" sx={{ width: 110 }}>
         <IconButton
           sx={{ padding: '3px' }}
           aria-label="Удалить транзакцию"
-          onClick={() => deleteDialogHandler(transaction._id)}
+          // onClick={() => deleteDialogHandler(transaction._id)}
         >
           <DeleteIcon />
         </IconButton>

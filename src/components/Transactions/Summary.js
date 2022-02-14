@@ -1,42 +1,37 @@
 import React, { useEffect } from 'react';
-// import {
-//   transactionsOperations,
-//   transactionsSelectors,
-// } from '../../redux/transaction';
+// import transactionSelectors from '../../redux/transaction/transaction-selector';
+// import transactionOperation  from '../../redux/transaction/transaction-operation';
 // import { useDispatch, useSelector } from 'react-redux';
 
 // import { getBalance } from '../../redux/balance/balance-selectors';
 import monthWord from './monthWord';
 import s from './Summary.module.scss';
 
-// import { getToken } from '../../redux/login/auth-selectors';
-
 const Summary = ({ value }) => {
-  //   const dispatch = useDispatch();
-  //   const year = useSelector(transactionsSelectors.getSelectedYear);
+  // const dispatch = useDispatch();
+  // const year = useSelector(transactionSelectors.getSelectedYear);
   //   const balance = useSelector(getBalance);
-  //   const transactionsByYear = useSelector(transactionsSelectors.getSummaryByYear);
+  // const transactionsByYear = useSelector(transactionSelectors.getSummaryByYear);
 
   //   useEffect(() => {
   //     console.log(balance);
-  //     dispatch(transactionsOperations.fetchTransactionsSummaryByYear(year));
+  //     dispatch(transactionOperation.fetchTransactionsSummaryByYear(year));
   //   }, [dispatch, year, balance]);
 
-  let transactionsByYear = 12;
   let summary = {};
-  const summaryByYear = transactionsByYear['data'];
-  if (transactionsByYear) {
-    switch (value) {
-      case 'expense':
-        summary = transactionsByYear['expense'];
-        break;
-      case 'income':
-        summary = transactionsByYear['income'];
-        break;
-      default:
-        summary = {};
-    }
-  }
+  // const summaryByYear = transactionsByYear['data'];
+  // if (transactionsByYear) {
+  //   switch (value) {
+  //     case 'expense':
+  //       summary = transactionsByYear['expense'];
+  //       break;
+  //     case 'income':
+  //       summary = transactionsByYear['income'];
+  //       break;
+  //     default:
+  //       summary = {};
+  //   }
+  // }
 
   let arrSummary = [];
 

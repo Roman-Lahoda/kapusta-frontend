@@ -8,27 +8,26 @@ import UserLogout from '../UserLogout';
 import { gsap, Power2 } from 'gsap';
 import s from './Header.module.scss';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
+// import authSelectors from '../../reduxV2/auth/auth-selector';
 
 const Header = () => {
   const viewPort = useWindowDimensions();
   const isAuthenticated = useSelector(authSelectors.getIsLoggedIn);
-
   let logotype = useRef(null);
 
-    useEffect(() => {
-      gsap.fromTo(
-          logotype,
-          0.5,
-          {
-            y: -100,
-          },
-          {
-            y: 13,
-            ease: Power2.easeInOut,
-          },
-        );
+  useEffect(() => {
+    gsap.fromTo(
+      logotype,
+      0.5,
+      {
+        y: -100,
+      },
+      {
+        y: 13,
+        ease: Power2.easeInOut,
+      },
+    );
   }, []);
-
 
   return (
     <header className={s.header}>

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://capusta2.herokuapp.com/api';
-axios.defaults.baseURL = 'http://localhost:3000/api';
+axios.defaults.baseURL = 'https://capusta3.herokuapp.com/api';
+// axios.defaults.baseURL = 'http://localhost:3000/api';
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -17,9 +17,10 @@ export const signup = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/users/registration', userData);
+      console.log('response', data);
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue({ error: err.message });
     }
   },
 );
@@ -31,7 +32,7 @@ export const login = createAsyncThunk('users/login', async (userData, { rejectWi
     localStorage.setItem('user', JSON.stringify(data.userData));
     return data;
   } catch (error) {
-    return rejectWithValue(error);
+    return rejectWithValue({ error: err.message });
   }
 });
 
@@ -41,7 +42,7 @@ export const logout = createAsyncThunk('users/logout', async (_, { rejectWithVal
     token.unset();
     localStorage.removeItem('user');
   } catch (error) {
-    return rejectWithValue(error);
+    return { error: err.message };
   }
 });
 
@@ -56,7 +57,7 @@ export const refresh = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue({ error: err.message });
     }
   },
 );
@@ -72,7 +73,7 @@ export const updateUser = createAsyncThunk(
       localStorage.setItem('user', JSON.stringify(updatedUser));
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue({ error: err.message });
     }
   },
 );

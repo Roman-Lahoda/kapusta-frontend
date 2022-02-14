@@ -7,30 +7,30 @@ const UserInfo = () => {
   const UserName = useSelector(authSelectors.getUser);
   const defaultName = 'Посетитель';
 
-  return (     
+  return (
     <div className={s.userInfo}>
-          {/* {UserName.avatar ? (
+      {/* {UserName.avatar ? (
             <img
               src={UserName.avatar}
               alt="Avatar"
               className={s.userAvatar}
               onClick={openModalProfile}
             />
+
           ) : (
             <p className={s.userAvatar}>
               {UserName.name ? UserName.name.slice(0, 1).toUpperCase() : defaultName.slice(0, 1).toUpperCase()}
             </p>
           )} */}
-        
-        <p className={s.userAvatar}>
-          {UserName.name ? UserName.name.slice(0, 1).toUpperCase() : defaultName.slice(0, 1).toUpperCase()}
-        </p>
 
-        <p className={s.userFullName}>
-          {UserName.name ? UserName.name : defaultName}
-        </p>
+      <p className={s.userAvatar}>
+        {UserName.name
+          ? UserName.name.slice(0, 1).toUpperCase()
+          : defaultName.slice(0, 1).toUpperCase()}
+      </p>
+
+      <p className={s.userFullName}>{UserName.name ? UserName.name : defaultName}</p>
     </div>
-
   );
 };
 

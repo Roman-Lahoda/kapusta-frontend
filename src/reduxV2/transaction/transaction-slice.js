@@ -10,7 +10,7 @@ const initialState = {
   //   transaction: { income: [], expense: [] },
   summary: { income: null, expense: null },
   report: null,
-  isLoading: null,
+  isLoading: false,
   error: null,
 };
 
@@ -45,7 +45,7 @@ const transactionSlice = createSlice({
     [deleteTransaction.fulfilled](state, action) {
       state.isLoading = false;
 
-      switch (action.payload.transactionType) {
+      switch (action.payload.type) {
         case 'income':
           state.transaction.income = state.transaction.income.filter(
             tr => tr.idT !== action.payload.idT,
@@ -93,7 +93,7 @@ const transactionSlice = createSlice({
     },
     [fetchTransactionReport.rejected](state, action) {
       state.isLoading = false;
-      state.error = action.payload.response.data;
+      state.error = action.payload;
     },
   },
 });

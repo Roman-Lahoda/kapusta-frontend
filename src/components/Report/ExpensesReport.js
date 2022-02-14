@@ -1,13 +1,41 @@
+import { useSelector } from 'react-redux';
 import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
+import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 // import Diagram from '../Diagram/Diagram';
 
 export default function ExpensesReport() {
+  const report = useSelector(transactionSelectors.getReport);
+  // console.log(report);
+  const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
+
+  // report.expense.map(el => {
+  //   if (el.length === 0) {
+  //     return null;
+  //   }
+  //   return (
+  //     <li className={s.item}>
+  //       <p>{foodTotalSum}</p>
+  //       <div className={s.picBox}>
+  //         <svg width="59" height="46">
+  //           <use href={`${sprite}#icon-products`}></use>
+  //         </svg>
+  //       </div>
+  //       <p>{el[0].description}</p>
+  //     </li>
+  //   );
+  // });
+
+  console.log(foodTotalSum);
+  const alcoholTotalSum = report?.expense?.alcohol?.reduce((a, b) => a + b.sum, 0);
+  console.log(alcoholTotalSum);
+  const otherTotalSum = report?.expense?.other?.reduce((a, b) => a + b.sum, 0);
+
   return (
     <>
       <ul className={s.expensesCategories}>
         <li className={s.item}>
-          <p>5 000.00</p>
+          <p>{foodTotalSum}</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-products`}></use>
@@ -16,7 +44,7 @@ export default function ExpensesReport() {
           <p>ПРОДУКТЫ</p>
         </li>
         <li className={s.item}>
-          <p>200.00</p>
+          <p>{alcoholTotalSum}</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-cocktail`}></use>
@@ -100,7 +128,7 @@ export default function ExpensesReport() {
           <p>ОБРАЗОВАНИЕ</p>
         </li>
         <li className={s.item}>
-          <p>3 000.00</p>
+          <p>{otherTotalSum}</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-ufo`}></use>

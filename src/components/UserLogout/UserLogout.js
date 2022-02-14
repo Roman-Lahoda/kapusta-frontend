@@ -28,39 +28,37 @@ const UserLogout = () => {
 
   const userlogOut = () => {
     dispatch(authOperation.logout());
-  }; 
-
+  };
 
   return (
     <>
-        <button type="button" className={s.logoutBtn} onClick={openModalOne}>
-          <p className={s.textBtn}>Выйти</p>
-        </button>
-      
-        
-        <button type="button" className={s.btnLogout} onClick={openModalOne}>
-          <svg className={s.iconLogout}>
-            <use href={`${sprite}#logOut`} />
-          </svg>
-        </button>
-    
-      {modalOpenOne && ( 
-          <UniversalModal
-            text={'Вы уверены?'}
-            onClickYes={openModalTwo}
-            onClose={closeModal}
-            active={modalOpenOne}
-          />
-      )} 
+      <button type="button" className={s.logoutBtn} onClick={openModalOne}>
+        <p className={s.textBtn}>Выйти</p>
+      </button>
 
-       {modalOpenTwo && ( 
-          <UniversalModal
-            text={'Вы действительно хотите выйти?'}
-            onClickYes={userlogOut}
-            onClose={closeModal}
-            active={modalOpenTwo}
-          />
-      )} 
+      <button type="button" className={s.btnLogout} onClick={openModalOne}>
+        <svg className={s.iconLogout}>
+          <use href={`${sprite}#logOut`} />
+        </svg>
+      </button>
+
+      {modalOpenOne && (
+        <UniversalModal
+          text={'Вы уверены?'}
+          onClickYes={openModalTwo}
+          onClose={closeModal}
+          active={modalOpenOne}
+        />
+      )}
+
+      {modalOpenTwo && (
+        <UniversalModal
+          text={'Вы действительно хотите выйти?'}
+          onClickYes={userlogOut}
+          onClose={closeModal}
+          active={modalOpenTwo}
+        />
+      )}
     </>
   );
 };

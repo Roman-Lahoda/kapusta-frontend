@@ -19,19 +19,18 @@ const colors = [
 ];
 
 
+//вертикальнве линии вдолль столбцов
 const blueGrey50 = "#F5F6FB";
-const blueGrey300 = "#F5F6FB";
 
+//светлосерый цвет по горизонтали ( ось Х)
+const lightGray = "#F5F6FB"
 
-// const blueGrey700 = "#455A64";
-//orange
-const blueGrey700 = "#FF751D";
+const blueGrey700 = "#52555F";
 
+// Подписи внизу
 const blackColor = "#52555F"
 
-// const grey900 = "#212121";
-//yellow
-const grey900 = "#dff515";
+const grey900 = "#212121";
 
 
 // *
@@ -47,7 +46,7 @@ const padding = 8;
 const baseProps = {
   width: 350,
   height: 350,
-  padding: 50
+  padding: 30
 };
 // *
 // * Labels
@@ -70,8 +69,8 @@ const strokeDasharray = "10, 5";
 const strokeLinecap = "round";
 const strokeLinejoin = "round";
 
-
-    const ownVictoryTheme = {
+// export default OwnTheme {
+    const OwnTheme = {
   area: assign(
     {
       style: {
@@ -88,7 +87,8 @@ const strokeLinejoin = "round";
       style: {
         axis: {
           fill: "transparent",
-          stroke: blueGrey300,
+          // stroke: blueGrey300,
+          stroke: lightGray,
           strokeWidth: 2,
           strokeLinecap,
           strokeLinejoin
@@ -108,7 +108,8 @@ const strokeLinejoin = "round";
         ticks: {
           fill: "transparent",
           size: 5,
-          stroke: blueGrey300,
+          // stroke: blueGrey300,
+          stroke: lightGray,
           strokeWidth: 1,
           strokeLinecap,
           strokeLinejoin
@@ -124,9 +125,9 @@ const strokeLinejoin = "round";
   polarDependentAxis: assign({
     style: {
       ticks: {
-        fill: "transparent",
-        size: 1,
-        stroke: "transparent"
+        // fill: "transparent",
+        // size: 1,
+        // stroke: "transparent"
       }
     }
   }),
@@ -135,7 +136,6 @@ const strokeLinejoin = "round";
       style: {
         data: {
           fill: blueGrey700,
-        //   fill: blackColor,
           padding,
           strokeWidth: 0
         },
@@ -199,6 +199,7 @@ const strokeLinejoin = "round";
     },
     baseProps
   ),
+  
   histogram: assign(
     {
       style: {
@@ -309,4 +310,4 @@ const strokeLinejoin = "round";
   )
 };
 
-export default ownVictoryTheme
+export default OwnTheme 

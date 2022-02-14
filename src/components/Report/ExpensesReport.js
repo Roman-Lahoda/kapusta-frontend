@@ -2,12 +2,13 @@ import { useSelector } from 'react-redux';
 import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
-// import Diagram from '../Diagram/Diagram';
+import Diagram from '../Diagram/Diagram';
 
 export default function ExpensesReport() {
   const report = useSelector(transactionSelectors.getReport);
-  // console.log(report);
+
   const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
+
 
   // report.expense.map(el => {
   //   if (el.length === 0) {
@@ -139,7 +140,7 @@ export default function ExpensesReport() {
         <svg className={s.expBorder}></svg>
       </ul>
 
-      <section className={s.expensesDiargBg}>{/* <Diargam /> */}</section>
+      <section className={s.expensesDiargBg}> {/*<Diagram />*/} </section>
     </>
   );
 }

@@ -38,6 +38,9 @@ const PublicRoute = ({ children, redirectTo = '/', restricted = false, ...routeP
 
 function App() {
   const dispatch = useDispatch();
+  // const isLoadingTr = useSelector(transactionSelectors.isLoading);
+  // const isLoadingAuth = useSelector(authSelectors.getIsLoading);
+  // console.log(isLoadingTr);
 
   useEffect(() => {
     dispatch(authOperation.refresh());
@@ -54,21 +57,28 @@ function App() {
   }
 
   return (
-    <Suspense fallback={<h1>LOADING</h1>}>
-      <Switch>
-        <PublicRoute exact redirectTo="/wallet" restricted path="/">
-          <HomePage />
-        </PublicRoute>
+    <>
+      {/* <div className={s.App}>
+        <BackgraundHome />
+        <Header />
+      </div> */}
 
-        <PrivateRoute exact redirectTo="/" path="/wallet">
-          <WalletPage />
-        </PrivateRoute>
+      <Suspense fallback={<h1>LOADING</h1>}>
+        <Switch>
+          <PublicRoute exact redirectTo="/wallet" restricted path="/">
+            <HomePage />
+          </PublicRoute>
 
-        <PrivateRoute exact redirectTo="/" path="/report">
-          <ReportPage />
-        </PrivateRoute>
-      </Switch>
-    </Suspense>
+          <PrivateRoute exact redirectTo="/" path="/wallet">
+            <WalletPage />
+          </PrivateRoute>
+
+          <PrivateRoute exact redirectTo="/" path="/report">
+            <ReportPage />
+          </PrivateRoute>
+        </Switch>
+      </Suspense>
+    </>
   );
 }
 export default App;

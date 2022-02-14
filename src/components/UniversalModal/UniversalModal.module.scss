@@ -1,0 +1,129 @@
+.modal {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+
+  transform: translate(-50%, 7%);
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+
+  width: 380px;
+  height: 194px;
+  padding-top: 50px;
+
+  box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+  border-radius: 30px;
+  background: #ffffff;
+
+  @media screen and (max-width: 440px) {
+    width: 100%;
+  }
+
+  &.open {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+}
+
+.modalNone {
+  display: none;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+
+  padding: 3px 0px 0px 0px;
+  border: none;
+  background-color: #ffffff;
+
+  &:hover,
+  &:focus {
+    background-color: #ffdac0;
+    border-radius: 50%;
+    transition: 0.5s linear;
+  }
+}
+
+.close {
+  width: 12px;
+  height: 12px;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.14;
+
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  margin-bottom: 20px;
+
+  color: #52555f;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+
+  //   @media screen and (max-width: 767px) {
+  //     padding-top: 81px;
+  //   }
+
+  //   @media screen and (min-width: 768px) and (max-width: 1279px) {
+  //     padding-top: 30px;
+  //     padding-left: 30px;
+  //   }
+
+  //   @media screen and (min-width: 1280px) {
+  //     margin-left: 27px;
+  //   }
+}
+
+.item {
+  margin-right: 15px;
+}
+
+.button {
+  width: 125px;
+  height: 44px;
+  padding: 15px 34px;
+  border: none;
+  color: #52555f;
+  background-color: #f5f6fb;
+  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
+  border-radius: 16px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  display: flex;
+  justify-content: center;
+
+  outline: none;
+
+  border-radius: 16px;
+  border: none;
+
+  filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #ffdac0;
+    color: #52555f;
+    filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
+    transition: 0.5s linear;
+  }
+}
+
+.buttonYes {
+  background-color: #ff751d;
+  color: #ffffff;
+}

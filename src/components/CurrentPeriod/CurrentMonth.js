@@ -38,6 +38,10 @@ export function CurrentMonth() {
     }
     setMonth(month + 1);
     // dispatch(transactionOperation.fetchTransactionReport());
+    if (month === currentMonth) {
+      setMonth(currentMonth);
+      return;
+    }
   };
 
   return (

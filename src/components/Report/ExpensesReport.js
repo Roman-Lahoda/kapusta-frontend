@@ -2,22 +2,27 @@ import { useSelector } from 'react-redux';
 import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
-// import Diagram from '../Diagram/Diagram';
 
 export default function ExpensesReport() {
   const report = useSelector(transactionSelectors.getReport);
   // console.log(report);
   const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
-  console.log(foodTotalSum);
   const alcoholTotalSum = report?.expense?.alcohol?.reduce((a, b) => a + b.sum, 0);
-  console.log(alcoholTotalSum);
-  const otherTotalSum = report?.expense?.other?.reduce((a, b) => a + b.sum, 0);
+  const entertainmentTotalSum = report?.expense?.entertainment?.reduce((a, b) => a + b.sum, 0);
+  const housingTotalSum = report?.expense?.housing?.reduce((a, b) => a + b.sum, 0);
+  const technicsTotalSum = report?.expense?.technics?.reduce((a, b) => a + b.sum, 0);
+  const communalTotalSum = report?.expense?.communal?.reduce((a, b) => a + b.sum, 0);
+  const sportTotalSum = report?.expense?.sport?.reduce((a, b) => a + b.sum, 0);
+  const educationTotalSum = report?.expense?.education?.reduce((a, b) => a + b.sum, 0);
+  const healthTotalSum = report?.expense?.health?.reduce((a, b) => a + b.sum, 0);
+  const transportTotalSum = report?.expense?.transport?.reduce((a, b) => a + b.sum, 0);
+  const otherTotalSum = report?.expense?.transport?.reduce((a, b) => a + b.sum, 0);
 
   return (
-    <>
-      <ul className={s.expensesCategories}>
+    <ul className={s.expensesCategories}>
+      {foodTotalSum ? (
         <li className={s.item}>
-          <p>{foodTotalSum}</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(foodTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-products`}></use>
@@ -25,8 +30,10 @@ export default function ExpensesReport() {
           </div>
           <p>ПРОДУКТЫ</p>
         </li>
+      ) : null}
+      {alcoholTotalSum ? (
         <li className={s.item}>
-          <p>{alcoholTotalSum}</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(alcoholTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-cocktail`}></use>
@@ -34,8 +41,10 @@ export default function ExpensesReport() {
           </div>
           <p>АЛКОГОЛЬ</p>
         </li>
+      ) : null}
+      {entertainmentTotalSum ? (
         <li className={s.item}>
-          <p>800.00</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(entertainmentTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-kite`}></use>
@@ -43,9 +52,11 @@ export default function ExpensesReport() {
           </div>
           <p>РАЗВЛЕЧЕНИЯ</p>
         </li>
-        <svg className={s.expBorder}></svg>
+      ) : null}
+      <svg className={s.expBorder}></svg>
+      {healthTotalSum ? (
         <li className={s.item}>
-          <p>900.00</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(healthTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-health`}></use>
@@ -53,8 +64,10 @@ export default function ExpensesReport() {
           </div>
           <p>ЗДОРОВЬЕ</p>
         </li>
+      ) : null}
+      {transportTotalSum ? (
         <li className={s.item}>
-          <p>2 000.00</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(transportTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-car`}></use>
@@ -62,8 +75,10 @@ export default function ExpensesReport() {
           </div>
           <p>ТРАНСПОРТ</p>
         </li>
+      ) : null}
+      {housingTotalSum ? (
         <li className={s.item}>
-          <p>1 500.00</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(housingTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-couch`}></use>
@@ -71,9 +86,11 @@ export default function ExpensesReport() {
           </div>
           <p>ВСЕ ДЛЯ ДОМА</p>
         </li>
-        <svg className={s.expBorder}></svg>
+      ) : null}
+      <svg className={s.expBorder}></svg>
+      {technicsTotalSum ? (
         <li className={s.item}>
-          <p>800.00</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(technicsTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-tools`}></use>
@@ -81,8 +98,10 @@ export default function ExpensesReport() {
           </div>
           <p>ТЕХНИКА</p>
         </li>
+      ) : null}
+      {communalTotalSum ? (
         <li className={s.item}>
-          <p>2 200.00</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(communalTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-invoice`}></use>
@@ -90,8 +109,10 @@ export default function ExpensesReport() {
           </div>
           <p>КОММУНАЛКА, СВЯЗЬ</p>
         </li>
+      ) : null}
+      {sportTotalSum ? (
         <li className={s.item}>
-          <p>1 800.00</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(sportTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-hobby`}></use>
@@ -99,9 +120,11 @@ export default function ExpensesReport() {
           </div>
           <p>СПОРТ, ХОББИ</p>
         </li>
-        <svg className={s.expBorder}></svg>
+      ) : null}
+      <svg className={s.expBorder}></svg>
+      {educationTotalSum ? (
         <li className={s.item}>
-          <p>2 400.00</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(educationTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-education`}></use>
@@ -109,8 +132,10 @@ export default function ExpensesReport() {
           </div>
           <p>ОБРАЗОВАНИЕ</p>
         </li>
+      ) : null}
+      {otherTotalSum ? (
         <li className={s.item}>
-          <p>{otherTotalSum}</p>
+          <p>{new Intl.NumberFormat('ru-RU').format(otherTotalSum)}.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
               <use href={`${sprite}#icon-ufo`}></use>
@@ -118,10 +143,8 @@ export default function ExpensesReport() {
           </div>
           <p>ПРОЧЕЕ</p>
         </li>
-        <svg className={s.expBorder}></svg>
-      </ul>
-
-      <section className={s.expensesDiargBg}>{/* <Diargam /> */}</section>
-    </>
+      ) : null}
+      <svg className={s.expBorder}></svg>
+    </ul>
   );
 }

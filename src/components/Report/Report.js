@@ -4,6 +4,7 @@ import RevenueReport from './RevenueReport';
 import { useState } from 'react';
 import sprite from '../../images/spriteReport.svg';
 import s from './Report.module.scss';
+import Diagram from '../Diagram';
 
 export default function Report() {
   const [transactionType, setTransactionType] = useState('РАСХОДЫ');
@@ -18,16 +19,21 @@ export default function Report() {
     <>
       <Header />
       <section className={s.sectionsBg}>
-        <div className={s.currentTransactionBlock}>
-          <svg width="10" height="20" onClick={onClickTransactionType} name="prev">
-            <use href={`${sprite}#icon-vectorleft`}></use>
-          </svg>
-          <p className={s.currentTransactionType}>{transactionType}</p>
-          <svg width="10" height="20" onClick={onClickTransactionType} name="next">
-            <use href={`${sprite}#icon-vectorright`}></use>
-          </svg>
+        <div className={s.allTransactionsCategories}>
+          <div className={s.currentTransactionBlock}>
+            <svg width="10" height="20" onClick={onClickTransactionType} name="prev">
+              <use href={`${sprite}#icon-vectorleft`}></use>
+            </svg>
+            <p className={s.currentTransactionType}>{transactionType}</p>
+            <svg width="10" height="20" onClick={onClickTransactionType} name="next">
+              <use href={`${sprite}#icon-vectorright`}></use>
+            </svg>
+          </div>
+          {transactionType === 'РАСХОДЫ' ? <ExpensesReport /> : <RevenueReport />}
         </div>
-        {transactionType === 'РАСХОДЫ' ? <ExpensesReport /> : <RevenueReport />}
+        <article className={s.expensesDiargBg}>
+          <Diagram />
+        </article>
       </section>
     </>
   );

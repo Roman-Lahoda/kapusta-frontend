@@ -44,6 +44,9 @@ function App() {
   }, [dispatch]);
 
   const search = window.location?.search;
+  const test = window.location;
+  console.log(test);
+  console.log(search);
   const email = search?.split('&')[0]?.split('=')[1];
   const password = search?.split('&')[1]?.split('=')[1];
   if (email && password) {

@@ -6,12 +6,12 @@ import authSelectors from '../../reduxV2/auth/auth-selector';
 import authOperation from '../../reduxV2/auth/auth-operation';
 
 export function BalanceForm() {
+  const balance = useSelector(authSelectors.getUserBalance);
   const [inputValue, setInputValue] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [isDisable, setIsDisable] = useState(false);
 
   const dispatch = useDispatch();
-  const balance = useSelector(authSelectors.getUserBalance);
 
   useEffect(() => {
     // setInputValue(balance)

@@ -4,7 +4,7 @@ import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 import ownVictoryTheme from './ownVictoryTheme.js';
 
 // это пример массива данных о транзакциях, которые могут прийти с бекенда. Здесь он используется для примера и тестирования.
-// в дальнейшем этот массив данных нужно будет, как полагается получить, от бекенда
+// в дальнейшем этот массив данных нужно будет, как полагается получить, от бекенда. 
 
 import exampleTransactionArray from './exampleTransactionArray.json'; // это пример массива данных о транзакциях, которые могут прийти с бекенда
 
@@ -40,37 +40,61 @@ const Diagram = function () {
 
 
   return (
-    <div>
+    <div  >
+
+
       <VictoryChart
         // добавляем свою кастомную тему диаграммы
         theme={ownVictoryTheme}
-        // domainPadding will add space to each side of VictoryBar to
-        // prevent it from overlapping the axis
         domainPadding={10}
       >
-        <VictoryAxis // работает с данными по оси Х
-          // tickValues specifies both the number of ticks and where
-          // they are placed on the axis
-          tickValues={[1, 2, 3, 4]}
-          tickFormat={dataForDiagram.map(elem => elem.description)} //Это подписи внизу диограммы к каждому столбцу
-        />
 
-        {/* <VictoryAxis // работает с данными по оси У. 
-                    dependentAxis
-                    // tickFormat specifies how ticks should be displayed
-                    tickFormat={(x) => (`$${x / 1000}k`)}
-                /> */}
+      <VictoryAxis  // работает с данными по оси Х
+        dependAxis={true}
+        style={{ data: { fill: "#dff515" } }}
+        tickFormat={dataForDiagram.map( elem=> elem.description)}  //Это подписи внизу диограммы к каждому столбцу
+      />
+
 
         <VictoryBar
           data={dataForDiagram}
+          barRatio={0.6}
+          cornerRadius={{ top:  5 }}
           // data accessor for x values
           x="description"
           // data accessor for y values
           y="sum"
-          labels={dataForDiagram.map(elem => elem.sum)}
+          labels={dataForDiagram.map( elem=> `${elem.sum} грн.`) }
+          style={{ data: { fill: "#FF751D"  } }}
+
+            events={[{
+              target: "data",
+              eventHandlers: {
+                onClick: () => {
+                  return [
+                    {
+                      target: "data",
+                      mutation: (props) => {
+                        const fill = props.style && props.style.fill;
+                        return fill === "#F5F6FB" ? null : { style: { fill: "#F5F6FB", stroke: "#FF751D", strokeWidth: 1} };
+                      }
+                    }
+                  ];
+                }
+              }
+            }]}
+
+          animate={{
+              duration: 2000,
+              onLoad: { duration:1000 }
+          }}
+
+            //для мобильной версии - горизонтальное отображение
+            // horizontal
+            // labelComponent={<VictoryLabel dy={-25} dx={0}/>}
         />
-      </VictoryChart>
-    </div>
+        </VictoryChart>
+      </div>
   );
 };
 

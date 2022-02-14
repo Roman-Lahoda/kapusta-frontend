@@ -29,7 +29,7 @@ function App() {
   const dispatch = useDispatch();
   const isLoadingTr = useSelector(transactionSelectors.isLoading);
   const isLoadingAuth = useSelector(authSelectors.getIsLoading);
-  console.log(isLoadingTr);
+  // console.log(isLoadingTr);
   useEffect(() => {
     dispatch(authOperation.refresh());
   }, [dispatch]);
@@ -117,7 +117,7 @@ function App() {
 
   return (
     <div className={s.App}>
-      {/* будет реализовано через условие (Если пользователь задогинен  <BackgraundHome/>  если нет  <Backgraund/>) */}
+      {/* будет реализовано через условие (Если пользователь залогинен  <BackgraundHome/>  если нет  <Backgraund/>) */}
       {/* <Backgraund /> */}
       <BackgraundHome />
       <Header />

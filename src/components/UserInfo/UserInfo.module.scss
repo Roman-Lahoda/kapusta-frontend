@@ -2,17 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 20px;
-  padding-right: 20px;
   text-align: right;
-  border-right: 1px solid #e0e5eb;
-}
 
-.userInfo_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  @media screen and (min-width: 768px) {
+    margin-right: 20px;
+    padding-right: 20px;
+    border-right: 1px solid #e0e5eb;
+  }
 }
 
 .userAvatar {
@@ -23,9 +19,7 @@
 
   font-weight: bold;
   font-size: 12px;
-  line-height: 14px;
-
-  text-align: center;
+  line-height: 1.17;
   letter-spacing: 0.04em;
 
   width: 32px;
@@ -36,29 +30,26 @@
   background-color: #f5f6fa;
 
   cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    margin-right: 15px;
+  }
 }
 
 .userFullName {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 10px;
-
   font-size: 12px;
   letter-spacing: 0.04em;
+  margin-right: 10px;
 
   color: #52555f;
   cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
-.userFullName:hover {
-  font-weight: bold;
-  color: #ff751d;
-}
-.MuiSvgIcon-root {
-  fill: #ff751d;
-}
-.iconWrapper {
-  cursor: pointer;
-}
+// .userFullName:hover {
+//   font-weight: bold;
+//   color: #ff751d;
+// }

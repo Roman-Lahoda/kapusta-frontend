@@ -43,6 +43,13 @@ function App() {
     dispatch(authOperation.refresh());
   }, [dispatch]);
 
+  const search = window.location?.search;
+  const email = search?.split('&')[0]?.split('=')[1];
+  const password = search?.split('&')[1]?.split('=')[1];
+  if (email && password) {
+    dispatch(authOperation.login({ email, password }));
+  }
+
   return (
     <Suspense fallback={<h1>LOADING</h1>}>
       <Switch>

@@ -12,6 +12,7 @@ const getReport = state => state.transaction.report;
 
 const isLoading = state => state.transaction.isLoading;
 
+export const getAllTransactions = state => state.transaction.transactionsByMonth;
 const getSelectedDate = state => state.transaction.selectedDate;
 const getSelectedMonth = state => state.transaction.selectedDate.month;
 const getSelectedYear = state => state.transaction.selectedDate.year;
@@ -26,6 +27,7 @@ const transactionSelectors = {
   // getReportTotalIncome,
   getSelectedDate,
   getSelectedMonth,
+  getAllTransactions,
 };
 
 export default transactionSelectors;

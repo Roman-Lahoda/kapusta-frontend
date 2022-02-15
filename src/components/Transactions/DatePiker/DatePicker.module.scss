@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+.img {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    margin-bottom: 60px;
+  }
+}

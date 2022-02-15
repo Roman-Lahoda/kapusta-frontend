@@ -77,28 +77,40 @@ export const fetchTransactionReport = createAsyncThunk(
   },
 );
 
-const getExpenseByDate = createAsyncThunk(
-  'transaction/getExpenseByDate',
+// const getExpenseByDate = createAsyncThunk(
+//   'transaction/getExpenseByDate',
+//   async (date, { rejectWithValue }) => {
+//     try {
+//       const expense = await transactionsAPI.fetchExpenseByDate(date).then(({ data }) => data);
+
+//       return expense;
+//     } catch (err) {
+//       return rejectWithValue(err.message);
+//     }
+//   },
+// );
+
+// const getIncomeByDate = createAsyncThunk(
+//   'transaction/getIncomeByDate',
+//   async (date, { rejectWithValue }) => {
+//     try {
+//       const expense = await transactionsAPI.fetchIncomeByDate(date).then(({ data }) => data);
+
+//       return expense;
+//     } catch (err) {
+//       return rejectWithValue(err.message);
+//     }
+//   },
+// );
+
+export const fetchAllTransactionsByMonth = createAsyncThunk(
+  'transactions/fetchAllTransactionsByMonth',
   async (date, { rejectWithValue }) => {
     try {
-      const expense = await transactionsAPI.fetchExpenseByDate(date).then(({ data }) => data);
-
-      return expense;
-    } catch (err) {
-      return rejectWithValue(err.message);
-    }
-  },
-);
-
-const getIncomeByDate = createAsyncThunk(
-  'transaction/getIncomeByDate',
-  async (date, { rejectWithValue }) => {
-    try {
-      const expense = await transactionsAPI.fetchIncomeByDate(date).then(({ data }) => data);
-
-      return expense;
-    } catch (err) {
-      return rejectWithValue(err.message);
+      const { data } = await axios.get(`/transaction/byMonth/${date.year}/${date.month}`);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   },
 );
@@ -108,7 +120,8 @@ const transactionOperation = {
   deleteTransaction,
   fetchTransactionSummary,
   fetchTransactionReport,
-  getExpenseByDate,
-  getIncomeByDate,
+  // getExpenseByDate,
+  // getIncomeByDate,
+  fetchAllTransactionsByMonth,
 };
 export default transactionOperation;

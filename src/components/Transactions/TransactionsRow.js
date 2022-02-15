@@ -4,10 +4,13 @@ import { ReactComponent as DeleteIcon } from '../../images/transactionIcons/dele
 import React from 'react';
 
 function TransactionsRow({ transaction, deleteDialogHandler }) {
-  const formatter = new Intl.NumberFormat('uk-UA', {
-    style: 'currency',
-    currency: 'UAH',
-  });
+  // const formatter = new Intl.NumberFormat('uk-UA', {
+  //   style: 'currency',
+  //   currency: 'UAH',
+  // });
+
+  // const sum = formatter.format(transaction.sum);
+
   console.log(transaction);
   // const sum = formatter.format(transactions.sum);
   const date = `${transaction.dayCreate}.${transaction.monthCreate}.${transaction.yearCreate}`;
@@ -15,11 +18,12 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
 
   return (
     <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-      {/* <TableCell align="left">{transactions.date}</TableCell> */}
-      {/* <TableCell align="left">{transactions.description}</TableCell> */}
-      {/* <TableCell align="center">{transactions.category}</TableCell> */}
+      <TableCell align="left">{date}</TableCell>
+      <TableCell align="left">{transaction.description}</TableCell>
+      <TableCell align="center">{transaction.category}</TableCell>
+      <TableCell align="center">{transaction.sum}</TableCell>
       {/* <TableCell align="center">
-        {!transactions.isIncome ? (
+        {!transaction.isIncome ? (
           <Typography color="#E7192E" fontWeight="700" fontSize={12}>
             - {sum}
           </Typography>
@@ -29,10 +33,7 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
           </Typography>
         )}
       </TableCell> */}
-      <TableCell align="left">{date}</TableCell>
-      <TableCell align="left">{transaction.description}</TableCell>
-      <TableCell align="left">{transaction.category}</TableCell>
-      <TableCell align="left">{transaction.sum}</TableCell>
+
       <TableCell align="center" sx={{ width: 110 }}>
         <IconButton
           sx={{ padding: '3px' }}

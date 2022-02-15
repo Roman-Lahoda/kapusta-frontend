@@ -1,0 +1,140 @@
+.tableWrapper {
+    /* display: flex; */
+}
+.transactionTable {
+    margin-top: 48px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 605px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    text-align: left;
+    background-color: var(--main-bg);
+    border-collapse: collapse;
+    border-radius: 20px 20px 0 0;
+}
+
+.thead {
+    height: 38px;
+}
+
+.name {
+    font-weight: 700;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--main-title-color);
+}
+
+.date {
+    padding-left: 21px;
+    width: 120px;
+}
+
+.description {
+    max-width: 190px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-transform: capitalize;
+}
+
+.category {
+    width: 140px;
+    text-align: center;
+}
+
+.sum {
+    width: 100px;
+    text-align: right;
+}
+
+.cost {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: var(--negative-num);
+}
+
+.incomes {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: var(--income-num);
+}
+
+.tbody {
+    background-color: #ffffff;
+    border-right: 2px solid var(--main-bg);
+    border-left: 2px solid var(--main-bg);
+}
+
+.tableRow {
+    height: 40px;
+    border-bottom: 2px solid var(--main-bg);
+}
+
+.tableRow td {
+    border: none;
+}
+
+.icon {
+    width: 70px;
+    text-align: center;
+}
+
+.button {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+.button:hover,
+.button:focus {
+    background-color: var(--main-bg);
+}
+
+.basket {
+    fill: var(--main-txt-color);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover .basket,
+.button:focus .basket {
+    fill: var(--negative-num);
+}
+
+@media screen and (min-width: 1280px) {
+    .transactionTable {
+        width: 760px;
+        margin-right: auto;
+        margin-left: 13.5px;
+    }
+
+    .thead {
+        height: 40px;
+    }
+
+    .description {
+        max-width: 250px;
+    }
+
+    .category {
+        width: 120px;
+    }
+
+    .sum {
+        width: 150px;
+    }
+
+    .icon {
+        width: 120px;
+    }
+}

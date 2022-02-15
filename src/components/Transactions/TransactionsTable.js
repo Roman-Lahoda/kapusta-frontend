@@ -13,18 +13,17 @@ import {
 import EmptyRow from './EmptyRow';
 import React from 'react';
 import TransactionsRow from './TransactionsRow';
-//   import { transactionsSelectors } from '../../redux/transaction';
-//   import { useSelector } from 'react-redux';
+import transactionSelectors from '../../redux/transaction/transaction-selector';
+import { useSelector } from 'react-redux';
 
 function TransactionsTable({ type, deleteDialogHandler }) {
   // const selectorType =
-  // type === 'expense'
-  // ? transactionsSelectors.getExpenseTransactions
-  // : transactionsSelectors.getIncomeTransactions;
-  // ? transactionsSelectors.getExpenseTransactions
-  // : transactionsSelectors.getIncomeTransactions;
+  //   type === 'expense'
+  //     ? transactionSelectors.getListOfExpenseTransactions
+  //     : transactionSelectors.getListOfIncomeTransactions;
 
   // const transactions = useSelector(selectorType);
+
   const transactions = [
     {
       category: 'Транспорт',
@@ -48,7 +47,7 @@ function TransactionsTable({ type, deleteDialogHandler }) {
     },
   ];
 
-  // const isLoading = useSelector(transactionsSelectors.getTransactionsIsLoading);
+  // const isLoading = useSelector(transactionSelectors.isLoading);
 
   return (
     <>
@@ -90,7 +89,12 @@ function TransactionsTable({ type, deleteDialogHandler }) {
             {/* {transactions.length < 9 &&
               Array(9 - transactions.length)
                 .fill()
-                .map((item, index) => <EmptyRow key={index}></EmptyRow>)} */}
+                .map((item, index) =>  */}
+            <EmptyRow
+
+            // key={index}
+            ></EmptyRow>
+            {/* )} */}
           </TableBody>
         </Table>
       </TableContainer>

@@ -2,11 +2,11 @@ import { LinearProgress } from '@mui/material';
 import React from 'react';
 import TransactionsItem from './TransactionsItem';
 import TransactionsButtons from './TransactionsBtn';
-// import { transactionsSelectors } from '../../redux/transaction';
+// import { transactionSelectors } from '../../redux/transaction/transaction-selector';
 // import { useSelector } from 'react-redux';
 
 function TransactionsList({ deleteDialogHandler }) {
-  //   const transactions = useSelector(transactionsSelectors.getAllTransactions);
+  //   const transactions = useSelector(transactionSelectors.getAllTransactions);
   const transactions = [
     {
       category: 'Продукты',
@@ -20,7 +20,7 @@ function TransactionsList({ deleteDialogHandler }) {
     },
   ];
 
-  //   const isLoading = useSelector(transactionsSelectors.getTransactionsIsLoading);
+  //   const isLoading = useSelector(transactionSelectors.isLoading);
 
   return (
     <>

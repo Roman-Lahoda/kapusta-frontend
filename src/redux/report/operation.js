@@ -1,7 +1,7 @@
 // import axios from 'axios';
 // import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://capusta2.herokuapp.com/api';
+// axios.defaults.baseURL = 'https://capusta3.herokuapp.com/api';
 
 // axios.defaults.headers.common.Authorization =
 //   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDUzZWQ3ZDNlMmJkMWFmYTc0M2Y5ZSIsImlhdCI6MTY0NDU3MzU5OCwiZXhwIjoxNjQ0NjAyMzk4fQ.CgjSbL4-2ucHNxsKVzGMoL3AlKyf2nHKb-tXMgKPLyA';

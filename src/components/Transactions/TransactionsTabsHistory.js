@@ -52,6 +52,23 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
   if (isDesktop) {
     tableBox.display = 'flex';
   }
+  console.log('Здесь нужно подключить сводки');
+  const summaryIncome = {
+    A: 10000,
+    B: 9000,
+    C: 8000,
+    D: 7000,
+    E: 6000,
+    F: 5000,
+  };
+  const summaryExpense = [
+    { id: 2, month: 'февраль', sum: 10000 },
+    { id: 1, month: 'январь', sum: 9000 },
+    { id: 12, month: 'декабрь', sum: 8000 },
+    { id: 11, month: 'ноябвь', sum: 7000 },
+    { id: 10, month: 'октрябрь', sum: 6000 },
+    { id: 9, month: 'сентябрь', sum: 5000 },
+  ];
 
   return (
     <Box value={value}>
@@ -73,7 +90,7 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
                 deleteDialogHandler={deleteDialogHandler}
                 transactions={expenseTransactionList}
               />
-              <Summary value={value} />
+              <Summary value={summaryExpense} />
             </div>
           </TabPanel>
           <TabPanel value="income" sx={{ padding: 0 }}>
@@ -89,7 +106,7 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
                 deleteDialogHandler={deleteDialogHandler}
                 transactions={incomeTransactionList}
               />
-              <Summary value={value} />
+              <Summary value={summaryIncome} />
             </div>
           </TabPanel>
         </Paper>

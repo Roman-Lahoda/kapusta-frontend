@@ -17,6 +17,7 @@ const Summary = ({ value }) => {
   //     console.log(balance);
   //     dispatch(transactionOperation.fetchTransactionsSummaryByYear(year));
   //   }, [dispatch, year, balance]);
+  console.log(value);
 
   let summary = {};
   // const summaryByYear = transactionsByYear['data'];
@@ -35,15 +36,15 @@ const Summary = ({ value }) => {
 
   let arrSummary = [];
 
-  for (const key in summary) {
-    const total = Math.round(summary[`${key}`]['total'] * 100) / 100;
-    arrSummary.push({
-      month: monthWord(key),
-      total,
-      id: +key,
-    });
-  }
-
+  // for (const key in value) {
+  //   const total = Math.round(summary[`${key}`]['total'] * 100) / 100;
+  //   arrSummary.push({
+  //     month: monthWord(key),
+  //     total,
+  //     id: +key,
+  //   });
+  // }
+  console.log(arrSummary);
   arrSummary = arrSummary.sort((a, b) => b.id - a.id);
   if (arrSummary.length > 6) {
     arrSummary = arrSummary.slice(0, 6);

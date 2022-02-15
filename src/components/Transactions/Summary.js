@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 // import transactionSelectors from '../../redux/transaction/transaction-selector';
 // import transactionOperation  from '../../redux/transaction/transaction-operation';
 // import { useDispatch, useSelector } from 'react-redux';
 
 // import { getBalance } from '../../redux/balance/balance-selectors';
-import monthWord from './monthWord';
+// import monthWord from './monthWord';
 import s from './Summary.module.scss';
 
 const Summary = ({ value }) => {
@@ -17,9 +17,9 @@ const Summary = ({ value }) => {
   //     console.log(balance);
   //     dispatch(transactionOperation.fetchTransactionsSummaryByYear(year));
   //   }, [dispatch, year, balance]);
-  console.log(value);
+  // console.log(value);
 
-  let summary = {};
+  // let summary = {};
   // const summaryByYear = transactionsByYear['data'];
   // if (transactionsByYear) {
   //   switch (value) {
@@ -34,7 +34,7 @@ const Summary = ({ value }) => {
   //   }
   // }
 
-  let arrSummary = [];
+  // let arrSummary = [];
 
   // for (const key in value) {
   //   const total = Math.round(summary[`${key}`]['total'] * 100) / 100;
@@ -44,32 +44,24 @@ const Summary = ({ value }) => {
   //     id: +key,
   //   });
   // }
-  console.log(arrSummary);
-  arrSummary = arrSummary.sort((a, b) => b.id - a.id);
-  if (arrSummary.length > 6) {
-    arrSummary = arrSummary.slice(0, 6);
-  }
+  // console.log(arrSummary);
+  // arrSummary = arrSummary.sort((a, b) => b.id - a.id);
+  // if (arrSummary.length > 6) {
+  //   arrSummary = arrSummary.slice(0, 6);
+  // }
   return (
     <div className={s.summaryBox}>
       <h3 className={s.title}>сводка</h3>
-      {arrSummary.length > 0 ? (
-        <ul>
-          {arrSummary.map(item => (
-            <li key={item.id} className={s.item}>
-              <div className={s.itemBox}>
-                <p className={s.itemMonth}>{item.month}</p>
-                <p className={s.itemTotal}>{item.total}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <ul>
-          <li className={s.item}>
-            <div className={s.itemBox} style={{ height: '231px' }}></div>
+      <ul>
+        {value.map(item => (
+          <li key={item.id} className={s.item}>
+            <div className={s.itemBox}>
+              <p className={s.itemMonth}>{item.month}</p>
+              <p className={s.itemTotal}>{item.sum}</p>
+            </div>
           </li>
-        </ul>
-      )}
+        ))}
+      </ul>
     </div>
   );
 };

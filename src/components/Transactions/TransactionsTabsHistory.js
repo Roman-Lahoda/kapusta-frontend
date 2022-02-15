@@ -53,14 +53,14 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
     tableBox.display = 'flex';
   }
   console.log('Здесь нужно подключить сводки');
-  const summaryIncome = {
-    A: 10000,
-    B: 9000,
-    C: 8000,
-    D: 7000,
-    E: 6000,
-    F: 5000,
-  };
+  const summaryIncome = [
+    { id: 2, month: 'февраль', sum: 1000 },
+    { id: 1, month: 'январь', sum: 900 },
+    { id: 12, month: 'декабрь', sum: 800 },
+    { id: 11, month: 'ноябвь', sum: 700 },
+    { id: 10, month: 'октрябрь', sum: 600 },
+    { id: 9, month: 'сентябрь', sum: 500 },
+  ];
   const summaryExpense = [
     { id: 2, month: 'февраль', sum: 10000 },
     { id: 1, month: 'январь', sum: 9000 },

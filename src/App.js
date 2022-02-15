@@ -1,7 +1,7 @@
 import './App.module.scss';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './styles/theme';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // import { useDispatch, useSelector } from 'react-redux';
@@ -39,7 +39,7 @@ function App() {
         <div className="home-mob-wrap">{isMobile && <CalendarPicker />}</div>
         <TransactionsWrap />
       </BaseView> */}
-      <BackgroundForTransactions />
+      {/* <BackgroundForTransactions /> */}
       <ContainerForTransactions>
         <ThemeProvider theme={theme}>
           {/* <TransactionForm /> */}
@@ -47,7 +47,7 @@ function App() {
           {/* <TransactionsButtons /> */}
           {/* <ModalForDelete /> */}
           {/* <TransactionsTabsHistory /> */}
-          {/* <ExpenseMobileForm /> */}
+          <ExpenseMobileForm />
           <TransactionsWrapper />
           {/* <Summary /> */}
         </ThemeProvider>

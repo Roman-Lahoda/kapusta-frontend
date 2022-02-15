@@ -5,6 +5,7 @@ import BackgroundHome from '../../components/BackgroundHome/BackgroundHome';
 import Report from '../../components/Report/Report';
 import Container from '../../components/Container';
 import Header from '../../components/Header';
+import Loader from '../../components/Loader/Loader';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 
@@ -24,6 +25,7 @@ const ReportPage = () => {
 
   return (
     <>
+    {isLoading&&<Loader />}
       {!isLoading && (
         <>
           <BackgroundHome />

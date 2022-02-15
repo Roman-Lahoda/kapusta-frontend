@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-// import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import s from './Report.module.scss';
+import { useState } from 'react';
 import sprite from '../../images/spriteReport.svg';
 import { CurrentMonth } from '../CurrentPeriod/CurrentMonth';
-import { BalanceForm } from '../BalanceForm/BalanceForm';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 import authSelectors from '../../reduxV2/auth/auth-selector';
 // import authSelectors from '../../reduxV2/auth/auth-selector';
@@ -12,6 +11,7 @@ import authSelectors from '../../reduxV2/auth/auth-selector';
 export default function Header() {
   // const isLoading = useSelector(transactionSelectors.isLoading);
   // console.log(isLoading);
+  const [isDisable, setIsDisable] = useState(false);
   const report = useSelector(transactionSelectors.getReport);
   console.log(report);
   const balance = useSelector(authSelectors.getUserBalance);
@@ -37,30 +37,22 @@ export default function Header() {
               <input
                 type="number"
                 name="balance"
-                disabled="disabled"
+                disabled={isDisable}
                 placeholder={new Intl.NumberFormat('ru-RU').format(balance)}
                 // value={inputValue}
                 // onChange={handleBalanceChange}
-                className={s.input__disable}
+                className={isDisable ? s.input__disable : s.input}
               ></input>
               <span className={s.input_text}>UAH</span>
             </div>
-          </form>
-
-          {/* <BalanceForm className={s.balance} id="balance" /> */}
-          {/* <form className={s.balanceState}>
-            <label className={s.balance}>Баланс:</label>
-            <input
-              type="text"
-              className={s.inputBalance}
-              name="balance"
-              placeholder="55 000.00 UAN"
-            ></input>
-            <button type="submit" className={s.inputSubmit}>
+            <button
+              type="submit"
+              disabled={isDisable}
+              className={isDisable ? s.button__disable : s.button}
+            >
               Подтвердить
             </button>
-          </form> */}
-
+          </form>
           <CurrentMonth />
           <svg width="75" height="25" className={s.returnBtnBig}>
             <use href={`${sprite}#icon-backbutton`}></use>

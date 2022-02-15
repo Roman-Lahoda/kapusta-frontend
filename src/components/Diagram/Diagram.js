@@ -2,6 +2,7 @@
 
 import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 import ownVictoryTheme from './ownVictoryTheme.js';
+import s from '../Report/Report.module.scss';
 
 // это пример массива данных о транзакциях, которые могут прийти с бекенда. Здесь он используется для примера и тестирования.
 // в дальнейшем этот массив данных нужно будет, как полагается получить, от бекенда
@@ -9,12 +10,10 @@ import ownVictoryTheme from './ownVictoryTheme.js';
 import exampleTransactionArray from './exampleTransactionArray.json'; // это пример массива данных о транзакциях, которые могут прийти с бекенда
 
 const Diagram = function () {
-
-
   // Эта функция вынимает из массива данных с транзакциями значения свойств sum, description, проверяет
   // уникальность полей с описанием (description). Если в базе встречаются транзакции с однаковым описанием (description)б
-// то не создаёт новых столбиков в диаграмме, а добавляет сумму в существующий
-// Объявление функции:
+  // то не создаёт новых столбиков в диаграмме, а добавляет сумму в существующий
+  // Объявление функции:
   const changeInfo = array => {
     let result = [];
     for (let i = 0; i < array.length; i += 1) {
@@ -33,14 +32,13 @@ const Diagram = function () {
   };
 
   // Вызов функции:
-  const dataForDiagram =  changeInfo(  exampleTransactionArray.data)
+  const dataForDiagram = changeInfo(exampleTransactionArray.data);
 
   // Сортировка сумм от большей к меньшей
   dataForDiagram.sort((a, b) => b.sum - a.sum);
 
-
   return (
-    <div>
+    <div className={s.diagramConfig}>
       <VictoryChart
         // добавляем свою кастомную тему диаграммы
         theme={ownVictoryTheme}

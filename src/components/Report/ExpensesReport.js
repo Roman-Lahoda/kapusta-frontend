@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux';
+import {useState} from 'react'
 import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 import Diagram from '../Diagram/Diagram';
-import  exampleTransactionArray from '../Diagram/exampleTransactionArray.json'
+
 
 export default function ExpensesReport() {
   const report = useSelector(transactionSelectors.getReport);
+  const [currentCategory, setCurrentCategory] = useState ('food')
 
   const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
 
@@ -34,17 +36,26 @@ export default function ExpensesReport() {
   const otherTotalSum = report?.expense?.other?.reduce((a, b) => a + b.sum, 0);
   console.log(alcoholTotalSum);
 
-  // console.log( " exampleTransactionArray ", exampleTransactionArray )
 
   const expenseArray = report?.expense;
 
   console.log("report = ", report);
   console.log(" expenseArray = ",  expenseArray);
 
+  const selectionCategory = (event) => {
+    console.log("Сработала функция. event.target =   ", event.target);
+    console.log("Сработала функция. event.currentTarget =   ", event.currentTarget);
+
+    if (event.target.nodeName== 'LI') {
+      setCurrentCategory (event.target.dataset.category)
+      console.log("Сработала функция. event.target.dataset.category =   ", event.target.dataset.category);
+    }
+  }
+
   return (
     <>
-      <ul className={s.expensesCategories}>
-        <li className={s.item}>
+      <ul className={s.expensesCategories} onClick = {selectionCategory}>
+        <li className={s.item} data-category = 'food'>
           <p>{foodTotalSum}</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -53,7 +64,7 @@ export default function ExpensesReport() {
           </div>
           <p>ПРОДУКТЫ</p>
         </li>
-        <li className={s.item}>
+        <li className={s.item} data-category = 'alcohol'>
           <p>{alcoholTotalSum}</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -62,7 +73,7 @@ export default function ExpensesReport() {
           </div>
           <p>АЛКОГОЛЬ</p>
         </li>
-        <li className={s.item}>
+        <li className={s.item}  data-category = 'entertainment'>
           <p>800.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -72,7 +83,7 @@ export default function ExpensesReport() {
           <p>РАЗВЛЕЧЕНИЯ</p>
         </li>
         <svg className={s.expBorder}></svg>
-        <li className={s.item}>
+        <li className={s.item} data-category = 'health'>
           <p>900.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -90,7 +101,7 @@ export default function ExpensesReport() {
           </div>
           <p>ТРАНСПОРТ</p>
         </li>
-        <li className={s.item}>
+        <li className={s.item} data-category = 'transport'>
           <p>1 500.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -100,7 +111,7 @@ export default function ExpensesReport() {
           <p>ВСЕ ДЛЯ ДОМА</p>
         </li>
         <svg className={s.expBorder}></svg>
-        <li className={s.item}>
+        <li className={s.item} data-category = 'technics'>
           <p>800.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -109,7 +120,7 @@ export default function ExpensesReport() {
           </div>
           <p>ТЕХНИКА</p>
         </li>
-        <li className={s.item}>
+        <li className={s.item} data-category = 'communal'>
           <p>2 200.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -118,7 +129,7 @@ export default function ExpensesReport() {
           </div>
           <p>КОММУНАЛКА, СВЯЗЬ</p>
         </li>
-        <li className={s.item}>
+        <li className={s.item} data-category = 'sport'>
           <p>1 800.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -128,7 +139,7 @@ export default function ExpensesReport() {
           <p>СПОРТ, ХОББИ</p>
         </li>
         <svg className={s.expBorder}></svg>
-        <li className={s.item}>
+        <li className={s.item} data-category = 'education'>
           <p>2 400.00</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -137,7 +148,7 @@ export default function ExpensesReport() {
           </div>
           <p>ОБРАЗОВАНИЕ</p>
         </li>
-        <li className={s.item}>
+        <li className={s.item} data-category = 'other'>
           <p>{otherTotalSum}</p>
           <div className={s.picBox}>
             <svg width="59" height="46">
@@ -150,8 +161,7 @@ export default function ExpensesReport() {
       </ul>
 
       <section className={s.expensesDiargBg}>
-        {/* Здесь через пропс передаём массив по выбранной категории расходов */}
-        { expenseArray &&  <Diagram expenseArray= {expenseArray.food } /> }
+        { expenseArray &&  <Diagram expenseArray= {expenseArray[currentCategory] } /> }
       </section>
     </>
   );

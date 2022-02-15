@@ -9,7 +9,7 @@ import incomeCategories from './incomeCategories.json';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
-function TransactionsTabs({ deleteDialogHandler, transactions }) {
+function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
   console.log('test');
   const [value, setValue] = useState('expense');
   const theme = useTheme();
@@ -18,6 +18,8 @@ function TransactionsTabs({ deleteDialogHandler, transactions }) {
   //   '🚀 ~ file: TransactionsTabsHistory.js ~ line 16 ~ TransactionsTabs ~ isDesktop',
   //   isDesktop,
   // );
+  const expenseTransactionList = transactions.filter(el => el.transactionType === 'expense');
+  const incomeTransactionList = transactions.filter(el => el.transactionType === 'income');
 
   // console.log(value);
   const handleChange = (event, newValue) => {
@@ -73,7 +75,7 @@ function TransactionsTabs({ deleteDialogHandler, transactions }) {
               <TransactionsTable
                 type="expense"
                 deleteDialogHandler={deleteDialogHandler}
-                transactions={transactions}
+                transactions={expenseTransactionList}
               />
               <Summary value={value} />
             </div>
@@ -89,7 +91,7 @@ function TransactionsTabs({ deleteDialogHandler, transactions }) {
               <TransactionsTable
                 type="income"
                 deleteDialogHandler={deleteDialogHandler}
-                transactions={transactions}
+                transactions={incomeTransactionList}
               />
               <Summary value={value} />
             </div>
@@ -100,4 +102,4 @@ function TransactionsTabs({ deleteDialogHandler, transactions }) {
   );
 }
 
-export default TransactionsTabs;
+export default TransactionsTabsHistory;

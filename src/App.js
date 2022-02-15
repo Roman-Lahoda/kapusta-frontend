@@ -47,7 +47,7 @@ function App() {
           {/* <TransactionsButtons /> */}
           {/* <ModalForDelete /> */}
           {/* <TransactionsTabsHistory /> */}
-          <ExpenseMobileForm />
+          {/* <ExpenseMobileForm /> */}
           <TransactionsWrapper />
           {/* <Summary /> */}
         </ThemeProvider>

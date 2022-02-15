@@ -10,15 +10,11 @@ import { useTheme } from '@mui/material/styles';
 
 function TransactionsWrapper() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
-  console.log(
-    '🚀 ~ file: TransactionsWrap.js ~ line 18 ~ TransactionsWrapper ~ isMobile',
-    isMobile,
-  );
+
   // const dispatch = useDispatch();
 
   // const transactions = useSelector(transactionSelectors.getAllTransactions);

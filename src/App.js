@@ -2,7 +2,7 @@ import './App.module.scss';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './styles/theme';
 import { useEffect, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Switch, Redirect } from 'react-router-dom';
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getIsFetchingCurrentUser } from './redux/auth/selectors';
@@ -20,8 +20,19 @@ import { useTheme } from '@mui/material/styles';
 import { Box, LinearProgress } from '@mui/material';
 import TransactionsWrapper from './components/Transactions/TransactionsWrap';
 import BaseView from './pages/WalletPage/BaseView';
-
+import IncomeMobileForm from './components/Transactions/IncomeMobileForm';
 // import CalendarPicker from './components/Transactions/CalendarPicker';
+
+const PrivateRoute = ({ children, redirectTo = '/', ...routeProps }) => {
+  const isLoggedIn = true;
+  return <Route {...routeProps}>{isLoggedIn ? children : <Redirect to={redirectTo} />}</Route>;
+};
+
+const PublicRoute = ({ children, redirectTo = '/', restricted = false, ...routeProps }) => {
+  const isLoggedIn = false;
+  const shouldRedirect = isLoggedIn && restricted;
+  return <Route {...routeProps}>{shouldRedirect ? <Redirect to={redirectTo} /> : children}</Route>;
+};
 
 function App() {
   // const dispatch = useDispatch();
@@ -34,24 +45,59 @@ function App() {
   // });
 
   return (
+    // <>
+    //   {/* <BaseView>
+    //     <div className="home-mob-wrap">{isMobile && <CalendarPicker />}</div>
+    //     <TransactionsWrap />
+    //   </BaseView> */}
+    //   {/* <BackgroundForTransactions /> */}
+    //   <ContainerForTransactions>
+    //     <ThemeProvider theme={theme}>
+    //       {/* <TransactionForm /> */}
+    //       {/* <CalendarPicker /> */}
+    //       {/* <TransactionsButtons /> */}
+    //       {/* <ModalForDelete /> */}
+    //       {/* <TransactionsTabsHistory /> */}
+    //       <ExpenseMobileForm />
+    //       <TransactionsWrapper />
+    //       {/* <Summary /> */}
+    //     </ThemeProvider>
+    //   </ContainerForTransactions>
+    // </>
     <>
-      {/* <BaseView>
-        <div className="home-mob-wrap">{isMobile && <CalendarPicker />}</div>
-        <TransactionsWrap />
-      </BaseView> */}
-      {/* <BackgroundForTransactions /> */}
-      <ContainerForTransactions>
-        <ThemeProvider theme={theme}>
-          {/* <TransactionForm /> */}
-          {/* <CalendarPicker /> */}
-          {/* <TransactionsButtons /> */}
-          {/* <ModalForDelete /> */}
-          {/* <TransactionsTabsHistory /> */}
-          <ExpenseMobileForm />
-          <TransactionsWrapper />
-          {/* <Summary /> */}
-        </ThemeProvider>
-      </ContainerForTransactions>
+      {/* <div className={s.App}>
+        <BackgraundHome />
+        <Header />
+      </div> */}
+
+      <Suspense fallback={<h1>LOADING</h1>}>
+        <Switch>
+          <PublicRoute exact restricted path="/">
+            <p>Home</p>
+          </PublicRoute>
+
+          <PrivateRoute exact path="/wallet">
+            <ContainerForTransactions>
+              <ThemeProvider theme={theme}>
+                {/* <ExpenseMobileForm /> */}
+                <TransactionsWrapper />
+              </ThemeProvider>
+            </ContainerForTransactions>
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/report">
+            <p>report</p>
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/incomeform">
+            <IncomeMobileForm />
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/expenseform">
+            <ExpenseMobileForm />
+          </PrivateRoute>
+        </Switch>
+      </Suspense>
     </>
   );
 }

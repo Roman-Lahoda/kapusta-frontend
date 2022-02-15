@@ -35,6 +35,7 @@ function TransactionsWrapper() {
     setIsModalOpen(false);
   }
   console.log('Здесь прокидывать список всех транзакций');
+
   const transactions = [
     {
       category: 'Транспорт',

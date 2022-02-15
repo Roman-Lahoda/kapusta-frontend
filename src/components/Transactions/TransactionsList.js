@@ -4,6 +4,8 @@ import TransactionsItem from './TransactionsItem';
 import TransactionsButtons from './TransactionsBtn';
 // import { transactionSelectors } from '../../redux/transaction/transaction-selector';
 // import { useSelector } from 'react-redux';
+import CalendarPicker from './CalendarPicker';
+import calendar from '../../images/transactionIcons/calendar.svg';
 
 function TransactionsList({ deleteDialogHandler, transactions }) {
   //   const transactions = useSelector(transactionSelectors.getAllTransactions);
@@ -20,10 +22,17 @@ function TransactionsList({ deleteDialogHandler, transactions }) {
   //   },
   // ];
   //   const isLoading = useSelector(transactionSelectors.isLoading);
-
+  const date = new Date();
   return (
     <>
       {/* {isLoading && <LinearProgress />} */}
+      {/* <CalendarPicker /> */}
+      <div>
+        <img src={calendar} alt="calendar" />
+        <span>
+          {date.getDate()}.{date.getMonth() + 1}.{date.getFullYear()}
+        </span>
+      </div>
       <ul
         style={{
           listStyle: 'none',

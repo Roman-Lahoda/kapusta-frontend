@@ -7,7 +7,12 @@ const IncomeMobileForm = () => {
     <div style={{ marginTop: '15px' }}>
       <div className="background-top background-top_for-mobile"></div>
       <GoToMainBtn />
-      <Transactions isIncome={true} categories={incomeCategories} placeholder="Описание дохода" />
+      <Transactions
+        isIncome={true}
+        categories={incomeCategories}
+        placeholder="Описание дохода"
+        value="income"
+      />
     </div>
   );
 };

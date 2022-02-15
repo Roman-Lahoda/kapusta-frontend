@@ -10,15 +10,17 @@ $primary-text-color: rgba(82, 85, 95, 0.7);
   line-height: $main-line-height;
   color: $primary-text-color;
   margin-bottom: 40px;
-
+  margin-top: 30px;
   @media screen and(min-width:768px) {
-    max-width: 634px;
+    width: 634px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: flex-start;
+    margin-top: 40px;
+    padding-left: 30px;
   }
   @media screen and(min-width:1280px) {
-    max-width: 728px;
+    width: 728px;
   }
 }

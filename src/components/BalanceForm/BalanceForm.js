@@ -53,7 +53,8 @@ export function BalanceForm() {
             type="number"
             name="balance"
             disabled={isDisable}
-            placeholder={balance}
+            placeholder={new Intl.NumberFormat('ru-RU').format(balance)}
+            // {balance}
             value={inputValue}
             onChange={handleBalanceChange}
             className={isDisable ? s.input__disable : s.input}

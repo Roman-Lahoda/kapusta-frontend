@@ -4,17 +4,17 @@ import React, { useEffect, useState } from 'react';
 
 import ModalForDelete from './ModalForDelete';
 import TransactionsList from './TransactionsList';
-import TransactionsTabs from './TransactionsTabs';
+import TransactionsTabs from './TransactionsTabsHistory';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
 function TransactionsWrapper() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [selectedTransaction, setSelectedTransaction] = useState(null);
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // const transactions = useSelector(transactionSelectors.getAllTransactions);
 
@@ -39,7 +39,7 @@ function TransactionsWrapper() {
       <ModalForDelete
         isOpen={isModalOpen}
         onClose={closeModal}
-        // transactionId={selectedTransaction}
+        transactionId={selectedTransaction}
         // transactions={transactions}
       />
       {/* {isMobile ? (
@@ -47,6 +47,7 @@ function TransactionsWrapper() {
       ) : (
         <TransactionsTabs deleteDialogHandler={showModal} transactions={transactions} />
       )} */}
+      {isMobile ? <TransactionsList /> : <TransactionsTabs />}
     </>
   );
 }

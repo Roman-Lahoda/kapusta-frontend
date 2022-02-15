@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-// import BackgroundHome from '../../components/BackgroundHome/BackgroundHome';
+import TransPageBackground from '../../components/Transactions/TransPageBackground/TransPageBackground';
 // import Header from '../../components/Header';
 // import { BalanceContainer } from '../../components/BalanceContainer/BalanceContainer';
 // import TransactionsTabsHistory from '../../components/Transactions/TransactionsTabsHistory';
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const WalletPage = () => {
   return (
     <>
-      {/* <BackgroundHome /> */}
+      {/* <TransPageBackground /> */}
       {/* <Header /> */}
       {/* <TransactionsTabsHistory /> */}
       {/* <BalanceContainer /> */}

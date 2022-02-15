@@ -5,10 +5,39 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  scrollbar-color: #ff751d #f5f6fb;
+  scrollbar-width: '6px';
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+  outline: none;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* scrollbar */
@@ -25,7 +54,7 @@ code {
   border-radius: 2px;
 }
 
-.simplebar-scrollbar::before {
+/* .simplebar-scrollbar::before {
   background-color: var(--accent-color-primary);
 }
 
@@ -43,4 +72,4 @@ code {
 .react-datepicker__day--selected:hover {
   background-color: #f0f0f0;
   color: #000000;
-}
+} */

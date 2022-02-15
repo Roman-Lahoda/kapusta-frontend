@@ -1,6 +1,6 @@
-mport { IconButton, Typography } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
 
-import { ReactComponent as DeleteIcon } from '../../images/delete.svg';
+import { ReactComponent as DeleteIcon } from '../../images/transactionIcons/delete.svg';
 import React from 'react';
 
 function TransactionsItem({ transaction, deleteDialogHandler }) {
@@ -8,10 +8,8 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
     style: 'currency',
     currency: 'UAH',
   });
-
+  console.log(transaction);
   const sum = formatter.format(transaction.sum);
-  
-  console.log(sum);
 
   return (
     <li
@@ -48,7 +46,7 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
         </div>
         <div style={{ width: '10%', textAlign: 'center' }}>
           <IconButton
-            onClick={() => deleteDialogHandler(transaction._id)}
+            onClick={() => deleteDialogHandler(transaction.iTd)}
             aria-label="Удалить транзакцию"
             sx={{ p: '6px' }}
           >

@@ -23,6 +23,28 @@ function TransactionsTable({ type, deleteDialogHandler }) {
   //     : transactionsSelectors.getIncomeTransactions;
 
   // const transactions = useSelector(selectorType);
+  const transactions = [
+    {
+      category: 'Транспорт',
+      dayCreate: 14,
+      description: 'rbndndfn',
+      idT: 111111111111,
+      monthCreate: 2,
+      sum: '7283',
+      transactionType: 'expense',
+      yearCreate: 2022,
+    },
+    {
+      category: 'Транспорт',
+      dayCreate: 14,
+      description: 'rbndndfn',
+      idT: 2222222222,
+      monthCreate: 2,
+      sum: '7283',
+      transactionType: 'expense',
+      yearCreate: 2022,
+    },
+  ];
 
   // const isLoading = useSelector(transactionsSelectors.getTransactionsIsLoading);
 
@@ -56,20 +78,17 @@ function TransactionsTable({ type, deleteDialogHandler }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* {transactions.map(transaction => ( */}
-            <TransactionsRow
-            // key={transaction._id}
-            // transaction={transaction}
-            // deleteDialogHandler={deleteDialogHandler}
-            />
-            {/* ))} */}
+            {transactions.map(transaction => (
+              <TransactionsRow
+                key={transaction.idT}
+                transaction={transaction}
+                deleteDialogHandler={deleteDialogHandler}
+              />
+            ))}
             {/* {transactions.length < 9 &&
               Array(9 - transactions.length)
                 .fill()
-                .map((item, index) =>  */}
-            <EmptyRow></EmptyRow>
-            {/* key={index} */}
-            {/* )} */}
+                .map((item, index) => <EmptyRow key={index}></EmptyRow>)} */}
           </TableBody>
         </Table>
       </TableContainer>

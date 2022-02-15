@@ -123,28 +123,42 @@ import { Routes, Route } from 'react-router-dom';
 // import { getIsFetchingCurrentUser } from './redux/auth/selectors';
 // import { fetchCurrentUser } from './redux/auth/thunks';
 import Loader from './components/Loader/Loader';
-import TransactionsButtons from './components/Transactions/TransactionsBtn';
+// import TransactionsButtons from './components/Transactions/TransactionsBtn';
 import TransactionsTabsHistory from './components/Transactions/TransactionsTabsHistory';
 import ModalForDelete from './components/Transactions/ModalForDelete';
 import CalendarPicker from './components/Transactions/CalendarPicker';
+import BackgroundForTransactions from './components/Transactions/TransPageWrapper/Background/BackgroundForTransactions';
+import ContainerForTransactions from './components/Transactions/TransPageWrapper/Container/ContainerForTransactions';
+
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import { Box, LinearProgress } from '@mui/material';
+import TransactionsWrap from './components/Transactions/TransactionsWrap';
+import BaseView from './pages/WalletPage/BaseView';
+// import CalendarPicker from './components/Transactions/CalendarPicker';
+
 function App() {
   // const dispatch = useDispatch();
   // const isFetchingCurrentUser = useSelector(getIsFetchingCurrentUser);
   // const token = useSelector(getToken);
-
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
   // useEffect(() => {
   // if (token) dispatch(fetchCurrentUser());
   // });
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        {/* <CalendarPicker /> */}
-        {/* <TransactionsButtons /> */}
-        {/* <ModalForDelete /> */}
-        <TransactionsTabsHistory />
-        {/* <Summary /> */}
-      </ThemeProvider>
+      <BackgroundForTransactions />
+      <ContainerForTransactions>
+        <ThemeProvider theme={theme}>
+          {/* <CalendarPicker /> */}
+          {/* <TransactionsButtons /> */}
+          {/* <ModalForDelete /> */}
+          <TransactionsTabsHistory />
+          {/* <Summary /> */}
+        </ThemeProvider>
+      </ContainerForTransactions>
     </>
   );
 }

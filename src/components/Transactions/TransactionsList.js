@@ -1,7 +1,7 @@
 import { LinearProgress } from '@mui/material';
 import React from 'react';
 import TransactionsItem from './TransactionsItem';
-import TransactionsButtons from './TransactionsButtons';
+import TransactionsButtons from './TransactionsBtn';
 // import { transactionsSelectors } from '../../redux/transaction';
 // import { useSelector } from 'react-redux';
 

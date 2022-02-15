@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 
 import Summary from './Summary';
-import Transaction from './Transactions';
+import Transactions from './Transactions';
 import TransactionsTable from './TransactionsTable';
 import incomeCategories from './incomeCategories.json';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -13,8 +13,12 @@ function TransactionsTabs({ deleteDialogHandler }) {
   const [value, setValue] = useState('expense');
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.only('desktop'));
+  // console.log(
+  //   '🚀 ~ file: TransactionsTabsHistory.js ~ line 16 ~ TransactionsTabs ~ isDesktop',
+  //   isDesktop,
+  // );
 
-  console.log(value);
+  // console.log(value);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -63,18 +67,18 @@ function TransactionsTabs({ deleteDialogHandler }) {
         </TabList>
         <Paper sx={paperStyle} value={value}>
           <TabPanel value="expense" sx={{ padding: 0 }}>
-            <Transaction value={value} />
+            <Transactions value={value} />
             <div style={tableBox}>
               <TransactionsTable type="expense" deleteDialogHandler={deleteDialogHandler} />
               <Summary value={value} />
             </div>
           </TabPanel>
           <TabPanel value="income" sx={{ padding: 0 }}>
-            <Transaction
+            <Transactions
               isIncome={true}
               categories={incomeCategories}
               placeholder="Описание дохода"
-              // value={value}
+              value={value}
             />
             <div style={tableBox}>
               <TransactionsTable type="income" deleteDialogHandler={deleteDialogHandler} />

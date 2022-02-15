@@ -9,7 +9,8 @@ import incomeCategories from './incomeCategories.json';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
-function TransactionsTabs({ deleteDialogHandler }) {
+function TransactionsTabs({ deleteDialogHandler, transactions }) {
+  console.log('test');
   const [value, setValue] = useState('expense');
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.only('desktop'));
@@ -69,7 +70,11 @@ function TransactionsTabs({ deleteDialogHandler }) {
           <TabPanel value="expense" sx={{ padding: 0 }}>
             <Transactions value={value} />
             <div style={tableBox}>
-              <TransactionsTable type="expense" deleteDialogHandler={deleteDialogHandler} />
+              <TransactionsTable
+                type="expense"
+                deleteDialogHandler={deleteDialogHandler}
+                transactions={transactions}
+              />
               <Summary value={value} />
             </div>
           </TabPanel>
@@ -81,7 +86,11 @@ function TransactionsTabs({ deleteDialogHandler }) {
               value={value}
             />
             <div style={tableBox}>
-              <TransactionsTable type="income" deleteDialogHandler={deleteDialogHandler} />
+              <TransactionsTable
+                type="income"
+                deleteDialogHandler={deleteDialogHandler}
+                transactions={transactions}
+              />
               <Summary value={value} />
             </div>
           </TabPanel>

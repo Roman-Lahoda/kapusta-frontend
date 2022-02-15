@@ -39,7 +39,7 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
           sx={{ padding: '3px' }}
           aria-label="Удалить транзакцию"
           onClick={() => {
-            // deleteDialogHandler(transaction.idT)
+            deleteDialogHandler(transaction.idT);
             console.log('id of transaction to delete ', transaction.idT);
           }}
         >

@@ -14,7 +14,7 @@ import ModalForDelete from './components/Transactions/ModalForDelete';
 import CalendarPicker from './components/Transactions/CalendarPicker';
 import BackgroundForTransactions from './components/Transactions/TransPageWrapper/Background/BackgroundForTransactions';
 import ContainerForTransactions from './components/Transactions/TransPageWrapper/Container/ContainerForTransactions';
-
+import ExpenseMobileForm from './components/Transactions/ExpenseMobileForm';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { Box, LinearProgress } from '@mui/material';
@@ -46,8 +46,9 @@ function App() {
           {/* <CalendarPicker /> */}
           {/* <TransactionsButtons /> */}
           {/* <ModalForDelete /> */}
-          <TransactionsTabsHistory />
-          {/* <TransactionsWrapper /> */}
+          {/* <TransactionsTabsHistory /> */}
+          <ExpenseMobileForm />
+          <TransactionsWrapper />
           {/* <Summary /> */}
         </ThemeProvider>
       </ContainerForTransactions>

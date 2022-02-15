@@ -3,17 +3,19 @@ import { Button, Dialog, DialogContent, IconButton, Typography } from '@mui/mate
 import { ReactComponent as CloseIcon } from '../../images/transactionIcons/close.svg';
 import React from 'react';
 // import { transactionOperation } from '../../redux/transaction/transaction-operation';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-function DeleteModal({ isOpen = true, idTransaction, onClose, transactions }) {
-  const dispatch = useDispatch();
+function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
+  // const dispatch = useDispatch();
   const isNarrowMobile = useMediaQuery('(max-width:435px)');
 
-  // function submitHandler() {
-  //   dispatch(transactionOperation.deleteTransaction(idTransaction));
-  //   onClose();
-  // }
+  console.log('transactionId', transactionId);
+  function submitHandler() {
+    // dispatch(transactionOperation.deleteTransaction(idTransaction));
+    console.log(transactionId);
+    onClose();
+  }
 
   return (
     <Dialog open={isOpen} onClose={onClose} sx={{ '& .MuiDialog-paper': { borderRadius: '30px' } }}>
@@ -39,7 +41,9 @@ function DeleteModal({ isOpen = true, idTransaction, onClose, transactions }) {
           color="primary"
           variant="contained"
           sx={isNarrowMobile ? { marginTop: '20px' } : { marginTop: '20px', marginRight: '15px' }}
-          // onClick={submitHandler}
+          onClick={() => {
+            submitHandler();
+          }}
         >
           Да
         </Button>

@@ -16,7 +16,7 @@ import TransactionsRow from './TransactionsRow';
 import transactionSelectors from '../../redux/transaction/transaction-selector';
 import { useSelector } from 'react-redux';
 
-function TransactionsTable({ type, deleteDialogHandler }) {
+function TransactionsTable({ type, deleteDialogHandler, transactions }) {
   // const selectorType =
   //   type === 'expense'
   //     ? transactionSelectors.getListOfExpenseTransactions
@@ -24,28 +24,28 @@ function TransactionsTable({ type, deleteDialogHandler }) {
 
   // const transactions = useSelector(selectorType);
 
-  const transactions = [
-    {
-      category: 'Транспорт',
-      dayCreate: 14,
-      description: 'rbndndfn',
-      idT: 111111111111,
-      monthCreate: 2,
-      sum: '7283',
-      transactionType: 'expense',
-      yearCreate: 2022,
-    },
-    {
-      category: 'Транспорт',
-      dayCreate: 14,
-      description: 'rbndndfn',
-      idT: 2222222222,
-      monthCreate: 2,
-      sum: '7283',
-      transactionType: 'expense',
-      yearCreate: 2022,
-    },
-  ];
+  // const transactions = [
+  //   {
+  //     category: 'Транспорт',
+  //     dayCreate: 14,
+  //     description: 'rbndndfn',
+  //     idT: 111111111111,
+  //     monthCreate: 2,
+  //     sum: '7283',
+  //     transactionType: 'expense',
+  //     yearCreate: 2022,
+  //   },
+  //   {
+  //     category: 'Транспорт',
+  //     dayCreate: 14,
+  //     description: 'rbndndfn',
+  //     idT: 2222222222,
+  //     monthCreate: 2,
+  //     sum: '7283',
+  //     transactionType: 'expense',
+  //     yearCreate: 2022,
+  //   },
+  // ];
 
   // const isLoading = useSelector(transactionSelectors.isLoading);
 

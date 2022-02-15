@@ -2,6 +2,8 @@ import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
 import Diagram from '../Diagram/Diagram';
 
+
+
 export default function RevenueReport() {
   return (
     <>

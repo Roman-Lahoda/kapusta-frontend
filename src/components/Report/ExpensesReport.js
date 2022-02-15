@@ -3,6 +3,7 @@ import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 import Diagram from '../Diagram/Diagram';
+import  exampleTransactionArray from '../Diagram/exampleTransactionArray.json'
 
 export default function ExpensesReport() {
   const report = useSelector(transactionSelectors.getReport);
@@ -31,6 +32,14 @@ export default function ExpensesReport() {
   const alcoholTotalSum = report?.expense?.alcohol?.reduce((a, b) => a + b.sum, 0);
   console.log(alcoholTotalSum);
   const otherTotalSum = report?.expense?.other?.reduce((a, b) => a + b.sum, 0);
+  console.log(alcoholTotalSum);
+
+  // console.log( " exampleTransactionArray ", exampleTransactionArray )
+
+  const expenseArray = report?.expense;
+
+  console.log("report = ", report);
+  console.log(" expenseArray = ",  expenseArray);
 
   return (
     <>
@@ -140,7 +149,10 @@ export default function ExpensesReport() {
         <svg className={s.expBorder}></svg>
       </ul>
 
-      <section className={s.expensesDiargBg}> {/*<Diagram />*/} </section>
+      <section className={s.expensesDiargBg}>
+        {/* Здесь через пропс передаём массив по выбранной категории расходов */}
+        { expenseArray &&  <Diagram expenseArray= {expenseArray.food } /> }
+      </section>
     </>
   );
 }

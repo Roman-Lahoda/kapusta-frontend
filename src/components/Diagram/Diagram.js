@@ -8,9 +8,12 @@ import ownVictoryTheme from './ownVictoryTheme.js';
 
 import exampleTransactionArray from './exampleTransactionArray.json'; // это пример массива данных о транзакциях, которые могут прийти с бекенда
 
-const Diagram = function ({expenseArray}) {
+const Diagram = function ({arrayOfData}) {
 
-  console.log (" expenseArray in diagrsm ", expenseArray)
+  console.log ("arrayOfData in diagram ", arrayOfData)
+  console.log ("Array.isArray(arrayOfData)  :", Array.isArray(arrayOfData)  )
+  console.log ("arrayOfData.length   :", arrayOfData.length  )
+
   // Эта функция вынимает из массива данных с транзакциями значения свойств sum, description, проверяет
   // уникальность полей с описанием (description). Если в базе встречаются транзакции с однаковым описанием (description)б
 // то не создаёт новых столбиков в диаграмме, а добавляет сумму в существующий
@@ -34,8 +37,7 @@ const Diagram = function ({expenseArray}) {
 
   // Вызов функции:
   // const dataForDiagram =  changeInfo( exampleTransactionArray.data)
-  const dataForDiagram =  changeInfo( expenseArray )
-  console.log ("expenseArray.food= ", expenseArray)
+  const dataForDiagram =  changeInfo( arrayOfData )
  
   // Сортировка сумм от большей к меньшей
   // dataForDiagram.sort((a, b) => b.sum - a.sum);
@@ -44,7 +46,7 @@ const Diagram = function ({expenseArray}) {
 
   return (
     <div >
-      { dataForDiagram.length<1
+      {/* { dataForDiagram.length<1
       ? <b>You don't have any posts in this category yet</b>
       :   <VictoryChart
               // добавляем свою кастомную тему диаграммы
@@ -97,8 +99,8 @@ const Diagram = function ({expenseArray}) {
                   // labelComponent={<VictoryLabel dy={-25} dx={0}/>}
               />
           </VictoryChart>
-      }
-
+      } */}
+Empty
       </div>
   );
 };

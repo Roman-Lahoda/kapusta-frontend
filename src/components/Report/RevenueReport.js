@@ -9,10 +9,12 @@ import Diagram from '../Diagram/Diagram';
 
 export default function RevenueReport() {
   const report = useSelector(transactionSelectors.getReport);
-  const [currentCategory, setCurrentCategory] = useState ('food')
+  const [currentCategory, setCurrentCategory] = useState ('salary')
 
   const incomeArray = report?.income;
 
+  console.log("incomeArray = ", incomeArray);
+  console.log("incomeArray.salary = ", incomeArray.salary);
 
   const selectionCategory = (event) => {
     if (event.target.nodeName== 'LI') {
@@ -47,7 +49,8 @@ export default function RevenueReport() {
       </section>
       <svg className={s.expBorder}></svg>
       <section className={s.expensesDiargBg}>
-        { incomeArray &&  <Diagram incomeArray= {incomeArray[currentCategory] } /> }
+      
+        { incomeArray &&  <Diagram arrayOfData = {incomeArray[currentCategory] } /> }
       </section>
     </>
   );

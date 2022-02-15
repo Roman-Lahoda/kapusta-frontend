@@ -42,6 +42,10 @@ export default function ExpensesReport() {
   console.log("report = ", report);
   console.log(" expenseArray = ",  expenseArray);
 
+  const incomeArray = report?.income;
+  console.log("incomeArray = ", incomeArray);
+
+
   const selectionCategory = (event) => {
     console.log("Сработала функция. event.target =   ", event.target);
     console.log("Сработала функция. event.currentTarget =   ", event.currentTarget);
@@ -161,7 +165,7 @@ export default function ExpensesReport() {
       </ul>
 
       <section className={s.expensesDiargBg}>
-        { expenseArray &&  <Diagram expenseArray= {expenseArray[currentCategory] } /> }
+        { expenseArray &&  <Diagram arrayOfData= {expenseArray[currentCategory] } /> }
       </section>
     </>
   );

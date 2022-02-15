@@ -71,7 +71,7 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
         <div style={{ width: '10%', textAlign: 'center' }}>
           <IconButton
             onClick={() => {
-              deleteDialogHandler(transaction.iTd);
+              deleteDialogHandler(transaction.idT);
               console.log(transaction.idT);
             }}
             aria-label="Удалить транзакцию"

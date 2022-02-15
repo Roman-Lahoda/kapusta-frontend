@@ -14,10 +14,6 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
   const [value, setValue] = useState('expense');
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.only('desktop'));
-  // console.log(
-  //   '🚀 ~ file: TransactionsTabsHistory.js ~ line 16 ~ TransactionsTabs ~ isDesktop',
-  //   isDesktop,
-  // );
   const expenseTransactionList = transactions.filter(el => el.transactionType === 'expense');
   const incomeTransactionList = transactions.filter(el => el.transactionType === 'income');
 
@@ -82,7 +78,7 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
           </TabPanel>
           <TabPanel value="income" sx={{ padding: 0 }}>
             <Transactions
-              isIncome={true}
+              // isIncome={true}
               categories={incomeCategories}
               placeholder="Описание дохода"
               value={value}

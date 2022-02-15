@@ -21,7 +21,7 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
       <TableCell align="left">{date}</TableCell>
       <TableCell align="left">{transaction.description}</TableCell>
       <TableCell align="center">{transaction.category}</TableCell>
-      <TableCell align="center">{transaction.sum}</TableCell>
+      <TableCell align="center">{sum}</TableCell>
       {/* <TableCell align="center">
         {!transaction.isIncome ? (
           <Typography color="#E7192E" fontWeight="700" fontSize={12}>

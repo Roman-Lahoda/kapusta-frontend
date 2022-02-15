@@ -13,7 +13,7 @@ function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
   console.log('transactionId', transactionId);
   function submitHandler() {
     // dispatch(transactionOperation.deleteTransaction(idTransaction));
-    console.log(transactionId);
+    console.log('Здесь подключить операцию удаления =>', transactionId);
     onClose();
   }
 

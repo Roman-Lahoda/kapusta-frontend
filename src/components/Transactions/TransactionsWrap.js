@@ -10,6 +10,7 @@ import { useTheme } from '@mui/material/styles';
 
 function TransactionsWrapper() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   const theme = useTheme();
@@ -33,13 +34,13 @@ function TransactionsWrapper() {
   function closeModal() {
     setIsModalOpen(false);
   }
-
+  console.log('Здесь прокидывать список всех транзакций');
   const transactions = [
     {
       category: 'Транспорт',
       dayCreate: 14,
       description: 'Ремонт старой двери',
-      idT: 111111111111,
+      idT: 111111346111111,
       monthCreate: 2,
       sum: '5000',
       transactionType: 'expense',
@@ -49,7 +50,7 @@ function TransactionsWrapper() {
       category: 'Транспорт',
       dayCreate: 1,
       description: 'rbndndfn',
-      idT: 2222222222,
+      idT: 2222235735222,
       monthCreate: 2,
       sum: '10000',
       transactionType: 'income',
@@ -59,7 +60,7 @@ function TransactionsWrapper() {
       category: 'Транспорт',
       dayCreate: 5,
       description: 'Ремонт старой двери',
-      idT: 111111111111,
+      idT: 11117661111,
       monthCreate: 2,
       sum: '5000',
       transactionType: 'expense',
@@ -69,7 +70,7 @@ function TransactionsWrapper() {
       category: 'Транспорт',
       dayCreate: 10,
       description: 'rbndndfn',
-      idT: 222000022222,
+      idT: 22203470002222,
       monthCreate: 2,
       sum: '10000',
       transactionType: 'income',
@@ -79,7 +80,7 @@ function TransactionsWrapper() {
       category: 'Транспорт',
       dayCreate: 9,
       description: 'Ремонт старой двери',
-      idT: 1111000111,
+      idT: 1118641000111,
       monthCreate: 1,
       sum: '5000',
       transactionType: 'expense',
@@ -89,7 +90,7 @@ function TransactionsWrapper() {
       category: 'Все для дома',
       dayCreate: 11,
       description: 'toys',
-      idT: 777777,
+      idT: 77733492777,
       monthCreate: 1,
       sum: '10000',
       transactionType: 'expense',
@@ -99,7 +100,7 @@ function TransactionsWrapper() {
       category: 'Транспорт',
       dayCreate: 28,
       description: 'Ремонт старой двери',
-      idT: 111111111111,
+      idT: 111112361111111,
       monthCreate: 1,
       sum: '5000',
       transactionType: 'expense',
@@ -109,7 +110,7 @@ function TransactionsWrapper() {
       category: 'Транспорт',
       dayCreate: 9,
       description: 'car',
-      idT: 5555555,
+      idT: 55298555555,
       monthCreate: 2,
       sum: '10000',
       transactionType: 'income',

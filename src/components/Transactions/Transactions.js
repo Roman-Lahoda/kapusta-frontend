@@ -214,7 +214,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
 }
 
 Transaction.defaultProps = {
-  isIncome: false,
+  // isIncome: false,
   categories: expenseCategories,
   placeholder: 'Описание расхода',
   selectLabel: 'Категория товара',

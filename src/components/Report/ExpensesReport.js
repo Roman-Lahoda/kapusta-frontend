@@ -39,20 +39,21 @@ export default function ExpensesReport() {
 
   const expenseArray = report?.expense;
 
+
   console.log("report = ", report);
-  console.log(" expenseArray = ",  expenseArray);
+  // console.log(" expenseArray = ",  expenseArray);
 
   const incomeArray = report?.income;
-  console.log("incomeArray = ", incomeArray);
+  // console.log("incomeArray = ", incomeArray);
 
 
   const selectionCategory = (event) => {
-    console.log("Сработала функция. event.target =   ", event.target);
-    console.log("Сработала функция. event.currentTarget =   ", event.currentTarget);
+    // console.log("Сработала функция. event.target =   ", event.target);
+    // console.log("Сработала функция. event.currentTarget =   ", event.currentTarget);
 
     if (event.target.nodeName== 'LI') {
       setCurrentCategory (event.target.dataset.category)
-      console.log("Сработала функция. event.target.dataset.category =   ", event.target.dataset.category);
+      // console.log("Сработала функция. event.target.dataset.category =   ", event.target.dataset.category);
     }
   }
 

@@ -46,7 +46,7 @@ const Diagram = function ({arrayOfData}) {
 
   return (
     <div >
-      {/* { dataForDiagram.length<1
+      { dataForDiagram.length<1
       ? <b>You don't have any posts in this category yet</b>
       :   <VictoryChart
               // добавляем свою кастомную тему диаграммы
@@ -99,8 +99,8 @@ const Diagram = function ({arrayOfData}) {
                   // labelComponent={<VictoryLabel dy={-25} dx={0}/>}
               />
           </VictoryChart>
-      } */}
-Empty
+      }
+
       </div>
   );
 };

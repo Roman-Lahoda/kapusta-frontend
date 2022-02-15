@@ -149,6 +149,10 @@ function App() {
 
   return (
     <>
+      {/* <BaseView>
+        <div className="home-mob-wrap">{isMobile && <CalendarPicker />}</div>
+        <TransactionsWrapper />
+      </BaseView> */}
       <BackgroundForTransactions />
       <ContainerForTransactions>
         <ThemeProvider theme={theme}>

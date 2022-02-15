@@ -18,9 +18,11 @@ import TransactionsRow from './TransactionsRow';
 
 function TransactionsTable({ type, deleteDialogHandler }) {
   // const selectorType =
-  //   type === 'expense'
-  //     ? transactionsSelectors.getExpenseTransactions
-  //     : transactionsSelectors.getIncomeTransactions;
+  // type === 'expense'
+  // ? transactionsSelectors.getExpenseTransactions
+  // : transactionsSelectors.getIncomeTransactions;
+  // ? transactionsSelectors.getExpenseTransactions
+  // : transactionsSelectors.getIncomeTransactions;
 
   // const transactions = useSelector(selectorType);
   const transactions = [

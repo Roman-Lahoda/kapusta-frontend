@@ -113,7 +113,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
     setDate(new Date());
     setDescription('');
     setCategory('');
-    setSum(0);
+    setSum('');
   };
 
   // const handleChangeDate = data => {
@@ -190,9 +190,9 @@ function Transaction({ categories, isIncome, placeholder, value }) {
             name="sum"
             value={sum}
             onChange={handleChange}
-            placeholder="00.00 грн"
+            placeholder="0.00 грн"
             min="0"
-            step="1"
+            // step="1"
             pattern="^\d{1,3}(\s\d{3})*(\.\d+)?$"
             required
             autoComplete="off"

@@ -45,6 +45,68 @@ function TransactionsTable({ type, deleteDialogHandler, transactions }) {
   //     transactionType: 'expense',
   //     yearCreate: 2022,
   //   },
+  //   {
+  //     category: 'Транспорт',
+  //     dayCreate: 14,
+  //     description: 'rbndndfn',
+  //     idT: 111111111111,
+  //     monthCreate: 2,
+  //     sum: '7283',
+  //     transactionType: 'expense',
+  //     yearCreate: 2022,
+  //   },
+  //   {
+  //     category: 'Транспорт',
+  //     dayCreate: 14,
+  //     description: 'rbndndfn',
+  //     idT: 2222222222,
+  //     monthCreate: 2,
+  //     sum: '7283',
+  //     transactionType: 'expense',
+  //     yearCreate: 2022,
+  //   },
+
+  //   {
+  //     category: 'Транспорт',
+  //     dayCreate: 14,
+  //     description: 'rbndndfn',
+  //     idT: 111111111111,
+  //     monthCreate: 2,
+  //     sum: '7283',
+  //     transactionType: 'expense',
+  //     yearCreate: 2022,
+  //   },
+  //   {
+  //     category: 'Транспорт',
+  //     dayCreate: 14,
+  //     description: 'rbndndfn',
+  //     idT: 2222222222,
+  //     monthCreate: 2,
+  //     sum: '7283',
+  //     transactionType: 'expense',
+  //     yearCreate: 2022,
+  //   },
+
+  //   {
+  //     category: 'Транспорт',
+  //     dayCreate: 14,
+  //     description: 'rbndndfn',
+  //     idT: 111111111111,
+  //     monthCreate: 2,
+  //     sum: '7283',
+  //     transactionType: 'expense',
+  //     yearCreate: 2022,
+  //   },
+  //   {
+  //     category: 'Транспорт',
+  //     dayCreate: 14,
+  //     description: 'rbndndfn',
+  //     idT: 2222222222,
+  //     monthCreate: 2,
+  //     sum: '7283',
+  //     transactionType: 'expense',
+  //     yearCreate: 2022,
+  //   },
   // ];
 
   // const isLoading = useSelector(transactionSelectors.isLoading);
@@ -86,15 +148,10 @@ function TransactionsTable({ type, deleteDialogHandler, transactions }) {
                 deleteDialogHandler={deleteDialogHandler}
               />
             ))}
-            {/* {transactions.length < 9 &&
+            {transactions.length < 9 &&
               Array(9 - transactions.length)
                 .fill()
-                .map((item, index) =>  */}
-            <EmptyRow
-
-            // key={index}
-            ></EmptyRow>
-            {/* )} */}
+                .map((item, index) => <EmptyRow key={index}></EmptyRow>)}
           </TableBody>
         </Table>
       </TableContainer>

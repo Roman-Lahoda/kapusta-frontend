@@ -4,12 +4,12 @@ import { ReactComponent as DeleteIcon } from '../../images/transactionIcons/dele
 import React from 'react';
 
 function TransactionsRow({ transaction, deleteDialogHandler }) {
-  // const formatter = new Intl.NumberFormat('uk-UA', {
-  //   style: 'currency',
-  //   currency: 'UAH',
-  // });
+  const formatter = new Intl.NumberFormat('uk-UA', {
+    style: 'currency',
+    currency: 'UAH',
+  });
 
-  // const sum = formatter.format(transaction.sum);
+  const sum = formatter.format(transaction.sum);
 
   console.log(transaction);
   // const sum = formatter.format(transactions.sum);

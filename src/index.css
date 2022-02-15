@@ -1,3 +1,11 @@
+html {
+  font-size: '12px';
+  line-height: 1.17;
+  letter-spacing: '0.04em';
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   scroll-behavior: smooth;
@@ -8,6 +16,7 @@ body {
 
   scrollbar-color: #ff751d #f5f6fb;
   scrollbar-width: '6px';
+  overflow-x: hidden;
 }
 
 code {
@@ -55,16 +64,16 @@ a {
 }
 
 /* .simplebar-scrollbar::before {
-  background-color: var(--accent-color-primary);
+  background-color: #ff751d;
 }
 
 .simplebar-scrollbar.simplebar-visible.simplebar-scrollbar::before {
   transform: none;
   opacity: 1;
   transition: none;
-}
+} */
 
-.react-datepicker__day--selected,
+/* .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
   background-color: var(--accent-color-primary);
 }

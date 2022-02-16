@@ -12,5 +12,5 @@ export function ModalBalance() {
       </div>
     </div>,
     modalRoot,
-  );
+  )
 }

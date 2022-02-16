@@ -67,7 +67,7 @@ img {
   border-radius: 30px;
 
   .container_form {
-    padding: 0 85px 10px;
+    padding: 0 86px 10px;
   }
 
   .form_row {
@@ -123,10 +123,9 @@ img {
   }
 
   label {
-    font-size: 12px;
+    font-size: var(--main-font-size);
     font-weight: var(--main-font-weight);
     line-height: 1.17;
-    padding-bottom: 10px;
     color: var(--dark-text-color);
     padding-bottom: 10px;
   }
@@ -227,17 +226,20 @@ img {
     max-width: 300px;
     margin: 0 auto;
 
+    .container_form {
+      padding: 0 39px 10px;
+    }
+
     h1 {
       font-size: 10px;
       line-height: 1.2;
       font-weight: var(--main-font-weight);
       color: var(--main-text-color);
-      padding-bottom: 24px;
+      padding: 20px 0 24px 0;
     }
     .title_gb {
       text-align: center;
-      padding: 0 0 29px 0;
-      padding-top: 40px;
+      padding: 40px 10px 24px 10px;
     }
 
     .g_link {
@@ -250,8 +252,9 @@ img {
 
     label {
       font-size: 10px;
+      font-weight: var(--main-font-weight);
       line-height: 1.2;
-      padding-bottom: 10px;
+      padding-bottom: 12px;
     }
 
     input {

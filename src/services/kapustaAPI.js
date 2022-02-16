@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BASE_URL = 'https://capusta2.herokuapp.com/api/transactions'
+const BASE_URL = 'https://capusta3.herokuapp.com/api/transactions'
 
 export async function getBalance () {
     const balance = axios.get(`${BASE_URL}/balance`)

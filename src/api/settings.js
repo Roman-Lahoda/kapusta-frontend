@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = 'https://capusta2.herokuapp.com/api/transactions/:id';
+const apiUrl = 'https://capusta3.herokuapp.com/api/transactions/:id';
 
 export const api = axios.create({
   baseURL: apiUrl,

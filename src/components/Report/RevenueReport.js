@@ -13,23 +13,15 @@ export default function RevenueReport() {
 
   const incomeArray = report?.income;
 
-  console.log("report = ", report);
- 
-  console.log("incomeArray = ", incomeArray);
-  // console.log("Array.isArray(incomeArray = ", Array.isArray(incomeArray));
-  // console.log("incomeArray.salary = ", incomeArray.salary);
-
   const selectionCategory = (event) => {
-    console.log("Сработала функция  selectionCategory в доходах");
     if (event.target.nodeName== 'LI') {
       setCurrentCategory (event.target.dataset.category)
-      console.log("Сработала функция. event.target.dataset.category =   ", event.target.dataset.category);
     }
   }
 
   return (
     <>
-      {/* <section> */}
+      <section>
         <ul className={s.revenueCategories} onClick = {selectionCategory} >
           <li className={s.item} data-category = 'salary'>
             <p>45 0000.00</p>
@@ -50,7 +42,7 @@ export default function RevenueReport() {
             <p>ДОП. ДОХОД</p>
           </li>
         </ul>
-      {/* </section> */}
+      </section>
 
       <svg className={s.expBorder}></svg>
 

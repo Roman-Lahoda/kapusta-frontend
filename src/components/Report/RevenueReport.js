@@ -13,7 +13,7 @@ export default function RevenueReport() {
   const incomeArray = report?.income;
 
   const selectionCategory = event => {
-    if (event.target.nodeName == 'LI') {
+    if (event.target.nodeName == 'svg') {
       setCurrentCategory(event.target.dataset.category);
     }
   };
@@ -23,11 +23,11 @@ export default function RevenueReport() {
   return (
     <div>
       <div className={s.transactionsCategories}>
-        <ul className={s.revenueCategories}>
+        <ul className={s.revenueCategories} onClick={selectionCategory}>
           <li className={s.item}>
             <p>{new Intl.NumberFormat('ru-RU').format(salaryTotalSum)}.00</p>
             <div className={s.picBox}>
-              <svg width="59" height="56" className={s.itemPic}>
+              <svg width="59" height="56" className={s.itemPic} data-category = 'salary'>
                 <use href={`${sprite}#icon-salary`}></use>
               </svg>
             </div>
@@ -36,7 +36,7 @@ export default function RevenueReport() {
           <li className={s.item}>
             <p> {new Intl.NumberFormat().format(additionalIncomeTotalSum)}.00</p>
             <div className={s.picBox}>
-              <svg width="59" height="56" className={s.itemPic}>
+              <svg width="59" height="56" className={s.itemPic} data-category = 'additionalIncome'>
                 <use href={`${sprite}#icon-addsalary`}></use>
               </svg>
             </div>

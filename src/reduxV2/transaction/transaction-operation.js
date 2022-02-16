@@ -6,7 +6,8 @@ export const addTransaction = createAsyncThunk(
   async (transaction, { rejectWithValue }) => {
     try {
       const user = JSON.parse(localStorage.getItem('user'));
-      localStorage.removeItem('user');
+      //TODO
+      // localStorage.removeItem('user');
       switch (transaction.transactionType) {
         case 'income':
           const { data } = await axios.post('/transactions/income', transaction);
@@ -24,6 +25,7 @@ export const addTransaction = createAsyncThunk(
       return transaction;
     } catch (error) {
       return rejectWithValue(error);
+      // console.log(error);
     }
   },
 );

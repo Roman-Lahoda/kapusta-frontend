@@ -64,21 +64,28 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [addTransaction.fulfilled](state, action) {
-      switch (action.payload.transactionType) {
-        case 'income':
-          state.user.balance = state.user.balance + action.payload.sum;
-          break;
-        case 'expense':
-          state.user.balance = state.user.balance - action.payload.sum;
-          break;
-        default:
-          break;
+      if (action?.payload?.transactionType) {
+        switch (action?.payload?.transactionType) {
+          case 'income':
+            state.user.balance = state?.user?.balance + action?.payload?.sum;
+            break;
+          case 'expense':
+            state.user.balance = state?.user?.balance - action?.payload?.sum;
+            break;
+          default:
+            break;
+        }
       }
     },
     [addTransaction.rejected](state, action) {
       state.isLoading = false;
-      state.isLoggedIn = false;
+      state.isLoggedIn = true;
       state.error = action.payload;
+      if (action.payload.status === 401) {
+        state.isLoggedIn = false;
+        alert('вы разлогинены');
+        localStorage.removeItem('user');
+      }
     },
     [deleteTransaction.pending](state, action) {
       state.isLoading = true;

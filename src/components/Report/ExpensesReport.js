@@ -176,10 +176,10 @@ export default function ExpensesReport() {
   const educationTotalSum = report?.expense?.education?.reduce((a, b) => a + b.sum, 0);
   const healthTotalSum = report?.expense?.health?.reduce((a, b) => a + b.sum, 0);
   const transportTotalSum = report?.expense?.transport?.reduce((a, b) => a + b.sum, 0);
-  const otherTotalSum = report?.expense?.transport?.reduce((a, b) => a + b.sum, 0);
+  const otherTotalSum = report?.expense?.other?.reduce((a, b) => a + b.sum, 0);
 
   const selectionCategory = event => {
-    if (event.target.nodeName === 'LI') {
+    if (event.target.nodeName === 'svg') {
       setCurrentCategory(event.target.dataset.category);
     }
   };
@@ -189,10 +189,10 @@ export default function ExpensesReport() {
       <div className={s.transactionsCategories}>
         <ul className={s.expensesCategories} onClick={selectionCategory}>
           {foodTotalSum ? (
-            <li className={s.item} data-category="food">
+            <li className={s.item} >
               <p>{new Intl.NumberFormat('ru-RU').format(foodTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46" data-category="food">
                   <use href={`${sprite}#icon-products`}></use>
                 </svg>
               </div>
@@ -200,10 +200,10 @@ export default function ExpensesReport() {
             </li>
           ) : null}
           {alcoholTotalSum ? (
-            <li className={s.item} data-category="alcohol">
+            <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(alcoholTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46"  data-category="alcohol">
                   <use href={`${sprite}#icon-cocktail`}></use>
                 </svg>
               </div>
@@ -211,10 +211,10 @@ export default function ExpensesReport() {
             </li>
           ) : null}
           {entertainmentTotalSum ? (
-            <li className={s.item} data-category="entertainment">
+            <li className={s.item} >
               <p>{new Intl.NumberFormat('ru-RU').format(entertainmentTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46" data-category="entertainment">
                   <use href={`${sprite}#icon-kite`}></use>
                 </svg>
               </div>
@@ -223,10 +223,10 @@ export default function ExpensesReport() {
           ) : null}
           <svg className={s.expBorder}></svg>
           {healthTotalSum ? (
-            <li className={s.item} data-category="health">
+            <li className={s.item} >
               <p>{new Intl.NumberFormat('ru-RU').format(healthTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46" data-category="health">
                   <use href={`${sprite}#icon-health`}></use>
                 </svg>
               </div>
@@ -234,10 +234,10 @@ export default function ExpensesReport() {
             </li>
           ) : null}
           {transportTotalSum ? (
-            <li className={s.item} data-category="transport">
+            <li className={s.item} >
               <p>{new Intl.NumberFormat('ru-RU').format(transportTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46" data-category="transport">
                   <use href={`${sprite}#icon-car`}></use>
                 </svg>
               </div>
@@ -245,10 +245,10 @@ export default function ExpensesReport() {
             </li>
           ) : null}
           {housingTotalSum ? (
-            <li className={s.item} data-category="housing">
+            <li className={s.item} >
               <p>{new Intl.NumberFormat('ru-RU').format(housingTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46" data-category="housing">
                   <use href={`${sprite}#icon-couch`}></use>
                 </svg>
               </div>
@@ -257,10 +257,10 @@ export default function ExpensesReport() {
           ) : null}
           <svg className={s.expBorder}></svg>
           {technicsTotalSum ? (
-            <li className={s.item} data-category="technics">
+            <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(technicsTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46"  data-category="technics">
                   <use href={`${sprite}#icon-tools`}></use>
                 </svg>
               </div>
@@ -268,10 +268,10 @@ export default function ExpensesReport() {
             </li>
           ) : null}
           {communalTotalSum ? (
-            <li className={s.item} data-category="communal">
+            <li className={s.item} >
               <p>{new Intl.NumberFormat('ru-RU').format(communalTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46" data-category="communal">
                   <use href={`${sprite}#icon-invoice`}></use>
                 </svg>
               </div>
@@ -279,10 +279,10 @@ export default function ExpensesReport() {
             </li>
           ) : null}
           {sportTotalSum ? (
-            <li className={s.item} data-category="sport">
+            <li className={s.item} >
               <p>{new Intl.NumberFormat('ru-RU').format(sportTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46" data-category="sport">
                   <use href={`${sprite}#icon-hobby`}></use>
                 </svg>
               </div>
@@ -291,10 +291,10 @@ export default function ExpensesReport() {
           ) : null}
           <svg className={s.expBorder}></svg>
           {educationTotalSum ? (
-            <li className={s.item} data-category="education">
+            <li className={s.item} >
               <p>{new Intl.NumberFormat('ru-RU').format(educationTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46" data-category="education">
                   <use href={`${sprite}#icon-education`}></use>
                 </svg>
               </div>
@@ -302,10 +302,10 @@ export default function ExpensesReport() {
             </li>
           ) : null}
           {otherTotalSum ? (
-            <li className={s.item} data-category="other">
+            <li className={s.item} >
               <p>{new Intl.NumberFormat('ru-RU').format(otherTotalSum)}.00</p>
               <div className={s.picBox}>
-                <svg width="59" height="46">
+                <svg width="59" height="46" data-category="other">
                   <use href={`${sprite}#icon-ufo`}></use>
                 </svg>
               </div>

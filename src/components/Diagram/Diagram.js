@@ -2,7 +2,7 @@
 
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import ownVictoryTheme from './ownVictoryTheme.js';
-import s from '../Report/Report.module.scss';
+import s from './Diagram.module.scss';
 
 // это пример массива данных о транзакциях, которые могут прийти с бекенда. Здесь он используется для примера и тестирования.
 // в дальнейшем этот массив данных нужно будет, как полагается получить, от бекенда.
@@ -47,7 +47,9 @@ const Diagram = function ({ arrayOfData }) {
   return (
     <div className={s.diagramConfig}>
       {dataForDiagram.length < 1 ? (
-        <b>You don't have any posts in this category yet</b>
+        <p className={s.textAlertForAbsentTransactions}>
+          You don't have any posts in this category yet
+        </p>
       ) : (
         <VictoryChart
           // добавляем свою кастомную тему диаграммы

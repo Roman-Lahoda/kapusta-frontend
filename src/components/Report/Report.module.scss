@@ -22,6 +22,7 @@
 
 .returnBtnBig {
   align-self: start;
+  padding-top: 15px;
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -43,7 +44,8 @@
   margin-bottom: 30px;
 
   @media screen and (max-width: 767.9px) {
-    margin-top: 15px;
+    padding-top: 15px;
+    padding-top: 0;
   }
 }
 
@@ -415,10 +417,6 @@
     border: none;
     box-shadow: none;
     margin: 20px 0;
-    // padding: 0;
-
-    // padding: 30px auto;
-    // padding: 20px 151px;
   }
 }
 
@@ -431,22 +429,4 @@
 
   font-size: 14px;
   line-height: 16px;
-}
-
-.diagramConfig {
-  @media screen and (max-width: 767.9px) {
-    display: none;
-  }
-  @media screen and (max-width: 1279.9px) {
-    height: 105%;
-  }
-  @media screen and (min-width: 1280px) {
-    height: 95%;
-  }
-}
-
-.diagramMobile {
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
 }

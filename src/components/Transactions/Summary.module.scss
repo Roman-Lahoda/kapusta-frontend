@@ -1,0 +1,39 @@
+.summaryBox {
+  width: 230px;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+.title {
+  color: #000000;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 0;
+  background-color: #f5f6fb;
+  border-bottom: 2px solid #ffffff;
+  border-radius: 20px 20px 0 0;
+}
+.item {
+  background-color: #f5f6fb;
+  border-bottom: 2px solid #ffffff;
+}
+.item:nth-last-child(1) {
+  border-radius: 0 0 20px 0;
+  border-bottom: none;
+}
+.itemBox {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  padding: 10px 20px 10px 22px;
+}
+.itemMonth {
+  font-size: 12px;
+  line-height: 14px;
+}
+.itemTotal {
+  font-size: 12px;
+  line-height: 14px;
+}

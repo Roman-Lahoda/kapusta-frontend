@@ -1,0 +1,46 @@
+[
+  {
+    "value": "transport",
+    "label": "Транспорт"
+  },
+  {
+    "value": "food",
+    "label": "Продукты"
+  },
+  {
+    "value": "health",
+    "label": "Здоровье"
+  },
+  {
+    "value": "alcohol",
+    "label": "Алкоголь"
+  },
+  {
+    "value": "entertainment",
+    "label": "Развлечения"
+  },
+  {
+    "value": "housing",
+    "label": "Всё для дома"
+  },
+  {
+    "value": "technics",
+    "label": "Техника"
+  },
+  {
+    "value": "communal",
+    "label": "Коммуналка, связь"
+  },
+  {
+    "value": "sport",
+    "label": "Спорт, хобби"
+  },
+  {
+    "value": "education",
+    "label": "Образование"
+  },
+  {
+    "value": "other",
+    "label": "Прочее"
+  }
+]

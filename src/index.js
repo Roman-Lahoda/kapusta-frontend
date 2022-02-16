@@ -1,15 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'modern-normalize/modern-normalize.css';
 import './index.css';
 import App from './App';
-
-// import 'modern-normalize/modern-normalize.css';
-import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import store from './reduxV2/store.js';
-// import '@fontsource/roboto';
-
 // import { store, persistor } from './redux/store';
 
 ReactDOM.render(
@@ -25,15 +22,4 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-// --------------------
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
-// import './index.css';
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root'),
-// );
+export default App;

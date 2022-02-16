@@ -2,6 +2,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 // import './DatePicker.module.scss';
 
 import { Button, ButtonGroup, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // import { fetchAddTransaction } from '../../redux/transaction/transactions-operations';
@@ -22,6 +23,18 @@ import { selectStyles } from '../../styles/selectStyles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
+
+const useStyles = makeStyles({
+  categoryListItem: {
+    fontFamily: 'Roboto',
+    fontWeight: 400,
+    fontSize: '12px',
+    // lineHeight: 1.16,
+    letterSpacing: '0.02em',
+    color: '#c7ccdc',
+  },
+});
+
 function Transaction({ categories, isIncome, placeholder, value }) {
   const dispatch = useDispatch();
   // const selectedDate = useSelector(getSelectedDate);
@@ -33,6 +46,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   const [category, setCategory] = useState('');
   const [calc, setCalc] = useState(false);
   const [sum, setSum] = useState('');
+  const classes = useStyles();
 
   // console.log(Date.parse(date));
   const dayCreate = date.getDate();
@@ -157,6 +171,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
 
         <input
           className={s.desc}
+          // className={s.description}
           type="text"
           name="description"
           value={description}
@@ -165,8 +180,10 @@ function Transaction({ categories, isIncome, placeholder, value }) {
           autoComplete="off"
         />
 
-        <FormControl>
-          <InputLabel sx={{ fontSize: '12px' }}>Категория</InputLabel>
+        <FormControl className={s.formControl}>
+          <InputLabel sx={{ fontSize: '12px' }} className={s.InputSelect}>
+            Категория
+          </InputLabel>
           <Select
             sx={
               isMobile
@@ -192,6 +209,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
             value={category}
             onChange={handleChange}
             required
+            className={s.select}
           >
             {categories.map(option => (
               <MenuItem
@@ -199,6 +217,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
                 value={option.value}
                 id={option.value}
                 style={{ fontSize: '12px' }}
+                className={classes.categoryListItem}
               >
                 {option.label}
               </MenuItem>
@@ -214,7 +233,6 @@ function Transaction({ categories, isIncome, placeholder, value }) {
             onChange={handleChange}
             placeholder="0.00 грн"
             min="0"
-            // step="1"
             pattern="^\d{1,3}(\s\d{3})*(\.\d+)?$"
             required
             autoComplete="off"

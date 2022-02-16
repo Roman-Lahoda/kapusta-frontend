@@ -1,3 +1,6 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
 .form {
   display: flex;
   align-items: center;
@@ -29,6 +32,9 @@
   transform: translateY(-50%);
 }
 
+$dark-grey-color: #52555f;
+$desktop: 1280px;
+
 .desc {
   display: block;
 
@@ -43,6 +49,18 @@
   border: 2px solid #fff;
   border-bottom: none;
   border-radius: 16px 16px 0 0;
+  color: $dark-grey-color;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    font-weight: 400;
+    color: #c7ccdc;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 268px !important;
+  }
 }
 
 .desc:focus {
@@ -137,4 +155,85 @@ input[type='number']:focus {
 }
 .sum::placeholder {
   color: #c7ccdc;
+}
+
+/*<<<<<<<<<<<<<<input form styles>>>>>>>>>>>>>>>>*/
+// colors
+$accent-color: #ff751d;
+$dark-grey-color: #52555f;
+
+// fonts
+$main-font: 'Roboto', sans-serif;
+
+// display sizes
+$desktop: 1280px;
+$tablet: 768px;
+$mobile: 320px;
+
+input {
+  padding: 0;
+}
+
+.select {
+  font-family: $main-font !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 1.166 !important;
+  letter-spacing: 0.02em !important;
+  color: #c7ccdc !important;
+}
+.InputSelect {
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 1, 7 !important;
+  letter-spacing: 0.02em !important;
+  text-align: center !important;
+}
+.MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  transform: none !important;
+  border-color: $accent-color;
+}
+
+@media screen and (min-width: $mobile) and (max-width: 767px) {
+  .form {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .formControl {
+    width: 282px !important;
+  }
+
+  .select {
+    margin-top: 0;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 0px 0px 16px 0px;
+  }
+  // .menuItem {
+  //   width: 150px !important;
+  // }
+}
+
+@media screen and (min-width: $tablet) {
+  .select {
+    width: 150px !important;
+  }
+  // .menuItem {
+  //   width: 150px !important;
+  // }
+  .InputSelect {
+    font-family: $main-font !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 1.166 !important;
+    letter-spacing: 0.02em !important;
+    color: #c7ccdc !important;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  // .form {
+  //   flex-direction: row;
+  //   flex-wrap: wrap;
+  // }
 }

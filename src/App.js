@@ -8,6 +8,7 @@ import authOperation from './reduxV2/auth/auth-operation';
 import authSelectors from './reduxV2/auth/auth-selector';
 import transactionOperation from './reduxV2/transaction/transaction-operation';
 import RegistrationForm from './components/RegistrationForm/Form';
+import transactionSelectors from './reduxV2/transaction/transaction-selector.js';
 
 // import './App.css';
 
@@ -38,18 +39,12 @@ const PublicRoute = ({ children, redirectTo = '/', restricted = false, ...routeP
 
 function App() {
   const dispatch = useDispatch();
-  // const isLoadingTr = useSelector(transactionSelectors.isLoading);
-  // const isLoadingAuth = useSelector(authSelectors.getIsLoading);
-  // console.log(isLoadingTr);
 
   useEffect(() => {
     dispatch(authOperation.refresh());
   }, [dispatch]);
 
   const search = window.location?.search;
-  const test = window.location;
-  console.log(test);
-  console.log(search);
   const email = search?.split('&')[0]?.split('=')[1];
   const password = search?.split('&')[1]?.split('=')[1];
   if (email && password) {
@@ -58,11 +53,6 @@ function App() {
 
   return (
     <>
-      {/* <div className={s.App}>
-        <BackgraundHome />
-        <Header />
-      </div> */}
-
       <Suspense fallback={<h1>LOADING</h1>}>
         <Switch>
           <PublicRoute exact redirectTo="/wallet" restricted path="/">

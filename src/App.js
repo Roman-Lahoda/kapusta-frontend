@@ -9,6 +9,8 @@ import authSelectors from './reduxV2/auth/auth-selector';
 import transactionOperation from './reduxV2/transaction/transaction-operation';
 import RegistrationForm from './components/RegistrationForm/Form';
 
+import Loader from './components/Loader/Loader';
+
 // import './App.css';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
@@ -51,21 +53,23 @@ function App() {
   }
 
   return (
-    <Suspense fallback={<h1>LOADING</h1>}>
-      <Switch>
-        <PublicRoute exact redirectTo="/wallet" restricted path="/">
-          <HomePage />
-        </PublicRoute>
+    <>
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <PublicRoute exact redirectTo="/wallet" restricted path="/">
+            <HomePage />
+          </PublicRoute>
 
-        <PrivateRoute exact redirectTo="/" path="/wallet">
-          <WalletPage />
-        </PrivateRoute>
+          <PrivateRoute exact redirectTo="/" path="/wallet">
+            <WalletPage />
+          </PrivateRoute>
 
-        <PrivateRoute exact redirectTo="/" path="/report">
-          <ReportPage />
-        </PrivateRoute>
-      </Switch>
-    </Suspense>
+          <PrivateRoute exact redirectTo="/" path="/report">
+            <ReportPage />
+          </PrivateRoute>
+        </Switch>
+      </Suspense>
+    </>
   );
 }
 export default App;

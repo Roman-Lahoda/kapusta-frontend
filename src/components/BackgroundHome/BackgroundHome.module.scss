@@ -1,77 +1,76 @@
-.container{
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    position: absolute;
+.container {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
 }
 .bg {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: #f5f6fb;
+  // background: #EEF1FF;
+  //  background: blue;
+  border-radius: 0px 0px 0px 130px;
+
+  @media screen and (max-width: 767px) {
+    height: 342px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 582px;
+  }
+}
+
+.kapusta {
+  position: absolute;
+  left: 35px;
+  bottom: 35px;
+
+  transform: rotate(-180deg);
+
+  @media screen and (max-width: 768px) {
+    width: 83px;
+    height: 89px;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.twoKapusta {
+  position: absolute;
+
+  width: 183px;
+  height: 142px;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    right: 88px;
+    bottom: 64px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.groupKapusta {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1200px) {
     width: 100%;
-    background: #f5f6fb;
-    // background: #EEF1FF;
-    //  background: blue;
-    border-radius: 0px 0px 0px 130px;
-
-    @media screen and (max-width: 767px) {
-        height: 342px;
-    }
-
-    @media screen and (min-width: 768px){
-       height: 582px;
-    }
-}
-
-.kapusta{
-    position: absolute;
-    left:35px;
-    bottom:35px;
-
-    transform: rotate(-180deg);
-
-    @media screen and (max-width: 768px) {
-        width: 83px;
-        height: 89px; 
-    }
-
-    @media screen and (min-width: 768px) {
-        display: none;
-    }
-}
-
-.twoKapusta{
-    position: absolute;
-    
-    width: 183px;
-    height: 142px;
-
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
-
-    @media screen and (min-width: 768px) and (max-width: 1279px) {
-        right: 88px;
-        bottom: 64px;
-    }
-
-    @media screen and (min-width: 1280px) {
-        display: none;
-    }
-}
-
-.groupKapusta{
-    position: absolute;
-    left:0px;
-    bottom: 0px;
-
-
-    @media screen and (max-width: 1279px) {
-        display: none;
-    }
-
-    @media screen and (min-width: 1200px) {
-        width: 100%;
-        height: 240px; 
-    }
+    height: 240px;
+  }
 }

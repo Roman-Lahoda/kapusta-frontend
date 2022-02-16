@@ -8,6 +8,7 @@ export default function ExpensesReport() {
   const report = useSelector(transactionSelectors.getReport);
 
   const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
+
   const alcoholTotalSum = report?.expense?.alcohol?.reduce((a, b) => a + b.sum, 0);
   const entertainmentTotalSum = report?.expense?.entertainment?.reduce((a, b) => a + b.sum, 0);
   const housingTotalSum = report?.expense?.housing?.reduce((a, b) => a + b.sum, 0);

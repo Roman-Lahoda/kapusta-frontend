@@ -53,11 +53,7 @@ export default function RegistrationForm() {
         <h1 className={s.title_gb}>
           Вы можете авторизоваться с помощью <br /> Google Account:
         </h1>
-        <a
-          href="https://capusta3.herokuapp.com/auth/google"
-          className={s.g_link}
-          title="Google Account"
-        >
+        <a href="http://localhost:3000/auth/google" className={s.g_link} title="Google Account">
           <div className={s.g_btn}>
             <img src={images} alt="" className="g_svg" width="17" height="18" />
             Google
@@ -102,6 +98,15 @@ export default function RegistrationForm() {
           </button>
         </div>
       </form>
+      <div className={s.btn_form}>
+        <button type="submit" className={s.btn_login} onClick={loginUser}>
+          ВОЙТИ
+        </button>
+        <button type="button" className={s.btn_reg} onClick={signupUser}>
+          РЕГИСТРАЦИЯ
+        </button>
+      </div>
+
     </div>
   );
 }

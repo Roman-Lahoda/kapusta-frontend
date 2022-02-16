@@ -1,7 +1,7 @@
 // import axios from 'axios';
 
 // //👇 это изменил
-// // axios.defaults.baseURL = 'https://capusta2.herokuapp.com/api';
+// // axios.defaults.baseURL = 'https://capusta3.herokuapp.com/api';
 
 // //--------------------------------auth-operations-------------------------------
 // const token = {

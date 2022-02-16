@@ -45,7 +45,7 @@ const Diagram = function ({ arrayOfData }) {
   dataForDiagram.sort((a, b) => a.sum - b.sum);
 
   return (
-    <div>
+    <div className={s.diagramConfig}>
       {dataForDiagram.length < 1 ? (
         <b>You don't have any posts in this category yet</b>
       ) : (
@@ -94,10 +94,9 @@ const Diagram = function ({ arrayOfData }) {
               duration: 2000,
               onLoad: { duration: 1000 },
             }}
-
             //для мобильной версии - горизонтальное отображение
             // horizontal
-            // labelComponent={<VictoryLabel dy={-25} dx={0}/>}
+            // labelComponent={<VictoryLabel dy={-25} dx={0} />}
           />
         </VictoryChart>
       )}

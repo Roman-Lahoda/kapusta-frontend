@@ -54,11 +54,9 @@ export default function Header() {
             </button>
           </form>
           <CurrentMonth />
-          <Link to="/wallet" exact="true" className={s.returnBtnBig}>
-            <svg width="75" height="25">
-              <use href={`${sprite}#icon-backbutton`}></use>
-            </svg>
-          </Link>
+          <svg width="75" height="25" className={s.returnBtnBig}>
+            <use href={`${sprite}#icon-backbutton`}></use>
+          </svg>
         </section>
         <section className={s.balanceDetailsBox}>
           <ul className={s.balanceDetails}>

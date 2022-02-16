@@ -162,8 +162,10 @@ img {
   }
 
   .btn_form {
-    display: inline-block;
-    margin: 0 0 50px 85px;
+    display: flex;
+    // margin: 0 0 50px 85px;
+    margin-top: 10px;
+    margin-bottom: 53px;
   }
 
   .btn_login {

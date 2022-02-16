@@ -12,7 +12,7 @@
 .keypad {
   display: grid;
   grid-template-columns: repeat(4, 37px);
-  row-gap: 10px;
+  row-gap: 7px;
   justify-items: center;
 }
 .calcInput {
@@ -25,9 +25,9 @@
 }
 .calcBtn {
   outline: none;
-  border: none;
+  border: 1px solid rgba(128, 128, 128, 0.158);
   width: -moz-fit-content;
-  width: 30px;
+  width: 27px;
   height: -moz-fit-content;
   height: fit-content;
   background-color: #f5f6fb;
@@ -36,12 +36,14 @@
 }
 .result {
   grid-column: 1/1;
+  margin-left: 16px;
+  margin-top: 3px;
   outline: none;
-  border: none;
+  border: 1px solid rgba(128, 128, 128, 0.158);
   background-color: #f5f6fb;
   border-radius: 25px;
-  width: 44px;
-  height: 27px;
+  width: 43px;
+  height: 20px;
   color: grey;
 }
 .confirmBtn {
@@ -49,7 +51,7 @@
   outline: none;
   border: none;
   background-color: #ff751d;
-  border-radius: 25px;
+  border-radius: 50px;
   width: 90px;
   height: 27px;
   font-size: 12px;
@@ -59,7 +61,7 @@
 @media screen and (min-width: 768px) {
   .calc {
     position: absolute;
-    margin: 0px -65px;
+    margin: 0px -40px;
     width: 170px;
     padding: 10px;
     text-align: center;
@@ -67,5 +69,18 @@
     border: 2px solid #f5f6fb;
     background: white;
     z-index: 200;
+  }
+}
+@media screen and (max-width: 760px) {
+  .calc {
+    position: absolute;
+    margin: 0px 10px;
+    width: 170px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    border: 2px solid #f5f6fb;
+    background: white;
+    z-index: 2000;
   }
 }

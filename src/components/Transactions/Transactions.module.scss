@@ -109,6 +109,7 @@ $desktop: 1280px;
     border-bottom: 2px solid #f5f6fb;
     border-right: none;
     border-top-right-radius: 0;
+    // padding: 10px 25px;
   }
   .sumWrap {
     width: 124px;
@@ -177,7 +178,6 @@ input {
 
 .select {
   font-family: $main-font !important;
-
   font-weight: 400 !important;
   font-size: 12px !important;
   line-height: 1.166 !important;

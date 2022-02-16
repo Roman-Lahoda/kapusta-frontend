@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import CalendarPicker from './CalendarPicker';
+import MyDatePicker from './MyDatePicker/MyDatePicker';
 import { buttonGroupStyles } from '../../styles/buttonGroupStyles';
 import calculatorIcon from '../../images/transactionIcons/calculator.svg';
 import Calculator from './Calculator/Calculator';
@@ -180,10 +181,12 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <div className={s.wrapInputs}>
-        <div className={s.box}>
+        {/* <div className={s.box}>
           <CalendarPicker date={date} changeDate={changeDate} />
+        </div> */}
+        <div className={s.box}>
+          <MyDatePicker selectedDate={date} handleChange={date => setDate(date)} />
         </div>
-
         <input
           className={s.desc}
           // className={s.description}

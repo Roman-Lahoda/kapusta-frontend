@@ -12,31 +12,31 @@ import useOnClickOutside from '../../hooks/useOnClickOutside';
 //     changeDate(date);
 //   };
 
-const CustomInput = forwardRef(({ value, onClick }, ref) => (
-  <button className={s.datepickerButton} onClick={onClick} ref={ref}>
-    <div className={s.wrapper}>
-      <svg width="20" height="20" className={s.icon}>
-        <use href={`${sprite}#icon-calendar`}></use>
-      </svg>
-      {value}
-    </div>
-  </button>
-));
+// const CustomInput = forwardRef(({ value, onClick }, ref) => (
+//   <button className={s.datepickerButton} onClick={onClick} ref={ref}>
+//     <div className={s.wrapper}>
+//       <svg width="20" height="20" className={s.icon}>
+//         <use href={`${sprite}#icon-calendar`}></use>
+//       </svg>
+//       {value}
+//     </div>
+//   </button>
+// ));
 
 export default function CalendarPicker({ startDate, closeHandler, date, changeDate }) {
-  const selectDate = date => {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-    // const date = new Date();
-    changeDate(date);
-    // changeDate({ dayCreate: day, monthCreate: month, yearCreate: year });
-    // console.log({ dayCreate: day, monthCreate: month, yearCreate: year });
-  };
+  // const selectDate = date => {
+  //   const day = date.getDate();
+  //   const month = date.getMonth() + 1;
+  //   const year = date.getFullYear();
+  //   // const date = new Date();
+  //   changeDate(date);
+  //   // changeDate({ dayCreate: day, monthCreate: month, yearCreate: year });
+  //   // console.log({ dayCreate: day, monthCreate: month, yearCreate: year });
+  // };
 
-  const ref = useRef();
-  const [selectedDay, setSelectedDay] = useState();
-  const [close, setClose] = useState(false);
+  // const ref = useRef();
+  // const [selectedDay, setSelectedDay] = useState();
+  // const [close, setClose] = useState(false);
   // useOnClickOutside(ref, () => closeHandler(selectedDay));
   // useEffect(() => {
   //   setSelectedDay(startDate);
@@ -51,48 +51,48 @@ export default function CalendarPicker({ startDate, closeHandler, date, changeDa
   //   return new Date(Number(splittedDate[2]), Number(splittedDate[1] - 1), Number(splittedDate[0]));
   // };
 
-  const handleDayClick = date => {
-    // setSelectedDay(day);
-    // setClose(true);
-    // console.log(date);
-  };
+  // const handleDayClick = date => {
+  //   // setSelectedDay(day);
+  //   // setClose(true);
+  //   // console.log(date);
+  // };
 
-  const modifiers = {
-    today: new Date(),
-    selectedDay: selectedDay,
-  };
-  const modifiersStyles = {
-    today: {
-      color: '#ff751d',
-      backgroundColor: 'white',
-    },
-    selectedDay: {
-      color: 'white',
-      backgroundColor: '#ff751d',
-    },
-  };
+  // const modifiers = {
+  //   today: new Date(),
+  //   selectedDay: selectedDay,
+  // };
+  // const modifiersStyles = {
+  //   today: {
+  //     color: '#ff751d',
+  //     backgroundColor: 'white',
+  //   },
+  //   selectedDay: {
+  //     color: 'white',
+  //     backgroundColor: '#ff751d',
+  //   },
+  // };
 
   return (
     <>
-      <div ref={ref}>
-        <DatePicker
-          locale={ru}
-          selectedDays={[selectedDay, modifiers.today]}
-          onDayClick={() => handleDayClick()}
-          modifiers={modifiers}
-          modifiersStyles={modifiersStyles}
-          selected={date}
-          onChange={date => selectDate(date)}
-          onSelect={handleDayClick(date)}
-          dateFormat="dd.MM.yyyy"
-          todayButton="Сегодня"
-          maxDate={new Date()}
-          customInput={<CustomInput />}
-          fixedHeight
-          required
-        />
-        {/* <DatePicker selected={date} onChange={handleDateChange} showTimeSelect dateFormat="Pp" /> */}
-      </div>
+      {/* <div ref={ref}> */}
+      {/* <DatePicker
+          // locale={ru}
+          // selectedDays={[selectedDay, modifiers.today]}
+          // onDayClick={() => handleDayClick()}
+          // modifiers={modifiers}
+          // modifiersStyles={modifiersStyles}
+          // selected={date}
+          // onChange={date => selectDate(date)}
+          // onSelect={handleDayClick(date)}
+          // dateFormat="dd.MM.yyyy"
+          // todayButton="Сегодня"
+          // maxDate={new Date()}
+          // customInput={<CustomInput />}
+          // fixedHeight
+          // required
+        /> */}
+      {/* <DatePicker selected={date} onChange={handleDateChange} showTimeSelect dateFormat="Pp" /> */}
+      {/* </div> */}
     </>
   );
 }

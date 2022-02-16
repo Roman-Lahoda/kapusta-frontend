@@ -1,39 +1,62 @@
-// colors
-$accent-color: #ff751d;
-$light-accent-color: #ffdac0;
-$logo-transparent: #fb7c2f33;
+// // colors
+// $accent-color: #ff751d;
+// $light-accent-color: #ffdac0;
+// $logo-transparent: #fb7c2f33;
 
-$black-color: #000000;
-$white-color: #ffffff;
+// $black-color: #000000;
+// $white-color: #ffffff;
 
-$light-grey-color: #f6f7fb;
-$dark-grey-color: #52555f;
+// $light-grey-color: #f6f7fb;
+// $dark-grey-color: #52555f;
 
-$main-bg-color: #f5f6fb;
-$desktop-bg-color: #f2f5fc;
+// $main-bg-color: #f5f6fb;
+// $desktop-bg-color: #f2f5fc;
 
-$active-tab-color: #fefefe;
-$tab-color: #fafbfd;
+// $active-tab-color: #fefefe;
+// $tab-color: #fafbfd;
 
-$avatar-bg-color: #f5f6fa;
-$logout-icon-color: #cbccd0;
-$form-placeholder-color: #a6abb9;
+// $avatar-bg-color: #f5f6fa;
+// $logout-icon-color: #cbccd0;
+// $form-placeholder-color: #a6abb9;
 
-$kapusta-grey-color: #dfe2eb;
+// $kapusta-grey-color: #dfe2eb;
 
-$green-color: #407946;
-$red-color: #e53935;
-$icon-dark-color: #071f41;
-$blue-gradient: linear-gradient(#1d346a, #031634);
+// $green-color: #407946;
+// $red-color: #e53935;
+// $icon-dark-color: #071f41;
+// $blue-gradient: linear-gradient(#1d346a, #031634);
 
-// fonts
-$main-font: 'Roboto', sans-serif;
+// // fonts
+// $main-font: 'Roboto', sans-serif;
 
-// display sizes
-$desktop: 1280px;
-$tablet: 768px;
-$mobile: 320px;
+// // display sizes
+// $desktop: 1280px;
+// $tablet: 768px;
+// $mobile: 320px;
 
-// timing
-$timing: cubic-bezier(0.4, 0, 0.2, 1);
-$duration: 250ms;
+// // timing
+// $timing: cubic-bezier(0.4, 0, 0.2, 1);
+// $duration: 250ms;
+
+$white: #ffffff;
+$black: #000000;
+$main-text-cl: rgba(82, 85, 95, 0.7);
+$gray-placeholder: #a6abb9;
+$gray-input-bg: #f6f7fb;
+$gray-btn: #f5f6fb;
+$gray-btn-logout: #52555f;
+$orange: #ff751d;
+$light-orange: #ffdac0;
+$dark-orange: #cc5e19;
+$bg-gray: #f5f6fb;
+$bg-gray-logout: #f5f6fa;
+$input-required: #eb5757;
+$dropdown-list: #c7ccdc;
+$spinner-border: #c7c7c748;
+$datepicker-portal: #66666667;
+$table-list: #f4f6fb;
+$expenses-color: #e7192e;
+$incomes-color: #407946;
+$tab-selected: #fefefe;
+$tab-border: #aaa;
+$tab-main: #fafbfd;

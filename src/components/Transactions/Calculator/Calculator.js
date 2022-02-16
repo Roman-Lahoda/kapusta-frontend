@@ -79,7 +79,7 @@ export default function CalculatorInput({ onCloseCalculator, position }) {
           9
         </button>
         <button type="button" name="*" onClick={handleClick} className={s.calcBtn}>
-          *
+          x
         </button>
         <button type="button" name="0" onClick={handleClick} className={s.calcBtn}>
           0

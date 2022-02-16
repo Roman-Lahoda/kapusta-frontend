@@ -24,7 +24,9 @@ function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
       <DialogContent
         sx={{
           textAlign: 'center',
-          padding: '50px 60px',
+          padding: '55px 60px',
+          // width: '380px',
+          // height: '194px',
         }}
       >
         <IconButton
@@ -49,7 +51,7 @@ function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
         >
           Да
         </Button>
-        <Button color="secondary" variant="outlined" sx={{ marginTop: '20px' }} onClick={onClose}>
+        <Button color="secondary" variant="contained" sx={{ marginTop: '20px' }} onClick={onClose}>
           Нет
         </Button>
       </DialogContent>

@@ -23,7 +23,7 @@ export function BalanceForm() {
     if (balance !== 0) {
       setIsDisable(true);
     }
-  },[balance]);
+  }, [balance]);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -35,19 +35,19 @@ export function BalanceForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(authOperation.updateUser({balance:inputValue}));
-    if (inputValue!==0){
-       setShowModal(false);
+    dispatch(authOperation.updateUser({ balance: inputValue }));
+    if (inputValue !== 0) {
+      setShowModal(false);
     }
     // setInputValue('');
   };
 
   return (
     <>
-    {isLoading&&<Loader/>}
+      {/* {isLoading&&<Loader/>} */}
       <form className={s.form} onSubmit={handleSubmit}>
         <label htmlFor="balance" className={s.label}>
-          Баланс: 
+          Баланс:
         </label>
         <div className={s.form_field}>
           <input
@@ -69,7 +69,7 @@ export function BalanceForm() {
           Подтвердить
         </button>
       </form>
-      {showModal&&<ModalBalance />}
+      {showModal && <ModalBalance />}
     </>
   );
 }

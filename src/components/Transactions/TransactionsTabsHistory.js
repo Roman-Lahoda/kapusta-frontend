@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 
 import Summary from './Summary';
-import Transactions from './Transactions';
+import InputTransactions from './InputTransactions';
 import TransactionsTable from './TransactionsTable';
 import incomeCategories from './incomeCategories.json';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -83,7 +83,7 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
         </TabList>
         <Paper sx={paperStyle} value={value}>
           <TabPanel value="expense" sx={{ padding: 0 }}>
-            <Transactions value={value} />
+            <InputTransactions value={value} />
             <div style={tableBox}>
               <TransactionsTable
                 type="expense"
@@ -94,7 +94,7 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
             </div>
           </TabPanel>
           <TabPanel value="income" sx={{ padding: 0 }}>
-            <Transactions
+            <InputTransactions
               // isIncome={true}
               categories={incomeCategories}
               placeholder="Описание дохода"

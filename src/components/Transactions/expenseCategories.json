@@ -1,46 +1,46 @@
 [
   {
-    "value": "Транспорт",
+    "value": "transport",
     "label": "Транспорт"
   },
   {
-    "value": "Продукты",
+    "value": "food",
     "label": "Продукты"
   },
   {
-    "value": "Здоровье",
+    "value": "health",
     "label": "Здоровье"
   },
   {
-    "value": "Алкоголь",
+    "value": "alcohol",
     "label": "Алкоголь"
   },
   {
-    "value": "Развлечения",
+    "value": "entertainment",
     "label": "Развлечения"
   },
   {
-    "value": "Всё для дома",
+    "value": "housing",
     "label": "Всё для дома"
   },
   {
-    "value": "Техника",
+    "value": "technics",
     "label": "Техника"
   },
   {
-    "value": "Коммуналка, связь",
+    "value": "communal",
     "label": "Коммуналка, связь"
   },
   {
-    "value": "Спорт, хобби",
+    "value": "sport",
     "label": "Спорт, хобби"
   },
   {
-    "value": "Образование",
+    "value": "education",
     "label": "Образование"
   },
   {
-    "value": "Прочее",
+    "value": "other",
     "label": "Прочее"
   }
 ]

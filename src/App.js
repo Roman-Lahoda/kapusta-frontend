@@ -19,7 +19,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { Box, LinearProgress } from '@mui/material';
 import TransactionsWrapper from './components/Transactions/TransactionsWrap';
-import BaseView from './pages/WalletPage/BaseView';
+
 import IncomeMobileForm from './components/Transactions/IncomeMobileForm';
 // import CalendarPicker from './components/Transactions/CalendarPicker';
 

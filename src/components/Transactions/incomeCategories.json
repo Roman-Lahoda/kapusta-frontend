@@ -1,10 +1,10 @@
 [
   {
-    "value": "ЗП",
+    "value": "salary",
     "label": "ЗП"
   },
   {
-    "value": "Доп. доход",
+    "value": "additionalincome",
     "label": "Доп. доход"
   }
 ]

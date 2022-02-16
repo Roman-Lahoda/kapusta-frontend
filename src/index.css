@@ -1,7 +1,7 @@
 html {
-  font-size: '12px';
+  /* font-size: '12px';
   line-height: 1.17;
-  letter-spacing: '0.04em';
+  letter-spacing: '0.04em'; */
   min-height: 100%;
   overflow-x: hidden;
 }
@@ -14,8 +14,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  scrollbar-color: #ff751d #f5f6fb;
-  scrollbar-width: '6px';
   overflow-x: hidden;
 }
 
@@ -34,8 +32,7 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-
-  outline: none;
+  /* outline: none; */
 }
 
 ul,
@@ -45,13 +42,22 @@ ol {
   list-style: none;
 }
 
+li {
+  list-style: none;
+}
+
 a {
   text-decoration: none;
 }
 
-/* scrollbar */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 *::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 *::-webkit-scrollbar-track {
@@ -62,23 +68,3 @@ a {
   background: #ff751d;
   border-radius: 2px;
 }
-
-/* .simplebar-scrollbar::before {
-  background-color: #ff751d;
-}
-
-.simplebar-scrollbar.simplebar-visible.simplebar-scrollbar::before {
-  transform: none;
-  opacity: 1;
-  transition: none;
-} */
-
-/* .react-datepicker__day--selected,
-.react-datepicker__day--keyboard-selected {
-  background-color: var(--accent-color-primary);
-}
-
-.react-datepicker__day--selected:hover {
-  background-color: #f0f0f0;
-  color: #000000;
-} */

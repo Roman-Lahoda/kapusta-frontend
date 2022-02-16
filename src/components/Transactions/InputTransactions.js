@@ -14,6 +14,7 @@ import React, { useState, useEffect } from 'react';
 import CalendarPicker from './CalendarPicker';
 import { buttonGroupStyles } from '../../styles/buttonGroupStyles';
 import calculatorIcon from '../../images/transactionIcons/calculator.svg';
+import Calculator from './Calculator/Calculator';
 import expenseCategories from './expenseCategories.json';
 import s from './Transactions.module.scss';
 import { selectStyles } from '../../styles/selectStyles';
@@ -28,7 +29,9 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
+  const [calc, setCalc] = useState(false);
   const [sum, setSum] = useState('');
+
   // console.log(Date.parse(date));
   const dayCreate = date.getDate();
   const monthCreate = date.getMonth() + 1;
@@ -72,7 +75,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   const newTransaction = {
     category: category,
     // date: stringifyDate,
-    sum: sum,
+    sum: Number(sum),
     description: description,
   };
 
@@ -126,6 +129,23 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   //   );
   //   setDate(data);
   // };
+  const closeCalc = result => {
+    setSum(result);
+
+    setCalc(false);
+  };
+  const handleCalcClick = () => {
+    setCalc(true);
+  };
+
+  // useEffect(() => {
+  //   setValue('categories', placeholderCategories.data);
+  // }, [expenseCategories, setValue]);
+
+  // useEffect(() => {
+  //   dateFinder(setDate);
+  //   setValue('date', selectedDate);
+  // }, [setDate, setValue, dateFinder]);
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
@@ -143,6 +163,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
           placeholder={placeholder}
           autoComplete="off"
         />
+
         <FormControl>
           <InputLabel sx={{ fontSize: '12px' }}>Категория</InputLabel>
           <Select
@@ -197,10 +218,15 @@ function Transaction({ categories, isIncome, placeholder, value }) {
             required
             autoComplete="off"
           />
-          <img className={s.iconCalc} src={calculatorIcon} alt="калькулятор" />
+          <img
+            onClick={handleCalcClick}
+            className={s.iconCalc}
+            src={calculatorIcon}
+            alt="калькулятор"
+          />
+          {calc && <Calculator onCloseCalculator={closeCalc} />}
         </label>
       </div>
-
       <ButtonGroup color="secondary" variant="outlined" sx={buttonGroupStyles}>
         <Button type="submit" onClick={onClick}>
           Ввод

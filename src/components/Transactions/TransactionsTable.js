@@ -13,7 +13,7 @@ import {
 import EmptyRow from './EmptyRow';
 import React from 'react';
 import TransactionsRow from './TransactionsRow';
-import transactionSelectors from '../../redux/transaction/transaction-selector';
+// import transactionSelectors from '../../redux/transaction/transaction-selector';
 import { useSelector } from 'react-redux';
 
 function TransactionsTable({ type, deleteDialogHandler, transactions }) {

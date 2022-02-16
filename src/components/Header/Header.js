@@ -1,19 +1,20 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getIsAuthenticated } from '../../redux/auth';
-import { useRef, useEffect } from 'react';
+import authSelectors from '../../reduxV2/auth/auth-selector';
+import { useRef, useEffect, useState } from 'react';
 import logo from '../../images/logo.svg';
 import UserInfo from '../UserInfo';
 import UserLogout from '../UserLogout';
 import { gsap, Power2 } from 'gsap';
 import s from './Header.module.scss';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-import authSelectors from '../../reduxV2/auth/auth-selector';
+// import authSelectors from '../../reduxV2/auth/auth-selector';
 
 const Header = () => {
   const viewPort = useWindowDimensions();
   const isAuthenticated = useSelector(authSelectors.getIsLoggedIn);
   let logotype = useRef(null);
+
   useEffect(() => {
     gsap.fromTo(
       logotype,
@@ -27,16 +28,17 @@ const Header = () => {
       },
     );
   }, []);
+
   return (
     <header className={s.header}>
       <div ref={el => (logotype = el)}>
-        <div className={s.header_container}>
+        <div className={s.headerContainer}>
           <Link to="/" alt="homepage" className={s.logoLink}>
             <img src={logo} className={s.logoImg} alt="Kapusta-logo" />
           </Link>
 
           {isAuthenticated && (
-            <div className={s.user_container}>
+            <div className={s.userContainer}>
               <UserInfo />
               <UserLogout />
             </div>

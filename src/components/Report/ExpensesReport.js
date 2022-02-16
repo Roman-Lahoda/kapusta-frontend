@@ -8,6 +8,24 @@ export default function ExpensesReport() {
   const report = useSelector(transactionSelectors.getReport);
   // console.log(report);
   const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
+
+  // report.expense.map(el => {
+  //   if (el.length === 0) {
+  //     return null;
+  //   }
+  //   return (
+  //     <li className={s.item}>
+  //       <p>{foodTotalSum}</p>
+  //       <div className={s.picBox}>
+  //         <svg width="59" height="46">
+  //           <use href={`${sprite}#icon-products`}></use>
+  //         </svg>
+  //       </div>
+  //       <p>{el[0].description}</p>
+  //     </li>
+  //   );
+  // });
+
   console.log(foodTotalSum);
   const alcoholTotalSum = report?.expense?.alcohol?.reduce((a, b) => a + b.sum, 0);
   console.log(alcoholTotalSum);

@@ -45,7 +45,7 @@ const transactionSlice = createSlice({
     [deleteTransaction.fulfilled](state, action) {
       state.isLoading = false;
 
-      switch (action.payload.transactionType) {
+      switch (action.payload.type) {
         case 'income':
           state.transaction.income = state.transaction.income.filter(
             tr => tr.idT !== action.payload.idT,

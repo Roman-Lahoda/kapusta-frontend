@@ -1,56 +1,64 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-// import Modal from 'components/Modal';
-// import { logOut } from '../../redux/auth';
+import UniversalModal from '../UniversalModal';
 import authOperation from '../../reduxV2/auth/auth-operation';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
-import logOutImg from '../../images/logOutSprite.svg';
+import sprite from '../../images/logOutSprite.svg';
 
 import s from './UserLogout.module.scss';
 
 const UserLogout = () => {
   const dispatch = useDispatch();
+  const [modalOpenOne, setModalOpenOne] = useState(false);
+  const [modalOpenTwo, setModalOpenTwo] = useState(false);
 
-  // const toggleModal = () => {
-  //   setShowModal(prevShowModal => !prevShowModal);
-  // };
+  const openModalOne = () => {
+    setModalOpenOne(true);
+  };
 
-  // const logoutModal = () => {
-  //   dispatch(logOut());
-  //   toggleModal();
-  // };
+  const openModalTwo = () => {
+    setModalOpenTwo(true);
+    setModalOpenOne(false);
+  };
 
-  // const [setModalOpen, setShowModal] = useState(false);
+  const closeModal = () => {
+    setModalOpenOne(false);
+    setModalOpenTwo(false);
+  };
 
-  const viewPort = useWindowDimensions();
-  const logout = () => {
-    console.log('test');
+  const userlogOut = () => {
     dispatch(authOperation.logout());
   };
 
   return (
     <>
-      {viewPort.width >= 768 && (
-        <button type="button" onClick={() => logout()} className={s.logoutBtn}>
-          <p className={s.textBtn}>Выйти</p>
-        </button>
-      )}
-      {viewPort.width < 768 && (
-        <button type="button" onClick={() => logout()} className={s.btnLogout}>
-          <svg className={s.iconLogout}>
-            <use href={`${logOutImg}#logOut`} />
-          </svg>
-        </button>
-      )}
-      {/* {setModalOpen && (
-        <Modal
-          text={'Вы действительно хотите выйти?'}
-          handleClickLeft={logoutModal}
-          handleClickRight={toggleModal}
-          onClose={toggleModal}
+      <button type="button" className={s.logoutBtn} onClick={openModalOne}>
+        <p className={s.textBtn}>Выйти</p>
+      </button>
+
+      <button type="button" className={s.btnLogout} onClick={openModalOne}>
+        <svg className={s.iconLogout}>
+          <use href={`${sprite}#logOut`} />
+        </svg>
+      </button>
+
+      {modalOpenOne && (
+        <UniversalModal
+          text={'Вы уверены?'}
+          onClickYes={openModalTwo}
+          onClose={closeModal}
+          active={modalOpenOne}
         />
-      )} */}
+      )}
+
+      {modalOpenTwo && (
+        <UniversalModal
+          text={'Вы действительно хотите выйти?'}
+          onClickYes={userlogOut}
+          onClose={closeModal}
+          active={modalOpenTwo}
+        />
+      )}
     </>
   );
 };

@@ -19,7 +19,8 @@ export default function RegistrationForm() {
     const re = /^[A-Za-z0-9][^\s]{7,16}/;
     return re.test(String(value).trim().toLowerCase());
   };
-  const loginUser = () => {
+  const loginUser = e => {
+    e.preventDefault();
     if (!validateEmail(email)) {
       return alert('Невалидная почта');
     }
@@ -52,11 +53,7 @@ export default function RegistrationForm() {
         <h1 className={s.title_gb}>
           Вы можете авторизоваться с помощью <br /> Google Account:
         </h1>
-        <a
-          href=" https://capusta2.herokuapp.com/api/user  "
-          className={s.g_link}
-          title="Google Account"
-        >
+        <a href="http://localhost:3000/auth/google" className={s.g_link} title="Google Account">
           <div className={s.g_btn}>
             <img src={images} alt="" className="g_svg" width="17" height="18" />
             Google
@@ -75,6 +72,7 @@ export default function RegistrationForm() {
             id="email"
             placeholder="your@email.com"
             value={email}
+            required
             onChange={e => setEmail(e.target.value)}
           />
         </div>
@@ -87,8 +85,17 @@ export default function RegistrationForm() {
             id="password"
             placeholder="password"
             value={password}
+            required
             onChange={e => setPassword(e.target.value)}
           />
+        </div>
+        <div className={s.btn_form}>
+          <button type="submit" onClick={loginUser}>
+            ВОЙТИ
+          </button>
+          <button type="button" className={s.btn_reg} onClick={signupUser}>
+            РЕГИСТРАЦИЯ
+          </button>
         </div>
       </form>
       <div className={s.btn_form}>
@@ -99,6 +106,7 @@ export default function RegistrationForm() {
           РЕГИСТРАЦИЯ
         </button>
       </div>
+
     </div>
   );
 }

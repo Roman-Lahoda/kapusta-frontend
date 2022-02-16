@@ -1,14 +1,14 @@
-// .overlay {
-//   position: absolute;
-//   // top: 0;
-//   // left: 0;
-//   // width: 100vw;
-//   // height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   // z-index: 1200;
-// }
+.overlay {
+  position: absolute;
+  top: 257px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  @media screen and (min-width: 1280px) {
+    top: 180px;
+  }
+}
 
 .modal {
   position: relative;

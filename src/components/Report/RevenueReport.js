@@ -1,14 +1,24 @@
 import { useSelector } from 'react-redux';
+// <<<<<<< HEAD
+import { useState } from 'react';
 import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
-import Diagram from '../Diagram';
+import Diagram from '../Diagram/Diagram.js';
 
 export default function RevenueReport() {
   const report = useSelector(transactionSelectors.getReport);
+  const [currentCategory, setCurrentCategory] = useState('salary');
 
+  const incomeArray = report?.income;
+
+  const selectionCategory = event => {
+    if (event.target.nodeName == 'LI') {
+      setCurrentCategory(event.target.dataset.category);
+    }
+  };
   const salaryTotalSum = report?.income?.salary?.reduce((a, b) => a + b.sum, 0);
-  const additionalIncomeTotalSum = report?.income?.additionalincome?.reduce((a, b) => a + b.sum, 0);
+  const additionalIncomeTotalSum = report?.income?.additionalIncome?.reduce((a, b) => a + b.sum, 0);
 
   return (
     <div>
@@ -33,12 +43,11 @@ export default function RevenueReport() {
             <p>ДОП. ДОХОД</p>
           </li>
         </ul>
-
         <svg className={s.expBorder}></svg>
       </div>
-      <article className={s.diargBg}>
-        <Diagram />
-      </article>
+      <section className={s.expensesDiargBg}>
+        {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} />}
+      </section>
     </div>
   );
 }

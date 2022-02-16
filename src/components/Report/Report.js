@@ -4,6 +4,7 @@ import RevenueReport from './RevenueReport';
 import { useState } from 'react';
 import sprite from '../../images/spriteReport.svg';
 import s from './Report.module.scss';
+import Diagram from '../Diagram/Diagram';
 
 export default function Report() {
   const [transactionType, setTransactionType] = useState('РАСХОДЫ');
@@ -33,6 +34,7 @@ export default function Report() {
         </div>
         {transactionType === 'РАСХОДЫ' ? <ExpensesReport /> : <RevenueReport />}
       </section>
+     
     </>
   );
 }

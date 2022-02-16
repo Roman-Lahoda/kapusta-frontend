@@ -14,10 +14,10 @@ function TransactionsWrapper() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
   const transactionsFromState = useSelector(transactionSelectors.getListOfTransactions);
-  console.log(
-    '🚀 ~ file: TransactionsWrap.js ~ line 17 ~ TransactionsWrapper ~ transactionsFromState',
-    transactionsFromState,
-  );
+  // console.log(
+  //   '🚀 ~ file: TransactionsWrap.js ~ line 17 ~ TransactionsWrapper ~ transactionsFromState',
+  //   transactionsFromState,
+  // );
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
   const transactions = transactionsFromState;
@@ -39,7 +39,7 @@ function TransactionsWrapper() {
   function closeModal() {
     setIsModalOpen(false);
   }
-  console.log('Здесь прокидывать список всех транзакций');
+  // console.log('Здесь прокидывать список всех транзакций');
 
   // const transactions = [
   //   {

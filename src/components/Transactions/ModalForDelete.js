@@ -11,10 +11,10 @@ function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
   const dispatch = useDispatch();
   const isNarrowMobile = useMediaQuery('(max-width:435px)');
 
-  console.log('transactionId', transactionId);
+  // console.log('transactionId', transactionId);
   function submitHandler() {
     // dispatch(transactionOperation.deleteTransaction(idTransaction));
-    console.log('Здесь подключить операцию удаления =>', transactionId);
+    // console.log('Здесь подключить операцию удаления =>', transactionId);
     dispatch(transactionOperation.deleteTransaction(transactionId));
     onClose();
   }

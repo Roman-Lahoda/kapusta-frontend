@@ -25,16 +25,24 @@ const transactionSlice = createSlice({
     [addTransaction.fulfilled](state, action) {
       state.isLoading = false;
 
-      // switch (action.payload.transactionType) {
-      //   case 'income':
-      //     state.summary.income.listOfTransactions.push(action.payload);
-      //     break;
-      //   case 'expense':
-      //     state.summary.expense.listOfTransactions.push(action.payload);
-      //     break;
-      //   default:
-      //     break;
-      // }
+      switch (action.payload.transactionType) {
+        case 'income':
+          state.summary.summaryListIncome.find(el => {
+            if (el.id === action.payload.monthCreate) {
+              el.sum = el.sum + action.payload.sum;
+            }
+          });
+          break;
+        case 'expense':
+          state.summary.summaryListExpense.find(el => {
+            if (el.id === action.payload.monthCreate) {
+              el.sum = el.sum + action.payload.sum;
+            }
+          });
+          break;
+        default:
+          break;
+      }
       state.summary.listOfTransactions.push(action.payload);
       state.error = null;
     },

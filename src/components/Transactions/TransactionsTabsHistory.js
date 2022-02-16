@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 
 function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
-  console.log('test');
+  // console.log('test');
   const [value, setValue] = useState('expense');
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.only('desktop'));
@@ -59,7 +59,7 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
   if (isDesktop) {
     tableBox.display = 'flex';
   }
-  console.log('Здесь нужно подключить сводки');
+  // console.log('Здесь нужно подключить сводки');
   // const summaryIncome = [
   //   { id: 2, month: 'февраль', sum: 1000 },
   //   { id: 1, month: 'январь', sum: 900 },

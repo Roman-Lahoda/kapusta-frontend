@@ -14,6 +14,8 @@ const getSummaryIncome = state => state.transactions.summary?.summaryListIncome;
 
 const getReport = state => state.transactions.report;
 
+const getTransactionsError = state => state.transactions.error;
+
 // const getReportTotalIncome = state => state.transaction.report.totalIncome;
 
 const isLoading = state => state.transactions.isLoading;
@@ -27,6 +29,7 @@ const transactionSelectors = {
   isLoading,
   // getReportTotalIncome,
   getListOfTransactions,
+  getTransactionsError,
 };
 
 export default transactionSelectors;

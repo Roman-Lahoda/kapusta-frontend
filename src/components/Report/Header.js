@@ -1,29 +1,24 @@
-import { useDispatch, useSelector } from 'react-redux';
-// import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import s from './Report.module.scss';
+import { useState } from 'react';
 import sprite from '../../images/spriteReport.svg';
 import { CurrentMonth } from '../CurrentPeriod/CurrentMonth';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
+import authSelectors from '../../reduxV2/auth/auth-selector';
 // import authSelectors from '../../reduxV2/auth/auth-selector';
 
 export default function Header() {
   // const isLoading = useSelector(transactionSelectors.isLoading);
   // console.log(isLoading);
+  const [isDisable, setIsDisable] = useState(false);
   const report = useSelector(transactionSelectors.getReport);
   console.log(report);
-  // console.log(report?.totalIncome);
-  // const user = useSelector(authSelectors.getUser);
-  // console.log(user);
+  const balance = useSelector(authSelectors.getUserBalance);
 
-  //const onSetBalance = e => {
-  //   e.preventDefault();
-  //   dispatch(какая-то коллбек-функция, которая отправляет указанную сумму и записывает в стайт);
-  //};
   return (
     <>
       <div className={s.headerReport}>
-        {/* link to main Route */}
         <section className={s.balanceHeader}>
           <Link to="/wallet" exact="true">
             <div className={s.returnToMain}>
@@ -33,24 +28,31 @@ export default function Header() {
               <p className={s.returnToMainText}>Вернуться на главную</p>
             </div>
           </Link>
-          <form className={s.balanceState}>
-            <label className={s.balance}>Баланс:</label>
-            <input
-              type="text"
-              className={s.inputBalance}
-              name="balance"
-              // value={balance}
-              placeholder="55 000.00 UAN"
-            ></input>
+
+          <form className={s.form}>
+            <label htmlFor="balance" className={s.label}>
+              Баланс:{' '}
+            </label>
+            <div className={s.form_field}>
+              <input
+                type="number"
+                name="balance"
+                disabled={isDisable}
+                placeholder={new Intl.NumberFormat('ru-RU').format(balance)}
+                // value={inputValue}
+                // onChange={handleBalanceChange}
+                className={isDisable ? s.input__disable : s.input}
+              ></input>
+              <span className={s.input_text}>UAH</span>
+            </div>
             <button
               type="submit"
-              className={s.inputSubmit}
-              // onSubmit={onSetBalance}
+              disabled={isDisable}
+              className={isDisable ? s.button__disable : s.button}
             >
               Подтвердить
             </button>
           </form>
-
           <CurrentMonth />
           <svg width="75" height="25" className={s.returnBtnBig}>
             <use href={`${sprite}#icon-backbutton`}></use>
@@ -59,11 +61,17 @@ export default function Header() {
         <section className={s.balanceDetailsBox}>
           <ul className={s.balanceDetails}>
             <li className={s.statesOfBalance}>
-              Расходы:<span className={s.expensesState}>- {report?.totalExpense || 0} грн</span>
+              Расходы:
+              <span className={s.expensesState}>
+                - {new Intl.NumberFormat('ru-RU').format(report?.totalExpense) || 0}.00 грн
+              </span>
             </li>
             <svg className={s.balanceBorder}></svg>
             <li className={s.statesOfBalance}>
-              Доходы:<span className={s.revenueState}>+ {report?.totalIncome} грн</span>
+              Доходы:
+              <span className={s.revenueState}>
+                + {new Intl.NumberFormat('ru-RU').format(report?.totalIncome)}.00 грн
+              </span>
             </li>
           </ul>
         </section>

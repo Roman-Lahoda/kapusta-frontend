@@ -47,7 +47,7 @@
 //                 Вы можете авторизоваться с помощью <br /> Google Account:
 //               </h1>
 //               <a
-//                 href=" https://capusta2.herokuapp.com/api/transactions/:id  "
+//                 href=" https://capusta3.herokuapp.com/api/transactions/:id  "
 //                 className={s.g_link}
 //                 title="Google Account"
 //               >

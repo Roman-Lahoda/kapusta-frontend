@@ -9,21 +9,14 @@ import s from './UserLogout.module.scss';
 
 const UserLogout = () => {
   const dispatch = useDispatch();
-  const [modalOpenOne, setModalOpenOne] = useState(false);
-  const [modalOpenTwo, setModalOpenTwo] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const openModalOne = () => {
-    setModalOpenOne(true);
-  };
-
-  const openModalTwo = () => {
-    setModalOpenTwo(true);
-    setModalOpenOne(false);
+  const openModal = () => {
+    setModalOpen(true);
   };
 
   const closeModal = () => {
-    setModalOpenOne(false);
-    setModalOpenTwo(false);
+    setModalOpen(false);
   };
 
   const userlogOut = () => {
@@ -32,31 +25,23 @@ const UserLogout = () => {
 
   return (
     <>
-      <button type="button" className={s.logoutBtn} onClick={openModalOne}>
+      <button type="button" className={s.logoutBtn} onClick={openModal}>
         <p className={s.textBtn}>Выйти</p>
       </button>
 
-      <button type="button" className={s.btnLogout} onClick={openModalOne}>
+      <button type="button" className={s.btnLogout} onClick={openModal}>
         <svg className={s.iconLogout}>
           <use href={`${sprite}#logOut`} />
         </svg>
       </button>
 
-      {modalOpenOne && (
-        <UniversalModal
-          text={'Вы уверены?'}
-          onClickYes={openModalTwo}
-          onClose={closeModal}
-          active={modalOpenOne}
-        />
-      )}
-
-      {modalOpenTwo && (
+     
+      {modalOpen && (
         <UniversalModal
           text={'Вы действительно хотите выйти?'}
           onClickYes={userlogOut}
           onClose={closeModal}
-          active={modalOpenTwo}
+          active={modalOpen}
         />
       )}
     </>

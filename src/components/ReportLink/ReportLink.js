@@ -4,7 +4,7 @@ import sprite from './sprite.svg';
 
 export function ReportLink() {
   return (
-    <Link to="/report" exact="true">
+    <Link to="/report" exact="true" className={s.link}>
       <span className={s.link_text}>Перейти к отчетам</span>
       <svg className={s.icon}>
         <use href={`${sprite}#icon-vector`}></use>

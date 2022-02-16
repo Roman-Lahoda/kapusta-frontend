@@ -55,9 +55,9 @@ export const deleteTransaction = createAsyncThunk(
 
 export const fetchTransactionSummary = createAsyncThunk(
   'transaction/fetchSummary',
-  async (transactionType, { rejectWithValue }) => {
+  async ({ rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`/transactions/summary?type=${transactionType}`);
+      const { data } = await axios.get('/transactions/summary');
       return data;
     } catch (error) {
       return rejectWithValue(error);

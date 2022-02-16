@@ -4,9 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ModalBalance } from '../ModalBalance/ModalBalance';
 import authSelectors from '../../reduxV2/auth/auth-selector';
 import authOperation from '../../reduxV2/auth/auth-operation';
+import Loader from '../Loader/Loader';
 
 export function BalanceForm() {
   const balance = useSelector(authSelectors.getUserBalance);
+  const isLoading = useSelector(authSelectors.getIsLoading);
   const [inputValue, setInputValue] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [isDisable, setIsDisable] = useState(false);
@@ -14,14 +16,14 @@ export function BalanceForm() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // setInputValue(balance)
     if (balance === 0) {
       setShowModal(true);
+      // toggleModal();
     }
     if (balance !== 0) {
       setIsDisable(true);
     }
-  });
+  },[balance]);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -29,31 +31,30 @@ export function BalanceForm() {
 
   const handleBalanceChange = e => {
     setInputValue(e.target.value);
-    // console.log(e.target.value)
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log('submit')
-    const data = {
-      balance: inputValue,
-    };
-    dispatch(authOperation.updateUser(data));
-    setInputValue('');
+    dispatch(authOperation.updateUser({balance:inputValue}));
+    if (inputValue!==0){
+       setShowModal(false);
+    }
+    // setInputValue('');
   };
 
   return (
     <>
+    {isLoading&&<Loader/>}
       <form className={s.form} onSubmit={handleSubmit}>
         <label htmlFor="balance" className={s.label}>
-          Баланс:{' '}
+          Баланс: 
         </label>
         <div className={s.form_field}>
           <input
             type="number"
             name="balance"
             disabled={isDisable}
-            placeholder={balance}
+            placeholder={new Intl.NumberFormat('ru-RU').format(balance)}
             value={inputValue}
             onChange={handleBalanceChange}
             className={isDisable ? s.input__disable : s.input}
@@ -68,7 +69,7 @@ export function BalanceForm() {
           Подтвердить
         </button>
       </form>
-      {showModal && <ModalBalance onClose={toggleModal}></ModalBalance>}
+      {showModal&&<ModalBalance />}
     </>
   );
 }

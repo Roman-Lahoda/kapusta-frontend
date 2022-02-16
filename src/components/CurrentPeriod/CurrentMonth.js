@@ -24,11 +24,11 @@ export function CurrentMonth() {
       setMonth(12);
 
       setYear(year - 1);
-      // dispatch(transactionOperation.fetchTransactionReport({ month: 12, year: year - 1 }));
+      dispatch(transactionOperation.fetchTransactionReport({ month: 12, year: year - 1 }));
       return;
     }
     setMonth(month - 1);
-    // dispatch(transactionOperation.fetchTransactionReport({ month: month - 1, year: year }));
+    dispatch(transactionOperation.fetchTransactionReport({ month: month - 1, year: year }));
   };
   const onNextMonth = () => {
     if (month === 12) {
@@ -37,7 +37,11 @@ export function CurrentMonth() {
       return;
     }
     setMonth(month + 1);
-    // dispatch(transactionOperation.fetchTransactionReport());
+    dispatch(transactionOperation.fetchTransactionReport());
+    if (month === currentMonth) {
+      setMonth(currentMonth);
+      return;
+    }
   };
 
   return (

@@ -1,30 +1,31 @@
 import { useSelector } from 'react-redux';
-import {useState} from 'react'
+// <<<<<<< HEAD
+import { useState } from 'react';
 import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
-import Diagram from '../Diagram/Diagram';
-
-
+import Diagram from '../Diagram/Diagram.js';
 
 export default function RevenueReport() {
   const report = useSelector(transactionSelectors.getReport);
-  const [currentCategory, setCurrentCategory] = useState ('salary')
+  const [currentCategory, setCurrentCategory] = useState('salary');
 
   const incomeArray = report?.income;
 
-  const selectionCategory = (event) => {
-    if (event.target.nodeName== 'LI') {
-      setCurrentCategory (event.target.dataset.category)
+  const selectionCategory = event => {
+    if (event.target.nodeName == 'LI') {
+      setCurrentCategory(event.target.dataset.category);
     }
-  }
+  };
+  const salaryTotalSum = report?.income?.salary?.reduce((a, b) => a + b.sum, 0);
+  const additionalIncomeTotalSum = report?.income?.additionalIncome?.reduce((a, b) => a + b.sum, 0);
 
   return (
-    <>
-      <section>
-        <ul className={s.revenueCategories} onClick = {selectionCategory} >
-          <li className={s.item} data-category = 'salary'>
-            <p>45 0000.00</p>
+    <div>
+      <div className={s.transactionsCategories}>
+        <ul className={s.revenueCategories}>
+          <li className={s.item}>
+            <p>{new Intl.NumberFormat('ru-RU').format(salaryTotalSum)}.00</p>
             <div className={s.picBox}>
               <svg width="59" height="56" className={s.itemPic}>
                 <use href={`${sprite}#icon-salary`}></use>
@@ -32,8 +33,8 @@ export default function RevenueReport() {
             </div>
             <p>ЗП</p>
           </li>
-          <li className={s.item} data-category = 'additionalincome' >
-            <p>1 500.00</p>
+          <li className={s.item}>
+            <p> {new Intl.NumberFormat().format(additionalIncomeTotalSum)}.00</p>
             <div className={s.picBox}>
               <svg width="59" height="56" className={s.itemPic}>
                 <use href={`${sprite}#icon-addsalary`}></use>
@@ -42,13 +43,11 @@ export default function RevenueReport() {
             <p>ДОП. ДОХОД</p>
           </li>
         </ul>
-      </section>
-
-      <svg className={s.expBorder}></svg>
-
+        <svg className={s.expBorder}></svg>
+      </div>
       <section className={s.expensesDiargBg}>
-        { incomeArray &&  <Diagram arrayOfData = {incomeArray[currentCategory] } /> }
+        {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} />}
       </section>
-    </>
+    </div>
   );
 }

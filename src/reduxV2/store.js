@@ -34,12 +34,12 @@ const persistedReducer = persistReducer(authPersistConfig, authReducer);
 const store = configureStore({
   reducer: {
     auth: persistedReducer,
-    transaction: transactionReducer,
+    transactions: transactionReducer,
   },
   devtools: true,
+  // devtools: process.env.NODE_ENV === 'development' ? true : false,
   middleware,
 });
-
 const persistor = persistStore(store);
 
 export default { store, persistor };

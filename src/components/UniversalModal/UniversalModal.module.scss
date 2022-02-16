@@ -3,8 +3,12 @@
   top: 7%;
   left: 50%;
 
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 24px);
+
+  z-index: 100;
+
   transform: translate(-50%, 7%);
-  opacity: 0.01;
   transition: opacity 300ms ease-in;
 
   width: 380px;

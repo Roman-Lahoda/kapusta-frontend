@@ -1,0 +1,54 @@
+.header {
+  width: 100vw;
+  height: 56px;
+  padding: 0 20px;
+  background-color: #ffffff;
+}
+
+.headerContainer {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoImg,
+.logoLink {
+  margin: 0;
+  height: 33px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.userContainer {
+  display: flex;
+  flex-flow: row;
+  margin: 0;
+  align-items: center;
+  align-self: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .serInfo_container {
+    width: fit-content;
+    padding: 0 5px;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .name {
+    font-size: 23px;
+  }
+  .avatar {
+    width: 57px;
+  }
+}

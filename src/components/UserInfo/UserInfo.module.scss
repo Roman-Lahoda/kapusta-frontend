@@ -1,0 +1,55 @@
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: right;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 20px;
+    padding-right: 20px;
+    border-right: 1px solid #e0e5eb;
+  }
+}
+
+.userAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #52555f;
+
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  align-self: center;
+  border-radius: 30px;
+  background-color: #f5f6fa;
+
+  cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    margin-right: 15px;
+  }
+}
+
+.userFullName {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  margin-right: 10px;
+
+  color: #52555f;
+  cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+// .userFullName:hover {
+//   font-weight: bold;
+//   color: #ff751d;
+// }

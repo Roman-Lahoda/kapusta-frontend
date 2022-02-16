@@ -31,7 +31,7 @@ import Diagram from '../Diagram/Diagram';
 // import Diagram from '../Diagram';
 
 export default function ExpensesReport() {
-  const [currentCategory, setCurrentCategory] = useState('food');
+  const [currentCategory, setCurrentCategory] = useState('');
   console.log(
     '🚀 ~ file: ExpensesReport.js ~ line 35 ~ ExpensesReport ~ currentCategory',
     currentCategory,
@@ -179,7 +179,7 @@ export default function ExpensesReport() {
   const otherTotalSum = report?.expense?.other?.reduce((a, b) => a + b.sum, 0);
 
   const selectionCategory = event => {
-    if (event.target.nodeName === 'svg') {
+      if (event.target.nodeName === 'svg') {
       setCurrentCategory(event.target.dataset.category);
     }
   };
@@ -319,7 +319,8 @@ export default function ExpensesReport() {
         <Diagram />
       </article> */}
       <section className={s.expensesDiargBg}>
-        {expenseArray && <Diagram arrayOfData={expenseArray[currentCategory]} />}
+        {/* {expenseArray && <Diagram arrayOfData={expenseArray[currentCategory]} />} */}
+        {currentCategory!=='' && <Diagram arrayOfData={expenseArray[currentCategory]} /> }
       </section>
     </div>
     // >>>>>>> dev

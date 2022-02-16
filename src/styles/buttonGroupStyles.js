@@ -1,5 +1,6 @@
 const buttonGroupStyles = {
   boxShadow: 'none',
+
   '& .MuiButtonGroup-grouped': {
     borderRadius: '16px',
     width: '125px',

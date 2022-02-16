@@ -3,7 +3,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import { Button, ButtonGroup, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 // import { fetchAddTransaction } from '../../redux/transaction/transactions-operations';
 // import { getSelectedDate } from '../../redux/transaction/transactions-selectors';
@@ -23,6 +23,7 @@ import { selectStyles } from '../../styles/selectStyles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
+// import getTransactionsError from '../../reduxV2/transaction/transaction-selector';
 
 const useStyles = makeStyles({
   categoryListItem: {
@@ -126,6 +127,20 @@ function Transaction({ categories, isIncome, placeholder, value }) {
 
     reset();
   };
+
+  // const handleSubmit = useCallback(
+  //   e => {
+  //     e.preventDefault();
+  //     if (!description || !date || !category || !sum) {
+  //       dispatch(getTransactionsError.errorMessage('Все поля обязательны для заполнения'));
+  //       return;
+  //     }
+  //     dispatch(transactionOperation.addTransaction(addTransaction));
+
+  //     reset();
+  //   },
+  //   [dispatch, description, category, date, sum],
+  // );
 
   const reset = () => {
     setDate(new Date());
@@ -247,12 +262,15 @@ function Transaction({ categories, isIncome, placeholder, value }) {
         </label>
       </div>
       <ButtonGroup color="secondary" variant="outlined" sx={buttonGroupStyles}>
-        <Button type="submit" onClick={onClick}>
-          Ввод
-        </Button>
-        <Button type="button" onClick={reset}>
-          Очистить
-        </Button>
+        <div className={s.formButton}>
+          <button type="submit" onClick={onClick} className={s.button}>
+            Ввод
+          </button>
+
+          <button type="button" onClick={reset} className={s.button}>
+            Очистить
+          </button>
+        </div>
       </ButtonGroup>
     </form>
   );

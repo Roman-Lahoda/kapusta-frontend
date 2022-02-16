@@ -28,6 +28,7 @@
   top: 50%;
   right: 15px;
   cursor: pointer;
+  // z-index: 100;
 
   transform: translateY(-50%);
 }
@@ -38,7 +39,7 @@ $desktop: 1280px;
 .desc {
   display: block;
 
-  padding: 12px 20px;
+  padding: 12px 25px;
   width: 280px;
   height: 44px;
 
@@ -49,7 +50,7 @@ $desktop: 1280px;
   border: 2px solid #fff;
   border-bottom: none;
   border-radius: 16px 16px 0 0;
-  color: $dark-grey-color;
+  // background-color: #52555f;
   &:focus {
     outline: none;
   }
@@ -73,7 +74,7 @@ $desktop: 1280px;
 }
 .sum {
   display: block;
-  padding: 12px 40px;
+  padding: 12px 20px;
   width: 183px;
   height: 44px;
 
@@ -176,6 +177,7 @@ input {
 
 .select {
   font-family: $main-font !important;
+
   font-weight: 400 !important;
   font-size: 12px !important;
   line-height: 1.166 !important;
@@ -206,8 +208,9 @@ input {
   .select {
     margin-top: 0;
     margin-bottom: 30px;
-    background-color: #ffffff;
+    // background-color: #ffffff;
     border-radius: 0px 0px 16px 0px;
+    background-color: transparent !important;
   }
   // .menuItem {
   //   width: 150px !important;
@@ -216,7 +219,7 @@ input {
 
 @media screen and (min-width: $tablet) {
   .select {
-    width: 150px !important;
+    width: 170px !important;
   }
   // .menuItem {
   //   width: 150px !important;
@@ -236,4 +239,43 @@ input {
   //   flex-direction: row;
   //   flex-wrap: wrap;
   // }
+}
+
+/*<<<<<<<buttons>>>>>>>>*/
+
+.formButton {
+  display: flex;
+  // margin-top: 30px;
+  // margin-left: 20px;
+  // margin-bottom: 30px;
+  gap: 15px;
+}
+
+.button {
+  width: 125px;
+  height: 44px;
+
+  border-radius: 16px;
+  border: 2px solid #f6f7fb;
+  // background-color: #dfe2eb;
+  background-color: transparent;
+  color: #52555f;
+  text-transform: uppercase;
+  font: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.17;
+  transition: box-shadow 700ms ease-in-out, background-color 700ms ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #ff751d;
+  color: #ffffff;
+  border: 2px solid transparent;
+  box-shadow: 0 0 20px 20px #ff751d inset;
+  &:active {
+    text-shadow: #333333 0 -1.5px 0;
+  }
 }

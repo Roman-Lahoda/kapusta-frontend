@@ -102,14 +102,14 @@ export default function RegistrationForm() {
           </button>
         </div>
       </form>
-      <div className={s.btn_form}>
+      {/* <div className={s.btn_form}>
         <button type="submit" className={s.btn_login} onClick={loginUser}>
           ВОЙТИ
         </button>
         <button type="button" className={s.btn_reg} onClick={signupUser}>
           РЕГИСТРАЦИЯ
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

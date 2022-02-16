@@ -2,6 +2,8 @@ import { IconButton, Typography } from '@mui/material';
 
 import { ReactComponent as DeleteIcon } from '../../images/transactionIcons/delete.svg';
 import React from 'react';
+import { EXPENSES } from '../../constants/constants';
+import { INCOMES } from '../../constants/constants';
 
 function TransactionsItem({ transaction, deleteDialogHandler }) {
   const formatter = new Intl.NumberFormat('uk-UA', {
@@ -9,6 +11,8 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
     currency: 'UAH',
   });
   const sum = formatter.format(transaction.sum);
+  const trueCategoryEx = EXPENSES.category.find(el => el.value === transaction.category)?.label;
+  const trueCategoryIn = INCOMES.category.find(el => el.value === transaction.category)?.label;
 
   // const transactions = [
   //   {
@@ -54,7 +58,7 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
         </div>
         <div style={{ minWidth: '10%', flexShrink: 1, alignSelf: 'flex-end' }}>
           <Typography variant="body1" fontSize={8}>
-            {transaction.category}
+            {trueCategoryEx || trueCategoryIn}
           </Typography>
         </div>
         <div style={{ width: '36%', textAlign: 'right' }}>

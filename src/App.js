@@ -37,6 +37,9 @@ import authOperation from './reduxV2/auth/auth-operation';
 import authSelectors from './reduxV2/auth/auth-selector';
 import transactionOperation from './reduxV2/transaction/transaction-operation';
 import RegistrationForm from './components/RegistrationForm/Form';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './styles/theme.js';
+
 // import IncomeMobileForm from './components/Transactions/IncomeMobileForm.js';
 // import ExpenseMobileForm from './components/Transactions/ExpenseMobileForm.js';
 
@@ -164,32 +167,34 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<Loader />}>
-        <Switch>
-          <PublicRoute exact redirectTo="/wallet" restricted path="/">
-            <HomePage />
-          </PublicRoute>
+      <ThemeProvider theme={theme}>
+        <Suspense fallback={<Loader />}>
+          <Switch>
+            <PublicRoute exact redirectTo="/wallet" restricted path="/">
+              <HomePage />
+            </PublicRoute>
 
-          <PrivateRoute exact redirectTo="/" path="/wallet">
-            <WalletPage />
-          </PrivateRoute>
+            <PrivateRoute exact redirectTo="/" path="/wallet">
+              <WalletPage />
+            </PrivateRoute>
 
-          <PrivateRoute exact redirectTo="/" path="/report">
-            <ReportPage />
-            {/* >>>>>>> dev */}
-          </PrivateRoute>
+            <PrivateRoute exact redirectTo="/" path="/report">
+              <ReportPage />
+              {/* >>>>>>> dev */}
+            </PrivateRoute>
 
-          <PrivateRoute exact path="/incomeform">
-            {/* <IncomeMobileForm /> */}
-            <IncomeMobileFormPage />
-          </PrivateRoute>
+            <PrivateRoute exact path="/incomeform">
+              {/* <IncomeMobileForm /> */}
+              <IncomeMobileFormPage />
+            </PrivateRoute>
 
-          <PrivateRoute exact path="/expenseform">
-            {/* <ExpenseMobileForm /> */}
-            <ExpenseMobileFormPage />
-          </PrivateRoute>
-        </Switch>
-      </Suspense>
+            <PrivateRoute exact path="/expenseform">
+              {/* <ExpenseMobileForm /> */}
+              <ExpenseMobileFormPage />
+            </PrivateRoute>
+          </Switch>
+        </Suspense>{' '}
+      </ThemeProvider>
     </>
   );
 }

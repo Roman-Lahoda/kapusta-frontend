@@ -3,13 +3,14 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import { Button, ButtonGroup, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { fetchAddTransaction } from '../../redux/transaction/transactions-operations';
 // import { getSelectedDate } from '../../redux/transaction/transactions-selectors';
 // import { transactionsActions } from '../../redux/transaction';
 
 // import calendarIcon from '../../images/transactionIcons/calendar.svg';
 // import DatePicker from 'react-datepicker';
+import { v4 as uuidv4 } from 'uuid';
 
 import CalendarPicker from './CalendarPicker';
 import { buttonGroupStyles } from '../../styles/buttonGroupStyles';
@@ -20,8 +21,9 @@ import s from './Transactions.module.scss';
 import { selectStyles } from '../../styles/selectStyles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-
+import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 function Transaction({ categories, isIncome, placeholder, value }) {
+  const dispatch = useDispatch();
   // const selectedDate = useSelector(getSelectedDate);
   // const [date, setDate] = useState(
   //   new Date(selectedDate.year, selectedDate.month - 1, selectedDate.day),
@@ -46,7 +48,6 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   // console.log(typeof date);
   // const [selectedDay, setSelectedDay] = useState();
 
-  // const dispatch = useDispatch();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
   const isTablet = useMediaQuery(theme.breakpoints.only('tablet'));
@@ -80,16 +81,16 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   };
 
   const onClick = () => {
-    console.log({
+    const addTransaction = {
       ...newTransaction,
-      idT: 123456789,
+      idT: uuidv4(),
       transactionType: value,
-      // date,
       dayCreate,
       monthCreate,
       yearCreate,
-    });
+    };
     // console.log(value);
+    dispatch(transactionOperation.addTransaction(addTransaction));
   };
 
   const handleSubmit = e => {

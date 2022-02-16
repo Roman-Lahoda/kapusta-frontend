@@ -141,14 +141,14 @@ function TransactionsTable({ type, deleteDialogHandler, transactions }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {transactions.map(transaction => (
+            {transactions?.map(transaction => (
               <TransactionsRow
                 key={transaction.idT}
                 transaction={transaction}
                 deleteDialogHandler={deleteDialogHandler}
               />
             ))}
-            {transactions.length < 9 &&
+            {transactions?.length < 9 &&
               Array(9 - transactions.length)
                 .fill()
                 .map((item, index) => <EmptyRow key={index}></EmptyRow>)}

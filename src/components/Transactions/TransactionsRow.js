@@ -2,6 +2,8 @@ import { IconButton, TableCell, TableRow, Typography } from '@mui/material';
 
 import { ReactComponent as DeleteIcon } from '../../images/transactionIcons/delete.svg';
 import React from 'react';
+import { EXPENSES } from '../../constants/constants';
+import { INCOMES } from '../../constants/constants';
 
 function TransactionsRow({ transaction, deleteDialogHandler }) {
   const formatter = new Intl.NumberFormat('uk-UA', {
@@ -9,9 +11,12 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
     currency: 'UAH',
   });
 
+  const trueCategoryEx = EXPENSES.category.find(el => el.value === transaction.category)?.label;
+  const trueCategoryIn = INCOMES.category.find(el => el.value === transaction.category)?.label;
+
   const sum = formatter.format(transaction.sum);
 
-  console.log(transaction);
+  // console.log(transaction);
 
   // const sum = formatter.format(transactions.sum);
   const date = `${transaction.dayCreate}.${transaction.monthCreate}.${transaction.yearCreate}`;
@@ -21,7 +26,7 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
     <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
       <TableCell align="left">{date}</TableCell>
       <TableCell align="left">{transaction.description}</TableCell>
-      <TableCell align="center">{transaction.category}</TableCell>
+      <TableCell align="center">{trueCategoryEx || trueCategoryIn}</TableCell>
       {/* <TableCell align="center">{sum}</TableCell> */}
       <TableCell align="center">
         {!isIncome ? (
@@ -40,7 +45,9 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
           sx={{ padding: '3px' }}
           aria-label="Удалить транзакцию"
           onClick={() => {
-            deleteDialogHandler(transaction.idT);
+            // deleteDialogHandler(transaction.idT);
+            deleteDialogHandler(transaction);
+
             console.log('id of transaction to delete ', transaction.idT);
           }}
         >

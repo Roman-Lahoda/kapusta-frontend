@@ -22,6 +22,7 @@ function TransactionsList({ deleteDialogHandler, transactions }) {
   //   },
   // ];
   //   const isLoading = useSelector(transactionSelectors.isLoading);
+
   const date = new Date();
   return (
     <>

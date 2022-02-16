@@ -62,7 +62,9 @@ const transactionSlice = createSlice({
       //   default:
       //     break;
       // }
-      state.summary.listOfTransactions.filter(el => el.idT !== action.payload.idT);
+      state.summary.listOfTransactions = state.summary.listOfTransactions.filter(
+        el => el.idT !== action.payload.idT,
+      );
       state.error = null;
     },
     [deleteTransaction.rejected](state, action) {

@@ -3,17 +3,19 @@ import { Button, Dialog, DialogContent, IconButton, Typography } from '@mui/mate
 import { ReactComponent as CloseIcon } from '../../images/transactionIcons/close.svg';
 import React from 'react';
 // import { transactionOperation } from '../../redux/transaction/transaction-operation';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 
 function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const isNarrowMobile = useMediaQuery('(max-width:435px)');
 
   console.log('transactionId', transactionId);
   function submitHandler() {
     // dispatch(transactionOperation.deleteTransaction(idTransaction));
     console.log('Здесь подключить операцию удаления =>', transactionId);
+    dispatch(transactionOperation.deleteTransaction(transactionId));
     onClose();
   }
 

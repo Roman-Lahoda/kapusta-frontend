@@ -34,7 +34,6 @@ export default function Report() {
         </div>
         {transactionType === 'РАСХОДЫ' ? <ExpensesReport /> : <RevenueReport />}
       </section>
-     
     </>
   );
 }

@@ -6,6 +6,10 @@ import { BalanceContainer } from '../../components/BalanceContainer/BalanceConta
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import ContainerForTransactions from '../../components/Transactions/TransPageWrapper/Container/ContainerForTransactions.js';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../../styles/theme.js';
+import TransactionsWrapper from '../../components/Transactions/TransactionsWrap.js';
 
 const WalletPage = () => {
   const dispatch = useDispatch();
@@ -20,6 +24,12 @@ const WalletPage = () => {
       <Header />
       <Container>
         <BalanceContainer />
+        <ContainerForTransactions>
+          <ThemeProvider theme={theme}>
+            {/* <ExpenseMobileForm /> */}
+            <TransactionsWrapper />
+          </ThemeProvider>
+        </ContainerForTransactions>
       </Container>
     </>
   );

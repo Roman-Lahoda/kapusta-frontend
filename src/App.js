@@ -37,6 +37,8 @@ import authOperation from './reduxV2/auth/auth-operation';
 import authSelectors from './reduxV2/auth/auth-selector';
 import transactionOperation from './reduxV2/transaction/transaction-operation';
 import RegistrationForm from './components/RegistrationForm/Form';
+// import IncomeMobileForm from './components/Transactions/IncomeMobileForm.js';
+// import ExpenseMobileForm from './components/Transactions/ExpenseMobileForm.js';
 
 import Loader from './components/Loader/Loader';
 
@@ -54,6 +56,18 @@ const WalletPage = lazy(() =>
 );
 const ReportPage = lazy(() =>
   import('./pages/ReportPage/ReportPage.js' /* webpackChunkName: "ReportPage" */),
+);
+
+const ExpenseMobileFormPage = lazy(() =>
+  import(
+    './pages/ExpenseFormMobilePage/ExpenseFormMobilePage.js' /* webpackChunkName: "ExpenseFormMobile" */
+  ),
+);
+
+const IncomeMobileFormPage = lazy(() =>
+  import(
+    './pages/IncomeMobileFormPage/IncomeMobileFormPage.js' /* webpackChunkName: "IncomeMobileFormPage" */
+  ),
 );
 
 const PrivateRoute = ({ children, redirectTo = '/', ...routeProps }) => {
@@ -163,6 +177,16 @@ function App() {
           <PrivateRoute exact redirectTo="/" path="/report">
             <ReportPage />
             {/* >>>>>>> dev */}
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/incomeform">
+            {/* <IncomeMobileForm /> */}
+            <IncomeMobileFormPage />
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/expenseform">
+            {/* <ExpenseMobileForm /> */}
+            <ExpenseMobileFormPage />
           </PrivateRoute>
         </Switch>
       </Suspense>

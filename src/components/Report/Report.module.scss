@@ -1,29 +1,4 @@
 //header
-.inputBalance {
-  border: 2px solid white;
-  box-sizing: border-box;
-  border-radius: 16px;
-  width: 125px;
-  height: 44px;
-  padding: 12px 20px;
-  letter-spacing: 0.02em;
-
-  align-items: center;
-  font-weight: bold;
-  color: black;
-}
-
-.inputSubmit {
-  @extend .inputBalance;
-  background-color: white;
-  text-transform: uppercase;
-  color: rgba(82, 85, 95, 0.7);
-  margin-left: 15px;
-
-  @media screen and (max-width: 767.9px) {
-    display: none;
-  }
-}
 
 .returnToMain {
   letter-spacing: 0.04em;
@@ -51,18 +26,14 @@
     display: none;
   }
 }
-.balance {
-  margin-right: 21px;
-  text-align: center;
-}
 
 .balanceHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
 
   @media screen and (max-width: 767.9px) {
-    margin: 15px 0 30px;
     flex-direction: column-reverse;
   }
 }
@@ -70,6 +41,160 @@
 .headerReport {
   margin-top: 40px;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 767.9px) {
+    margin-top: 15px;
+  }
+}
+
+#balance {
+  @media screen and(max-width:767.9px) {
+    border-radius: 22px;
+  }
+}
+
+//current balance
+
+.form {
+  @media screen and(min-width:768px) {
+    display: flex;
+    align-items: center;
+    margin-right: 80px;
+    margin-left: 60px;
+  }
+}
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  text-align: center;
+
+  @media screen and(min-width:768px) {
+    margin-right: 21px;
+    margin-bottom: 0px;
+  }
+}
+.form_field {
+  position: relative;
+  display: inline-block;
+}
+.input {
+  z-index: 999;
+  width: 125px;
+  height: 44px;
+  padding: 15px 7px 15px 0;
+
+  background-color: inherit;
+  border: 2px solid #ffffff;
+  border-radius: 22px;
+
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.17;
+
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #000000;
+
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  &::placeholder {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.17;
+
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #000000;
+  }
+  @media screen and(max-width:767.9px) {
+    width: 183px;
+    height: 44px;
+
+    left: 97px;
+    top: 215px;
+
+    right: 45px;
+  }
+
+  @media screen and(min-width:768px) {
+    border-radius: 16px;
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 47px;
+  }
+}
+
+.input__disable {
+  @extend .input;
+  pointer-events: none;
+}
+.input_text {
+  position: absolute;
+  top: 50%;
+  right: 47px;
+  transform: translateY(-50%);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  color: #000000;
+  @media screen and(min-width:768px) {
+    right: 20px;
+  }
+}
+
+.button {
+  z-index: 999;
+  width: 125px;
+  height: 44px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-left: 15px;
+  border: 2px solid #ffffff;
+  border-left: none;
+  border-radius: 0px 22px 22px 0px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  align-items: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  background-color: inherit;
+  color: rgba(82, 85, 95, 0.7);
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #ffffff;
+    background-color: #ff751d;
+    outline-color: #ff751d;
+    border-color: #ff751d;
+  }
+
+  @media screen and(min-width:768px) {
+    border-left: 2px solid #ffffff;
+    border-radius: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  @media screen and(max-width:1279.9px) {
+    display: none;
+  }
+}
+.button__disable {
+  @extend .button;
+  pointer-events: none;
 }
 
 //current balance details
@@ -77,18 +202,11 @@
 .balanceDetails {
   display: flex;
   align-items: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
   justify-content: center;
 
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
-
-  @media screen and (max-width: 767.9px) {
-    padding-top: 20px;
-    padding-bottom: 25px;
-  }
 }
 
 .balanceDetailsBox {
@@ -96,10 +214,16 @@
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
-  margin-top: 30px;
 
   @media screen and (max-width: 767.9px) {
     margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    border-radius: 20px;
+
+    width: 282px;
+    height: 85px;
   }
 }
 
@@ -107,7 +231,7 @@
   width: 0px;
   height: 70.5px;
   border: 1px solid #e0e5eb;
-  margin: 0 20px;
+  margin: 7px 10px 7px 15px;
 
   @media screen and (min-width: 768px) {
     height: 36px;
@@ -118,23 +242,15 @@
   color: #e53935;
   margin-left: 15px;
   letter-spacing: 0.04em;
-  @media screen {
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-  }
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
 }
 
-.balanceState {
-  display: inline-flex;
-  align-items: center;
-  @media screen and (max-width: 767.9px) {
-    flex-direction: column;
-  }
-}
 .revenueState {
+  @extend .expensesState;
   color: #407946;
-  margin-left: 15px;
 }
 
 .statesOfBalance {
@@ -150,16 +266,32 @@
 
 //background
 
-.sectionsBg {
+.transactionsCategories {
   background: #ffffff;
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-  border-radius: 30px;
-  height: 358px;
+  box-shadow: 0px 10px 20px rgba(170, 178, 197, 0.2);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 
   @media screen and (max-width: 767.9px) {
     background: none;
-    height: 650px;
+    box-shadow: none;
+    border-radius: none;
   }
+}
+.transactionsChangeBlock {
+  background: #ffffff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  @media screen and (max-width: 767.9px) {
+    background: none;
+    box-shadow: none;
+    border-radius: none;
+  }
+}
+
+.sectionsBg {
+  padding-bottom: 74px;
 }
 
 //expenses section
@@ -213,9 +345,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px 21px 30px 32px;
+  padding: 20px 21px 30px 32px;
   font-size: 12px;
   line-height: 14px;
+  margin-bottom: 30px;
 }
 
 .currentState {
@@ -233,21 +366,40 @@
 
 .revenueCategories {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
+  padding-bottom: 30px;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 30px;
+  padding-top: 20px;
 }
 
 //diagram
 
-.expensesDiargBg {
+.diargBg {
   height: 422px;
   background: #ffffff;
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
 
-  margin: 30px auto 74px;
+  padding: 30px auto;
   padding: 20px 151px;
+
+  @media screen and (max-width: 767.9px) {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    border: none;
+    box-shadow: none;
+    margin: 20px 0;
+    padding: 0;
+    height: 382px;
+  }
 }
 
 .currentTransactionType {
@@ -259,4 +411,10 @@
 
   font-size: 14px;
   line-height: 16px;
+}
+
+.diagramConfig {
+  @media screen and (min-width: 1280px) {
+    height: 382px;
+  }
 }

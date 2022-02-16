@@ -7,6 +7,7 @@ import s from './Report.module.scss';
 
 export default function Report() {
   const [transactionType, setTransactionType] = useState('РАСХОДЫ');
+
   const onClickTransactionType = () => {
     if (transactionType === 'РАСХОДЫ') {
       setTransactionType('ДОХОДЫ');
@@ -14,18 +15,21 @@ export default function Report() {
     }
     setTransactionType('РАСХОДЫ');
   };
+
   return (
     <>
       <Header />
       <section className={s.sectionsBg}>
-        <div className={s.currentTransactionBlock}>
-          <svg width="10" height="20" onClick={onClickTransactionType} name="prev">
-            <use href={`${sprite}#icon-vectorleft`}></use>
-          </svg>
-          <p className={s.currentTransactionType}>{transactionType}</p>
-          <svg width="10" height="20" onClick={onClickTransactionType} name="next">
-            <use href={`${sprite}#icon-vectorright`}></use>
-          </svg>
+        <div className={s.transactionsChangeBlock}>
+          <div className={s.currentTransactionBlock}>
+            <svg width="10" height="20" onClick={onClickTransactionType} name="prev">
+              <use href={`${sprite}#icon-vectorleft`}></use>
+            </svg>
+            <p className={s.currentTransactionType}>{transactionType}</p>
+            <svg width="10" height="20" onClick={onClickTransactionType} name="next">
+              <use href={`${sprite}#icon-vectorright`}></use>
+            </svg>
+          </div>
         </div>
         {transactionType === 'РАСХОДЫ' ? <ExpensesReport /> : <RevenueReport />}
       </section>

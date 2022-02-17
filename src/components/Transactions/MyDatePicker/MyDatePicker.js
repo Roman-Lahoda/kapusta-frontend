@@ -5,8 +5,8 @@ import './MyDatePicker.scss';
 import ru from 'date-fns/locale/ru';
 
 const MyDatePicker = ({ selectedDate, handleChange }) => (
-  <div class="datepicker__container">
-    <label class="datepicker__Icon" htmlFor="datepicker" />
+  <div className="datepicker__container">
+    <label className="datepicker__Icon" htmlFor="datepicker" />
     <DatePicker
       className="datepicker"
       id="datepicker"

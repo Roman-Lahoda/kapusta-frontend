@@ -22,6 +22,7 @@
 
 .returnBtnBig {
   align-self: start;
+  padding-top: 15px;
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -39,11 +40,12 @@
 }
 
 .headerReport {
-  margin-top: 40px;
+  padding-top: 40px;
   margin-bottom: 30px;
 
   @media screen and (max-width: 767.9px) {
-    margin-top: 15px;
+    padding-top: 15px;
+    padding-top: 0;
   }
 }
 
@@ -123,6 +125,7 @@
     top: 215px;
 
     right: 45px;
+    padding-right: 77px;
   }
 
   @media screen and(min-width:768px) {
@@ -300,10 +303,28 @@
   text-align: center;
 
   flex-basis: calc((100% - 13px * 6) / 6);
-  margin-top: 13px;
-  margin-left: 13px;
+  padding-top: 13px;
+  padding-left: 13px;
 
   @media screen and (max-width: 767.9px) {
+    position: relative;
+    &:nth-child(3n):after {
+      content: '';
+      display: block;
+      width: 282px;
+      height: 0;
+      border: 1px solid #e0e5eb;
+
+      position: absolute;
+      right: -30px;
+      margin-top: 5px;
+
+      ::after {
+        content: '';
+        width: 120px;
+        height: 0;
+      }
+    }
   }
 }
 
@@ -324,7 +345,9 @@
   z-index: -1;
 }
 
-.picBox:hover {
+.picBox[data-focus='hover'],
+.picBox:hover,
+.picBox:focus {
   background-color: #ffdac0;
   fill: #ff751d;
 }
@@ -377,28 +400,23 @@
 
 //diagram
 
-.diargBg {
+.diagramBg {
   height: 422px;
   background: #ffffff;
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
 
-  padding: 30px auto;
-  padding: 20px 151px;
-
   @media screen and (max-width: 767.9px) {
     border: none;
     box-shadow: none;
-    padding: 0;
+    padding: 0 16px;
   }
 
   @media screen and (min-width: 1280px) {
     border: none;
     box-shadow: none;
     margin: 20px 0;
-    padding: 0;
-    height: 382px;
   }
 }
 
@@ -411,10 +429,4 @@
 
   font-size: 14px;
   line-height: 16px;
-}
-
-.diagramConfig {
-  @media screen and (min-width: 1280px) {
-    height: 382px;
-  }
 }

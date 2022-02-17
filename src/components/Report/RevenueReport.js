@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 // <<<<<<< HEAD
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import s from './Report.module.scss';
 import sprite from '../../images/spriteReport.svg';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
@@ -8,11 +8,25 @@ import Diagram from '../Diagram/Diagram.js';
 
 export default function RevenueReport() {
   const report = useSelector(transactionSelectors.getReport);
-  const [currentCategory, setCurrentCategory] = useState('');
+  // <<<<<<< HEAD
+  const [currentCategory, setCurrentCategory] = useState('salary');
+  const [inFocus, setInFocus] = useState('');
+  // =======
+  //   const [currentCategory, setCurrentCategory] = useState('');
 
+  // >>>>>>> dev
   const incomeArray = report?.income;
+  useEffect(() => {
+    setInFocus('hover');
+  }, []);
 
-  const selectionCategory = event => {    
+  useEffect(() => {
+    if (currentCategory !== 'salary') {
+      setInFocus('');
+    }
+  });
+
+  const selectionCategory = event => {
     if (event.target.nodeName == 'svg') {
       setCurrentCategory(event.target.dataset.category);
     }
@@ -26,8 +40,8 @@ export default function RevenueReport() {
         <ul className={s.revenueCategories} onClick={selectionCategory}>
           <li className={s.item}>
             <p>{new Intl.NumberFormat('ru-RU').format(salaryTotalSum)}.00</p>
-            <div className={s.picBox}>
-              <svg width="59" height="56" className={s.itemPic} data-category = 'salary'>
+            <div className={s.picBox} data-focus={inFocus}>
+              <svg width="59" height="56" className={s.itemPic} data-category="salary">
                 <use href={`${sprite}#icon-salary`}></use>
               </svg>
             </div>
@@ -36,7 +50,7 @@ export default function RevenueReport() {
           <li className={s.item}>
             <p> {new Intl.NumberFormat().format(additionalIncomeTotalSum)}.00</p>
             <div className={s.picBox}>
-              <svg width="59" height="56" className={s.itemPic} data-category = 'additionalIncome'>
+              <svg width="59" height="56" className={s.itemPic} data-category="additionalIncome">
                 <use href={`${sprite}#icon-addsalary`}></use>
               </svg>
             </div>
@@ -45,9 +59,14 @@ export default function RevenueReport() {
         </ul>
         <svg className={s.expBorder}></svg>
       </div>
+      {/* <<<<<<< HEAD */}
+      <section className={s.diagramBg}>
+        {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} />}
+        {/* =======
       <section className={s.expensesDiargBg}>
         {/* {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} />} */}
-        {currentCategory!=='' && <Diagram arrayOfData={incomeArray[currentCategory]} /> }
+        {/* {currentCategory!=='' && <Diagram arrayOfData={incomeArray[currentCategory]} /> } */}
+        {/* >>>>>>> dev */}
       </section>
     </div>
   );

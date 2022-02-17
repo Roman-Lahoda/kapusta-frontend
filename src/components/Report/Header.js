@@ -1,20 +1,51 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import s from './Report.module.scss';
-import { useState } from 'react';
 import sprite from '../../images/spriteReport.svg';
-import { CurrentMonth } from '../CurrentPeriod/CurrentMonth';
+
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 import authSelectors from '../../reduxV2/auth/auth-selector';
-// import authSelectors from '../../reduxV2/auth/auth-selector';
+import authOperation from '../../reduxV2/auth/auth-operation';
+import Loader from '../Loader/Loader';
+import { CurrentMonth } from '../CurrentPeriod/CurrentMonth';
+import { ModalBalance } from '../ModalBalance/ModalBalance';
 
 export default function Header() {
-  // const isLoading = useSelector(transactionSelectors.isLoading);
-  // console.log(isLoading);
+  const [inputValue, setInputValue] = useState('');
+  const [showModal, setShowModal] = useState(false);
   const [isDisable, setIsDisable] = useState(false);
+  const isLoading = useSelector(authSelectors.getIsLoading);
   const report = useSelector(transactionSelectors.getReport);
-  console.log(report);
   const balance = useSelector(authSelectors.getUserBalance);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (balance === 0) {
+      setShowModal(true);
+    }
+    if (balance !== 0) {
+      setIsDisable(true);
+    }
+  }, [balance]);
+
+  const handleBalanceChange = e => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(authOperation.updateUser({ balance: inputValue }));
+    if (inputValue !== 0) {
+      setShowModal(false);
+    }
+  };
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <>
@@ -29,9 +60,9 @@ export default function Header() {
             </div>
           </Link>
 
-          <form className={s.form}>
+          <form className={s.form} onSubmit={handleSubmit}>
             <label htmlFor="balance" className={s.label}>
-              Баланс:{' '}
+              Баланс:
             </label>
             <div className={s.form_field}>
               <input
@@ -39,8 +70,8 @@ export default function Header() {
                 name="balance"
                 disabled={isDisable}
                 placeholder={new Intl.NumberFormat('ru-RU').format(balance)}
-                // value={inputValue}
-                // onChange={handleBalanceChange}
+                value={inputValue}
+                onChange={handleBalanceChange}
                 className={isDisable ? s.input__disable : s.input}
               ></input>
               <span className={s.input_text}>UAH</span>
@@ -53,6 +84,7 @@ export default function Header() {
               Подтвердить
             </button>
           </form>
+          {showModal && <ModalBalance />}
           <CurrentMonth />
           <Link to="/wallet" exact="true" className={s.returnBtnBig}>
             <svg width="75" height="25">

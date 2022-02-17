@@ -2,13 +2,9 @@
 
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import ownVictoryTheme from './ownVictoryTheme.js';
-import s from '../Report/Report.module.scss';
-
-
+import s from './Diagram.module.scss';
 
 const Diagram = function ({ arrayOfData }) {
-
-
   // Эта функция вынимает из массива данных с транзакциями значения свойств sum, description, проверяет
   // уникальность полей с описанием (description). Если в базе встречаются транзакции с однаковым описанием (description)б
   // то не создаёт новых столбиков в диаграмме, а добавляет сумму в существующий
@@ -40,9 +36,11 @@ const Diagram = function ({ arrayOfData }) {
   dataForDiagram.sort((a, b) => b.sum - a.sum);
 
   return (
-    <div>
+    <div className={s.diagramConfig}>
       {dataForDiagram.length < 1 ? (
-        <b>You don't have any posts in this category yet</b>
+        <p className={s.textAlertForAbsentTransactions}>
+          You don't have any posts in this category yet
+        </p>
       ) : (
         <VictoryChart
           // добавляем свою кастомную тему диаграммы
@@ -63,12 +61,7 @@ const Diagram = function ({ arrayOfData }) {
             y="sum"
             labels={dataForDiagram.map(elem => `${elem.sum} грн.`)}
             // style={{ data: { fill: '#FF751D' } }}
-            style={ 
-              {data:
-                      { fill: ({ index }) => index % 3 === 0  ? "#FF751D" : "#FFDAC0" },
-                    } 
-                  }
-
+            style={{ data: { fill: ({ index }) => (index % 3 === 0 ? '#FF751D' : '#FFDAC0') } }}
             events={[
               {
                 target: 'data',
@@ -89,14 +82,12 @@ const Diagram = function ({ arrayOfData }) {
                 },
               },
             ]}
-            
             animate={{
               duration: 2000,
               onLoad: { duration: 1000 },
             }}
-
-            //для мобильной версии - горизонтальное отображение 
-            horizontal = { window.innerWidth < 768} 
+            //для мобильной версии - горизонтальное отображение
+            horizontal={window.innerWidth < 768}
             // labelComponent={<VictoryLabel dy={-25} dx={0}/>}
           />
         </VictoryChart>

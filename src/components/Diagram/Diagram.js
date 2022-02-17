@@ -11,15 +11,15 @@ const Diagram = function ({ arrayOfData }) {
   // Объявление функции:
   const changeInfo = array => {
     let result = [];
-    for (let i = 0; i < array.length; i += 1) {
-      if (!result.includes(array[i].description)) {
-        result.push(array[i].description);
+    for (let i = 0; i < array?.length; i += 1) {
+      if (!result.includes(array[i]?.description)) {
+        result.push(array[i]?.description);
       }
     }
     result = result.map(el => {
       return { description: el, sum: 0 };
     });
-    for (let i = 0; i < array.length; i += 1) {
+    for (let i = 0; i < array?.length; i += 1) {
       const choseEl = result.find(el => el.description === array[i].description);
       choseEl.sum += array[i].sum;
     }

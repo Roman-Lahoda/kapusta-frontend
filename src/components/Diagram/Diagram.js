@@ -33,14 +33,17 @@ const Diagram = function ({ arrayOfData }) {
 
   // Сортировка сумм от большей к меньшей
   // dataForDiagram.sort((a, b) => b.sum - a.sum);
-  dataForDiagram.sort((a, b) => b.sum - a.sum);
+  const isTablet = window.screen.width > 768;
+  if (isTablet) {
+    dataForDiagram.sort((a, b) => b.sum - a.sum);
+  } else {
+    dataForDiagram.sort((a, b) => a.sum - b.sum);
+  }
 
   return (
     <div className={s.diagramConfig}>
       {dataForDiagram.length < 1 ? (
-        <p className={s.textAlertForAbsentTransactions}>
-          You don't have any posts in this category yet
-        </p>
+        <p className={s.textAlertForAbsentTransactions}>Ещё нет операций по данной категории</p>
       ) : (
         <VictoryChart
           // добавляем свою кастомную тему диаграммы

@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import CalendarPicker from './CalendarPicker';
 import MyDatePicker from './MyDatePicker/MyDatePicker';
-import ss from './MyDatePicker/MyDatePicker.scss';
+// import ss from './MyDatePicker/MyDatePicker.scss';
 import { buttonGroupStyles } from '../../styles/buttonGroupStyles';
 import calculatorIcon from '../../images/transactionIcons/calculator.svg';
 import Calculator from './Calculator/Calculator';

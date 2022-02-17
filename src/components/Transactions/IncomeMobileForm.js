@@ -6,7 +6,7 @@ import { Button, ButtonGroup } from '@mui/material';
 const IncomeMobileForm = () => {
   return (
     <div style={{ marginTop: '15px' }}>
-      <div class="background-top background-top_for-mobile"></div>
+      <div className="background-top background-top_for-mobile"></div>
       <GoToMainBtn />
       <InputTransactions
         isIncome={true}

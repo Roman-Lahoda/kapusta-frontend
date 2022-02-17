@@ -4,16 +4,7 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import ownVictoryTheme from './ownVictoryTheme.js';
 import s from './Diagram.module.scss';
 
-// это пример массива данных о транзакциях, которые могут прийти с бекенда. Здесь он используется для примера и тестирования.
-// в дальнейшем этот массив данных нужно будет, как полагается получить, от бекенда.
-
-import exampleTransactionArray from './exampleTransactionArray.json'; // это пример массива данных о транзакциях, которые могут прийти с бекенда
-
 const Diagram = function ({ arrayOfData }) {
-  console.log('arrayOfData in diagram ', arrayOfData);
-  console.log('Array.isArray(arrayOfData)  :', Array.isArray(arrayOfData));
-  console.log('arrayOfData.length   :', arrayOfData.length);
-
   // Эта функция вынимает из массива данных с транзакциями значения свойств sum, description, проверяет
   // уникальность полей с описанием (description). Если в базе встречаются транзакции с однаковым описанием (description)б
   // то не создаёт новых столбиков в диаграмме, а добавляет сумму в существующий
@@ -42,7 +33,7 @@ const Diagram = function ({ arrayOfData }) {
 
   // Сортировка сумм от большей к меньшей
   // dataForDiagram.sort((a, b) => b.sum - a.sum);
-  dataForDiagram.sort((a, b) => a.sum - b.sum);
+  dataForDiagram.sort((a, b) => b.sum - a.sum);
 
   return (
     <div className={s.diagramConfig}>
@@ -66,12 +57,11 @@ const Diagram = function ({ arrayOfData }) {
             data={dataForDiagram}
             barRatio={0.6}
             cornerRadius={{ top: 5 }}
-            // data accessor for x values
             x="description"
-            // data accessor for y values
             y="sum"
             labels={dataForDiagram.map(elem => `${elem.sum} грн.`)}
-            style={{ data: { fill: '#FF751D' } }}
+            // style={{ data: { fill: '#FF751D' } }}
+            style={{ data: { fill: ({ index }) => (index % 3 === 0 ? '#FF751D' : '#FFDAC0') } }}
             events={[
               {
                 target: 'data',
@@ -97,8 +87,8 @@ const Diagram = function ({ arrayOfData }) {
               onLoad: { duration: 1000 },
             }}
             //для мобильной версии - горизонтальное отображение
-            // horizontal
-            // labelComponent={<VictoryLabel dy={-25} dx={0} />}
+            horizontal={window.innerWidth < 768}
+            // labelComponent={<VictoryLabel dy={-25} dx={0}/>}
           />
         </VictoryChart>
       )}

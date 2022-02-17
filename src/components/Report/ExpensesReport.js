@@ -31,7 +31,7 @@ import Diagram from '../Diagram/Diagram';
 // import Diagram from '../Diagram';
 
 export default function ExpensesReport() {
-  const [currentCategory, setCurrentCategory] = useState('food');
+  const [currentCategory, setCurrentCategory] = useState('');
   console.log(
     '🚀 ~ file: ExpensesReport.js ~ line 35 ~ ExpensesReport ~ currentCategory',
     currentCategory,
@@ -329,8 +329,14 @@ export default function ExpensesReport() {
       {/* <article className={s.diargBg}>
         <Diagram />
       </article> */}
+      {/* <<<<<<< HEAD */}
       <section className={s.diagramBg}>
         {expenseArray && <Diagram arrayOfData={expenseArray[currentCategory]} />}
+        {/* =======
+      <section className={s.expensesDiargBg}>
+        {/* {expenseArray && <Diagram arrayOfData={expenseArray[currentCategory]} />} */}
+        {/* {currentCategory!=='' && <Diagram arrayOfData={expenseArray[currentCategory]} /> } */}
+        {/* >>>>>>> dev */} */}
       </section>
     </div>
     // >>>>>>> dev

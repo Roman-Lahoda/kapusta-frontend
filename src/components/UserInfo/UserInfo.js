@@ -24,12 +24,12 @@ const UserInfo = () => {
           )} */}
 
       <p className={s.userAvatar}>
-        {UserName.name
-          ? UserName.name.slice(0, 1).toUpperCase()
+        {UserName.email
+          ? UserName.email.slice(0, 1).toUpperCase()
           : defaultName.slice(0, 1).toUpperCase()}
       </p>
 
-      <p className={s.userFullName}>{UserName.name ? UserName.name : defaultName}</p>
+      <p className={s.userFullName}>{UserName.email ? UserName.email : defaultName}</p>
     </div>
   );
 };

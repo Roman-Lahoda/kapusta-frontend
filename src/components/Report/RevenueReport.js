@@ -8,8 +8,13 @@ import Diagram from '../Diagram/Diagram.js';
 
 export default function RevenueReport() {
   const report = useSelector(transactionSelectors.getReport);
+  // <<<<<<< HEAD
   const [currentCategory, setCurrentCategory] = useState('salary');
   const [inFocus, setInFocus] = useState('');
+  // =======
+  //   const [currentCategory, setCurrentCategory] = useState('');
+
+  // >>>>>>> dev
   const incomeArray = report?.income;
   useEffect(() => {
     setInFocus('hover');
@@ -54,8 +59,14 @@ export default function RevenueReport() {
         </ul>
         <svg className={s.expBorder}></svg>
       </div>
+      {/* <<<<<<< HEAD */}
       <section className={s.diagramBg}>
         {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} />}
+        {/* =======
+      <section className={s.expensesDiargBg}>
+        {/* {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} />} */}
+        {/* {currentCategory!=='' && <Diagram arrayOfData={incomeArray[currentCategory]} /> } */}
+        {/* >>>>>>> dev */} */}
       </section>
     </div>
   );

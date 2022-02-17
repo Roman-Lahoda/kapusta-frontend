@@ -8,15 +8,15 @@ export const addTransaction = createAsyncThunk(
       const user = JSON.parse(localStorage.getItem('user'));
       //TODO
       // localStorage.removeItem('user');
+      const { data } = await axios.post('/transactions', transaction);
       switch (transaction.transactionType) {
         case 'income':
-          const { data } = await axios.post('/transactions/income', transaction);
           const incrementBalance = user.balance + data.data.sum;
           localStorage.setItem('user', JSON.stringify({ ...user, balance: incrementBalance }));
           break;
         case 'expense':
-          const { data: dataDec } = await axios.post('/transactions/expense', transaction);
-          const decrementBalance = user.balance - dataDec.data.sum;
+          // const { data: dataDec } = await axios.post('/transactions', transaction);
+          const decrementBalance = user.balance - data.data.sum;
           localStorage.setItem('user', JSON.stringify({ ...user, balance: decrementBalance }));
           break;
         default:

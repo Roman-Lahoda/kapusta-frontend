@@ -24,7 +24,7 @@ function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
       <DialogContent
         sx={{
           textAlign: 'center',
-          padding: '55px 60px',
+          padding: '59px 60px',
           // width: '380px',
           // height: '194px',
         }}
@@ -36,22 +36,40 @@ function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
             position: 'absolute',
             right: '20px',
             top: '20px',
+            root: {
+              '&:hover': {
+                backgroundColor: '#ffdac0',
+                borderRadius: '50%',
+                transition: '0.5s linear',
+              },
+            },
           }}
         >
           <CloseIcon />
         </IconButton>
-        <Typography fontWeight={500}>Вы уверены?</Typography>
+        <Typography fontWeight={500} fontSize={14}>
+          Вы уверены?
+        </Typography>
         <Button
           color="primary"
           variant="contained"
-          sx={isNarrowMobile ? { marginTop: '20px' } : { marginTop: '20px', marginRight: '15px' }}
+          sx={
+            isNarrowMobile
+              ? { marginTop: '20px', height: '44px', width: '125px' }
+              : { marginTop: '20px', marginRight: '15px', height: '44px', width: '125px' }
+          }
           onClick={() => {
             submitHandler();
           }}
         >
           Да
         </Button>
-        <Button color="secondary" variant="contained" sx={{ marginTop: '20px' }} onClick={onClose}>
+        <Button
+          color="secondary"
+          variant="contained"
+          sx={{ marginTop: '20px', height: '44px', width: '125px' }}
+          onClick={onClose}
+        >
           Нет
         </Button>
       </DialogContent>

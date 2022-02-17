@@ -9,10 +9,6 @@ import Loader from '../../components/Loader/Loader';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 
-{
-  /* <BackgroundHome />; */
-}
-
 const ReportPage = () => {
   const dispatch = useDispatch();
   const currentMonth = { month: new Date().getMonth() + 1, year: new Date().getFullYear() };
@@ -21,7 +17,6 @@ const ReportPage = () => {
   }, [dispatch]);
 
   const isLoading = useSelector(transactionSelectors.isLoading);
-  // console.log(isLoading);
 
   return (
     <>

@@ -21,7 +21,6 @@ const buttonGroupStyles = {
 
 function TransactionsButtons() {
   const isMobile = window.screen.width < 768;
-  console.log(isMobile);
   return (
     <>
       <ButtonGroup color="secondary" variant="contained" fullWidth sx={buttonGroupStyles}>

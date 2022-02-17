@@ -40,10 +40,6 @@ const useStyles = makeStyles({
 
 function Transaction({ categories, isIncome, placeholder, value }) {
   const dispatch = useDispatch();
-  // const selectedDate = useSelector(getSelectedDate);
-  // const [date, setDate] = useState(
-  //   new Date(selectedDate.year, selectedDate.month - 1, selectedDate.day),
-  // );
   const [date, setDate] = useState(new Date());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -51,19 +47,13 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   const [sum, setSum] = useState('');
   const classes = useStyles();
 
-  // console.log(Date.parse(date));
   const dayCreate = date.getDate();
   const monthCreate = date.getMonth() + 1;
   const yearCreate = date.getFullYear();
-  // console.log(dayCreate);
-  // const monthCreate = date.getMonth() + 1;
-  // const yearCreat = date.getFullYear();
 
   const changeDate = date => {
     setDate(date);
   };
-  // console.log(typeof date);
-  // const [selectedDay, setSelectedDay] = useState();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
@@ -89,10 +79,8 @@ function Transaction({ categories, isIncome, placeholder, value }) {
     }
   };
 
-  // const stringifyDate = JSON.parse(JSON.stringify(date));
   const newTransaction = {
     category: category,
-    // date: stringifyDate,
     sum: Number(sum),
     description: description,
   };
@@ -106,7 +94,6 @@ function Transaction({ categories, isIncome, placeholder, value }) {
       monthCreate,
       yearCreate,
     };
-    // console.log(value);
     dispatch(transactionOperation.addTransaction(addTransaction));
   };
 
@@ -115,34 +102,9 @@ function Transaction({ categories, isIncome, placeholder, value }) {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
-    // dispatch(
-    //   fetchAddTransaction({
-    //     year,
-    //     month,
-    //     day,
-    //     description,
-    //     category,
-    //     sum,
-    //     isIncome,
-    //   }),
-    // );
 
     reset();
   };
-
-  // const handleSubmit = useCallback(
-  //   e => {
-  //     e.preventDefault();
-  //     if (!description || !date || !category || !sum) {
-  //       dispatch(getTransactionsError.errorMessage('Все поля обязательны для заполнения'));
-  //       return;
-  //     }
-  //     dispatch(transactionOperation.addTransaction(addTransaction));
-
-  //     reset();
-  //   },
-  //   [dispatch, description, category, date, sum],
-  // );
 
   const reset = () => {
     setDate(new Date());
@@ -151,16 +113,6 @@ function Transaction({ categories, isIncome, placeholder, value }) {
     setSum('');
   };
 
-  // const handleChangeDate = data => {
-  //   dispatch(
-  //     transactionsActions.selectedDate({
-  //       day: data.getDate(),
-  //       month: data.getMonth() + 1,
-  //       year: data.getFullYear(),
-  //     }),
-  //   );
-  //   setDate(data);
-  // };
   const closeCalc = result => {
     setSum(result);
 
@@ -170,27 +122,14 @@ function Transaction({ categories, isIncome, placeholder, value }) {
     setCalc(true);
   };
 
-  // useEffect(() => {
-  //   setValue('categories', placeholderCategories.data);
-  // }, [expenseCategories, setValue]);
-
-  // useEffect(() => {
-  //   dateFinder(setDate);
-  //   setValue('date', selectedDate);
-  // }, [setDate, setValue, dateFinder]);
-
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <div className={s.wrapInputs}>
-        {/* <div className={s.box}>
-          <CalendarPicker date={date} changeDate={changeDate} />
-        </div> */}
         <div className={s.box}>
           <MyDatePicker selectedDate={date} handleChange={date => setDate(date)} />
         </div>
         <input
           className={s.desc}
-          // className={s.description}
           type="text"
           name="description"
           value={description}

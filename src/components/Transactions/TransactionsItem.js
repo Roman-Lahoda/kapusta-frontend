@@ -14,29 +14,6 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
   const trueCategoryEx = EXPENSES.category.find(el => el.value === transaction.category)?.label;
   const trueCategoryIn = INCOMES.category.find(el => el.value === transaction.category)?.label;
 
-  // const transactions = [
-  //   {
-  //     category: 'Транспорт',
-  //     dayCreate: 14,
-  //     description: 'rbndndfn',
-  //     idT: 111111111111,
-  //     monthCreate: 2,
-  //     sum: '5000',
-  //     transactionType: 'expense',
-  //     yearCreate: 2022,
-  //   },
-  //   {
-  //     category: 'Транспорт',
-  //     dayCreate: 14,
-  //     description: 'rbndndfn',
-  //     idT: 2222222222,
-  //     monthCreate: 2,
-  //     sum: '10000',
-  //     transactionType: 'income',
-  //     yearCreate: 2022,
-  //   },
-  // ];
-  // console.log(transaction.transactionType);
   const isIncome = transaction.transactionType === 'income';
   const date = `${transaction.dayCreate}.${transaction.monthCreate}.${transaction.yearCreate}`;
   return (
@@ -76,7 +53,6 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
           <IconButton
             onClick={() => {
               deleteDialogHandler(transaction.idT);
-              console.log(transaction.idT);
             }}
             aria-label="Удалить транзакцию"
             sx={{ p: '6px', right: '15px' }}

@@ -6,6 +6,7 @@ import TransactionsButtons from './TransactionsBtn';
 // import { useSelector } from 'react-redux';
 import CalendarPicker from './CalendarPicker';
 import calendar from '../../images/transactionIcons/calendar.svg';
+import MyDatePicker from './MyDatePicker/MyDatePicker';
 
 function TransactionsList({ deleteDialogHandler, transactions }) {
   //   const transactions = useSelector(transactionSelectors.getAllTransactions);
@@ -27,33 +28,17 @@ function TransactionsList({ deleteDialogHandler, transactions }) {
   return (
     <>
       {/* {isLoading && <LinearProgress />} */}
-      {/* <CalendarPicker /> */}
-      <div
-        class="datepicker__container"
-        style={{
-          width: '10px',
-          height: '10px',
-          marginRight: '5px',
-          marginBottom: '80px',
-          paddingRight: '50%',
-        }}
-      >
+
+      <div class="datepicker__container">
         <img
           src={calendar}
           alt="calendar"
-          // style={{
-          //   marginBottom: '20px',
-          //   paddingRight: '50%',
-          // }}
+          style={{
+            paddingRight: '15px',
+            paddingLeft: '35%',
+          }}
         />
-        <span
-        // style={{
-        //   marginBottom: '62px',
-        //   paddingLeft: '50%',
-        // }}
-        >
-          {date.getDate()}.{date.getMonth() + 1}.{date.getFullYear()}
-        </span>
+        {date.getDate()}.{date.getMonth() + 1}.{date.getFullYear()}
       </div>
       <ul
         style={{
@@ -61,10 +46,11 @@ function TransactionsList({ deleteDialogHandler, transactions }) {
           paddingLeft: 0,
           backgroundColor: '#fff',
           marginBottom: '40px',
-          marginTop: '60px',
+          marginTop: '80px',
+          color: 'rgba(82, 85, 95, 0.7)',
         }}
       >
-        {transactions.map(transaction => (
+        {transactions?.map(transaction => (
           <TransactionsItem
             key={transaction.idT}
             transaction={transaction}

@@ -6,6 +6,7 @@ import React from 'react';
 const buttonGroupStyles = {
   boxShadow: 'none',
   position: 'fixed',
+  width: '320px',
   bottom: 0,
   '& .MuiButtonGroup-grouped': {
     borderRadius: 0,
@@ -19,6 +20,8 @@ const buttonGroupStyles = {
 };
 
 function TransactionsButtons() {
+  const isMobile = window.screen.width < 768;
+  console.log(isMobile);
   return (
     <>
       <ButtonGroup color="secondary" variant="contained" fullWidth sx={buttonGroupStyles}>

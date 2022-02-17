@@ -70,6 +70,24 @@ const transactionSlice = createSlice({
       //   default:
       //     break;
       // }
+      switch (action.payload.transactionType) {
+        case 'income':
+          state.summary.summaryListIncome.find(el => {
+            if (el.id === action.payload.monthCreate) {
+              el.sum = el.sum - action.payload.sum;
+            }
+          });
+          break;
+        case 'expense':
+          state.summary.summaryListExpense.find(el => {
+            if (el.id === action.payload.monthCreate) {
+              el.sum = el.sum - action.payload.sum;
+            }
+          });
+          break;
+        default:
+          break;
+      }
       state.summary.listOfTransactions = state.summary.listOfTransactions.filter(
         el => el.idT !== action.payload.idT,
       );

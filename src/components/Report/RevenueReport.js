@@ -38,24 +38,28 @@ export default function RevenueReport() {
     <div>
       <div className={s.transactionsCategories}>
         <ul className={s.revenueCategories} onClick={selectionCategory}>
-          <li className={s.item}>
-            <p>{new Intl.NumberFormat('ru-RU').format(salaryTotalSum)}.00</p>
-            <div className={s.picBox} data-focus={inFocus}>
-              <svg width="59" height="56" className={s.itemPic} data-category="salary">
-                <use href={`${sprite}#icon-salary`}></use>
-              </svg>
-            </div>
-            <p>ЗП</p>
-          </li>
-          <li className={s.item}>
-            <p> {new Intl.NumberFormat().format(additionalIncomeTotalSum)}.00</p>
-            <div className={s.picBox}>
-              <svg width="59" height="56" className={s.itemPic} data-category="additionalIncome">
-                <use href={`${sprite}#icon-addsalary`}></use>
-              </svg>
-            </div>
-            <p>ДОП. ДОХОД</p>
-          </li>
+          {salaryTotalSum ? (
+            <li className={s.item}>
+              <p>{new Intl.NumberFormat('ru-RU').format(salaryTotalSum)}.00</p>
+              <div className={s.picBox} data-focus={inFocus}>
+                <svg width="59" height="56" className={s.itemPic} data-category="salary">
+                  <use href={`${sprite}#icon-salary`}></use>
+                </svg>
+              </div>
+              <p>ЗП</p>
+            </li>
+          ) : null}
+          {additionalIncomeTotalSum ? (
+            <li className={s.item}>
+              <p> {new Intl.NumberFormat().format(additionalIncomeTotalSum)}.00</p>
+              <div className={s.picBox}>
+                <svg width="59" height="56" className={s.itemPic} data-category="additionalIncome">
+                  <use href={`${sprite}#icon-addsalary`}></use>
+                </svg>
+              </div>
+              <p>ДОП. ДОХОД</p>
+            </li>
+          ) : null}
         </ul>
         <svg className={s.expBorder}></svg>
       </div>

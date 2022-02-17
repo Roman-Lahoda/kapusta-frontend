@@ -6,7 +6,7 @@ import transactionSelectors from '../../reduxV2/transaction/transaction-selector
 import Diagram from '../Diagram/Diagram';
 
 export default function ExpensesReport() {
-  const [currentCategory, setCurrentCategory] = useState('');
+  const [currentCategory, setCurrentCategory] = useState('food');
   const report = useSelector(transactionSelectors.getReport);
 
   const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
@@ -27,7 +27,7 @@ export default function ExpensesReport() {
 
   useEffect(() => {
     setInFocus('hover');
-  });
+  }, []);
 
   useEffect(() => {
     if (currentCategory !== 'food') {

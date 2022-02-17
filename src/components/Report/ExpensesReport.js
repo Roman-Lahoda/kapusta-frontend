@@ -336,7 +336,7 @@ export default function ExpensesReport() {
       <section className={s.expensesDiargBg}>
         {/* {expenseArray && <Diagram arrayOfData={expenseArray[currentCategory]} />} */}
         {/* {currentCategory!=='' && <Diagram arrayOfData={expenseArray[currentCategory]} /> } */}
-        {/* >>>>>>> dev */} */}
+        {/* >>>>>>> dev */}
       </section>
     </div>
     // >>>>>>> dev

@@ -66,7 +66,7 @@ export default function RevenueReport() {
       <section className={s.expensesDiargBg}>
         {/* {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} />} */}
         {/* {currentCategory!=='' && <Diagram arrayOfData={incomeArray[currentCategory]} /> } */}
-        {/* >>>>>>> dev */} */}
+        {/* >>>>>>> dev */}
       </section>
     </div>
   );

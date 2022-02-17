@@ -4,11 +4,8 @@ import s from './TeamModal.module.scss';
 import logo from '../../../images/logo.svg';
 import gitHub from '../../../images/teamModal/git.png';
 
-import linkedIn from '../../../images/teamModal/in.png';
+import linkedIn from '../../../images/teamModal/lin.png';
 
-// import gitHub from '../../../images/logo.svg';
-
-// import linkedIn from '../../../images/logo.svg';
 const modalRootRef = document.querySelector('#root');
 
 function TeamModal({ handleBackdropClick, closeModal, members }) {

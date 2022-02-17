@@ -18,6 +18,5 @@ const buttonGroupStyles = {
   },
   '& .MuiButton-root': { color: '#52555F' },
   '& .MuiButton-root:hover': { backgroundColor: '#FF751D', color: '#fff' },
-  '.css-1wmd08i-MuiButtonGroup-root': { width: '320px' },
 };
 export { buttonGroupStyles };

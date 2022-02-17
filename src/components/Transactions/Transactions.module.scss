@@ -40,12 +40,12 @@ $desktop: 1280px;
   display: block;
 
   padding: 12px 25px;
-  width: 280px;
+  width: 282px;
   height: 44px;
 
   font-size: 12px;
   letter-spacing: 0.02em;
-
+  color: #c7ccdc !important;
   background-color: transparent;
   border: 2px solid #fff;
   border-bottom: none;
@@ -109,6 +109,7 @@ $desktop: 1280px;
     border-bottom: 2px solid #f5f6fb;
     border-right: none;
     border-top-right-radius: 0;
+
     // padding: 10px 25px;
   }
   .sumWrap {
@@ -187,9 +188,11 @@ input {
 .InputSelect {
   font-weight: 400 !important;
   font-size: 12px !important;
-  line-height: 1, 7 !important;
+  line-height: 1 !important;
   letter-spacing: 0.02em !important;
   text-align: center !important;
+  color: #c7ccdc !important;
+  margin-left: 15px;
 }
 .MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
   transform: none !important;
@@ -208,6 +211,7 @@ input {
   .select {
     margin-top: 0;
     margin-bottom: 30px;
+    width: 282px !important;
     // background-color: #ffffff;
     border-radius: 0px 0px 16px 0px;
     background-color: transparent !important;
@@ -228,8 +232,8 @@ input {
     font-family: $main-font !important;
     font-weight: 400 !important;
     font-size: 12px !important;
-    line-height: 1.166 !important;
-    letter-spacing: 0.02em !important;
+    // line-height: 1.166 !important;
+    // letter-spacing: 0.02em !important;
     color: #c7ccdc !important;
   }
 }

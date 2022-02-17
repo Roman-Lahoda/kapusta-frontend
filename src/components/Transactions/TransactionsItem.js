@@ -49,25 +49,25 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
     >
       <div style={{ display: 'flex' }}>
         <div style={{ width: '30%', flexGrow: 1 }}>
-          <Typography variant="body1" fontWeight={700} paddingLeft={'15px'}>
+          <Typography variant="body1" fontWeight={700} fontSize={12} paddingLeft={'15px'}>
             {transaction.description}
           </Typography>
           <Typography variant="body1" fontSize={8} paddingLeft={'15px'}>
             {date}
           </Typography>
         </div>
-        <div style={{ minWidth: '22%', flexShrink: 1, alignSelf: 'center' }}>
+        <div style={{ minWidth: '20%', flexShrink: 1, alignSelf: 'center' }}>
           <Typography variant="body1" fontSize={8}>
             {trueCategoryEx || trueCategoryIn}
           </Typography>
         </div>
         <div style={{ width: '30%', textAlign: 'right', padding: '5px' }}>
           {!isIncome ? (
-            <Typography fontSize={14} color="#E7192E" fontWeight="700">
+            <Typography fontSize={12} color="#E7192E" fontWeight="700">
               -{sum}
             </Typography>
           ) : (
-            <Typography fontSize={14} color="#407946" fontWeight="700">
+            <Typography fontSize={12} color="#407946" fontWeight="700">
               {sum}
             </Typography>
           )}

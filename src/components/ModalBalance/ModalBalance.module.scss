@@ -12,6 +12,7 @@
 
 .modal {
   position: relative;
+  z-index: 10;
   top: -24px;
   margin-top: 0;
   margin-right: auto;
@@ -65,9 +66,11 @@
   margin-bottom: 20px;
   font-size: 14px;
   line-height: 1.43;
+  color: rgb(255, 255, 255);
 }
 .text_second {
   margin-top: 0;
   font-size: 12px;
   line-height: 1.33;
+  color: rgb(255, 255, 255);
 }

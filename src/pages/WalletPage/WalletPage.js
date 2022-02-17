@@ -26,12 +26,12 @@ const WalletPage = () => {
       <Container>
         <BalanceContainer />
         {/* <MyDatePicker /> */}
-        <ContainerForTransactions>
-          <ThemeProvider theme={theme}>
-            {/* <ExpenseMobileForm /> */}
-            <TransactionsWrapper />
-          </ThemeProvider>
-        </ContainerForTransactions>
+        {/* <ContainerForTransactions> */}
+        <ThemeProvider theme={theme}>
+          {/* <ExpenseMobileForm /> */}
+          <TransactionsWrapper />
+        </ThemeProvider>
+        {/* </ContainerForTransactions> */}
       </Container>
     </>
   );

@@ -56,12 +56,12 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
             {date}
           </Typography>
         </div>
-        <div style={{ minWidth: '10%', flexShrink: 1, alignSelf: 'flex-end' }}>
+        <div style={{ minWidth: '25%', flexShrink: 1, alignSelf: 'center' }}>
           <Typography variant="body1" fontSize={8}>
             {trueCategoryEx || trueCategoryIn}
           </Typography>
         </div>
-        <div style={{ width: '36%', textAlign: 'right' }}>
+        <div style={{ width: '30%', textAlign: 'right' }}>
           {!isIncome ? (
             <Typography fontSize={14} color="#E7192E" fontWeight="700">
               -{sum}
@@ -72,7 +72,7 @@ function TransactionsItem({ transaction, deleteDialogHandler }) {
             </Typography>
           )}
         </div>
-        <div style={{ width: '10%', textAlign: 'center' }}>
+        <div style={{ width: '20%', textAlign: 'right' }}>
           <IconButton
             onClick={() => {
               deleteDialogHandler(transaction.idT);

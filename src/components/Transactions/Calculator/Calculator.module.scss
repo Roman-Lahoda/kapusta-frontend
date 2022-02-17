@@ -12,12 +12,13 @@
 .keypad {
   display: grid;
   grid-template-columns: repeat(4, 37px);
-  row-gap: 7px;
+  row-gap: 15px;
   justify-items: center;
 }
 .calcInput {
   height: 30px;
-  width: 140px;
+  width: 145px;
+  padding-left: 5px;
   margin-bottom: 20px;
   outline: none;
   border-radius: 12px;
@@ -36,7 +37,7 @@
 }
 .result {
   grid-column: 1/1;
-  margin-left: 16px;
+  margin-left: 14px;
   margin-top: 3px;
   outline: none;
   border: 1px solid rgba(128, 128, 128, 0.158);

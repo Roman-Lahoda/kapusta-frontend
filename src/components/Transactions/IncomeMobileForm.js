@@ -5,7 +5,7 @@ import incomeCategories from './incomeCategories.json';
 const IncomeMobileForm = () => {
   return (
     <div style={{ marginTop: '15px' }}>
-      <div className="background-top background-top_for-mobile"></div>
+      <div class="background-top background-top_for-mobile"></div>
       <GoToMainBtn />
       <InputTransactions
         isIncome={true}

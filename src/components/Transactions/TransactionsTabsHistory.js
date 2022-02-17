@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 
 function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
-  // console.log('test');
   const [value, setValue] = useState('expense');
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.only('desktop'));
@@ -24,7 +23,6 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
     .reverse();
   const summaryIncome = useSelector(transactionSelectors.getSummaryIncome);
   const summaryExpense = useSelector(transactionSelectors.getSummaryExpense);
-  // console.log(value);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -59,23 +57,6 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
   if (isDesktop) {
     tableBox.display = 'flex';
   }
-  // console.log('Здесь нужно подключить сводки');
-  // const summaryIncome = [
-  //   { id: 2, month: 'февраль', sum: 1000 },
-  //   { id: 1, month: 'январь', sum: 900 },
-  //   { id: 12, month: 'декабрь', sum: 800 },
-  //   { id: 11, month: 'ноябвь', sum: 700 },
-  //   { id: 10, month: 'октрябрь', sum: 600 },
-  //   { id: 9, month: 'сентябрь', sum: 500 },
-  // ];
-  // const summaryExpense = [
-  //   { id: 2, month: 'февраль', sum: 10000 },
-  //   { id: 1, month: 'январь', sum: 9000 },
-  //   { id: 12, month: 'декабрь', sum: 8000 },
-  //   { id: 11, month: 'ноябвь', sum: 7000 },
-  //   { id: 10, month: 'октрябрь', sum: 6000 },
-  //   { id: 9, month: 'сентябрь', sum: 5000 },
-  // ];
 
   return (
     <Box value={value}>
@@ -102,7 +83,6 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
           </TabPanel>
           <TabPanel value="income" sx={{ padding: 0 }}>
             <InputTransactions
-              // isIncome={true}
               categories={incomeCategories}
               placeholder="Описание дохода"
               value={value}

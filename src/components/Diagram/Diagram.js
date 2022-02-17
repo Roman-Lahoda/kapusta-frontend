@@ -43,7 +43,7 @@ const Diagram = function ({ arrayOfData }) {
   return (
     <div className={s.diagramConfig}>
       {dataForDiagram.length < 1 ? (
-        <p className={s.textAlertForAbsentTransactions}>Ещё нет операций по данной категории</p>
+        <p className={s.textAlertForAbsentTransactions}></p>
       ) : (
         <VictoryChart
           // добавляем свою кастомную тему диаграммы

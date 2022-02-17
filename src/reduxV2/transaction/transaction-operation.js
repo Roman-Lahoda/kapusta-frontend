@@ -6,8 +6,6 @@ export const addTransaction = createAsyncThunk(
   async (transaction, { rejectWithValue }) => {
     try {
       const user = JSON.parse(localStorage.getItem('user'));
-      //TODO
-      // localStorage.removeItem('user');
       const { data } = await axios.post('/transactions', transaction);
       switch (transaction.transactionType) {
         case 'income':
@@ -15,7 +13,6 @@ export const addTransaction = createAsyncThunk(
           localStorage.setItem('user', JSON.stringify({ ...user, balance: incrementBalance }));
           break;
         case 'expense':
-          // const { data: dataDec } = await axios.post('/transactions', transaction);
           const decrementBalance = user.balance - data.data.sum;
           localStorage.setItem('user', JSON.stringify({ ...user, balance: decrementBalance }));
           break;
@@ -25,7 +22,6 @@ export const addTransaction = createAsyncThunk(
       return transaction;
     } catch (error) {
       return rejectWithValue(error);
-      // console.log(error);
     }
   },
 );

@@ -47,9 +47,10 @@ function TransactionsList({ deleteDialogHandler, transactions }) {
           backgroundColor: '#fff',
           marginBottom: '40px',
           marginTop: '80px',
+          color: 'rgba(82, 85, 95, 0.7)',
         }}
       >
-        {transactions.map(transaction => (
+        {transactions?.map(transaction => (
           <TransactionsItem
             key={transaction.idT}
             transaction={transaction}

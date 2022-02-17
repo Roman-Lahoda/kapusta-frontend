@@ -11,6 +11,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '../../styles/theme.js';
 import TransactionsWrapper from '../../components/Transactions/TransactionsWrap.js';
 import MyDatePicker from '../../components/Transactions/MyDatePicker/MyDatePicker';
+import TransactionsButtons from '../../components/Transactions/TransactionsBtn';
 
 const WalletPage = () => {
   const dispatch = useDispatch();
@@ -25,13 +26,12 @@ const WalletPage = () => {
       <Header />
       <Container>
         <BalanceContainer />
-        {/* <MyDatePicker /> */}
-        {/* <ContainerForTransactions> */}
-        <ThemeProvider theme={theme}>
-          {/* <ExpenseMobileForm /> */}
-          <TransactionsWrapper />
-        </ThemeProvider>
-        {/* </ContainerForTransactions> */}
+        <ContainerForTransactions>
+          <ThemeProvider theme={theme}>
+            {/* <ExpenseMobileForm /> */}
+            <TransactionsWrapper />
+          </ThemeProvider>
+        </ContainerForTransactions>
       </Container>
     </>
   );

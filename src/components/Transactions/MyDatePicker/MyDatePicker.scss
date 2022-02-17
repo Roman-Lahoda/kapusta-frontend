@@ -1,0 +1,156 @@
+@import '../../../styles/size';
+@import '../../../styles/variables';
+
+.react-datepicker {
+  position: relative;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.72rem;
+  color: #52555f;
+  border-radius: 14px;
+  filter: drop-shadow(4.5px 7.794px 10.5px rgba(170, 178, 197, 0.78));
+  background-color: #ffffff;
+  z-index: 9;
+}
+// .wrapper {
+//   display: flex;
+//   align-items: flex-end;
+//   color: #52555f;
+// }
+
+// .icon {
+//   margin-right: 10px;
+//   margin-bottom: -2px;
+// }
+
+// .datepickerButton {
+//   margin-right: 25px;
+//   font-size: 12px;
+//   line-height: 14px;
+//   letter-spacing: 0.04em;
+//   font-style: normal;
+
+//   font-weight: 900;
+//   color: #52555f;
+
+//   border: none;
+//   background-color: transparent;
+//   cursor: pointer;
+// }
+
+.react-datepicker__portal {
+  background-color: #66666667;
+  backdrop-filter: blur(2px);
+}
+
+.react-datepicker__header {
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+.react-datepicker__day--selected {
+  background-color: #ff751d;
+
+  &:hover {
+    // background-color: #cc5e19;
+    border-radius: 50px;
+  }
+}
+
+.datepicker__container {
+  display: flex;
+  align-items: center;
+
+  @include size(mobile-only) {
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  @include size(tablet) {
+    margin-right: 33px;
+  }
+
+  @include size(desktop) {
+    margin-right: 23px;
+  }
+}
+
+.datepicker__Icon {
+  background-image: url('../../../images/transactionIcons/calendar.svg');
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.datepicker {
+  position: relative;
+  border: 0;
+  padding: 0;
+  // margin-bottom: 5px;
+  width: 75px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  outline: none;
+  color: #52555f;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include size(mobile-only) {
+    background: inherit;
+  }
+}
+
+:global .react-datepicker__header {
+  text-align: center;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ff751d;
+  border-top-left-radius: 0.3rem;
+  padding: 8px 0;
+  position: relative;
+}
+
+:global .react-datepicker__current-month {
+  color: #ff751d;
+}
+
+:global .react-datepicker__navigation-icon::before {
+  border-color: #ff751d;
+}
+
+:global .react-datepicker__day--selected {
+  background-color: #ff751d;
+  color: #fff;
+  border-radius: 20px;
+}
+
+:global .react-datepicker__day--selected:hover,
+:global .react-datepicker__day--selected:focus {
+  background-color: #fff;
+  color: #ff751d;
+  outline-color: #ff751d;
+}
+
+:global .react-datepicker__day--keyboard-selected {
+  background-color: #fff;
+  color: #ff751d;
+  outline-color: #ff751d;
+  border-radius: 20px;
+}
+
+:global .react-datepicker__day:hover,
+:global .react-datepicker__day:focus {
+  background-color: #fff;
+  color: #ff751d;
+  outline-color: #ff751d;
+}
+
+:global .react-datepicker-popper {
+  z-index: 1000;
+}

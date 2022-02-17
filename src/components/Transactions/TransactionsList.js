@@ -28,9 +28,30 @@ function TransactionsList({ deleteDialogHandler, transactions }) {
     <>
       {/* {isLoading && <LinearProgress />} */}
       {/* <CalendarPicker /> */}
-      <div>
-        <img src={calendar} alt="calendar" />
-        <span>
+      <div
+        class="datepicker__container"
+        style={{
+          width: '10px',
+          height: '10px',
+          marginRight: '5px',
+          marginBottom: '80px',
+          paddingRight: '50%',
+        }}
+      >
+        <img
+          src={calendar}
+          alt="calendar"
+          // style={{
+          //   marginBottom: '20px',
+          //   paddingRight: '50%',
+          // }}
+        />
+        <span
+        // style={{
+        //   marginBottom: '62px',
+        //   paddingLeft: '50%',
+        // }}
+        >
           {date.getDate()}.{date.getMonth() + 1}.{date.getFullYear()}
         </span>
       </div>
@@ -40,6 +61,7 @@ function TransactionsList({ deleteDialogHandler, transactions }) {
           paddingLeft: 0,
           backgroundColor: '#fff',
           marginBottom: '40px',
+          marginTop: '60px',
         }}
       >
         {transactions.map(transaction => (

@@ -1,3 +1,6 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
 .form {
   display: flex;
   align-items: center;
@@ -25,14 +28,18 @@
   top: 50%;
   right: 15px;
   cursor: pointer;
+  // z-index: 100;
 
   transform: translateY(-50%);
 }
 
+$dark-grey-color: #52555f;
+$desktop: 1280px;
+
 .desc {
   display: block;
 
-  padding: 12px 20px;
+  padding: 12px 25px;
   width: 280px;
   height: 44px;
 
@@ -43,6 +50,18 @@
   border: 2px solid #fff;
   border-bottom: none;
   border-radius: 16px 16px 0 0;
+  // background-color: #52555f;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    font-weight: 400;
+    color: #c7ccdc;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 268px !important;
+  }
 }
 
 .desc:focus {
@@ -55,7 +74,7 @@
 }
 .sum {
   display: block;
-  padding: 12px 40px;
+  padding: 12px 20px;
   width: 183px;
   height: 44px;
 
@@ -90,6 +109,7 @@
     border-bottom: 2px solid #f5f6fb;
     border-right: none;
     border-top-right-radius: 0;
+    // padding: 10px 25px;
   }
   .sumWrap {
     width: 124px;
@@ -137,4 +157,125 @@ input[type='number']:focus {
 }
 .sum::placeholder {
   color: #c7ccdc;
+}
+
+/*<<<<<<<<<<<<<<input form styles>>>>>>>>>>>>>>>>*/
+// colors
+$accent-color: #ff751d;
+$dark-grey-color: #52555f;
+
+// fonts
+$main-font: 'Roboto', sans-serif;
+
+// display sizes
+$desktop: 1280px;
+$tablet: 768px;
+$mobile: 320px;
+
+input {
+  padding: 0;
+}
+
+.select {
+  font-family: $main-font !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 1.166 !important;
+  letter-spacing: 0.02em !important;
+  color: #c7ccdc !important;
+}
+.InputSelect {
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 1, 7 !important;
+  letter-spacing: 0.02em !important;
+  text-align: center !important;
+}
+.MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  transform: none !important;
+  border-color: $accent-color;
+}
+
+@media screen and (min-width: $mobile) and (max-width: 767px) {
+  .form {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .formControl {
+    width: 282px !important;
+  }
+
+  .select {
+    margin-top: 0;
+    margin-bottom: 30px;
+    // background-color: #ffffff;
+    border-radius: 0px 0px 16px 0px;
+    background-color: transparent !important;
+  }
+  // .menuItem {
+  //   width: 150px !important;
+  // }
+}
+
+@media screen and (min-width: $tablet) {
+  .select {
+    width: 170px !important;
+  }
+  // .menuItem {
+  //   width: 150px !important;
+  // }
+  .InputSelect {
+    font-family: $main-font !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    line-height: 1.166 !important;
+    letter-spacing: 0.02em !important;
+    color: #c7ccdc !important;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  // .form {
+  //   flex-direction: row;
+  //   flex-wrap: wrap;
+  // }
+}
+
+/*<<<<<<<buttons>>>>>>>>*/
+
+.formButton {
+  display: flex;
+  // margin-top: 30px;
+  // margin-left: 20px;
+  // margin-bottom: 30px;
+  gap: 15px;
+}
+
+.button {
+  width: 125px;
+  height: 44px;
+
+  border-radius: 16px;
+  border: 2px solid #f6f7fb;
+  // background-color: #dfe2eb;
+  background-color: transparent;
+  color: #52555f;
+  text-transform: uppercase;
+  font: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.17;
+  transition: box-shadow 700ms ease-in-out, background-color 700ms ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #ff751d;
+  color: #ffffff;
+  border: 2px solid transparent;
+  box-shadow: 0 0 20px 20px #ff751d inset;
+  &:active {
+    text-shadow: #333333 0 -1.5px 0;
+  }
 }

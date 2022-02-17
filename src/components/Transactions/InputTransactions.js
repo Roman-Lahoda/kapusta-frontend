@@ -2,7 +2,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 // import './DatePicker.module.scss';
 
 import { Button, ButtonGroup, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@mui/styles';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 // import { fetchAddTransaction } from '../../redux/transaction/transactions-operations';
 // import { getSelectedDate } from '../../redux/transaction/transactions-selectors';
@@ -13,6 +14,8 @@ import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import CalendarPicker from './CalendarPicker';
+import MyDatePicker from './MyDatePicker/MyDatePicker';
+import ss from './MyDatePicker/MyDatePicker.scss';
 import { buttonGroupStyles } from '../../styles/buttonGroupStyles';
 import calculatorIcon from '../../images/transactionIcons/calculator.svg';
 import Calculator from './Calculator/Calculator';
@@ -22,6 +25,19 @@ import { selectStyles } from '../../styles/selectStyles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
+// import getTransactionsError from '../../reduxV2/transaction/transaction-selector';
+
+const useStyles = makeStyles({
+  categoryListItem: {
+    fontFamily: 'Roboto',
+    fontWeight: 400,
+    fontSize: '12px',
+    // lineHeight: 1.16,
+    letterSpacing: '0.02em',
+    color: '#c7ccdc',
+  },
+});
+
 function Transaction({ categories, isIncome, placeholder, value }) {
   const dispatch = useDispatch();
   // const selectedDate = useSelector(getSelectedDate);
@@ -33,6 +49,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   const [category, setCategory] = useState('');
   const [calc, setCalc] = useState(false);
   const [sum, setSum] = useState('');
+  const classes = useStyles();
 
   // console.log(Date.parse(date));
   const dayCreate = date.getDate();
@@ -113,6 +130,20 @@ function Transaction({ categories, isIncome, placeholder, value }) {
     reset();
   };
 
+  // const handleSubmit = useCallback(
+  //   e => {
+  //     e.preventDefault();
+  //     if (!description || !date || !category || !sum) {
+  //       dispatch(getTransactionsError.errorMessage('Все поля обязательны для заполнения'));
+  //       return;
+  //     }
+  //     dispatch(transactionOperation.addTransaction(addTransaction));
+
+  //     reset();
+  //   },
+  //   [dispatch, description, category, date, sum],
+  // );
+
   const reset = () => {
     setDate(new Date());
     setDescription('');
@@ -151,12 +182,15 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <div className={s.wrapInputs}>
-        <div className={s.box}>
+        {/* <div className={s.box}>
           <CalendarPicker date={date} changeDate={changeDate} />
+        </div> */}
+        <div className={s.box}>
+          <MyDatePicker selectedDate={date} handleChange={date => setDate(date)} />
         </div>
-
         <input
           className={s.desc}
+          // className={s.description}
           type="text"
           name="description"
           value={description}
@@ -165,8 +199,10 @@ function Transaction({ categories, isIncome, placeholder, value }) {
           autoComplete="off"
         />
 
-        <FormControl>
-          <InputLabel sx={{ fontSize: '12px' }}>Категория</InputLabel>
+        <FormControl className={s.formControl}>
+          <InputLabel sx={{ fontSize: '12px' }} className={s.InputSelect}>
+            Категория
+          </InputLabel>
           <Select
             sx={
               isMobile
@@ -192,6 +228,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
             value={category}
             onChange={handleChange}
             required
+            className={s.select}
           >
             {categories.map(option => (
               <MenuItem
@@ -199,6 +236,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
                 value={option.value}
                 id={option.value}
                 style={{ fontSize: '12px' }}
+                className={classes.categoryListItem}
               >
                 {option.label}
               </MenuItem>
@@ -214,7 +252,6 @@ function Transaction({ categories, isIncome, placeholder, value }) {
             onChange={handleChange}
             placeholder="0.00 грн"
             min="0"
-            // step="1"
             pattern="^\d{1,3}(\s\d{3})*(\.\d+)?$"
             required
             autoComplete="off"
@@ -229,12 +266,15 @@ function Transaction({ categories, isIncome, placeholder, value }) {
         </label>
       </div>
       <ButtonGroup color="secondary" variant="outlined" sx={buttonGroupStyles}>
-        <Button type="submit" onClick={onClick}>
-          Ввод
-        </Button>
-        <Button type="button" onClick={reset}>
-          Очистить
-        </Button>
+        <div className={s.formButton}>
+          <button type="submit" onClick={onClick} className={s.button}>
+            Ввод
+          </button>
+
+          <button type="button" onClick={reset} className={s.button}>
+            Очистить
+          </button>
+        </div>
       </ButtonGroup>
     </form>
   );

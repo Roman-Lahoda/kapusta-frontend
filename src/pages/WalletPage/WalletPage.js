@@ -12,7 +12,7 @@ import theme from '../../styles/theme.js';
 import TransactionsWrapper from '../../components/Transactions/TransactionsWrap.js';
 import MyDatePicker from '../../components/Transactions/MyDatePicker/MyDatePicker';
 import TransactionsButtons from '../../components/Transactions/TransactionsBtn';
-
+import Footer from '../../components/Footer/Footer';
 const WalletPage = () => {
   const dispatch = useDispatch();
 
@@ -33,6 +33,7 @@ const WalletPage = () => {
         </ThemeProvider>
         {/* </ContainerForTransactions> */}
       </Container>
+      <Footer />
     </>
   );
 };

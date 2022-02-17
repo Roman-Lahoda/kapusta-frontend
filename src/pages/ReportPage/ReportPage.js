@@ -8,7 +8,7 @@ import Header from '../../components/Header/Header.js';
 import Loader from '../../components/Loader/Loader';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
-
+import Footer from '../../components/Footer/Footer';
 const ReportPage = () => {
   const dispatch = useDispatch();
   const currentMonth = { month: new Date().getMonth() + 1, year: new Date().getFullYear() };
@@ -28,6 +28,7 @@ const ReportPage = () => {
           <Container>
             <Report />
           </Container>
+          <Footer />
         </>
       )}
     </>

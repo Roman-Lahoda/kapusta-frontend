@@ -86,7 +86,7 @@ function App() {
               <ExpenseMobileFormPage />
             </PrivateRoute>
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </Suspense>
       </ThemeProvider>
     </>

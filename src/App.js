@@ -7,6 +7,7 @@ import transactionOperation from './reduxV2/transaction/transaction-operation';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './styles/theme.js';
 import Loader from './components/Loader/Loader';
+import Footer from './components/Footer/Footer';
 // import './App.css';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
@@ -85,6 +86,7 @@ function App() {
               <ExpenseMobileFormPage />
             </PrivateRoute>
           </Switch>
+          <Footer />
         </Suspense>
       </ThemeProvider>
     </>

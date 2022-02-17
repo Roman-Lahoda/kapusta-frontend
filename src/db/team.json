@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "name": "Natalia Dobrovolskaya",
+    "photo": "photo9.jpg",
+    "position": "developer",
+    "social": {
+      "github": "https://github.com/Natalia-doobro",
+      "linkedin": "https://www.linkedin.com/in/natalia-dobrovolskaya-048216226/"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Roman Korotaev",
+    "photo": "photo4.jpg",
+    "position": "developer",
+    "social": {
+      "github": "https://github.com/RomanKorotaev",
+      "linkedin": "https://www.linkedin.com/in/roman-korotaev-b20822221/"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Natalia Pavlova",
+    "photo": "photo3.jpg",
+    "position": "developer",
+    "social": {
+      "github": "https://github.com/Lia-Pavlova",
+      "linkedin": "https://www.linkedin.com/in/natalia-pavlova/"
+    }
+  },
+
+  {
+    "id": 5,
+    "name": "Naira Kazeian",
+    "photo": "photo5.jpg",
+    "position": "developer",
+    "social": {
+      "github": "https://github.com/Naira21",
+      "linkedin": "https://www.linkedin.com/in/naira-kazeian/"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Dina Yermakova",
+    "photo": "photo6.jpg",
+    "position": "developer",
+    "social": {
+      "github": "https://github.com/YermakovaDina'",
+      "linkedin": "https://www.linkedin.com/in/dina-yermakova-6aa94020b/"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Liudmila Kozachenko",
+    "photo": "photo2.jpg",
+    "position": "developer",
+    "social": {
+      "github": "https://www.linkedin.com/in/liudmila-kozachenko-16905bb7/",
+      "linkedin": "https://github.com/Liucie"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Ihor Rudniev",
+    "photo": "photo7.jpg",
+    "position": "developer",
+    "social": {
+      "github": "https://github.com/ihorrudniev",
+      "linkedin": "https://www.linkedin.com/in/ihor-rudniev/"
+    }
+  }
+]

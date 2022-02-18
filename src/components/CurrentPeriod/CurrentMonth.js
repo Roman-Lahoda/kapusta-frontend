@@ -17,31 +17,35 @@ export function CurrentMonth() {
 
   // useEffect(() => {
   //   dispatch(transactionOperation.fetchTransactionReport({ month, year }));
-  // }, [month]);
+  // }, [month, year]);
 
   const onPrevMonth = () => {
+    console.log ("onPrevMonth")
     if (month === 1) {
       setMonth(12);
 
       setYear(year - 1);
-      dispatch(transactionOperation.fetchTransactionReport({ month: 12, year: year - 1 }));
+      console.log ("onPrevMonth inner!")
+      // dispatch(transactionOperation.fetchTransactionReport({ month: 12, year: year - 1 }));
       return;
     }
     setMonth(month - 1);
-    dispatch(transactionOperation.fetchTransactionReport({ month: month - 1, year: year }));
+    // dispatch(transactionOperation.fetchTransactionReport({ month: month - 1, year: year }));
   };
+
   const onNextMonth = () => {
     if (month === 12) {
       setMonth(1);
       setYear(year + 1);
+      // dispatch(transactionOperation.fetchTransactionReport({ month: 1, year: year + 1 }));
       return;
     }
     setMonth(month + 1);
-    dispatch(transactionOperation.fetchTransactionReport());
-    if (month === currentMonth) {
-      setMonth(currentMonth);
-      return;
-    }
+    // dispatch(transactionOperation.fetchTransactionReport({ month: month + 1, year: year }));
+    // if (month === currentMonth) {
+    //   setMonth(currentMonth);
+    //   return;
+    // }
   };
 
   return (

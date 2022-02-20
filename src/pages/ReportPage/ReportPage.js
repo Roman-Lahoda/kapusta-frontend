@@ -10,27 +10,19 @@ import transactionOperation from '../../reduxV2/transaction/transaction-operatio
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 import Footer from '../../components/Footer/Footer';
 const ReportPage = () => {
-  const dispatch = useDispatch();
-  const currentMonth = { month: new Date().getMonth() + 1, year: new Date().getFullYear() };
-  useEffect(() => {
-    dispatch(transactionOperation.fetchTransactionReport(currentMonth));
-  }, [dispatch]);
-
   const isLoading = useSelector(transactionSelectors.isLoading);
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isLoading && (
-        <>
-          <BackgroundHome />
-          <Header />
-          <Container>
-            <Report />
-          </Container>
-          <Footer />
-        </>
-      )}
+      <>
+        {isLoading && <Loader />}
+        <BackgroundHome />
+        <Header />
+        <Container>
+          <Report />
+        </Container>
+        <Footer />
+      </>
     </>
   );
 };

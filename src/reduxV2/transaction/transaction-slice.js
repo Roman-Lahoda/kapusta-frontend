@@ -7,8 +7,6 @@ import {
 } from './transaction-operation';
 
 const initialState = {
-  //   transaction: { income: [], expense: [] },
-  // summary: { income: null, expense: null },
   summary: null,
   report: null,
   isLoading: false,
@@ -48,7 +46,7 @@ const transactionSlice = createSlice({
     },
     [addTransaction.rejected](state, action) {
       state.isLoading = false;
-      state.error = action.payload.response.data;
+      state.error = action.payload?.response?.data;
     },
     [deleteTransaction.pending](state, action) {
       state.isLoading = true;

@@ -27,6 +27,7 @@ export function CurrentMonth() {
     }
     setMonth(month - 1);
   };
+
   const onNextMonth = () => {
     if (month === 12) {
       setMonth(1);
@@ -34,7 +35,7 @@ export function CurrentMonth() {
       return;
     }
     setMonth(month + 1);
-    if (month === currentMonth) {
+    if (month === currentMonth && year === currentYear) {
       setMonth(currentMonth);
       return;
     }

@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import s from './Report.module.scss';
-import sprite from '../../images/spriteReport.svg';
-import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
-import Diagram from '../Diagram/Diagram';
+import s from './Transactions.module.scss';
+import sprite from '../../../images/spriteReport.svg';
+import transactionSelectors from '../../../reduxV2/transaction/transaction-selector';
+import Diagram from '../../Diagram/Diagram';
 
-export default function ExpensesReport() {
+export function ExpensesReport() {
   const [currentCategory, setCurrentCategory] = useState('food');
   const report = useSelector(transactionSelectors.getReport);
 

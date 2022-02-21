@@ -1,10 +1,8 @@
-import ExpensesReport from './ExpensesReport';
-import Header from './Header';
-import RevenueReport from './RevenueReport';
+import { ExpensesReport, RevenueReport } from '././Transactions';
+import Header from './Header/Header';
 import { useState } from 'react';
 import sprite from '../../images/spriteReport.svg';
 import s from './Report.module.scss';
-import Diagram from '../Diagram/Diagram';
 
 export default function Report() {
   const [transactionType, setTransactionType] = useState('РАСХОДЫ');

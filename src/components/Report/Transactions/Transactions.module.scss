@@ -1,0 +1,127 @@
+.transactionsCategories {
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(170, 178, 197, 0.2);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  @media screen and (max-width: 767.9px) {
+    background: none;
+    box-shadow: none;
+    border-radius: none;
+  }
+}
+.expensesCategories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 21px 30px 32px;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 30px;
+}
+
+.revenueCategories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 30px;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 30px;
+  padding-top: 20px;
+}
+
+.item {
+  text-align: center;
+
+  flex-basis: calc((100% - 13px * 6) / 6);
+  padding-top: 13px;
+  padding-left: 13px;
+
+  @media screen and (max-width: 767.9px) {
+    position: relative;
+    &:nth-child(3n):after {
+      content: '';
+      display: block;
+      width: 282px;
+      height: 0;
+      border: 1px solid #e0e5eb;
+
+      position: absolute;
+      right: -30px;
+      margin-top: 5px;
+
+      ::after {
+        content: '';
+        width: 120px;
+        height: 0;
+      }
+    }
+  }
+}
+
+.picBox {
+  position: relative;
+  margin: 5px 0 5.44px 0;
+  background: #f5f6fb;
+  border-radius: 50px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.itemBg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  fill: #f5f6fb;
+  z-index: -1;
+}
+
+.picBox[data-focus='hover'],
+.picBox:hover,
+.picBox:focus {
+  background-color: #ffdac0;
+  fill: #ff751d;
+}
+
+.expBorder {
+  @media screen and (max-width: 767.9px) {
+    width: 282px;
+    height: 0;
+    border: 1px solid #e0e5eb;
+    margin: 20px 0;
+  }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.expensesCategories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 21px 30px 32px;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 30px;
+}
+
+.diagramBg {
+  height: 422px;
+  background: #ffffff;
+
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 30px;
+
+  @media screen and (max-width: 767.9px) {
+    border: none;
+    box-shadow: none;
+    padding: 0 16px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    border: none;
+    box-shadow: none;
+    margin: 20px 0;
+  }
+}

@@ -2,22 +2,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import s from './Report.module.scss';
-import sprite from '../../images/spriteReport.svg';
+import s from './Header.module.scss';
+import sprite from '../../../images/spriteReport.svg';
 
-import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
-import authSelectors from '../../reduxV2/auth/auth-selector';
-import authOperation from '../../reduxV2/auth/auth-operation';
-import Loader from '../Loader/Loader';
-import { CurrentMonth } from '../CurrentPeriod/CurrentMonth';
-import { ModalBalance } from '../ModalBalance/ModalBalance';
+import authSelectors from '../../../reduxV2/auth/auth-selector';
+import authOperation from '../../../reduxV2/auth/auth-operation';
+import Loader from '../../Loader/Loader';
+import { CurrentMonth } from '../../CurrentPeriod/CurrentMonth';
+import { ModalBalance } from '../../ModalBalance/ModalBalance';
+import BalanceState from '../BalanceState/BalanceState';
 
 export default function Header() {
   const [inputValue, setInputValue] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [isDisable, setIsDisable] = useState(false);
   const isLoading = useSelector(authSelectors.getIsLoading);
-  const report = useSelector(transactionSelectors.getReport);
   const balance = useSelector(authSelectors.getUserBalance);
 
   const dispatch = useDispatch();
@@ -92,23 +91,7 @@ export default function Header() {
             </svg>
           </Link>
         </section>
-        <section className={s.balanceDetailsBox}>
-          <ul className={s.balanceDetails}>
-            <li className={s.statesOfBalance}>
-              Расходы:
-              <span className={s.expensesState}>
-                - {new Intl.NumberFormat('ru-RU').format(report?.totalExpense) || 0}.00 грн
-              </span>
-            </li>
-            <svg className={s.balanceBorder}></svg>
-            <li className={s.statesOfBalance}>
-              Доходы:
-              <span className={s.revenueState}>
-                + {new Intl.NumberFormat('ru-RU').format(report?.totalIncome)}.00 грн
-              </span>
-            </li>
-          </ul>
-        </section>
+        <BalanceState />
       </div>
     </>
   );

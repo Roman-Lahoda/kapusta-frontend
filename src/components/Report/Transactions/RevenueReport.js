@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 // <<<<<<< HEAD
 import { useEffect, useState } from 'react';
-import s from './Report.module.scss';
-import sprite from '../../images/spriteReport.svg';
-import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
-import Diagram from '../Diagram/Diagram.js';
+import s from './Transactions.module.scss';
+import sprite from '../../../images/spriteReport.svg';
+import transactionSelectors from '../../../reduxV2/transaction/transaction-selector';
+import Diagram from '../../Diagram/Diagram.js';
 
-export default function RevenueReport() {
+export function RevenueReport() {
   const report = useSelector(transactionSelectors.getReport);
   // <<<<<<< HEAD
   const [currentCategory, setCurrentCategory] = useState('salary');

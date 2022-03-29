@@ -45,7 +45,7 @@ $desktop: 1280px;
 
   font-size: 12px;
   letter-spacing: 0.02em;
-  color: #c7ccdc !important;
+  color: #000000 !important;
   background-color: transparent;
   border: 2px solid #fff;
   border-bottom: none;
@@ -183,7 +183,7 @@ input {
   font-size: 12px !important;
   line-height: 1.166 !important;
   letter-spacing: 0.02em !important;
-  color: #c7ccdc !important;
+  color: #000411 !important;
 }
 .InputSelect {
   font-weight: 400 !important;
@@ -191,7 +191,7 @@ input {
   line-height: 1 !important;
   letter-spacing: 0.02em !important;
   text-align: center !important;
-  color: #c7ccdc !important;
+  color: #000000 !important;
   margin-left: 15px;
 }
 .MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
@@ -258,6 +258,7 @@ input {
 .button {
   width: 125px;
   height: 44px;
+  cursor: pointer;
 
   border-radius: 16px;
   border: 2px solid #f6f7fb;

@@ -29,7 +29,7 @@ function TransactionsList({ deleteDialogHandler, transactions }) {
     <>
       {/* {isLoading && <LinearProgress />} */}
 
-      <div class="datepicker__container">
+      <div className="datepicker__container">
         <img
           src={calendar}
           alt="calendar"

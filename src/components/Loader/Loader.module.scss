@@ -19,8 +19,12 @@
   // right: 0;
   display: flex;
   // justify-content: center;
-  z-index: 100;
+  z-index: 999;
   color: #fcc49c;
+}
+
+.hidden {
+  display: none;
 }
 
 .loader {

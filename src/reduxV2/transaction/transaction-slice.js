@@ -46,7 +46,7 @@ const transactionSlice = createSlice({
     },
     [addTransaction.rejected](state, action) {
       state.isLoading = false;
-      state.error = action.payload?.response?.data;
+      state.error = action.payload.message;
     },
     [deleteTransaction.pending](state, action) {
       state.isLoading = true;
@@ -93,7 +93,7 @@ const transactionSlice = createSlice({
     },
     [deleteTransaction.rejected](state, action) {
       state.isLoading = false;
-      state.error = action.payload.response.data;
+      state.error = action.payload;
     },
     [fetchTransactionSummary.pending](state, action) {
       state.isLoading = true;
@@ -115,7 +115,7 @@ const transactionSlice = createSlice({
     },
     [fetchTransactionSummary.rejected](state, action) {
       state.isLoading = false;
-      state.error = action.payload.data;
+      state.error = action.payload;
     },
     [fetchTransactionReport.pending](state, action) {
       state.isLoading = true;

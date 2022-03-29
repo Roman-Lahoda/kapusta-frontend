@@ -15,7 +15,8 @@ const ReportPage = () => {
   return (
     <>
       <>
-        {isLoading && <Loader />}
+        {/* {isLoading && <Loader />} */}
+        <Loader visibility={isLoading} />
         <BackgroundHome />
         <Header />
         <Container>

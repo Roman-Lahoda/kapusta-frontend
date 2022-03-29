@@ -1,9 +1,9 @@
 import Kapusta from '../../images/transactionIcons/spiner-kapusta.svg';
 import s from './Loader.module.scss';
 
-function Loader() {
+function Loader({ visibility }) {
   return (
-    <div className={s.loaderWrapper}>
+    <div className={visibility ? s.loaderWrapper : s.hidden}>
       <img className={s.loader} src={Kapusta} alt="Kapusta" />
     </div>
   );

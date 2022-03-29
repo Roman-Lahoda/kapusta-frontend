@@ -15,17 +15,27 @@ import TransactionsButtons from '../../components/Transactions/TransactionsBtn';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 import Footer from '../../components/Footer/Footer';
 import Loader from '../../components/Loader/Loader';
+import authOperation from '../../reduxV2/auth/auth-operation.js';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const WalletPage = () => {
+  // toast.success('test');
   const dispatch = useDispatch();
   const isLoading = useSelector(transactionSelectors.isLoading);
+  // console.log('isLoading= ', isLoading);
 
   useEffect(() => {
+    // dispatch(authOperation.refresh());
+
     dispatch(transactionOperation.fetchTransactionSummary('expense'));
   }, [dispatch]);
 
   return (
     <>
-      {isLoading && <Loader />}
+      {/* {isLoading && <Loader />} */}
+      <Loader visibility={isLoading} />
       <BackgroundHome />
       <Header />
       <Container>

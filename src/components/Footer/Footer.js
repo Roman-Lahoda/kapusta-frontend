@@ -12,7 +12,7 @@ function Footer() {
 
   useEffect(() => {
     const handleKeyDown = e => {
-      if (e.code === 'Escape') {
+      if (e.code === 'Escape' && isShowingModal) {
         toggle();
       }
     };

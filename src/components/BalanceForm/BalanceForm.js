@@ -4,25 +4,36 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ModalBalance } from '../ModalBalance/ModalBalance';
 import authSelectors from '../../reduxV2/auth/auth-selector';
 import authOperation from '../../reduxV2/auth/auth-operation';
+import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 import Loader from '../Loader/Loader';
 
 export function BalanceForm() {
   const balance = useSelector(authSelectors.getUserBalance);
+  const listOfTransactions = useSelector(transactionSelectors.getListOfTransactions);
+  // console.log(
+  //   '🚀 ~ file: BalanceForm.js ~ line 13 ~ BalanceForm ~ listOfTransactions',
+  //   listOfTransactions,
+  // );
+  // console.log('🚀 ~ file: BalanceForm.js ~ line 11 ~ BalanceForm ~ balance', balance);
   const isLoading = useSelector(authSelectors.getIsLoading);
   const [inputValue, setInputValue] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [isDisable, setIsDisable] = useState(false);
-
+  // let bal = balance
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (balance === 0) {
+    if (balance === 0 && listOfTransactions?.length === 0) {
       setShowModal(true);
     }
     if (balance !== 0) {
       setIsDisable(true);
     }
-  }, [balance]);
+  }, [balance, listOfTransactions]);
+
+  // useEffect(() => {
+  //   bal = useSelector(authSelectors.getUserBalance);
+  // }, [inputValue]);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -37,6 +48,7 @@ export function BalanceForm() {
     dispatch(authOperation.updateUser({ balance: inputValue }));
     if (inputValue !== 0) {
       setShowModal(false);
+      setInputValue('');
     }
   };
 

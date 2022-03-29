@@ -21,13 +21,17 @@ export default function Report() {
       <section className={s.sectionsBg}>
         <div className={s.transactionsChangeBlock}>
           <div className={s.currentTransactionBlock}>
-            <svg width="10" height="20" onClick={onClickTransactionType} name="prev">
-              <use href={`${sprite}#icon-vectorleft`}></use>
-            </svg>
+            <button className={s.button}>
+              <svg width="10" height="20" onClick={onClickTransactionType} name="prev">
+                <use href={`${sprite}#icon-vectorleft`}></use>
+              </svg>
+            </button>
             <p className={s.currentTransactionType}>{transactionType}</p>
-            <svg width="10" height="20" onClick={onClickTransactionType} name="next">
-              <use href={`${sprite}#icon-vectorright`}></use>
-            </svg>
+            <button className={s.button}>
+              <svg width="10" height="20" onClick={onClickTransactionType} name="next">
+                <use href={`${sprite}#icon-vectorright`}></use>
+              </svg>
+            </button>
           </div>
         </div>
         {transactionType === 'РАСХОДЫ' ? <ExpensesReport /> : <RevenueReport />}

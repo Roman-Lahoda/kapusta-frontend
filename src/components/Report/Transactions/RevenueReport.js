@@ -65,7 +65,7 @@ export function RevenueReport() {
       </div>
       {/* <<<<<<< HEAD */}
       <section className={s.diagramBg}>
-        {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} />}
+        {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} type="доходах" />}
         {/* =======
       <section className={s.expensesDiargBg}>
         {/* {incomeArray && <Diagram arrayOfData={incomeArray[currentCategory]} />} */}

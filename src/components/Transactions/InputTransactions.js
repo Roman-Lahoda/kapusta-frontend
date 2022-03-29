@@ -26,6 +26,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 // import getTransactionsError from '../../reduxV2/transaction/transaction-selector';
+import { format, compareAsc } from 'date-fns';
 
 const useStyles = makeStyles({
   categoryListItem: {
@@ -34,13 +35,14 @@ const useStyles = makeStyles({
     fontSize: '12px',
     // lineHeight: 1.16,
     letterSpacing: '0.02em',
-    color: '#c7ccdc',
+    color: '#000000',
   },
 });
 
 function Transaction({ categories, isIncome, placeholder, value }) {
   const dispatch = useDispatch();
   const [date, setDate] = useState(new Date());
+  // console.log('🚀 ~ file: InputTransactions.js ~ line 44 ~ Transaction ~ date', date);
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [calc, setCalc] = useState(false);
@@ -48,6 +50,8 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   const classes = useStyles();
 
   const dayCreate = date.getDate();
+  // //TODO ix dayCreate
+  // const dayCreate = date;
   const monthCreate = date.getMonth() + 1;
   const yearCreate = date.getFullYear();
 
@@ -93,9 +97,12 @@ function Transaction({ categories, isIncome, placeholder, value }) {
       dayCreate,
       monthCreate,
       yearCreate,
+      dateOfTransaction: date,
     };
+    // const dateTest = date.toString();
     dispatch(transactionOperation.addTransaction(addTransaction));
   };
+  // console.log(format(new Date('2022-03-01T18:06:37.000Z'), 'dd.MM.yyyy'));
 
   const handleSubmit = e => {
     e.preventDefault();

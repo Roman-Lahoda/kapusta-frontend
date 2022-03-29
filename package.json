@@ -76,5 +76,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@pnotify/core": "^5.2.0",
+    "pnotify": "^5.2.0"
   }
 }

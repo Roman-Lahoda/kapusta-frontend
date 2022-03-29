@@ -45,15 +45,19 @@ export function CurrentMonth() {
     <section className={s.currentSection}>
       <p className={s.currentPeriod}>Текущий период</p>
       <div className={s.currentBlock}>
-        <svg width="10" height="20" onClick={onPrevMonth} name="prev">
-          <use href={`${sprite}#icon-vectorleft`}></use>
-        </svg>
+        <button className={s.button}>
+          <svg width="10" height="20" onClick={onPrevMonth} name="prev">
+            <use href={`${sprite}#icon-vectorleft`}></use>
+          </svg>
+        </button>
         <p className={s.currentDates}>
           {Month[`${month}`]} {year}
         </p>
-        <svg width="10" height="20" onClick={onNextMonth} name="next">
-          <use href={`${sprite}#icon-vectorright`}></use>
-        </svg>
+        <button className={s.button}>
+          <svg width="10" height="20" onClick={onNextMonth} name="next">
+            <use href={`${sprite}#icon-vectorright`}></use>
+          </svg>
+        </button>
       </div>
     </section>
   );

@@ -15,12 +15,8 @@ function TransactionsTabsHistory({ deleteDialogHandler, transactions }) {
   const [value, setValue] = useState('expense');
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.only('desktop'));
-  const expenseTransactionList = transactions
-    ?.filter(el => el.transactionType === 'expense')
-    .reverse();
-  const incomeTransactionList = transactions
-    ?.filter(el => el.transactionType === 'income')
-    .reverse();
+  const expenseTransactionList = transactions?.filter(el => el.transactionType === 'expense');
+  const incomeTransactionList = transactions?.filter(el => el.transactionType === 'income');
   const summaryIncome = useSelector(transactionSelectors.getSummaryIncome);
   const summaryExpense = useSelector(transactionSelectors.getSummaryExpense);
   const handleChange = (event, newValue) => {

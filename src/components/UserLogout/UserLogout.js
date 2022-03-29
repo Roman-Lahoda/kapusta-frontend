@@ -35,13 +35,12 @@ const UserLogout = () => {
         </svg>
       </button>
 
-     
       {modalOpen && (
         <UniversalModal
           text={'Вы действительно хотите выйти?'}
           onClickYes={userlogOut}
           onClose={closeModal}
-          active={modalOpen}
+          isOpen={modalOpen}
         />
       )}
     </>

@@ -12,10 +12,10 @@ const cyan900 = '#006064';
 const colors = [deepOrange600, yellow200, lime300, lightGreen500, teal700, cyan900];
 
 //вертикальнве линии вдолль столбцов
-const blueGrey50 = '#F5F6FB';
+const blueGrey50 = '#ffffff';
 
 //светлосерый цвет по горизонтали ( ось Х)
-const lightGray = '#F5F6FB';
+const lightGray = '#fffff';
 
 const blueGrey700 = '#52555F';
 
@@ -29,16 +29,37 @@ const grey900 = '#212121';
 // *
 const sansSerif = "'Helvetica Neue', 'Helvetica', sans-serif";
 const letterSpacing = 'normal';
-const fontSize = 12;
+const fontSize = 10;
 // *
 // * Layout
 // *
-const padding = 8;
-const baseProps = {
-  width: 350,
-  height: 350,
-  padding: 30,
-};
+//! will must check ⬇
+const padding = 5;
+let baseProps = {};
+if (window.innerWidth >= 1280) {
+  baseProps = {
+    width: 600,
+    height: 350,
+    padding: { bottom: 30, top: 15 },
+  };
+}
+if (window.innerWidth < 1280 && window.innerWidth >= 768) {
+  // const padding = 5;
+  baseProps = {
+    width: 480,
+    height: 350,
+    padding: { bottom: 60, top: 15 },
+  };
+}
+if (window.innerWidth < 768) {
+  // const padding = 5;
+  baseProps = {
+    width: 480,
+    height: 650,
+    padding: { bottom: 20, top: 0, right: 10, left: 20 },
+  };
+}
+//! will must check ⬆
 // *
 // * Labels
 // *
@@ -80,7 +101,7 @@ const OwnTheme = {
           fill: 'transparent',
           // stroke: blueGrey300,
           stroke: lightGray,
-          strokeWidth: 2,
+          strokeWidth: 1,
           strokeLinecap,
           strokeLinejoin,
         },
@@ -89,7 +110,7 @@ const OwnTheme = {
           stroke: 'transparent',
         }),
         grid: {
-          fill: 'none',
+          fill: '#0000',
           stroke: blueGrey50,
           strokeDasharray,
           strokeLinecap,
@@ -98,9 +119,18 @@ const OwnTheme = {
         },
         ticks: {
           fill: 'transparent',
-          size: 5,
+          // size: ({ index }) => (index % 2 === 0 ? 10 : 0),
+          size: ({ index }) => {
+            if ((index - 1) % 3 === 0) {
+              return -5;
+            } else if ((1 + index) % 3 === 0) {
+              return 5;
+            } else if (index % 3 === 0) {
+              return 15;
+            }
+          },
           // stroke: blueGrey300,
-          stroke: lightGray,
+          stroke: '#7a7b7d',
           strokeWidth: 1,
           strokeLinecap,
           strokeLinejoin,

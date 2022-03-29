@@ -4,6 +4,8 @@ import { ReactComponent as DeleteIcon } from '../../images/transactionIcons/dele
 import React from 'react';
 import { EXPENSES } from '../../constants/constants';
 import { INCOMES } from '../../constants/constants';
+import { format } from 'date-fns';
+import EllipsisText from 'react-ellipsis-text';
 
 function TransactionsRow({ transaction, deleteDialogHandler }) {
   const formatter = new Intl.NumberFormat('uk-UA', {
@@ -16,12 +18,18 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
 
   const sum = formatter.format(transaction.sum);
 
-  const date = `${transaction.dayCreate}.${transaction.monthCreate}.${transaction.yearCreate}`;
+  // const date = `${transaction.dayCreate}.${transaction.monthCreate}.${transaction.yearCreate}`;
+  const date = format(transaction.dateOfTransaction, 'dd.MM.yyyy');
   const isIncome = transaction.transactionType === 'income';
+
+  // console.log(transaction?.description);
   return (
     <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
       <TableCell align="left">{date}</TableCell>
-      <TableCell align="left">{transaction.description}</TableCell>
+      <TableCell align="left">
+        {/* {transaction.description} */}
+        <EllipsisText text={`${transaction?.description}`} length={25} />
+      </TableCell>
       <TableCell align="center">{trueCategoryEx || trueCategoryIn}</TableCell>
       <TableCell align="center">
         {!isIncome ? (
@@ -40,6 +48,7 @@ function TransactionsRow({ transaction, deleteDialogHandler }) {
           sx={{ padding: '3px' }}
           aria-label="Удалить транзакцию"
           onClick={() => {
+            // console.log('click on delete button');
             deleteDialogHandler(transaction);
           }}
         >

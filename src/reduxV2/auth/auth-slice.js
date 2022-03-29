@@ -2,9 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import { signup, login, logout, refresh, updateUser } from './auth-operation';
 import { addTransaction, deleteTransaction } from '../transaction/transaction-operation.js';
 
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 const initialState = {
   user: { name: null, email: null, balance: null, token: null },
-  isLoggedIn: false,
+  isLoggedIn: true,
   isLoading: false,
   error: null,
 };
@@ -27,7 +31,7 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [login.fulfilled](state, action) {
-      state.user = action.payload.userData;
+      state.user = action.payload;
       state.isLoggedIn = true;
       state.isLoading = false;
       state.error = null;
@@ -91,6 +95,7 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [deleteTransaction.fulfilled](state, action) {
+      state.isLoading = false;
       switch (action.payload.transactionType) {
         case 'income':
           state.user.balance = state.user.balance - action.payload.sum;
@@ -103,6 +108,18 @@ const authSlice = createSlice({
       }
     },
     [deleteTransaction.rejected](state, action) {
+      state.isLoading = false;
+      state.isLoggedIn = false;
+      state.error = action.payload;
+    },
+    [updateUser.pending](state, action) {
+      state.isLoading = true;
+    },
+    [updateUser.fulfilled](state, action) {
+      state.isLoading = false;
+      state.user.balance = action.payload.balance;
+    },
+    [updateUser.rejected](state, action) {
       state.isLoading = false;
       state.isLoggedIn = false;
       state.error = action.payload;

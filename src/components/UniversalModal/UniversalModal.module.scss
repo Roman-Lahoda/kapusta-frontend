@@ -1,3 +1,12 @@
+.backdrop {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100vw;
+  // height: 100vh;
+  // background-color: #52555f;
+}
+
 .modal {
   position: absolute;
   top: 7%;
@@ -39,6 +48,7 @@
   right: 20px;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 
   padding: 3px 0px 0px 0px;
   border: none;

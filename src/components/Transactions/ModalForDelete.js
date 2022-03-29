@@ -2,21 +2,71 @@ import { Button, Dialog, DialogContent, IconButton, Typography } from '@mui/mate
 
 import { ReactComponent as CloseIcon } from '../../images/transactionIcons/close.svg';
 import React from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 
-function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
+function DeleteModal({ isOpen = false, transaction, onClose, transactions }) {
+  console.log('🚀 ~ file: ModalForDelete.js ~ line 11 ~ DeleteModal ~ isOpen', isOpen);
+  // if (isOpen) {
+  // console.log(
+  //   '🚀 ~ file: ModalForDelete.js ~ line 11 ~ DeleteModal ~ transaction.idT',
+  //   transaction?.idT,
+  // );
+  // }
+  // console.log('test');
   const dispatch = useDispatch();
   const isNarrowMobile = useMediaQuery('(max-width:435px)');
 
-  function submitHandler() {
-    dispatch(transactionOperation.deleteTransaction(transactionId));
-    onClose();
+  async function submitHandler() {
+    // console.log('in submitHandler transaction', transaction?.idT);
+    if (isOpen) {
+      await dispatch(transactionOperation.deleteTransaction(transaction));
+      window.removeEventListener('keydown', keydown);
+      onClose();
+    }
+  }
+
+  useEffect(() => {
+    // console.log('test in useefect');
+    if (isOpen) {
+      // console.log('test add ev list');
+      window.removeEventListener('keydown', keydown);
+      window.addEventListener('keydown', keydown);
+    }
+  }, [isOpen, transaction]);
+
+  function keydown(e) {
+    // console.log('test in keydown');
+    if (isOpen) {
+      if (e.code === 'Escape') {
+        // console.log('test remove in keydown');
+        window.removeEventListener('keydown', keydown);
+        // onClose();
+      } else if (e.code === 'Enter') {
+        // console.log('in keydown transaction idT', transaction?.idT);
+        // console.log('delete tr in modal');
+        submitHandler();
+        // window.removeEventListener('keydown', keydown);
+        // dispatch(transactionOperation.deleteTransaction(transaction));
+        // onClose();
+      } else {
+        return;
+      }
+    }
   }
 
   return (
-    <Dialog open={isOpen} onClose={onClose} sx={{ '& .MuiDialog-paper': { borderRadius: '30px' } }}>
+    <Dialog
+      open={isOpen}
+      onClose={() => {
+        onClose();
+        // console.log('test close modal 1');
+        window.removeEventListener('keydown', keydown);
+      }}
+      sx={{ '& .MuiDialog-paper': { borderRadius: '30px' } }}
+    >
       <DialogContent
         sx={{
           textAlign: 'center',
@@ -25,7 +75,11 @@ function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
       >
         <IconButton
           aria-label="close"
-          onClick={onClose}
+          onClick={() => {
+            window.removeEventListener('keydown', keydown);
+            // console.log('test close modal 2');
+            onClose();
+          }}
           sx={{
             position: 'absolute',
             right: '20px',
@@ -54,6 +108,7 @@ function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
           }
           onClick={() => {
             submitHandler();
+            // window.removeEventListener('keydown', keydown);
           }}
         >
           Да
@@ -62,7 +117,10 @@ function DeleteModal({ isOpen = true, transactionId, onClose, transactions }) {
           color="secondary"
           variant="contained"
           sx={{ marginTop: '20px', height: '44px', width: '125px' }}
-          onClick={onClose}
+          onClick={() => {
+            window.removeEventListener('keydown', keydown);
+            onClose();
+          }}
         >
           Нет
         </Button>

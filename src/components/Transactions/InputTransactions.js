@@ -89,7 +89,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   const newTransaction = {
     category: category,
     sum: Number(sum),
-    description: description,
+    description: description.trim() === '' ? '...' : description.trim(),
   };
 
   const onClick = () => {
@@ -103,7 +103,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
       dateOfTransaction: date,
     };
     // const dateTest = date.toString();
-    if (description !== '' && category !== '' && sum !== '') {
+    if (category !== '' && sum !== '') {
       dispatch(transactionOperation.addTransaction(addTransaction));
     }
   };
@@ -116,6 +116,9 @@ function Transaction({ categories, isIncome, placeholder, value }) {
     const month = date.getMonth() + 1;
     const day = date.getDate();
     // console.log('handleSubmit test');
+    // if (description.trim() === '') {
+    //   return;
+    // }
     reset();
   };
 
@@ -149,6 +152,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
           onChange={handleChange}
           placeholder={placeholder}
           autoComplete="off"
+          required
         />
 
         <FormControl className={s.formControl}>

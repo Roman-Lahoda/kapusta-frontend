@@ -8,7 +8,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 
 function DeleteModal({ isOpen = false, transaction, onClose, transactions }) {
-  console.log('🚀 ~ file: ModalForDelete.js ~ line 11 ~ DeleteModal ~ isOpen', isOpen);
+  // console.log('🚀 ~ file: ModalForDelete.js ~ line 11 ~ DeleteModal ~ isOpen', isOpen);
   // if (isOpen) {
   // console.log(
   //   '🚀 ~ file: ModalForDelete.js ~ line 11 ~ DeleteModal ~ transaction.idT',

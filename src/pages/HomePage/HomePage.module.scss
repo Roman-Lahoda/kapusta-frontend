@@ -1,0 +1,20 @@
+.flex {
+  display: flex;
+  flex-direction: column;
+  // align-items: flex-start;
+  height: 100vh;
+  width: 100vw;
+  // height: 100%;
+}
+
+.block {
+  flex-grow: 2;
+  margin-bottom: 20px;
+}
+
+.flexbox {
+  display: flex;
+  align-items: center;
+  // align-content: space-between;
+  justify-content: space-around;
+}

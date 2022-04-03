@@ -1,6 +1,7 @@
 .diagramBg {
   height: 422px;
   background: #ffffff;
+  color: #888888;
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
@@ -8,27 +9,34 @@
   @media screen and (max-width: 767.9px) {
     border: none;
     box-shadow: none;
-    padding: 0 16px;
+    padding: 0 5px;
   }
 
   @media screen and (min-width: 1280px) {
     border: none;
     box-shadow: none;
-    margin: 20px 0;
+    margin-top: 20px;
   }
-}
-tspan {
-  font-size: 40px;
 }
 
 .diagramConfig {
+  // background-color: #52555f;
+
+  background-image: url('../../images/bg-diagram.png');
+  // background-position: center;
+  background-repeat: no-repeat;
   @media screen and (max-width: 767.9px) {
+    background: none;
     // display: none;
   }
   @media screen and (max-width: 1279.9px) {
+    background-size: 630px 320px;
+    background-position: bottom 88px left 15px;
     height: 105%;
   }
   @media screen and (min-width: 1280px) {
+    background-size: 800px 320px;
+    background-position: bottom 40px left 130px;
     height: 95%;
   }
 }

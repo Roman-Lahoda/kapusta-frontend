@@ -93,45 +93,43 @@ function App() {
 
   // console.log('test');
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <Suspense fallback={<Loader />}>
-          <Switch>
-            <PublicRoute exact redirectTo="/wallet" restricted path="/">
-              <HomePage />
-            </PublicRoute>
+    <ThemeProvider theme={theme}>
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <PublicRoute exact redirectTo="/wallet" restricted path="/">
+            <HomePage />
+          </PublicRoute>
 
-            <PrivateRoute exact redirectTo="/" path="/wallet">
-              <WalletPage />
-            </PrivateRoute>
+          <PrivateRoute exact redirectTo="/" path="/wallet">
+            <WalletPage />
+          </PrivateRoute>
 
-            <PrivateRoute exact redirectTo="/" path="/report">
-              <ReportPage />
-            </PrivateRoute>
+          <PrivateRoute exact redirectTo="/" path="/report">
+            <ReportPage />
+          </PrivateRoute>
 
-            <PrivateRoute exact path="/incomeform">
-              <IncomeMobileFormPage />
-            </PrivateRoute>
+          <PrivateRoute exact path="/incomeform">
+            <IncomeMobileFormPage />
+          </PrivateRoute>
 
-            <PrivateRoute exact path="/expenseform">
-              <ExpenseMobileFormPage />
-            </PrivateRoute>
-          </Switch>
-          {/* <Footer /> */}
-          <ToastContainer
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss={false}
-            draggable
-            pauseOnHover
-          />
-        </Suspense>
-      </ThemeProvider>
-    </>
+          <PrivateRoute exact path="/expenseform">
+            <ExpenseMobileFormPage />
+          </PrivateRoute>
+        </Switch>
+        {/* <Footer /> */}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover
+        />
+      </Suspense>
+    </ThemeProvider>
   );
 }
 

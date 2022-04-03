@@ -80,7 +80,7 @@ img {
   background: var(--main-background-color);
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 30px;
-  margin-top: 117px;
+  margin-top: 5vh;
 
   .container_form {
     padding: 0 86px 10px;
@@ -215,8 +215,10 @@ img {
 // }
 @media screen and (min-width: 1280px) {
   .container {
-    position: absolute;
-    right: 110px;
+    // position: relative;
+    // top: -150px;
+    // left: 65%;
+    // position: absolute;
   }
 }
 // =====

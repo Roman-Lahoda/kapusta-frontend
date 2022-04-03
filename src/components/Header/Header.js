@@ -9,6 +9,7 @@ import { gsap, Power2 } from 'gsap';
 import s from './Header.module.scss';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 // import authSelectors from '../../reduxV2/auth/auth-selector';
+import Container from '../Container/Container';
 
 const Header = () => {
   const viewPort = useWindowDimensions();
@@ -31,20 +32,22 @@ const Header = () => {
 
   return (
     <header className={s.header}>
-      <div ref={el => (logotype = el)}>
-        <div className={s.headerContainer}>
-          <Link to="/" alt="homepage" className={s.logoLink}>
-            <img src={logo} className={s.logoImg} alt="Kapusta-logo" />
-          </Link>
+      <Container>
+        <div ref={el => (logotype = el)}>
+          <div className={s.headerContainer}>
+            <Link to="/" alt="homepage" className={s.logoLink}>
+              <img src={logo} className={s.logoImg} alt="Kapusta-logo" />
+            </Link>
 
-          {isAuthenticated && (
-            <div className={s.userContainer}>
-              <UserInfo />
-              <UserLogout />
-            </div>
-          )}
+            {isAuthenticated && (
+              <div className={s.userContainer}>
+                <UserInfo />
+                <UserLogout />
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </Container>
     </header>
   );
 };

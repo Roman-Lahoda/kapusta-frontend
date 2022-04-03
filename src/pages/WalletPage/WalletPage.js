@@ -16,6 +16,7 @@ import transactionSelectors from '../../reduxV2/transaction/transaction-selector
 import Footer from '../../components/Footer/Footer';
 import Loader from '../../components/Loader/Loader';
 import authOperation from '../../reduxV2/auth/auth-operation.js';
+import s from './WalletPage.module.scss';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -33,22 +34,26 @@ const WalletPage = () => {
   }, [dispatch]);
 
   return (
-    <>
-      {/* {isLoading && <Loader />} */}
-      <Loader visibility={isLoading} />
-      <BackgroundHome />
-      <Header />
-      <Container>
-        <BalanceContainer />
-        {/* <ContainerForTransactions> */}
-        <ThemeProvider theme={theme}>
-          {/* <ExpenseMobileForm /> */}
-          <TransactionsWrapper />
-        </ThemeProvider>
-        {/* </ContainerForTransactions> */}
-      </Container>
+    <div className={s.flex}>
+      <div className={s.block}>
+        {/* {isLoading && <Loader />} */}
+        <Loader visibility={isLoading} />
+        <BackgroundHome />
+        <Header />
+        <Container>
+          <BalanceContainer />
+          {/* <ContainerForTransactions> */}
+          <ThemeProvider theme={theme}>
+            {/* <ExpenseMobileForm /> */}
+            <TransactionsWrapper />
+          </ThemeProvider>
+          {/* </ContainerForTransactions> */}
+        </Container>
+      </div>
+      {/* <div className={s.block2}> */}
       <Footer />
-    </>
+      {/* </div> */}
+    </div>
   );
 };
 

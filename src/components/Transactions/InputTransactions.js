@@ -55,9 +55,9 @@ function Transaction({ categories, isIncome, placeholder, value }) {
   const monthCreate = date.getMonth() + 1;
   const yearCreate = date.getFullYear();
 
-  const changeDate = date => {
-    setDate(date);
-  };
+  // const changeDate = date => {
+  //   setDate(date);
+  // };
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('tablet'));
@@ -76,7 +76,10 @@ function Transaction({ categories, isIncome, placeholder, value }) {
         setCategory(value);
         break;
       case 'sum':
-        setSum(value);
+        if (value % 1 !== 0 && value.split('.')[1]?.length > 2) {
+          break;
+        }
+        setSum(Math.round(eval(value) * 100) / 100);
         break;
       default:
         return;
@@ -100,16 +103,19 @@ function Transaction({ categories, isIncome, placeholder, value }) {
       dateOfTransaction: date,
     };
     // const dateTest = date.toString();
-    dispatch(transactionOperation.addTransaction(addTransaction));
+    if (description !== '' && category !== '' && sum !== '') {
+      dispatch(transactionOperation.addTransaction(addTransaction));
+    }
   };
   // console.log(format(new Date('2022-03-01T18:06:37.000Z'), 'dd.MM.yyyy'));
 
   const handleSubmit = e => {
+    // console.log('test');
     e.preventDefault();
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
-
+    // console.log('handleSubmit test');
     reset();
   };
 
@@ -197,7 +203,7 @@ function Transaction({ categories, isIncome, placeholder, value }) {
             value={sum}
             onChange={handleChange}
             placeholder="0.00 грн"
-            min="0"
+            // min="0"
             pattern="^\d{1,3}(\s\d{3})*(\.\d+)?$"
             required
             autoComplete="off"

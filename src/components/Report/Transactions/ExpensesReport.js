@@ -7,50 +7,70 @@ import Diagram from '../../Diagram/Diagram';
 
 export function ExpensesReport() {
   const [currentCategory, setCurrentCategory] = useState('');
+  // const [inFocus, setInFocus] = useState('');
+
   let report = useSelector(transactionSelectors.getReport);
 
-  const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
-
-  const alcoholTotalSum = report?.expense?.alcohol?.reduce((a, b) => a + b.sum, 0);
   const expenseArray = report?.expense;
-  const entertainmentTotalSum = report?.expense?.entertainment?.reduce((a, b) => a + b.sum, 0);
-  const housingTotalSum = report?.expense?.housing?.reduce((a, b) => a + b.sum, 0);
-  const technicsTotalSum = report?.expense?.technics?.reduce((a, b) => a + b.sum, 0);
-  const communalTotalSum = report?.expense?.communal?.reduce((a, b) => a + b.sum, 0);
-  const sportTotalSum = report?.expense?.sport?.reduce((a, b) => a + b.sum, 0);
-  const educationTotalSum = report?.expense?.education?.reduce((a, b) => a + b.sum, 0);
-  const healthTotalSum = report?.expense?.health?.reduce((a, b) => a + b.sum, 0);
-  const transportTotalSum = report?.expense?.transport?.reduce((a, b) => a + b.sum, 0);
-  const otherTotalSum = report?.expense?.other?.reduce((a, b) => a + b.sum, 0);
 
-  const [inFocus, setInFocus] = useState('');
+  const totalSum = category => {
+    return report?.expense?.[category]?.reduce((a, b) => a + b.sum, 0);
+  };
 
+  // const foodTotalSum = report?.expense?.food?.reduce((a, b) => a + b.sum, 0);
+  const foodTotalSum = totalSum('food');
+  // const alcoholTotalSum = report?.expense?.alcohol?.reduce((a, b) => a + b.sum, 0);
+  const alcoholTotalSum = totalSum('alcohol');
+  // const entertainmentTotalSum = report?.expense?.entertainment?.reduce((a, b) => a + b.sum, 0);
+  const entertainmentTotalSum = totalSum('entertainment');
+  // const housingTotalSum = report?.expense?.housing?.reduce((a, b) => a + b.sum,
+  const housingTotalSum = totalSum('housing');
+  // const technicsTotalSum = report?.expense?.technics?.reduce((a, b) => a + b.su
+  const technicsTotalSum = totalSum('technics');
+  // const communalTotalSum = report?.expense?.communal?.reduce((a, b) => a + b.su
+  const communalTotalSum = totalSum('communal');
+  // const sportTotalSum = report?.expense?.sport?.reduce((a, b) => a + b.sum, 0);
+  const sportTotalSum = totalSum('sport');
+  // const educationTotalSum = report?.expense?.education?.reduce((a, b) => a + b.
+  const educationTotalSum = totalSum('education');
+  // const healthTotalSum = report?.expense?.health?.reduce((a, b) => a + b.sum, 0
+  const healthTotalSum = totalSum('health');
+  // const transportTotalSum = report?.expense?.transport?.reduce((a, b) => a + b.
+  const transportTotalSum = totalSum('transport');
+  // const otherTotalSum = report?.expense?.other?.reduce((a, b) => a + b.sum, 0);
+  const otherTotalSum = totalSum('other');
   useEffect(() => {
-    // setInFocus('hover');
     setCurrentCategory('');
     const expenseObj = report?.expense;
-    let neadCategory = '';
+    let needCategory = '';
     if (expenseObj) {
       const keys = Object.keys(expenseObj);
-      neadCategory = keys?.find(key => expenseObj[key]?.length !== 0);
-      if (neadCategory?.length > 0) {
-        // console.log('neadCategory is :', neadCategory);
-        setCurrentCategory(neadCategory);
-        // console.log(element);
-        // if (currentCategory?.length > 0) {
-        //   // console.log(currentCategory);
-        //   const element = document.getElementById(currentCategory);
-        //   element?.setAttribute('data-focus', 'hover');
-        // }
+      needCategory = keys?.find(key => expenseObj[key]?.length !== 0);
+      if (needCategory?.length > 0) {
+        setCurrentCategory(needCategory);
       }
     }
+
+    const elements = document.querySelectorAll('.category-btn');
+    const array = Array.from(elements);
+    array.forEach(elem => elem.removeEventListener('click', choseNextCategory));
+    array.forEach(elem => elem.addEventListener('click', choseNextCategory));
   }, [report]);
 
+  const choseNextCategory = e => {
+    if (currentCategory !== e.currentTarget.dataset.category) {
+      console.log('test');
+      setCurrentCategory(e.currentTarget.dataset.category);
+    }
+  };
+  // console.log(currentCategory);
+
   // useEffect(() => {
-  //   if (currentCategory !== 'food') {
-  //     setInFocus('');
-  //   }
-  // });
+  //   const elements = document.querySelectorAll('.category-btn');
+  //   const array = Array.from(elements);
+  //   array.forEach(elem => elem.removeEventListener('click', choseNextCategory));
+  //   array.forEach(elem => elem.addEventListener('click', choseNextCategory));
+  // }, [report]);
 
   const choseCategory = x => {
     if (currentCategory === x) {
@@ -60,50 +80,70 @@ export function ExpensesReport() {
     }
   };
 
-  const selectionCategory = event => {
-    if (event.target.nodeName === 'svg') {
-      setCurrentCategory(event.target.dataset.category);
-    }
-  };
-
   return (
     <div>
       <div className={s.transactionsCategories}>
-        <ul className={s.expensesCategories} onClick={selectionCategory}>
+        <ul
+          className={s.expensesCategories}
+          // onClick={selectionCategory}
+        >
           {foodTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(foodTotalSum)}.00</p>
-              <div className={s.picBox} id="food" data-focus={choseCategory('food')}>
-                <svg width="59" height="46" data-category="food">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="food"
+                data-focus={choseCategory('food')}
+                data-category="food"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="food"
+                >
                   <use href={`${sprite}#icon-products`}></use>
                 </svg>
-              </div>
+              </button>
               <p>ПРОДУКТЫ</p>
             </li>
           ) : null}
           {alcoholTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(alcoholTotalSum)}.00</p>
-              <div className={s.picBox} id="alcohol" data-focus={choseCategory('alcohol')}>
-                <svg width="59" height="46" data-category="alcohol">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="alcohol"
+                data-focus={choseCategory('alcohol')}
+                data-category="alcohol"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="alcohol"
+                >
                   <use href={`${sprite}#icon-cocktail`}></use>
                 </svg>
-              </div>
+              </button>
               <p>АЛКОГОЛЬ</p>
             </li>
           ) : null}
           {entertainmentTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(entertainmentTotalSum)}.00</p>
-              <div
-                className={s.picBox}
+              <button
+                className={`${s.picBox} category-btn`}
                 id="entertainment"
                 data-focus={choseCategory('entertainment')}
+                data-category="entertainment"
               >
-                <svg width="59" height="46" data-category="entertainment">
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="entertainment"
+                >
                   <use href={`${sprite}#icon-kite`}></use>
                 </svg>
-              </div>
+              </button>
               <p>РАЗВЛЕЧЕНИЯ</p>
             </li>
           ) : null}
@@ -111,33 +151,60 @@ export function ExpensesReport() {
           {healthTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(healthTotalSum)}.00</p>
-              <div className={s.picBox} id="health" data-focus={choseCategory('health')}>
-                <svg width="59" height="46" data-category="health">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="health"
+                data-focus={choseCategory('health')}
+                data-category="health"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="health"
+                >
                   <use href={`${sprite}#icon-health`}></use>
                 </svg>
-              </div>
+              </button>
               <p>ЗДОРОВЬЕ</p>
             </li>
           ) : null}
           {transportTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(transportTotalSum)}.00</p>
-              <div className={s.picBox} id="transport" data-focus={choseCategory('transport')}>
-                <svg width="59" height="46" data-category="transport">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="transport"
+                data-focus={choseCategory('transport')}
+                data-category="transport"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="transport"
+                >
                   <use href={`${sprite}#icon-car`}></use>
                 </svg>
-              </div>
+              </button>
               <p>ТРАНСПОРТ</p>
             </li>
           ) : null}
           {housingTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(housingTotalSum)}.00</p>
-              <div className={s.picBox} id="housing" data-focus={choseCategory('housing')}>
-                <svg width="59" height="46" data-category="housing">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="housing"
+                data-focus={choseCategory('housing')}
+                data-category="housing"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="housing"
+                >
                   <use href={`${sprite}#icon-couch`}></use>
                 </svg>
-              </div>
+              </button>
               <p>ВСЕ ДЛЯ ДОМА</p>
             </li>
           ) : null}
@@ -145,33 +212,60 @@ export function ExpensesReport() {
           {technicsTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(technicsTotalSum)}.00</p>
-              <div className={s.picBox} id="technics" data-focus={choseCategory('technics')}>
-                <svg width="59" height="46" data-category="technics">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="technics"
+                data-focus={choseCategory('technics')}
+                data-category="technics"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="technics"
+                >
                   <use href={`${sprite}#icon-tools`}></use>
                 </svg>
-              </div>
+              </button>
               <p>ТЕХНИКА</p>
             </li>
           ) : null}
           {communalTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(communalTotalSum)}.00</p>
-              <div className={s.picBox} id="communal" data-focus={choseCategory('communal')}>
-                <svg width="59" height="46" data-category="communal">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="communal"
+                data-focus={choseCategory('communal')}
+                data-category="communal"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="communal"
+                >
                   <use href={`${sprite}#icon-invoice`}></use>
                 </svg>
-              </div>
+              </button>
               <p>КОММУНАЛКА, СВЯЗЬ</p>
             </li>
           ) : null}
           {sportTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(sportTotalSum)}.00</p>
-              <div className={s.picBox} id="sport" data-focus={choseCategory('sport')}>
-                <svg width="59" height="46" data-category="sport">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="sport"
+                data-focus={choseCategory('sport')}
+                data-category="sport"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="sport"
+                >
                   <use href={`${sprite}#icon-hobby`}></use>
                 </svg>
-              </div>
+              </button>
               <p>СПОРТ, ХОББИ</p>
             </li>
           ) : null}
@@ -179,22 +273,40 @@ export function ExpensesReport() {
           {educationTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(educationTotalSum)}.00</p>
-              <div className={s.picBox} id="education" data-focus={choseCategory('education')}>
-                <svg width="59" height="46" data-category="education">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="education"
+                data-focus={choseCategory('education')}
+                data-category="education"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="education"
+                >
                   <use href={`${sprite}#icon-education`}></use>
                 </svg>
-              </div>
+              </button>
               <p>ОБРАЗОВАНИЕ</p>
             </li>
           ) : null}
           {otherTotalSum ? (
             <li className={s.item}>
               <p>{new Intl.NumberFormat('ru-RU').format(otherTotalSum)}.00</p>
-              <div className={s.picBox} id="other" data-focus={choseCategory('other')}>
-                <svg width="59" height="46" data-category="other">
+              <button
+                className={`${s.picBox} category-btn`}
+                id="other"
+                data-focus={choseCategory('other')}
+                data-category="other"
+              >
+                <svg
+                  width="59"
+                  height="46"
+                  // data-category="other"
+                >
                   <use href={`${sprite}#icon-ufo`}></use>
                 </svg>
-              </div>
+              </button>
               <p>ПРОЧЕЕ</p>
             </li>
           ) : null}

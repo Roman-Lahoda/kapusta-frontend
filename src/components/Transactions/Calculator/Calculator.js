@@ -35,11 +35,15 @@ export default function CalculatorInput({ onCloseCalculator, position }) {
     e.preventDefault();
     try {
       /*eslint-disable-next-line*/
-      setResult(eval(result).toString());
+      // setResult(eval(result).toString());
+      setResult(Math.round(eval(result) * 100) / 100);
     } catch (error) {
       setResult('Error');
     }
   }
+
+  // console.log(Math.round(eval(result) * 100) / 100);
+
   return (
     <div className={position ? `${position}` : `${s.calc}`} ref={ref}>
       <input type="text" value={result} className={s.calcInput} readOnly />

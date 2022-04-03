@@ -23,6 +23,10 @@ function TransactionsWrapper() {
     ?.reverse()
     .sort(sortRule);
   function showModal(transactionId) {
+    // console.log(
+    //   '🚀 ~ file: TransactionsWrap.js ~ line 26 ~ showModal ~ transactionId',
+    //   transactionId,
+    // );
     // console.log('open modal');
     setIsModalOpen(true);
     setSelectedTransaction(transactionId);

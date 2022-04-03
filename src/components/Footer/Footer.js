@@ -22,14 +22,26 @@ function Footer() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   });
+  // console.log(1 / 2);
 
   return (
     <div className={s.bgWrapper}>
       <div className={s.container}>
         <section className={s.footer}>
-          <Link to="/">
+          {/* <Link to="/">
             <img className={s.logo} src={logo} alt="logo" />
-          </Link>
+          </Link> */}
+          <div>
+            <p className={s.copy}>© Copyright "Dream Team" 2022</p>
+            <a
+              className={s.mail}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="mailto:goit35team.project@gmail.com?subject=Kapu$ta"
+            >
+              Support
+            </a>
+          </div>
           <div className={s.team}>
             <span className={s.teamTitle}>Our Team</span>
             <svg className={s.arrow} width="24" height="24">

@@ -9,12 +9,13 @@ import Loader from '../../components/Loader/Loader';
 import transactionOperation from '../../reduxV2/transaction/transaction-operation';
 import transactionSelectors from '../../reduxV2/transaction/transaction-selector';
 import Footer from '../../components/Footer/Footer';
+import s from './ReportPage.module.scss';
 const ReportPage = () => {
   const isLoading = useSelector(transactionSelectors.isLoading);
 
   return (
-    <>
-      <>
+    <div className={s.flex}>
+      <div className={s.block}>
         {/* {isLoading && <Loader />} */}
         <Loader visibility={isLoading} />
         <BackgroundHome />
@@ -22,9 +23,9 @@ const ReportPage = () => {
         <Container>
           <Report />
         </Container>
-        <Footer />
-      </>
-    </>
+      </div>
+      <Footer />
+    </div>
   );
 };
 

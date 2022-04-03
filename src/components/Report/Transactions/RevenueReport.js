@@ -56,7 +56,7 @@ export function RevenueReport() {
 
   const choseNextCategory = e => {
     if (currentCategory !== e.currentTarget.dataset.category) {
-      console.log('test');
+      // console.log('test');
       // console.log('now', currentCategory);
       // console.log('current', e.currentTarget.dataset.category);
       setCurrentCategory(e.currentTarget.dataset.category);

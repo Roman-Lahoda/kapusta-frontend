@@ -13,7 +13,7 @@ const Diagram = function ({ arrayOfData, type }) {
   const [screenType, setScreenType] = useState(null);
   const [data, setData] = useState(arrayOfData);
   const isMobile = window.screen.width < 768;
-  console.log('🚀 ~ file: Diagram.js ~ line 16 ~ Diagram ~ isMobile', screenType);
+  // console.log('🚀 ~ file: Diagram.js ~ line 16 ~ Diagram ~ isMobile', screenType);
   // Эта функция вынимает из массива данных с транзакциями значения свойств sum, description, проверяет
   // уникальность полей с описанием (description). Если в базе встречаются транзакции с однаковым описанием (description)б
   // то не создаёт новых столбиков в диаграмме, а добавляет сумму в существующий

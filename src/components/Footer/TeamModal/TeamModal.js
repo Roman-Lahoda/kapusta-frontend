@@ -1,7 +1,8 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import s from './TeamModal.module.scss';
-import logo from '../../../images/logo.svg';
+import logo from '../../../images/dtlogo.png';
+// import logo from '../../../images/logo.svg';
 import gitHub from '../../../images/teamModal/git.png';
 
 import linkedIn from '../../../images/teamModal/lin.png';
@@ -19,7 +20,7 @@ function TeamModal({ handleBackdropClick, closeModal, members }) {
             </button>
             <div className={s.main}>
               <div className={s.logo}>
-                <img src={logo} alt="logo" />
+                <img width="250px" src={logo} alt="logo" />
               </div>
               <div className={`${s.teamLead} ${s.member}`}>
                 <img
@@ -71,6 +72,9 @@ function TeamModal({ handleBackdropClick, closeModal, members }) {
                 </li>
               ))}
             </ul>
+            {/* <div className={s.logo}>
+              <img width="600px" src={logo} alt="logo" />
+            </div> */}
           </div>
         </div>
       }
